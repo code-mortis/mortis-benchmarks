@@ -1,0 +1,16 @@
+{
+  "case_id": "sec-07",
+  "expected": "incomplete",
+  "defects": [],
+  "control": {
+    "coverage.py": "\"\"\"Keep vulnerability coverage separate from other scanner successes.\"\"\"\nimport json\n\n\ndef coverage_outcome(report_json):\n    report = json.loads(report_json)\n    results = report[\"scanners\"]\n    age = report.get(\"advisory_age_hours\")\n    database_fresh = type(age) is int and 0 <= age <= 24\n    required = (\"vulnerability\", \"misconfiguration\", \"secret\")\n    missing = [name for name in required if results.get(name) != \"completed\"]\n    if not database_fresh or missing:\n        return {\"status\": \"incomplete\", \"clean\": False}\n    findings = report.get(\"findings\", [])\n    return {\"status\": \"completed\", \"clean\": not findings}\n",
+    "scanner-report.json": "{\n  \"advisory_age_hours\": 1,\n  \"scanners\": {\n    \"vulnerability\": \"completed\",\n    \"misconfiguration\": \"completed\",\n    \"secret\": \"completed\"\n  },\n  \"findings\": []\n}\n",
+    "package-lock.json": "{\n  \"name\": \"fixture-application\",\n  \"version\": \"1.0.0\",\n  \"lockfileVersion\": 3,\n  \"requires\": true,\n  \"packages\": {\n    \"\": {\n      \"name\": \"fixture-application\",\n      \"version\": \"1.0.0\"\n    }\n  }\n}\n"
+  },
+  "oracle_head": true,
+  "oracle_control": true,
+  "limitations": [
+    "Structural oracle proves truthful coverage/freshness accounting only; it runs no scanner and establishes neither vulnerability presence nor absence.",
+    "The lockfile is a minimal dependency inventory with no fabricated advisory or CVE labels."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "pr-03",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "pr-03-d1",
+      "severity": "high",
+      "cause": "Replacing tzinfo reinterprets the wall-clock value rather than converting the original UTC-offset instant.",
+      "trigger": "expires_at=2026-01-01T12:00:00+02:00 when now is 2026-01-01T11:00:00Z.",
+      "consequence": "A token expired at 10:00Z is treated as active until 12:00Z; negative offsets can also expire valid tokens early.",
+      "boundary": "parse_expiration -> is_expired token authorization time boundary",
+      "locations": [
+        {
+          "path": "token_expiry.py",
+          "start_line": 9,
+          "end_line": 9
+        }
+      ],
+      "evidence": {
+        "original": "return parsed.astimezone(timezone.utc)",
+        "current": "return parsed.replace(tzinfo=timezone.utc)"
+      },
+      "proof": "The oracle checks positive and negative offsets, exact expiry equality and naive rejection. Head fails; base/control pass."
+    }
+  ],
+  "control": {
+    "token_expiry.py": "from datetime import datetime, timezone\n\n\ndef parse_expiration(value):\n    \"\"\"Parse an aware ISO-8601 timestamp and normalize it to UTC.\"\"\"\n    parsed = datetime.fromisoformat(value)\n    if parsed.tzinfo is None or parsed.utcoffset() is None:\n        raise ValueError(\"an explicit timezone offset is required\")\n    return parsed.astimezone(timezone.utc)\n\n\ndef is_expired(expires_at, now):\n    if now.tzinfo is None or now.utcoffset() is None:\n        raise ValueError(\"now must be timezone aware\")\n    expiration = parse_expiration(expires_at)\n    return now.astimezone(timezone.utc) >= expiration\n\n\ndef active_tokens(rows, now):\n    return [row[\"id\"] for row in rows if not is_expired(row[\"expires_at\"], now)]\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "Original synthetic Python case; verifies fixture semantics, not either review engine or production integration.",
+    "Oracle samples the documented boundary; independent adjudication and broader quality evaluation remain separate."
+  ]
+}

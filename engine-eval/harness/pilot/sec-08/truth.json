@@ -1,0 +1,15 @@
+{
+  "case_id": "sec-08",
+  "expected": "incomplete",
+  "defects": [],
+  "control": {
+    "README.md": "# Documentation-only control\n\nThis repository stores a guide for users of a separate application.\nIt does not contain that application's source or dependency inventory.\n\n## Opening a project\n\nChoose an existing project from the navigation list.\nThe list displays projects already visible to your account.\nChoose a row to inspect its description.\n\n## Drafting notes\n\nNotes are examples written for this guide.\nThey do not configure a running service.\nSave a draft using the application's normal editor.\n\n## Questions\n\nContact the project owner for the corresponding source repository.\nThis guide alone does not describe implementation security.\n",
+    "guide.mdx": "# Navigation walkthrough\n\n<section>\n  <h2>Project overview</h2>\n  <p>This is static guide content.</p>\n</section>\n\n## List view\n\nRows represent projects made available by another application.\nThis document contains no implementation for those permissions.\n\n## Detail view\n\nSelect a project to read its summary.\nUse the normal application navigation to return to the list.\n\n## Source location\n\nThe application source is maintained in a different repository.\nThese pages contain no dependency lockfile or scanner target.\n"
+  },
+  "oracle_head": true,
+  "oracle_control": true,
+  "limitations": [
+    "The structural oracle proves only the frozen unsupported-target inventory; it does not invoke Trivy or verify production scan status.",
+    "Head and control are both unsupported/incomplete; this is a coverage limitation control, not a fixed vulnerability or an executable security proof."
+  ]
+}

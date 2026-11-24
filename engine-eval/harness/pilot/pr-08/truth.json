@@ -1,0 +1,29 @@
+{
+  "case_id": "pr-08",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "pr-08-d1",
+      "severity": "high",
+      "cause": "The empty-comments shortcut increments validated completion before checking result status or shape.",
+      "trigger": "A provider returns failed status with comments=[], a malformed falsey comments value, or no result for a selected path.",
+      "consequence": "Incomplete or malformed analysis is reported as clean coverage.",
+      "boundary": "Provider-result validation and persisted coverage",
+      "locations": [
+        {
+          "path": "src/results.py",
+          "start_line": 17,
+          "end_line": 19
+        }
+      ],
+      "evidence": "The new 'if not comments' branch increments completed and skips status/list checks; complete compares completed with the full selected count.",
+      "proof": "oracle.py checks failed empty results, falsey malformed comment values, absent files, duplicate outcomes, complete clean and complete finding results; head fails while the fixed control passes."
+    }
+  ],
+  "control": {
+    "src/results.py": "def aggregate_results(selected, results):\n    if len(set(selected)) != len(selected):\n        raise ValueError('Selected paths must be unique')\n    by_path = {}\n    invalid = False\n    for item in results:\n        path = item.get('path')\n        if path not in selected or path in by_path:\n            invalid = True\n            continue\n        by_path[path] = item\n    completed = 0\n    findings = []\n    for path in selected:\n        item = by_path.get(path, {})\n        comments = item.get('comments')\n        if item.get('status') != 'completed' or not isinstance(comments, list):\n            invalid = True\n            continue\n        if any(not isinstance(comment, dict) for comment in comments):\n            invalid = True\n            continue\n        completed += 1\n        findings.extend(comments)\n    complete = not invalid and completed == len(selected) and bool(selected)\n    state = 'clean' if complete and not findings else 'findings' if complete else 'incomplete'\n    return {'state': state, 'completed': completed, 'findings': findings}\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": []
+}

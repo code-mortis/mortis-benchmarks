@@ -1,0 +1,28 @@
+{
+  "case_id": "pr-10",
+  "family_id": "staging-concurrency-documentation",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "Staging has been allocated capacity for four concurrent tasks; supported worker concurrency is an integer from one to eight. Change the staging setting from two to four and update the deployment guide to agree. Keep the local HTTP binding, queue bound, retry schedule, and payload logging settings. Documentation and configuration are reviewable even without a structural graph adapter.",
+  "base": {
+    "deploy/staging.toml": "[service]\nname = \"dispatch-worker\"\nenvironment = \"staging\"\nregion = \"local\"\nlog_level = \"info\"\n\n[worker]\nconcurrency = 2\nmaximum_pending = 128\nretry_delays_seconds = [1, 3, 9]\ntimeout_seconds = 45\ndrain_seconds = 60\n\n[http]\nbind_host = \"127.0.0.1\"\nport = 8095\nhealth_path = \"/health\"\n\n[logging]\ninclude_payloads = false\nformat = \"json\"\n",
+    "README.md": "# Dispatch worker staging deployment\n\nThe staging instance runs the dispatch worker on the same host as its proxy.\nIt listens only on the loopback interface and exposes a local health route.\nApplication payloads are excluded from service logs.\n\n## Worker capacity\n\nThe staging worker uses **2 concurrent tasks**.\nThe pending queue permits 128 tasks before admission pauses.\nRetry delays are 1, 3, and 9 seconds.\nA task has a 45-second execution deadline.\nDeployment shutdown allows 60 seconds for draining active tasks.\n\n## Health and logs\n\nThe health endpoint is `http://127.0.0.1:8095/health`.\nHealth success reports process liveness, not downstream delivery success.\nLogs use the JSON format at the info level.\nPayload logging remains disabled in staging.\n"
+  },
+  "head": {
+    "deploy/staging.toml": "[service]\nname = \"dispatch-worker\"\nenvironment = \"staging\"\nregion = \"local\"\nlog_level = \"info\"\n\n[worker]\nconcurrency = 4\nmaximum_pending = 128\nretry_delays_seconds = [1, 3, 9]\ntimeout_seconds = 45\ndrain_seconds = 60\n\n[http]\nbind_host = \"127.0.0.1\"\nport = 8095\nhealth_path = \"/health\"\n\n[logging]\ninclude_payloads = false\nformat = \"json\"\n",
+    "README.md": "# Dispatch worker staging deployment\n\nThe staging instance runs the dispatch worker on the same host as its proxy.\nIt listens only on the loopback interface and exposes a local health route.\nApplication payloads are excluded from service logs.\n\n## Worker capacity\n\nThe staging worker uses **4 concurrent tasks**.\nThe pending queue permits 128 tasks before admission pauses.\nRetry delays are 1, 3, and 9 seconds.\nA task has a 45-second execution deadline.\nDeployment shutdown allows 60 seconds for draining active tasks.\n\n## Health and logs\n\nThe health endpoint is `http://127.0.0.1:8095/health`.\nHealth success reports process liveness, not downstream delivery success.\nLogs use the JSON format at the info level.\nPayload logging remains disabled in staging.\n"
+  },
+  "selection": {
+    "paths": [
+      "deploy/staging.toml",
+      "README.md"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

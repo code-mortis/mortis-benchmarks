@@ -1,0 +1,526 @@
+{
+  "acceptance": "not_established",
+  "consumption": {
+    "controlled_local": {
+      "attempts": 96,
+      "by_workload_and_arm": {
+        "pr": {
+          "mortis": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 24
+            },
+            "input_tokens": {
+              "known_attempts": 24,
+              "total": 720,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 24,
+              "total": 360,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 24,
+              "total": 72,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 24,
+              "total": 1080,
+              "unknown_attempts": 0
+            }
+          },
+          "ocr": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 24
+            },
+            "input_tokens": {
+              "known_attempts": 24,
+              "total": 960,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 24,
+              "total": 480,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 24,
+              "total": 96,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 24,
+              "total": 1440,
+              "unknown_attempts": 0
+            }
+          }
+        },
+        "security": {
+          "mortis": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 24
+            },
+            "input_tokens": {
+              "known_attempts": 24,
+              "total": 1440,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 24,
+              "total": 720,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 24,
+              "total": 144,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 24,
+              "total": 2160,
+              "unknown_attempts": 0
+            }
+          },
+          "ocr": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 24
+            },
+            "input_tokens": {
+              "known_attempts": 24,
+              "total": 1440,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 24,
+              "total": 720,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 24,
+              "total": 144,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 24,
+              "total": 2160,
+              "unknown_attempts": 0
+            }
+          }
+        }
+      },
+      "comparison_scope": "Diagnostic synthetic usage only; controlled required-accounting proof remains strict.",
+      "complete_paired_cases": 48,
+      "paired_cases_with_any_regression": 0,
+      "paired_regressions_by_field": {
+        "requests": 0,
+        "tokens": 0
+      },
+      "totals": {
+        "cost_usd": {
+          "known_attempts": 0,
+          "total": null,
+          "unknown_attempts": 96
+        },
+        "input_tokens": {
+          "known_attempts": 96,
+          "total": 4560,
+          "unknown_attempts": 0
+        },
+        "output_tokens": {
+          "known_attempts": 96,
+          "total": 2280,
+          "unknown_attempts": 0
+        },
+        "requests": {
+          "known_attempts": 96,
+          "total": 456,
+          "unknown_attempts": 0
+        },
+        "tokens": {
+          "known_attempts": 96,
+          "total": 6840,
+          "unknown_attempts": 0
+        }
+      }
+    },
+    "live_quality": {
+      "attempts": 152,
+      "by_workload_and_arm": {
+        "pr": {
+          "mortis": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 38
+            },
+            "input_tokens": {
+              "known_attempts": 38,
+              "total": 212736,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 38,
+              "total": 150098,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 38,
+              "total": 108,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 38,
+              "total": 362834,
+              "unknown_attempts": 0
+            }
+          },
+          "ocr": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 38
+            },
+            "input_tokens": {
+              "known_attempts": 38,
+              "total": 981827,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 38,
+              "total": 140507,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 38,
+              "total": 205,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 38,
+              "total": 1122334,
+              "unknown_attempts": 0
+            }
+          }
+        },
+        "security": {
+          "mortis": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 38
+            },
+            "input_tokens": {
+              "known_attempts": 38,
+              "total": 102536,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 38,
+              "total": 217596,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 38,
+              "total": 62,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 38,
+              "total": 320132,
+              "unknown_attempts": 0
+            }
+          },
+          "ocr": {
+            "cost_usd": {
+              "known_attempts": 0,
+              "total": null,
+              "unknown_attempts": 38
+            },
+            "input_tokens": {
+              "known_attempts": 38,
+              "total": 241286,
+              "unknown_attempts": 0
+            },
+            "output_tokens": {
+              "known_attempts": 38,
+              "total": 153534,
+              "unknown_attempts": 0
+            },
+            "requests": {
+              "known_attempts": 38,
+              "total": 59,
+              "unknown_attempts": 0
+            },
+            "tokens": {
+              "known_attempts": 38,
+              "total": 394820,
+              "unknown_attempts": 0
+            }
+          }
+        }
+      },
+      "comparison_scope": "Frozen per-case quality consumption gate.",
+      "complete_paired_cases": 76,
+      "paired_cases_with_any_regression": 6,
+      "paired_regressions_by_field": {
+        "requests": 3,
+        "tokens": 6
+      },
+      "totals": {
+        "cost_usd": {
+          "known_attempts": 0,
+          "total": null,
+          "unknown_attempts": 152
+        },
+        "input_tokens": {
+          "known_attempts": 152,
+          "total": 1538385,
+          "unknown_attempts": 0
+        },
+        "output_tokens": {
+          "known_attempts": 152,
+          "total": 661735,
+          "unknown_attempts": 0
+        },
+        "requests": {
+          "known_attempts": 152,
+          "total": 434,
+          "unknown_attempts": 0
+        },
+        "tokens": {
+          "known_attempts": 152,
+          "total": 2200120,
+          "unknown_attempts": 0
+        }
+      }
+    }
+  },
+  "controlled_performance": {
+    "all_bounds_inconclusive": true,
+    "complete_blocks": 2,
+    "completed_arms": 96,
+    "controller_finished_at": "2026-11-08T22:13:57.760046+00:00",
+    "missing_arms": 864,
+    "observed_arms": 96,
+    "old48_preflight8_and_live_timings_pooled": false,
+    "owner_requested_signal_at": "2026-11-08T22:13:57.488993+00:00",
+    "performance_bound_statuses": {
+      "inconclusive": 72
+    },
+    "planned_arms": 960,
+    "required_blocks": 20,
+    "started_incomplete_blocks": 0,
+    "unstarted_blocks": 18,
+    "validation_blockers": [
+      "controlled_fixed_blocks_incomplete",
+      "controlled_planned_attempts_missing"
+    ]
+  },
+  "controlled_results_sha256": "8fc692149b120831dfd91b3e2bc49e8f0a0a9a7fd8658f122d159ce520c938a8",
+  "exact_blockers": [
+    "controlled_fixed_blocks_incomplete",
+    "controlled_planned_attempts_missing",
+    "high_critical_loss",
+    "paired_provider_consumption_regression",
+    "performance_nonregression_not_established",
+    "quality_parity_not_established",
+    "unresolved_adjudication"
+  ],
+  "independent_review": {
+    "no_human_external_expert_claim": true,
+    "original_judgments_only": true,
+    "reviewed_findings": 67,
+    "source_lineage_followups_used_in_score": false,
+    "uncertain_findings_preserved": 3
+  },
+  "model": "muse-spark-1.3-contributor",
+  "preliminary_descriptive_latency": {
+    "acceptance_claim_allowed": false,
+    "included_arms": 96,
+    "pooled": {
+      "pr": {
+        "complete_blocks": 2,
+        "p50": {
+          "mortis_minus_ocr_ms": -9794.41095306538,
+          "mortis_ms": 10611.444663954899,
+          "ocr_ms": 20405.85561702028,
+          "relative_percent": -47.998041037279414
+        },
+        "p95": {
+          "mortis_minus_ocr_ms": 3.2234289683401585,
+          "mortis_ms": 40507.84380198456,
+          "ocr_ms": 40504.62037301622,
+          "relative_percent": 0.007958175977584858
+        },
+        "paired_observations": 24
+      },
+      "pr/profile/clean": {
+        "complete_blocks": 2,
+        "p50": {
+          "mortis_minus_ocr_ms": -9783.852211083286,
+          "mortis_ms": 10426.729753962718,
+          "ocr_ms": 20210.581965046003,
+          "relative_percent": -48.40955212474513
+        },
+        "p95": {
+          "mortis_minus_ocr_ms": -9794.41095306538,
+          "mortis_ms": 10611.444663954899,
+          "ocr_ms": 20405.85561702028,
+          "relative_percent": -47.998041037279414
+        },
+        "paired_observations": 12
+      },
+      "pr/profile/history": {
+        "complete_blocks": 2,
+        "p50": {
+          "mortis_minus_ocr_ms": 12.200096040032804,
+          "mortis_ms": 40329.92075802758,
+          "ocr_ms": 40317.72066198755,
+          "relative_percent": 0.030259885330119474
+        },
+        "p95": {
+          "mortis_minus_ocr_ms": 1.9567859126254916,
+          "mortis_ms": 40554.408862954006,
+          "ocr_ms": 40552.45207704138,
+          "relative_percent": 0.004825320818846457
+        },
+        "paired_observations": 12
+      },
+      "security": {
+        "complete_blocks": 2,
+        "p50": {
+          "mortis_minus_ocr_ms": 131.0213910182938,
+          "mortis_ms": 5523.990027024411,
+          "ocr_ms": 5392.968636006117,
+          "relative_percent": 2.4294854997585213
+        },
+        "p95": {
+          "mortis_minus_ocr_ms": 155.16325109638274,
+          "mortis_ms": 7371.016087010503,
+          "ocr_ms": 7215.85283591412,
+          "relative_percent": 2.150310637214181
+        },
+        "paired_observations": 24
+      },
+      "security/profile/clean": {
+        "complete_blocks": 2,
+        "p50": {
+          "mortis_minus_ocr_ms": -189.19429811649024,
+          "mortis_ms": 5004.134188988246,
+          "ocr_ms": 5193.328487104736,
+          "relative_percent": -3.64302582796886
+        },
+        "p95": {
+          "mortis_minus_ocr_ms": 131.0213910182938,
+          "mortis_ms": 5523.990027024411,
+          "ocr_ms": 5392.968636006117,
+          "relative_percent": 2.4294854997585213
+        },
+        "paired_observations": 12
+      },
+      "security/profile/history": {
+        "complete_blocks": 2,
+        "p50": {
+          "mortis_minus_ocr_ms": 289.5198739133775,
+          "mortis_ms": 7028.521221945994,
+          "ocr_ms": 6739.001348032616,
+          "relative_percent": 4.29618364741684
+        },
+        "p95": {
+          "mortis_minus_ocr_ms": 552.6799579383805,
+          "mortis_ms": 7857.536558993161,
+          "ocr_ms": 7304.85660105478,
+          "relative_percent": 7.565924810332025
+        },
+        "paired_observations": 12
+      }
+    }
+  },
+  "provider": "OpenCode Go",
+  "quality": {
+    "pr/off/cold": {
+      "acceptance_scope": "Reused finite19-family/38case workload corpus; no population or fresh-heldout claim.",
+      "arms": {
+        "mortis": {
+          "fn": 0,
+          "fp": 0,
+          "high_critical_not_found_count": 0,
+          "pending_findings": 0,
+          "precision": 1.0,
+          "precision_status": "defined",
+          "recall": 1.0,
+          "tp": 19,
+          "validated_coverage": 1.0
+        },
+        "ocr": {
+          "fn": 0,
+          "fp": 0,
+          "high_critical_not_found_count": 0,
+          "pending_findings": 0,
+          "precision": 1.0,
+          "precision_status": "defined",
+          "recall": 1.0,
+          "tp": 19,
+          "validated_coverage": 1.0
+        }
+      },
+      "comparison_passed": true
+    },
+    "security/off/cold": {
+      "acceptance_scope": "Reused finite19-family/38case workload corpus; no population or fresh-heldout claim.",
+      "arms": {
+        "mortis": {
+          "fn": 7,
+          "fp": 1,
+          "high_critical_not_found_count": 3,
+          "pending_findings": 2,
+          "precision": null,
+          "precision_status": "undefined_pending_adjudication",
+          "recall": 0.631578947368421,
+          "tp": 12,
+          "validated_coverage": 1.0
+        },
+        "ocr": {
+          "fn": 7,
+          "fp": 1,
+          "high_critical_not_found_count": 4,
+          "pending_findings": 1,
+          "precision": null,
+          "precision_status": "undefined_pending_adjudication",
+          "recall": 0.631578947368421,
+          "tp": 12,
+          "validated_coverage": 1.0
+        }
+      },
+      "comparison_passed": false
+    }
+  },
+  "quality_results_sha256": "338f28cea0baae121e3a5bdbdffe5418d91159d56c634e0f2ce63cf886524a45",
+  "recorded_at": "2026-11-08T22:21:06.939600+00:00",
+  "reliability": {
+    "invalid": 0,
+    "quality_accounting_unknown_or_proof_gap_attempts": 0,
+    "quality_missing_attempts": 0,
+    "quality_resources_valid": 152,
+    "quality_work_gap_attempts": 0,
+    "required": 21,
+    "valid": 21
+  },
+  "schema": "mortis-final-corrective-owner-stopped-score-summary/v1",
+  "score_file_sha256": "d69a719eb8b3a63c2ca8823f513a5836cdf1f6d2bb12fcd776c90f1cc2c1f4c7",
+  "scorer_sha256": "527b1a397b70b525053735fbb09fa71c2c9144538a32e3413558a6ffbb0a321a",
+  "seal_sha256": "293a8f3f29a663c86b4f3d88424f8c1dc419309f997947bca85172bb3a3379e1",
+  "source": {
+    "name": "final-corrective-score-summary.json",
+    "sha256": "93c81b7d040de20c679e5942c1c825a457093fa9f1fb39d819b10ccb4d8cde62"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "pr-12",
+  "family_id": "unavailable-selected-worker-evidence",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "The coordinator displays progress for an assigned coordinator/worker change. Only the coordinator revision is available; the worker patch and source could not be retrieved. Available results must not certify the missing worker as checked. A complete review requires all selected file results and all required source. Update the incomplete-status wording while preserving that distinction.",
+  "base": {
+    "src/coordinator.py": "def summarize(assigned, outcomes, unavailable=()):\n    unavailable = set(unavailable)\n    selected = set(assigned)\n    if len(selected) != len(assigned) or not unavailable <= selected:\n        raise ValueError('Assignment metadata is inconsistent')\n    complete = []\n    incomplete = []\n    for path in assigned:\n        result = outcomes.get(path)\n        if path in unavailable or not isinstance(result, dict):\n            incomplete.append(path)\n            continue\n        if result.get('status') != 'completed':\n            incomplete.append(path)\n            continue\n        complete.append(path)\n    status = 'completed' if complete and not incomplete else 'incomplete'\n    return {'status': status, 'completed': complete, 'unavailable': sorted(unavailable)}\n\n\ndef display_status(summary):\n    if summary['status'] == 'incomplete':\n        return 'Some selected files could not be checked.'\n    return 'All selected file checks completed.'\n"
+  },
+  "head": {
+    "src/coordinator.py": "def summarize(assigned, outcomes, unavailable=()):\n    unavailable = set(unavailable)\n    selected = set(assigned)\n    if len(selected) != len(assigned) or not unavailable <= selected:\n        raise ValueError('Assignment metadata is inconsistent')\n    complete = []\n    incomplete = []\n    for path in assigned:\n        result = outcomes.get(path)\n        if path in unavailable or not isinstance(result, dict):\n            incomplete.append(path)\n            continue\n        if result.get('status') != 'completed':\n            incomplete.append(path)\n            continue\n        complete.append(path)\n    status = 'completed' if complete and not incomplete else 'incomplete'\n    return {'status': status, 'completed': complete, 'unavailable': sorted(unavailable)}\n\n\ndef display_status(summary):\n    if summary['status'] == 'incomplete':\n        return 'Review incomplete: some selected files could not be checked.'\n    return 'All selected file checks completed.'\n"
+  },
+  "selection": {
+    "paths": [
+      "src/coordinator.py",
+      "src/worker.py"
+    ],
+    "excluded": [],
+    "unavailable": [
+      {
+        "path": "src/worker.py",
+        "reason": "source_and_patch_unavailable"
+      }
+    ]
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

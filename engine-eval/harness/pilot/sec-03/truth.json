@@ -1,0 +1,32 @@
+{
+  "case_id": "sec-03",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "sec-03-download-root-escape",
+      "severity": "high",
+      "cause": "PurePosixPath joining accepts absolute paths and preserves parent traversal components.",
+      "trigger": "A tenant-a member requests ../tenant-b/report.csv or an absolute path.",
+      "consequence": "The returned download plan points outside tenant-a, so the stated delivery adapter would open an unauthorized path.",
+      "boundary": "An untrusted filename must not escape the authenticated tenant export root.",
+      "locations": [
+        {
+          "path": "downloads.py",
+          "start_line": 14,
+          "end_line": 14
+        }
+      ],
+      "evidence": "No relative-path or parent-component guard is applied before joining.",
+      "proof": "oracle.py uses posixpath.normpath to prove path escape without opening files; fixed control rejects absolute/parent paths."
+    }
+  ],
+  "control": {
+    "downloads.py": "\"\"\"The file adapter opens only the path returned by this download planner.\"\"\"\nfrom pathlib import PurePosixPath\n\n\ndef download_plan(principal, name):\n    if not principal.get(\"authenticated\"):\n        raise PermissionError(\"Authentication required\")\n    tenant = principal.get(\"tenant_id\")\n    if tenant not in {\"tenant-a\", \"tenant-b\"}:\n        raise PermissionError(\"Unknown tenant\")\n    if not isinstance(name, str) or not name or \"\\x00\" in name:\n        raise ValueError(\"Expected a relative export name\")\n    root = PurePosixPath(\"/srv/exports\") / tenant\n    relative = PurePosixPath(name)\n    if relative.is_absolute() or \"..\" in relative.parts:\n        raise ValueError(\"Export name escapes its tenant root\")\n    target = root / relative\n    return str(target)\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "No file delivery or file existence is executed; the proven defect is an unauthorized target plan under the explicitly stated adapter contract.",
+    "Symlink escape is outside this lexical-path fixture."
+  ]
+}

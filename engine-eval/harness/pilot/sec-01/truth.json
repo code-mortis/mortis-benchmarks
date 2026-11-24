@@ -1,0 +1,31 @@
+{
+  "case_id": "sec-01",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "sec-01-sql-filter-bypass",
+      "severity": "medium",
+      "cause": "A literal search term is interpolated into SQL syntax.",
+      "trigger": "A public reader submits the title string: ' OR 1=1 --",
+      "consequence": "The query returns disabled internal catalog row 2 in addition to public row 1.",
+      "boundary": "Untrusted public search text crosses the enabled-entry database filter.",
+      "locations": [
+        {
+          "path": "catalog.py",
+          "start_line": 15,
+          "end_line": 15
+        }
+      ],
+      "evidence": "The WHERE expression contains the unescaped term inside SQL quotes.",
+      "proof": "oracle.py executes both ordinary searches and two SQL expression/UNION payloads; head violates literal matching and control preserves it."
+    }
+  ],
+  "control": {
+    "catalog.py": "\"\"\"Public search exposes enabled catalog entries only.\"\"\"\nimport sqlite3\n\n\ndef search_catalog(term):\n    connection = sqlite3.connect(\":memory:\")\n    try:\n        connection.execute(\"CREATE TABLE catalog (id INTEGER, title TEXT, enabled INTEGER)\")\n        connection.executemany(\n            \"INSERT INTO catalog VALUES (?, ?, ?)\",\n            [(1, \"public widget\", 1), (2, \"internal export\", 0)],\n        )\n        query = (\n            \"SELECT id, title FROM catalog \"\n            \"WHERE enabled = 1 AND title = ?\"\n        )\n        return connection.execute(query, (term,)).fetchall()\n    finally:\n        connection.close()\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "Synthetic catalog rows demonstrate filter bypass, not a live database compromise or arbitrary filesystem access."
+  ]
+}

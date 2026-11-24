@@ -1,0 +1,25 @@
+{
+  "case_id": "pr-01",
+  "family_id": "pr-invoice-tax-rounding",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "Invoice tax is computed from the combined net taxable amount and rounded once to cents using Decimal half-even rounding. Invoice totals accept an iterable of nonnegative Decimal amounts and a Decimal rate from zero to one.",
+  "base": {
+    "billing.py": "from decimal import Decimal, ROUND_HALF_EVEN\n\nCENT = Decimal(\"0.01\")\n\n\ndef tax_total(net_amounts, rate):\n    \"\"\"Return the invoice tax in currency units using half-even rounding.\"\"\"\n    if not isinstance(rate, Decimal) or not Decimal(\"0\") <= rate <= Decimal(\"1\"):\n        raise ValueError(\"rate must be a Decimal between zero and one\")\n    amounts = list(net_amounts)\n    for amount in amounts:\n        if not isinstance(amount, Decimal) or amount < 0:\n            raise ValueError(\"net amounts must be nonnegative Decimals\")\n    taxable = sum(amounts, Decimal(\"0\"))\n    return (taxable * rate).quantize(CENT, rounding=ROUND_HALF_EVEN)\n\n\ndef invoice_totals(net_amounts, rate):\n    amounts = list(net_amounts)\n    subtotal = sum(amounts, Decimal(\"0\"))\n    tax = tax_total(amounts, rate)\n    return {\"subtotal\": subtotal, \"tax\": tax, \"total\": subtotal + tax}\n"
+  },
+  "head": {
+    "billing.py": "from decimal import Decimal, ROUND_HALF_EVEN\n\nCENT = Decimal(\"0.01\")\n\n\ndef tax_total(net_amounts, rate):\n    \"\"\"Return the invoice tax in currency units using half-even rounding.\"\"\"\n    if not isinstance(rate, Decimal) or not Decimal(\"0\") <= rate <= Decimal(\"1\"):\n        raise ValueError(\"rate must be a Decimal between zero and one\")\n    amounts = list(net_amounts)\n    for amount in amounts:\n        if not isinstance(amount, Decimal) or amount < 0:\n            raise ValueError(\"net amounts must be nonnegative Decimals\")\n    taxes = ((amount * rate).quantize(CENT, rounding=ROUND_HALF_EVEN) for amount in amounts)\n    return sum(taxes, Decimal(\"0.00\"))\n\n\ndef invoice_totals(net_amounts, rate):\n    amounts = list(net_amounts)\n    subtotal = sum(amounts, Decimal(\"0\"))\n    tax = tax_total(amounts, rate)\n    return {\"subtotal\": subtotal, \"tax\": tax, \"total\": subtotal + tax}\n"
+  },
+  "selection": {
+    "paths": [
+      "billing.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

@@ -1,0 +1,889 @@
+{
+  "schema_version": "mortis-pilot-selection-evidence/v1",
+  "reviewer_id": "/root/ocr_feature_inventory",
+  "observed_date": "2026-11-07",
+  "source_baseline": "0cfebd5398ac25c98dcb37d99bb39eda95fcb897",
+  "image": {
+    "tag": "code-mortis:pr44-smoke",
+    "id": "sha256:8ac6cbac0bdd6c0b646904fe00b4bb20f1ecf90b5fb4f68da9903555ab4a1bd3",
+    "platform": "linux/arm64",
+    "binary_version": "open-code-review v1.13.1 (8eb8334+cm-context-scope-v2) linux/arm64"
+  },
+  "execution": {
+    "network": "none",
+    "root_filesystem": "read_only",
+    "source_mounts": "backend and pilot mounted read_only",
+    "writable": "disposable /tmp and isolated /home/mortis/.opencodereview tmpfs",
+    "model_requests": 0,
+    "external_api_calls": 0,
+    "provider_credentials_supplied": false,
+    "procedure": "For every PR input, create local Git base/head commits from complete maps in a temporary repository; checkout trusted base; apply current core.file_policy.review_rules({}); run OCR review --preview and delegate preview with exact base/head; preserve raw previews. No analysis command without --preview was run.",
+    "input_digest": "sha256 UTF-8 canonical JSON with sorted keys, no separator spaces, ensure_ascii=False",
+    "policy_version": 2,
+    "policy_source_sha256": "9ce34c69d121904bca5d33ba604aa5f553c5c37c3532f375da78a1e66cfc52d0",
+    "scope_comparison": "canonical path set; exported assignments sorted lexicographically; input order is not a coverage difference"
+  },
+  "cases": [
+    {
+      "case_id": "pr-01",
+      "input_sha256_before": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+      "input_sha256_at_evidence_write": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "billing.py"
+      ],
+      "actual_paths": [
+        "billing.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\tbilling.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 2,
+            "insertions": 2,
+            "path": "billing.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 2,
+        "total_files": 1,
+        "total_insertions": 2
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "40ccf2a9cf0584ad66b540ef5df3219d6e80f2b4",
+        "merge_base": "40ccf2a9cf0584ad66b540ef5df3219d6e80f2b4",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-64ww5lh9/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 2,
+            "insertions": 2,
+            "path": "billing.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "7a21d34502117a45e3a1e309603dc9a48103758f",
+        "total_deletions": 2,
+        "total_files": 1,
+        "total_insertions": 2
+      },
+      "input_sha256": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+      "current_declared_paths": [
+        "billing.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-02",
+      "input_sha256_before": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+      "input_sha256_at_evidence_write": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "order_store.py"
+      ],
+      "actual_paths": [
+        "order_store.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\torder_store.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "order_store.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "63067904e6fa2c9ac5d06dfc4feae5dddd80bef8",
+        "merge_base": "63067904e6fa2c9ac5d06dfc4feae5dddd80bef8",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-id0_m6cu/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "order_store.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "e60fb996781b61313ecfe18a453bc3b00bac0a61",
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "input_sha256": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+      "current_declared_paths": [
+        "order_store.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-03",
+      "input_sha256_before": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+      "input_sha256_at_evidence_write": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "token_expiry.py"
+      ],
+      "actual_paths": [
+        "token_expiry.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\ttoken_expiry.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "token_expiry.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "a12894940dde96aecd5dd332f9746746e8a94328",
+        "merge_base": "a12894940dde96aecd5dd332f9746746e8a94328",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-ficfaju1/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "token_expiry.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "d64c7ea3e0fdcc307d8ece8b6ec04d7d0e7b8377",
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "input_sha256": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+      "current_declared_paths": [
+        "token_expiry.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-04",
+      "input_sha256_before": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+      "input_sha256_at_evidence_write": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "review_gate.py"
+      ],
+      "actual_paths": [
+        "review_gate.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\treview_gate.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "review_gate.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "399e67263c282dc2e0fdf1bbf10f3e0bfe6ab687",
+        "merge_base": "399e67263c282dc2e0fdf1bbf10f3e0bfe6ab687",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-3vgmgg9j/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "review_gate.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "d1549bf5a73bfa537cc167b10c3571c0dfac071e",
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "input_sha256": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+      "current_declared_paths": [
+        "review_gate.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-05",
+      "input_sha256_before": "93631f1213df98f004bae41de6c3245663c728374b1ef0ceee30b80d02afc26e",
+      "input_sha256_at_evidence_write": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "formatter.py",
+        "rendering.py",
+        "report.py"
+      ],
+      "actual_paths": [
+        "rendering.py",
+        "report.py"
+      ],
+      "actual_reviewable_count": 2,
+      "selected_set_matches": false,
+      "selected_sequence_matches": false,
+      "scope_exceptions": [],
+      "suggested_corrections": [
+        "Remove formatter.py from assigned denominator: Git represents it as old path of R100 rename to rendering.py, not a separate deleted assignment. Retain old-path identity in base/rename metadata."
+      ],
+      "observed_git_diff_name_status": "R100\tformatter.py\trendering.py\nM\treport.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 0,
+            "insertions": 0,
+            "path": "rendering.py",
+            "status": "renamed",
+            "will_review": true
+          },
+          {
+            "deletions": 0,
+            "insertions": 2,
+            "path": "report.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 2,
+        "total_deletions": 0,
+        "total_files": 2,
+        "total_insertions": 2
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "c86f3357386d93c49810d4e1185bf557d8b8a27b",
+        "merge_base": "c86f3357386d93c49810d4e1185bf557d8b8a27b",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-k9ouoqb1/repo",
+        "reviewable_count": 2,
+        "reviewable_files": [
+          {
+            "deletions": 0,
+            "insertions": 0,
+            "path": "rendering.py",
+            "status": "renamed"
+          },
+          {
+            "deletions": 0,
+            "insertions": 2,
+            "path": "report.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "c541b10980a8698f9cbc32f529822e5a7270e3fd",
+        "total_deletions": 0,
+        "total_files": 2,
+        "total_insertions": 2
+      },
+      "input_sha256": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+      "current_declared_paths": [
+        "rendering.py",
+        "report.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-06",
+      "input_sha256_before": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+      "input_sha256_at_evidence_write": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "members.py"
+      ],
+      "actual_paths": [
+        "members.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\tmembers.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 9,
+            "insertions": 6,
+            "path": "members.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 9,
+        "total_files": 1,
+        "total_insertions": 6
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "d308b87d8b24f5920757fb9134f8a2f00ea2fa8e",
+        "merge_base": "d308b87d8b24f5920757fb9134f8a2f00ea2fa8e",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-0op6m3ig/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 9,
+            "insertions": 6,
+            "path": "members.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "15da188bdf4eaebe43b2f25ae1643e5517020356",
+        "total_deletions": 9,
+        "total_files": 1,
+        "total_insertions": 6
+      },
+      "input_sha256": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+      "current_declared_paths": [
+        "members.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-07",
+      "input_sha256_before": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "input_sha256_at_evidence_write": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "src/checkout.py"
+      ],
+      "actual_paths": [
+        "src/checkout.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\tsrc/checkout.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "src/checkout.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "8d8b286f1c643f8dd9dae3564efed7a22b78157e",
+        "merge_base": "8d8b286f1c643f8dd9dae3564efed7a22b78157e",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-u570_0nk/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "src/checkout.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "4de51e1873a84353ff9b7653fe0c4529d50e02c0",
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "input_sha256": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "current_declared_paths": [
+        "src/checkout.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-08",
+      "input_sha256_before": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "input_sha256_at_evidence_write": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "src/results.py"
+      ],
+      "actual_paths": [
+        "src/results.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\tsrc/results.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 0,
+            "insertions": 3,
+            "path": "src/results.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 0,
+        "total_files": 1,
+        "total_insertions": 3
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "3a42c8d9bbb010d3e027a1fd7b1874690de3843e",
+        "merge_base": "3a42c8d9bbb010d3e027a1fd7b1874690de3843e",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-6we2qjez/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 0,
+            "insertions": 3,
+            "path": "src/results.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "2f110a3df7732f8e8ddcf1e1c48ec20fa2ed7f23",
+        "total_deletions": 0,
+        "total_files": 1,
+        "total_insertions": 3
+      },
+      "input_sha256": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "current_declared_paths": [
+        "src/results.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-09",
+      "input_sha256_before": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "input_sha256_at_evidence_write": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "src/auth.py"
+      ],
+      "actual_paths": [
+        "src/auth.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\tsrc/auth.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 3,
+            "insertions": 1,
+            "path": "src/auth.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 3,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "d8990a820fb0e80d31786d2108a6909176a1b127",
+        "merge_base": "d8990a820fb0e80d31786d2108a6909176a1b127",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-2zmc4mr8/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 3,
+            "insertions": 1,
+            "path": "src/auth.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "5e8279d0349a34db3d62b1192fd8047ada24707e",
+        "total_deletions": 3,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "input_sha256": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "current_declared_paths": [
+        "src/auth.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-10",
+      "input_sha256_before": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+      "input_sha256_at_evidence_write": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "47618c58483c14b0ab23ee3a5b00d71b81a9dc5dca2969569b4ef8d4b3088593",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "deploy/staging.toml",
+        "README.md"
+      ],
+      "actual_paths": [
+        "README.md",
+        "deploy/staging.toml"
+      ],
+      "actual_reviewable_count": 2,
+      "selected_set_matches": true,
+      "selected_sequence_matches": false,
+      "scope_exceptions": [],
+      "suggested_corrections": [
+        "Normalize selected sequence to actual stable OCR order README.md, deploy/staging.toml; selected set already matches."
+      ],
+      "observed_git_diff_name_status": "M\tREADME.md\nM\tdeploy/staging.toml",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "README.md",
+            "status": "modified",
+            "will_review": true
+          },
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "deploy/staging.toml",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 2,
+        "total_deletions": 2,
+        "total_files": 2,
+        "total_insertions": 2
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "443f2571c772c1d4c9d0234c9cac2ab852bac9ed",
+        "merge_base": "443f2571c772c1d4c9d0234c9cac2ab852bac9ed",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-g2atzhbs/repo",
+        "reviewable_count": 2,
+        "reviewable_files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "README.md",
+            "status": "modified"
+          },
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "deploy/staging.toml",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "de50b22afbd9f53589e9b616808c6d72b506b4a4",
+        "total_deletions": 2,
+        "total_files": 2,
+        "total_insertions": 2
+      },
+      "input_sha256": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+      "current_declared_paths": [
+        "deploy/staging.toml",
+        "README.md"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": false,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-11",
+      "input_sha256_before": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "input_sha256_at_evidence_write": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "src/report.py"
+      ],
+      "actual_paths": [
+        "src/report.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": true,
+      "selected_sequence_matches": true,
+      "scope_exceptions": [],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\tconfig/credentials.example.json\nM\tgenerated/report_schema.py\nM\tsrc/report.py",
+      "ocr_review_preview": {
+        "excluded_count": 2,
+        "files": [
+          {
+            "deletions": 1,
+            "exclude_reason": "user_exclude",
+            "insertions": 1,
+            "path": "config/credentials.example.json",
+            "status": "modified",
+            "will_review": false
+          },
+          {
+            "deletions": 1,
+            "exclude_reason": "user_exclude",
+            "insertions": 1,
+            "path": "generated/report_schema.py",
+            "status": "modified",
+            "will_review": false
+          },
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "src/report.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 3,
+        "total_files": 3,
+        "total_insertions": 3
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 2,
+        "excluded_files": [
+          {
+            "deletions": 1,
+            "exclude_reason": "user_exclude",
+            "insertions": 1,
+            "path": "config/credentials.example.json",
+            "status": "modified"
+          },
+          {
+            "deletions": 1,
+            "exclude_reason": "user_exclude",
+            "insertions": 1,
+            "path": "generated/report_schema.py",
+            "status": "modified"
+          }
+        ],
+        "from": "6b24e87ce18480dfd490b1b8a94db4f25b8504c4",
+        "merge_base": "6b24e87ce18480dfd490b1b8a94db4f25b8504c4",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-_9xi6xis/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "src/report.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "a824c8da2d2419ab89b797803ea6e79340d33dcb",
+        "total_deletions": 3,
+        "total_files": 3,
+        "total_insertions": 3
+      },
+      "input_sha256": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "current_declared_paths": [
+        "src/report.py"
+      ],
+      "current_selected_set_matches": true,
+      "current_selected_sequence_matches": true,
+      "actual_selector_quality_eligible": true
+    },
+    {
+      "case_id": "pr-12",
+      "input_sha256_before": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "input_sha256_at_evidence_write": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "before_hash_note": "Observed declaration preserved by CLI run; pr-05 original selection restored in-memory for the before hash after parent applied its selection-only correction. Source maps remain unchanged.",
+      "input_sha256_expected_after_selection_correction": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "expected_after_hash_scope": "Only listed selection-path corrections; any later classification/context/metadata changes require a fresh adjudication/hash.",
+      "declared_paths_before": [
+        "src/coordinator.py",
+        "src/worker.py"
+      ],
+      "actual_paths": [
+        "src/coordinator.py"
+      ],
+      "actual_reviewable_count": 1,
+      "selected_set_matches": false,
+      "selected_sequence_matches": false,
+      "scope_exceptions": [
+        "Explicit offline injected unavailable-assignment reliability fixture. Current complete base/head maps produce only coordinator.py as a Git change; OCR cannot select the missing worker from those snapshots. Exclude from actual-selector quality parity and production-replay claims unless a separate evidence-failure harness models a real changed worker."
+      ],
+      "suggested_corrections": [],
+      "observed_git_diff_name_status": "M\tsrc/coordinator.py",
+      "ocr_review_preview": {
+        "excluded_count": 0,
+        "files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "src/coordinator.py",
+            "status": "modified",
+            "will_review": true
+          }
+        ],
+        "reviewable_count": 1,
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "ocr_delegate_preview": {
+        "excluded_count": 0,
+        "excluded_files": [],
+        "from": "8c5e7aeaac192dac5609b94512cd57646183c28e",
+        "merge_base": "8c5e7aeaac192dac5609b94512cd57646183c28e",
+        "mode": "range",
+        "repository": "/tmp/scope-preview-lowun4sz/repo",
+        "reviewable_count": 1,
+        "reviewable_files": [
+          {
+            "deletions": 1,
+            "insertions": 1,
+            "path": "src/coordinator.py",
+            "status": "modified"
+          }
+        ],
+        "schema_version": "1",
+        "to": "e220ae03900d4b3d1638d1de80a71c0b7dd38320",
+        "total_deletions": 1,
+        "total_files": 1,
+        "total_insertions": 1
+      },
+      "input_sha256": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "current_declared_paths": [
+        "src/coordinator.py",
+        "src/worker.py"
+      ],
+      "current_selected_set_matches": false,
+      "current_selected_sequence_matches": false,
+      "evaluation_role": "reliability_fixture",
+      "injection": "injected_unavailable_assignment",
+      "actual_selector_quality_eligible": false
+    }
+  ],
+  "limitations": [
+    "This verifies incumbent pinned selector against constructed source snapshots only, not model behavior or Mortis production execution.",
+    "Missing worker in pr-12 is synthetic unavailable assignment metadata; it is not an actual selected OCR unit from the recorded Git snapshots.",
+    "pr-11 mandatory policy paths are excluded by both previews with legacy reason user_exclude; fixture semantic reason labels need explicit normalization instead of literal equality.",
+    "Security cases were not sent through OCR PR preview: security uses its own snapshot/code/scanner policy. sec-07 package-lock.json remains scanner inventory but current Snapshot.populate marks it non-AI; injected report/freshness case is reliability-only.",
+    "Source/metadata corrections after this observation need new canonical hashes and nonauthor adjudication."
+  ]
+}

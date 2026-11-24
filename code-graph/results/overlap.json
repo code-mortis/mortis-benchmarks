@@ -1,0 +1,60 @@
+{
+  "corpus": {
+    "base": "dada67c96ee5a5b8501ebf4f54da5ac36a476332",
+    "bytes": 5595956,
+    "changed_files": 12,
+    "files": 434,
+    "head": "521026fdc573a2df7787955b74d7b9025173f9bb"
+  },
+  "cpus": 12,
+  "docker_memory_ceiling_bytes": 5227761664,
+  "real": [
+    "Git object snapshots",
+    "OCR scope",
+    "parser HTTP and extraction",
+    "Trivy offline scan",
+    "PostgreSQL workflow persistence"
+  ],
+  "resources": {
+    "duration_seconds": 360.16,
+    "peak_aggregate_cpu_percent": 280.02,
+    "peak_simultaneous_container_memory_bytes": 2668909036,
+    "sample_count": 116
+  },
+  "source": {
+    "name": "code-graph-phase2-overlap.json",
+    "sha256": "b6d99e83a0bf86f925edd3b982d65183d06f76aa1ba745057a2d0309ef7742b1"
+  },
+  "source_commit": "c036d91dff551251c65db27bf978cb6b7eeb17a0",
+  "stubbed": [
+    "GitHub authorization and fetch transport",
+    "model responses and usage"
+  ],
+  "validation": {
+    "github_publications": 0,
+    "model_calls": 0,
+    "unchanged_container_oom_restart_state": true
+  },
+  "workloads": {
+    "database": {
+      "seconds": 218.476,
+      "temporary_bytes": 7341754,
+      "transactions": 300
+    },
+    "graph": {
+      "seconds": 273.034,
+      "status": "partial",
+      "temporary_bytes": 8744950
+    },
+    "review": {
+      "seconds": 196.301,
+      "status": "completed",
+      "temporary_bytes": 7341754
+    },
+    "security": {
+      "seconds": 356.548,
+      "status": "partial",
+      "temporary_bytes": 14609063
+    }
+  }
+}

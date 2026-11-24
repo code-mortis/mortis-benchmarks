@@ -1,0 +1,25 @@
+{
+  "case_id": "sec-06",
+  "family_id": "security-safe-tenant-parameterized-orders",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "An authenticated user searches private orders by client-supplied reference. A trusted authentication layer sets tenant_id. Return only orders belonging to that tenant; the reference must be treated literally, including quote characters. This file contains the complete query and authorization boundary.",
+  "base": {
+    "orders.py": "\"\"\"Search private orders within the authenticated tenant.\"\"\"\nimport sqlite3\n\n\ndef search_orders(principal, reference):\n    if not principal.get(\"authenticated\") or principal.get(\"tenant_id\") not in {\"tenant-a\", \"tenant-b\"}:\n        raise PermissionError(\"Authenticated tenant required\")\n    connection = sqlite3.connect(\":memory:\")\n    try:\n        connection.execute(\"CREATE TABLE orders (tenant TEXT, reference TEXT, total INTEGER)\")\n        connection.executemany(\n            \"INSERT INTO orders VALUES (?, ?, ?)\",\n            [(\"tenant-a\", \"shared\", 1100), (\"tenant-b\", \"shared\", 7700)],\n        )\n        return connection.execute(\n            \"SELECT total FROM orders WHERE tenant = ? AND reference = ?\",\n            (principal[\"tenant_id\"], reference),\n        ).fetchall()\n    finally:\n        connection.close()\n"
+  },
+  "head": {
+    "orders.py": "\"\"\"Search private orders within the authenticated tenant.\"\"\"\nimport sqlite3\n\n\ndef search_orders(principal, reference):\n    if not principal.get(\"authenticated\") or principal.get(\"tenant_id\") not in {\"tenant-a\", \"tenant-b\"}:\n        raise PermissionError(\"Authenticated tenant required\")\n    connection = sqlite3.connect(\":memory:\")\n    try:\n        connection.execute(\"CREATE TABLE orders (tenant TEXT, reference TEXT, total INTEGER)\")\n        connection.executemany(\n            \"INSERT INTO orders VALUES (?, ?, ?)\",\n            [(\"tenant-a\", \"shared\", 1100), (\"tenant-b\", \"shared\", 7700)],\n        )\n        return connection.execute(\n            \"SELECT total FROM orders WHERE tenant = ? AND reference = ?\",\n            (principal[\"tenant_id\"], reference),\n        ).fetchall()\n    finally:\n        connection.close()\n"
+  },
+  "selection": {
+    "paths": [
+      "orders.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}

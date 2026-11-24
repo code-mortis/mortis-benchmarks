@@ -1,0 +1,340 @@
+{
+  "schema": "mortis-pilot-adjudication/v1",
+  "adjudicator": "/root",
+  "date": "2026-11-07",
+  "method": "Two nonauthor Sol 6.1 high agents independently recorded input-first judgments per case before opening truth/oracles; parent authored no case source and resolves severity/proof disagreements. No outputs from OCR or Mortis existed.",
+  "status": "resolved_before_engine_outputs",
+  "limitations": [
+    "Agent reviewers share a model family; these are not human or external expert labels.",
+    "All fixtures are original synthetic microcases with explicit task contracts, not representative real-world defects.",
+    "Sources/truth/oracles are visible to implementers: candidate pilot split is reserved but not a sealed independently held-out study. Do not tune the engine on it; obtain new blind cases if contaminated."
+  ],
+  "decisions": [
+    {
+      "case_id": "pr-02",
+      "final_severity": "high",
+      "reason": "Every first order creation fails after insertion; durable state changes despite an unsuccessful request. Peer differences were severity, not existence."
+    },
+    {
+      "case_id": "pr-05",
+      "final_severity": "medium",
+      "reason": "Report rendering is unavailable; no demonstrated service-wide outage or loss of persistent data. Downgraded constructor high after peer disagreement; all reviewers agree on cause."
+    },
+    {
+      "case_id": "pr-09",
+      "final_severity": "high",
+      "reason": "Confirmed cross-account reset; no evidence for critical system-wide/admin/MFA consequences."
+    },
+    {
+      "case_id": "sec-01",
+      "final_severity": "medium",
+      "reason": "Demonstrated bounded catalog disclosure/filter bypass; no evidence of arbitrary privileged database access."
+    },
+    {
+      "case_id": "sec-02",
+      "resolution": "Added Bob own-invoice positive probe (9200 cents) to match proof; both tenant boundaries and both positive reads now checked."
+    },
+    {
+      "case_id": "pr-05",
+      "scope_resolution": "Actual pinned review/delegate preview assigns rendering.py and report.py only; old formatter.py remains base evidence. Reviewers B/C rechecked amendment."
+    },
+    {
+      "case_id": "sec-07",
+      "scope_resolution": "package-lock.json retained in scanner inventory, removed from semantic AI paths per Snapshot.populate; reviewers A/B rechecked amendment."
+    }
+  ],
+  "post_review_changes": [
+    "Removed broad except Exception from oracles so unexpected errors fail validation rather than masquerading as expected defect results.",
+    "Bound retry timing to Gateway instance and formatted/linted all Python.",
+    "Source inputs unchanged after independent reviews. Oracle/control checks rerun after edits.",
+    "Pinned OCR scope review corrected pr-05 renamed source assignment and separated sec-07 scanner-only lockfile from AI assignments; both nonauthor reviewers amended their input hashes, retaining original blinded records."
+  ],
+  "cases": [
+    {
+      "case_id": "pr-01",
+      "reviewers": [
+        "/root/security_graph_evaluation",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+      "truth_sha256": "880bceceecd18093fb5a6e03fcf21cf3d8c126377bede7a2b50580630432f8f1",
+      "oracle_sha256": "ed4ddc3a7b81fe6106140d90fd9e37d8c71b27635073b5c64bdcf18032fe75eb",
+      "final_verdict": "defect",
+      "final_severities": [
+        "medium"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-02",
+      "reviewers": [
+        "/root/security_graph_evaluation",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+      "truth_sha256": "cedda0592b526889cb3380e279caa0dc6409bba1e51f4fcd681cb5118348b770",
+      "oracle_sha256": "e56daf93b1151ffd7c46040134637f839d772e78f59146b8a091870033927264",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-03",
+      "reviewers": [
+        "/root/security_graph_evaluation",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+      "truth_sha256": "3e19fe97ef990bfc19e6f31bf39efb8e2ffc2f3a58f98503bab062c846816907",
+      "oracle_sha256": "a1f4e5bba705c2540d305c4539f21578c4eb7b48f8bafebf10105758dfb97767",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-04",
+      "reviewers": [
+        "/root/security_graph_evaluation",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+      "truth_sha256": "4e652e12224485de85a75244671d4d679ae626485d04a94ea526cf330be1fe07",
+      "oracle_sha256": "3e73d72c4b0270890f042ba262e1b36ca822b0250f6d9b98c6a5d8b0579a8f69",
+      "final_verdict": "defect",
+      "final_severities": [
+        "medium"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-05",
+      "reviewers": [
+        "/root/security_graph_evaluation",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+      "truth_sha256": "a8a1a29654e9ec62468795762fd59b87af39412c7a7ba6a9f441b0459743c36c",
+      "oracle_sha256": "3245089227f0261fba27b980b6bdc828932eb2fe3d718379a97288f704005dec",
+      "final_verdict": "defect",
+      "final_severities": [
+        "medium"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-06",
+      "reviewers": [
+        "/root/security_graph_evaluation",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+      "truth_sha256": "7be8c93ee8b7904b140ce2b06354cac77985290852954e6ef845feb84fb62473",
+      "oracle_sha256": "170681e3323807e88092e44dac3f20700a87d0392c79e99ff115831766f9569b",
+      "final_verdict": "clean",
+      "final_severities": [],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-07",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/security_graph_evaluation"
+      ],
+      "input_sha256": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "truth_sha256": "93f907c2a207e4ed917e1b04ae902f5b51ae3f1749260ab3427c96bcb84b820a",
+      "oracle_sha256": "33eddf157963f14b9658417dfd34e28decda2230e944543625cda9deac44349f",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-08",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/security_graph_evaluation"
+      ],
+      "input_sha256": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "truth_sha256": "0c4f6b88e170e811cc4bbc8cc00b0c3c1b65b24001941f45fb85c1b09a0eb8d9",
+      "oracle_sha256": "2e3475f3ad1af315f883894ab6670f2c901b4072def99d38d02eafe08e0a5adb",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-09",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/security_graph_evaluation"
+      ],
+      "input_sha256": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "truth_sha256": "2929349978736d84f5ad125e00c988a03f3b6e97013cf84935c4ecca4bbec42b",
+      "oracle_sha256": "aaf002f5fb682c7160f5c9408ae2b6455239db05e084054e6e636f09c6dd26d2",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-10",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/security_graph_evaluation"
+      ],
+      "input_sha256": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+      "truth_sha256": "b4d48f26605f0640edebc6c66826a5beefc333b513b496303635764381aeb5b2",
+      "oracle_sha256": "d3fc1157f283429eba7e1b7d8a520b4720af70014bb744f18b410c1421b2d420",
+      "final_verdict": "clean",
+      "final_severities": [],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-11",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/security_graph_evaluation"
+      ],
+      "input_sha256": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "truth_sha256": "15a28443e7506524570fdac282bd9588e1252e6f051c88aecd16fea1f729bd14",
+      "oracle_sha256": "16562b4a78d48f2784a2cea5732ba630866283d95314ac5fe0be5acf00432ba5",
+      "final_verdict": "clean",
+      "final_severities": [],
+      "status": "accepted"
+    },
+    {
+      "case_id": "pr-12",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/security_graph_evaluation"
+      ],
+      "input_sha256": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "truth_sha256": "4e68d0b188446880c69e1f268e1d5281c4bbc80bcd78d1cc25ccf7280208f17f",
+      "oracle_sha256": "0722c4520016a97dd07d9dd16535a4a34387c348c698d174e8de644fd4ae8ef7",
+      "final_verdict": "incomplete",
+      "final_severities": [],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-01",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "5544d855ed83a945c56c41c42a828c36da8c113fe81321e2c8da2c117fcc453e",
+      "truth_sha256": "0ffd9e0cf4c2f607d537a7b228e4f0f37b4af0c3483d12a9fb94fad362bb8742",
+      "oracle_sha256": "13eaa81dfd599189f2cb8863a322f25bbdd0d92fa4120da8f36e825f51733750",
+      "final_verdict": "defect",
+      "final_severities": [
+        "medium"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-02",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "5d906d9e8aaa15e6f204592cecce6209f567d3d3320a17820493a3ca50cfd72a",
+      "truth_sha256": "e22e69ea40baf4dc15ec82c355b7397635b25ff365889cbcc0d9acb6fae733d9",
+      "oracle_sha256": "71dc6e5b03e90fc9f0681e1729f4c327ffd2841e385accff05518ee4587d9fa8",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-03",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "8c50332f08254e0acbd6854462b95a788ff46b05ee8d619af579e0de9a346bf6",
+      "truth_sha256": "2f9374cb9be24c292e5ece39d43e30e2117af2569cad1f7d68feb607de2c1b5f",
+      "oracle_sha256": "7fefe2abe700562d39c9c080eca699c4f02d156822c9db8cdaa677664d4c2514",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-04",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "e5b0b357f448c35bb129016efd8376d62b7b252c139cf99c1ad82347a4845e45",
+      "truth_sha256": "8db6cc4b1d5820bd54bf9eff35d41a987a00865afe7186650be9d6ace147b654",
+      "oracle_sha256": "6cda9f34da2f3a5d7300ee3625ada55fcf0a9b47fb4e26863db087fe73d35689",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-05",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "b31de3a5fd5d8e89d3aeee75ed90f06c60e1138579079d8d18673e6e8c21b2cf",
+      "truth_sha256": "66a863e45f08e471da3c73677a6c86117660756ad9d0cad607411da4959984b2",
+      "oracle_sha256": "8ffe4d53123abf61ad1f2ea332926490dc332793a94662fca61cbaec84e3686c",
+      "final_verdict": "defect",
+      "final_severities": [
+        "high"
+      ],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-06",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "0e03599eb5851e9e9c3b0bae6c68312d2a1a71add1ef0cb4b0915801f3f7c4b2",
+      "truth_sha256": "fa7f18e7b1ef638d4e6cf237f2a77d335e3ee5b0587b03b74115e4fe916c301e",
+      "oracle_sha256": "d03c0654448fee3908497cc3668516a8da2ebc39e7311b621b59b26b180ce1f4",
+      "final_verdict": "clean",
+      "final_severities": [],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-07",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "825221e8a1f2f180486abb43e02b421d73cac037b137854fc8aaf0da3e7105bd",
+      "truth_sha256": "9d0ecd7c7ee38292d6d747503153c3227cbdfcdb2e5515636aa7c4dee4a03407",
+      "oracle_sha256": "37795bff69acae96c830fe5225d7aadc38d06b2e696df15f261ca20613113942",
+      "final_verdict": "incomplete",
+      "final_severities": [],
+      "status": "accepted"
+    },
+    {
+      "case_id": "sec-08",
+      "reviewers": [
+        "/root/ocr_feature_inventory",
+        "/root/subscriptions_inventory"
+      ],
+      "input_sha256": "35988cc8921c206f6518dc7654de2579b953e1a72f3ec2659c1b69514198df37",
+      "truth_sha256": "001edea7ac8f2fdcecd69804b1a19b2f86052232224b58dd8f8e497e03697bac",
+      "oracle_sha256": "d035edadac03ce3077a5c9a8e2fb860540b21ca256e4528e723e3e8927162e41",
+      "final_verdict": "incomplete",
+      "final_severities": [],
+      "status": "accepted"
+    }
+  ]
+}

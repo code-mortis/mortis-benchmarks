@@ -1,0 +1,1102 @@
+{
+  "schema": "mortis-engine-pilot/v1",
+  "protocol": "mortis-engine-eval/v1.1",
+  "source_baseline": "9d91f04e964953e350b64c96bf34c50a17a69439",
+  "provenance": "original_synthetic",
+  "external_model_calls": 0,
+  "cases": [
+    {
+      "case_id": "pr-01",
+      "family_id": "pr-invoice-tax-rounding",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-01",
+      "hashes": {
+        "input": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+        "truth": "880bceceecd18093fb5a6e03fcf21cf3d8c126377bede7a2b50580630432f8f1",
+        "oracle": "ed4ddc3a7b81fe6106140d90fd9e37d8c71b27635073b5c64bdcf18032fe75eb"
+      },
+      "case_digest": "1c2bf50b414d9b2164643a26297556a3381ca5cf293b5c5efefff1f12a7686d7",
+      "base": {
+        "commit": "d75c6f41f48d8265453e2497d3e6c9ccbf6796ae",
+        "tree": "4421d672c99b0fe18983a7304ae1ebc616625ff2",
+        "blobs": {
+          "billing.py": {
+            "git_blob": "2ea65da4fb48ffd6e9dc1eb2b22e882ef51d4ca6",
+            "sha256": "616938ecb30bb4b7e9c9fcdfbcf0a090d15c576d08db133c2ca79fc5bc3ea5b6",
+            "bytes": 857
+          }
+        }
+      },
+      "head": {
+        "commit": "afcb3e80616c77ae7e39d601822c0feadd12093b",
+        "tree": "d45d87fa8463389c46b961d5b048f2bd2b7670b2",
+        "blobs": {
+          "billing.py": {
+            "git_blob": "5af2e131c2aa79e8e3c775cf2ecfee4f372eff11",
+            "sha256": "4587c34ae78405bd12ede68889f4872554a407b511bd6e3ae75755b7c84ec54d",
+            "bytes": 879
+          }
+        }
+      },
+      "merge_base_sha": "d75c6f41f48d8265453e2497d3e6c9ccbf6796ae",
+      "default_branch_sha": "afcb3e80616c77ae7e39d601822c0feadd12093b",
+      "diff_sha256": "6021c04db83e9e3556515735672714bfee5bb1d9d08d8ce911c785c95afea279",
+      "selected_paths": [
+        "billing.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-02",
+      "family_id": "pr-order-repository-return-contract",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-02",
+      "hashes": {
+        "input": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+        "truth": "cedda0592b526889cb3380e279caa0dc6409bba1e51f4fcd681cb5118348b770",
+        "oracle": "e56daf93b1151ffd7c46040134637f839d772e78f59146b8a091870033927264"
+      },
+      "case_digest": "08b3487d1139e65c175294a7abed2cf4a35c4d69f0881bab9c65dc1ef65c384f",
+      "base": {
+        "commit": "0f92279b729afa1f83d0c0540538f1dc657b1bf0",
+        "tree": "45f2350da37ffce096fb1110365558b3a38aaa9c",
+        "blobs": {
+          "order_api.py": {
+            "git_blob": "7a353a0d4e3d091b375da09ebe48dee259abe598",
+            "sha256": "41acdbe2cef65506bbafaa6cac97c62ab6a254e6fe31193327905117b8e72643",
+            "bytes": 707
+          },
+          "order_store.py": {
+            "git_blob": "64f0f274ff738c64dd649f0be0b5674ee419dfd1",
+            "sha256": "654f9c57ee607ced2904d5758c02c1b6d50e4ff54b2e942de3d5698c2acdd5c2",
+            "bytes": 790
+          }
+        }
+      },
+      "head": {
+        "commit": "215b04ee4f462f3daf15d4d5790f12c3bd953f3c",
+        "tree": "3d80bc003c634e96d7d6f37db3b71186550cc4b4",
+        "blobs": {
+          "order_api.py": {
+            "git_blob": "7a353a0d4e3d091b375da09ebe48dee259abe598",
+            "sha256": "41acdbe2cef65506bbafaa6cac97c62ab6a254e6fe31193327905117b8e72643",
+            "bytes": 707
+          },
+          "order_store.py": {
+            "git_blob": "74f6a93cd3026473562b9185bb32408d86b43ea3",
+            "sha256": "6db5220f2d61e29f4d56e0e9c10db9a051759bd4b310d0d4edeeffd69c870223",
+            "bytes": 784
+          }
+        }
+      },
+      "merge_base_sha": "0f92279b729afa1f83d0c0540538f1dc657b1bf0",
+      "default_branch_sha": "215b04ee4f462f3daf15d4d5790f12c3bd953f3c",
+      "diff_sha256": "938ce9112981638c7da6c78326878a9eeb2ae3710c16cde96ad0343e2ed93db3",
+      "selected_paths": [
+        "order_store.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-03",
+      "family_id": "pr-offset-expiration-normalization",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-03",
+      "hashes": {
+        "input": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+        "truth": "3e19fe97ef990bfc19e6f31bf39efb8e2ffc2f3a58f98503bab062c846816907",
+        "oracle": "a1f4e5bba705c2540d305c4539f21578c4eb7b48f8bafebf10105758dfb97767"
+      },
+      "case_digest": "c65ba0bf09934b427f21962998f3f7c8b9ad61c27217bc0200c0489d87e8b4e4",
+      "base": {
+        "commit": "1bee3173515129fdbea40dd1180eef6a9fb40cef",
+        "tree": "ab7f8dc43bfe767f79da259fcd6a8345e9dd68b2",
+        "blobs": {
+          "token_expiry.py": {
+            "git_blob": "1bf09e6dcd0f6f30d89462ffdf6f4cd24a04464d",
+            "sha256": "1aa09c5481c3eff0df5fda373851d5cd9d3aaa9e44e9bc7fc93ef3f1971aef2e",
+            "bytes": 711
+          }
+        }
+      },
+      "head": {
+        "commit": "f9221848bee09a55257d0022378e2c4c08f089c9",
+        "tree": "93a7dd4aa87d381442c8cd50641f15551a88c48a",
+        "blobs": {
+          "token_expiry.py": {
+            "git_blob": "4bc3d3b894626f3b9bb22528819f7a2d0c6fa415",
+            "sha256": "91f41565f4f745023dd657e2cbde3838dade4217dc070f5b982941344c5bcebe",
+            "bytes": 715
+          }
+        }
+      },
+      "merge_base_sha": "1bee3173515129fdbea40dd1180eef6a9fb40cef",
+      "default_branch_sha": "f9221848bee09a55257d0022378e2c4c08f089c9",
+      "diff_sha256": "97fb15e4aa47e5da92fdedd76124befe2a25a778de79b8a68366926b1e330ac2",
+      "selected_paths": [
+        "token_expiry.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-04",
+      "family_id": "pr-review-file-limit-inclusive-boundary",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-04",
+      "hashes": {
+        "input": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+        "truth": "4e652e12224485de85a75244671d4d679ae626485d04a94ea526cf330be1fe07",
+        "oracle": "3e73d72c4b0270890f042ba262e1b36ca822b0250f6d9b98c6a5d8b0579a8f69"
+      },
+      "case_digest": "eb0888f7cb8ca63acfaa8f2e68d1b305ef07b2200226ea0ca4c895d7858b2490",
+      "base": {
+        "commit": "537e9e7c0ed39138530b1863aba333ce5aa27fe8",
+        "tree": "c723c657400750e08a0d1fb42e842d3357452185",
+        "blobs": {
+          "review_gate.py": {
+            "git_blob": "07444432e57fbd5d067155b36e4aa37cc5c17937",
+            "sha256": "5629e8e99b007e493f6dddad9d68d98038ef45ec1e74f5e8771e10cdf47dd734",
+            "bytes": 932
+          }
+        }
+      },
+      "head": {
+        "commit": "681b99a2fdef01f636db584689f1effcbd95576f",
+        "tree": "ab0bd41a5d9d0bd7afa0cdf392999807b31719c0",
+        "blobs": {
+          "review_gate.py": {
+            "git_blob": "22eab17e6b94ac2a792dafc58ee2eec1bbe9b7e6",
+            "sha256": "e518cc1d89030cec1942351498f6879eb5251563cf8c056ae68394967ba9d02e",
+            "bytes": 933
+          }
+        }
+      },
+      "merge_base_sha": "537e9e7c0ed39138530b1863aba333ce5aa27fe8",
+      "default_branch_sha": "681b99a2fdef01f636db584689f1effcbd95576f",
+      "diff_sha256": "b77a85d31c096caaeba25b8d248efdf9e013f92fc8887a6c2f0d735cb512e560",
+      "selected_paths": [
+        "review_gate.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-05",
+      "family_id": "pr-module-rename-import-resolution",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-05",
+      "hashes": {
+        "input": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+        "truth": "a8a1a29654e9ec62468795762fd59b87af39412c7a7ba6a9f441b0459743c36c",
+        "oracle": "3245089227f0261fba27b980b6bdc828932eb2fe3d718379a97288f704005dec"
+      },
+      "case_digest": "007e898d10b4b9d88ad6145164d3a94fbe7fdac9d40799821fa480426db7cf25",
+      "base": {
+        "commit": "bee98e591cb2311cb9e8db0a3254a046febe7d37",
+        "tree": "36b7afd01f113a72919805444322bb808f8c5b2c",
+        "blobs": {
+          "formatter.py": {
+            "git_blob": "c951e15f6e622e5d65e65700d26b3c1ff6cffbf7",
+            "sha256": "ddecd701377fd2dd8e34d7bc61df51273dabf6e34fab08bce0b7bd4a98adb369",
+            "bytes": 561
+          },
+          "report.py": {
+            "git_blob": "3072873c721c962b764e8982f6c5f1f28784ca17",
+            "sha256": "d0792b22d0e25cbd33eda66708f3cc02d705ed9042762ec895ced88f6ebb10ea",
+            "bytes": 659
+          }
+        }
+      },
+      "head": {
+        "commit": "f2b638eda76a436f7e1e6edc930b277025b560cf",
+        "tree": "48f7303fdc4159f0383c90ba30a779ae8b7b8711",
+        "blobs": {
+          "rendering.py": {
+            "git_blob": "c951e15f6e622e5d65e65700d26b3c1ff6cffbf7",
+            "sha256": "ddecd701377fd2dd8e34d7bc61df51273dabf6e34fab08bce0b7bd4a98adb369",
+            "bytes": 561
+          },
+          "report.py": {
+            "git_blob": "c0b061b4b1e76d31b9f7caad8c3a91213def25ac",
+            "sha256": "ff9073551a2b27650f005ebc69fa0e6d87a38f8459aa48e5f6e069e691cfc9d3",
+            "bytes": 727
+          }
+        }
+      },
+      "merge_base_sha": "bee98e591cb2311cb9e8db0a3254a046febe7d37",
+      "default_branch_sha": "f2b638eda76a436f7e1e6edc930b277025b560cf",
+      "diff_sha256": "851d52c5305866d5f5bf15fe5600b9415adedd4f703a20182c2db2c4ee67281b",
+      "selected_paths": [
+        "rendering.py",
+        "report.py"
+      ],
+      "expected_assigned_units": 2,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-06",
+      "family_id": "pr-stable-display-name-refactor",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-06",
+      "hashes": {
+        "input": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+        "truth": "7be8c93ee8b7904b140ce2b06354cac77985290852954e6ef845feb84fb62473",
+        "oracle": "170681e3323807e88092e44dac3f20700a87d0392c79e99ff115831766f9569b"
+      },
+      "case_digest": "73146b6d4a79257f1c337f4a939d8827ff07e7d994307cf744660f03a3c0e2ea",
+      "base": {
+        "commit": "1b012250e070fc74e47eb925e18784282cab0174",
+        "tree": "d91495630671d22919668cc1ec442b62e5cbc7c0",
+        "blobs": {
+          "members.py": {
+            "git_blob": "b32aa6383b865e8a640c666dfe2851a761031ef4",
+            "sha256": "d010031c4eb9abac9078522c3728e075f8fdb7496d1d253145f6251e4642c57a",
+            "bytes": 481
+          }
+        }
+      },
+      "head": {
+        "commit": "3cdf39afb5d41f5743fae09c446d274dfa9e2e59",
+        "tree": "9a1e73e7a20101e7d14f2c11da210ce4a2bf9ffd",
+        "blobs": {
+          "members.py": {
+            "git_blob": "b64e71171ce540309c92edfa0a6a2508c8f1d502",
+            "sha256": "a7f925e5b625cac5d263d0f29b09d9e38a45526878d641f9d0563d7d5ed6b48e",
+            "bytes": 436
+          }
+        }
+      },
+      "merge_base_sha": "1b012250e070fc74e47eb925e18784282cab0174",
+      "default_branch_sha": "3cdf39afb5d41f5743fae09c446d274dfa9e2e59",
+      "diff_sha256": "7e22457a1fe6b7903d46951ba32276582bdd8b6182e47ad43f2031564e882aca",
+      "selected_paths": [
+        "members.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-07",
+      "family_id": "checkout-ambiguous-timeout-retry",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-07",
+      "hashes": {
+        "input": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+        "truth": "93f907c2a207e4ed917e1b04ae902f5b51ae3f1749260ab3427c96bcb84b820a",
+        "oracle": "33eddf157963f14b9658417dfd34e28decda2230e944543625cda9deac44349f"
+      },
+      "case_digest": "5c9c5d688525b0d9fade1545558cac18b98851e56272d8d465c072515314fd42",
+      "base": {
+        "commit": "d5292a966065f473403b6a815cf4dad70e0a59ec",
+        "tree": "f2525335064588d06398c62ddc61c9fb41e89280",
+        "blobs": {
+          "src/checkout.py": {
+            "git_blob": "f28957e782b718cf387b09524d774fbcef912b38",
+            "sha256": "c1b82e7db6968472455df9bfa934419dd8bd19951ba39eed4a962ff9b909be5b",
+            "bytes": 925
+          }
+        }
+      },
+      "head": {
+        "commit": "ef03f9aac776bdbca29ede8db47093894e88a1da",
+        "tree": "6670a19b4c6a41ad71e1717efebb5208c2bb8d32",
+        "blobs": {
+          "src/checkout.py": {
+            "git_blob": "4f2ffb27358b3544a681f484d2a82f2af1728218",
+            "sha256": "4735de9e62ad40fe5e6e8795f6bdfc24b7c703d19b9441c9dd46bbf6a909b290",
+            "bytes": 946
+          }
+        }
+      },
+      "merge_base_sha": "d5292a966065f473403b6a815cf4dad70e0a59ec",
+      "default_branch_sha": "ef03f9aac776bdbca29ede8db47093894e88a1da",
+      "diff_sha256": "0e85d81248322fe3c622c52f682c939baaa3acd4b09e91c29c02d343f7869c4f",
+      "selected_paths": [
+        "src/checkout.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-08",
+      "family_id": "validated-file-outcome-aggregation",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-08",
+      "hashes": {
+        "input": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+        "truth": "0c4f6b88e170e811cc4bbc8cc00b0c3c1b65b24001941f45fb85c1b09a0eb8d9",
+        "oracle": "2e3475f3ad1af315f883894ab6670f2c901b4072def99d38d02eafe08e0a5adb"
+      },
+      "case_digest": "8151865373cdd919982970bcb3c505f05a4c2c875e7d7832e7aa46a773346a2f",
+      "base": {
+        "commit": "7410bb939e01572ee4c2dd05978564501195860e",
+        "tree": "64255b44ca3727eaae9f8228d5f8c42af51e22fb",
+        "blobs": {
+          "src/results.py": {
+            "git_blob": "337a4cfe525f67e35ac898c397cac8e1fa95164c",
+            "sha256": "0247652f108a7c993f1e3588480360017dcb0ebbd126b0b6e02b803eba4f647b",
+            "bytes": 1056
+          }
+        }
+      },
+      "head": {
+        "commit": "6a80a95dfad90c6e1e159bce96c8fa5268d7b819",
+        "tree": "7a093132517190b8cc5c8b082218edba38f3f75c",
+        "blobs": {
+          "src/results.py": {
+            "git_blob": "18015caf429d2fda624f86143b67420213efcab6",
+            "sha256": "fd1728aa8cc426e7f47daefe9dec044f63e3554d72c93690cc4167678c00ecef",
+            "bytes": 1129
+          }
+        }
+      },
+      "merge_base_sha": "7410bb939e01572ee4c2dd05978564501195860e",
+      "default_branch_sha": "6a80a95dfad90c6e1e159bce96c8fa5268d7b819",
+      "diff_sha256": "81cbd76c3a33853d4c17c590e8d0d66177f42bc5a31c969ed3705149b57bc8fd",
+      "selected_paths": [
+        "src/results.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-09",
+      "family_id": "reset-token-subject-binding",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-09",
+      "hashes": {
+        "input": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+        "truth": "2929349978736d84f5ad125e00c988a03f3b6e97013cf84935c4ecca4bbec42b",
+        "oracle": "aaf002f5fb682c7160f5c9408ae2b6455239db05e084054e6e636f09c6dd26d2"
+      },
+      "case_digest": "dc7552d47f9137eedd26dbd2b46ea32af291814cbbe82a943558d78d76aa685a",
+      "base": {
+        "commit": "575bd6c0a898d2333ac8f9fc2b23831ceb85f8a7",
+        "tree": "f60d8bf71fa8a782e34ed05334b4db53f687df7b",
+        "blobs": {
+          "src/auth.py": {
+            "git_blob": "e9e7cba936b267d946f0dabcfd898fe85766e689",
+            "sha256": "f02947414e2fc819eb3aac0c985ee08a96979396df518b49182fdaf21ccb77ab",
+            "bytes": 852
+          }
+        }
+      },
+      "head": {
+        "commit": "3a4f61c1cb6ceb15e7a0e21da9008b1912b65698",
+        "tree": "1068715d95e3c9ecb4dce344eaf5265cde18b946",
+        "blobs": {
+          "src/auth.py": {
+            "git_blob": "4434284eb212abc217f043e31a898397bf2b55f5",
+            "sha256": "237f062128dfed037f80ad9dbf881eeee5c9dc6208556a30c6c88856563be2c5",
+            "bytes": 804
+          }
+        }
+      },
+      "merge_base_sha": "575bd6c0a898d2333ac8f9fc2b23831ceb85f8a7",
+      "default_branch_sha": "3a4f61c1cb6ceb15e7a0e21da9008b1912b65698",
+      "diff_sha256": "83cdb5b718384913dd64bfc1eaf6a490d0af9ed90ef19e94302c95a373550e0a",
+      "selected_paths": [
+        "src/auth.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-10",
+      "family_id": "staging-concurrency-documentation",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-10",
+      "hashes": {
+        "input": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+        "truth": "b4d48f26605f0640edebc6c66826a5beefc333b513b496303635764381aeb5b2",
+        "oracle": "d3fc1157f283429eba7e1b7d8a520b4720af70014bb744f18b410c1421b2d420"
+      },
+      "case_digest": "0e36578bb06ae93c5f62e2919d0902d9ebd07d948a9aa1b6fd657938925308d9",
+      "base": {
+        "commit": "2c22085aad34e8adf7f32fb398b8a9332e689f8f",
+        "tree": "626100db9da1f8770206cb5b7eaa2655fe901964",
+        "blobs": {
+          "README.md": {
+            "git_blob": "15e2e8dc1ef484587f7bdf1f08946d40baf41e41",
+            "sha256": "5993fac43e04ae833057e4442229a257db159d77526fc49d67bb0e9a4558312f",
+            "bytes": 759
+          },
+          "deploy/staging.toml": {
+            "git_blob": "3e2946e6e6a91ce5ed2948102215057ae99e52a4",
+            "sha256": "263e77e60ea78a2ef964553a4210c8009296415fcd4e21ad1c0c0d2806e10c3e",
+            "bytes": 336
+          }
+        }
+      },
+      "head": {
+        "commit": "b1150fa8f3a186e53b2af2d32c633235371c50ad",
+        "tree": "0af9e1c15569f714855dca25708769d59a46066a",
+        "blobs": {
+          "README.md": {
+            "git_blob": "4cc81076147671485ba740535fa523b4bd975f81",
+            "sha256": "492d8df378dee7d62ed679da175bf292cabbcf6a1ed5904e8cf02b8c0cc4a599",
+            "bytes": 759
+          },
+          "deploy/staging.toml": {
+            "git_blob": "4db33ce5dd446e832c1407819e831ba394592deb",
+            "sha256": "0af03d6a628cf3dbe8e6cbc9992c012582c717b980d4cc0eb3709b8476ff78b1",
+            "bytes": 336
+          }
+        }
+      },
+      "merge_base_sha": "2c22085aad34e8adf7f32fb398b8a9332e689f8f",
+      "default_branch_sha": "b1150fa8f3a186e53b2af2d32c633235371c50ad",
+      "diff_sha256": "c0e09e2963a3886fb8a280836a707cc5e43de0bdf8d32e19bad13e630d662d98",
+      "selected_paths": [
+        "README.md",
+        "deploy/staging.toml"
+      ],
+      "expected_assigned_units": 2,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "pr-11",
+      "family_id": "public-report-selected-source-only",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-11",
+      "hashes": {
+        "input": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+        "truth": "15a28443e7506524570fdac282bd9588e1252e6f051c88aecd16fea1f729bd14",
+        "oracle": "16562b4a78d48f2784a2cea5732ba630866283d95314ac5fe0be5acf00432ba5"
+      },
+      "case_digest": "11a7f3a573df8467c46757e9721630e82e0d34310905193a4b6743fe82e6c353",
+      "base": {
+        "commit": "70f75b16b70cc2f9f1224979d4120504d4b9f30d",
+        "tree": "f671fbf22938537a68f30efb57769da267ef01c6",
+        "blobs": {
+          "config/credentials.example.json": {
+            "git_blob": "281f4fb51d72acd42f9597c739477bb597748b0d",
+            "sha256": "1506e6349b9dc0bad12d73b981bc8209514a1ca346a6b696f5f0993e4db9c622",
+            "bytes": 402
+          },
+          "generated/report_schema.py": {
+            "git_blob": "2803dd5f6846fc1a8af0bb9a7c05c6cf2e94abdb",
+            "sha256": "c1e37b7efd80cc1f9c9ef00d6c2cfb8bfe118d103817e762117183d884593290",
+            "bytes": 380
+          },
+          "src/report.py": {
+            "git_blob": "b958e42aff61256224410417c201e87a6b5c11c1",
+            "sha256": "6cee0c99f834ab7ff4f1732c3079e4a3ef662d3922dee50308fb16feb824248d",
+            "bytes": 510
+          }
+        }
+      },
+      "head": {
+        "commit": "09bd51d436f788e5efc5134bc1af028b600ee7ad",
+        "tree": "82f53c0dcabb9c4ce8cc49e339c22d527f5c523c",
+        "blobs": {
+          "config/credentials.example.json": {
+            "git_blob": "99666824248f7a110d32e0027f8129dd3376663f",
+            "sha256": "9ef6a8ea92d1ef8c77006bb5ab8d60a52d63a0944ac48fedfdca697f23303ea6",
+            "bytes": 408
+          },
+          "generated/report_schema.py": {
+            "git_blob": "283e3a35134256d2d4b6fa63f412c7c1556bf168",
+            "sha256": "3d2b0f9c8848fe607ea9583517ef05ef47916e6d29176aac2151a2d92be2f22d",
+            "bytes": 380
+          },
+          "src/report.py": {
+            "git_blob": "1441a11150a7cb5baedc351b131154c564d352f6",
+            "sha256": "5c73262c7f3575364328296a9a9dc9b80204c0300570cecfc4381258f235f6ca",
+            "bytes": 541
+          }
+        }
+      },
+      "merge_base_sha": "70f75b16b70cc2f9f1224979d4120504d4b9f30d",
+      "default_branch_sha": "09bd51d436f788e5efc5134bc1af028b600ee7ad",
+      "diff_sha256": "3f8bc54168ce76092b68db145a3dab11b1a751d7d88154b87b878ef0a1f490cd",
+      "selected_paths": [
+        "src/report.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": [
+        {
+          "path": "generated/report_schema.py",
+          "reason": "mandatory_generated_directory"
+        },
+        {
+          "path": "config/credentials.example.json",
+          "reason": "mandatory_credential_like_filename"
+        }
+      ]
+    },
+    {
+      "case_id": "pr-12",
+      "family_id": "unavailable-selected-worker-evidence",
+      "workload": "pr",
+      "split": "pilot",
+      "evaluation_track": "reliability_fixture",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/pr-12",
+      "hashes": {
+        "input": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+        "truth": "4e68d0b188446880c69e1f268e1d5281c4bbc80bcd78d1cc25ccf7280208f17f",
+        "oracle": "0722c4520016a97dd07d9dd16535a4a34387c348c698d174e8de644fd4ae8ef7"
+      },
+      "case_digest": "4e63b1ace945ac1699dda1b87ae258aec428182c89c17cfb37d3f0b5f3858788",
+      "base": {
+        "commit": "a993adcedef9872062377f6575ab84bb8710dfa9",
+        "tree": "9e5c754fa7353f3b3e5ece2038125a595300a4ba",
+        "blobs": {
+          "src/coordinator.py": {
+            "git_blob": "44e3259d3ebdb7ed942037959d670ddac88f9b8a",
+            "sha256": "4fa4b96f3e7caba0752a4a6ce152ca407ec24bed3b9ec0daabdade92901aefc6",
+            "bytes": 949
+          }
+        }
+      },
+      "head": {
+        "commit": "bb1978438b4e4e001bf53c7f79e10bbd78f2e43a",
+        "tree": "d5c31fcaa8090825859ad90866b7ad75c6b4a0d5",
+        "blobs": {
+          "src/coordinator.py": {
+            "git_blob": "939371f42d46bc6c7d7134ec307b814d035b42b2",
+            "sha256": "2815f2dcacb045dccd633cb293c2056c6b93f5bb902b152f913532041dab199a",
+            "bytes": 968
+          }
+        }
+      },
+      "merge_base_sha": "a993adcedef9872062377f6575ab84bb8710dfa9",
+      "default_branch_sha": "bb1978438b4e4e001bf53c7f79e10bbd78f2e43a",
+      "diff_sha256": "a550ad23a6df286021daaa6fb19674b86b584040f6b0dccf271c537b7943119a",
+      "selected_paths": [
+        "src/coordinator.py",
+        "src/worker.py"
+      ],
+      "expected_assigned_units": 2,
+      "scanner_inventory_paths": [],
+      "selection_contract": "injected_unavailable_assignment_not_git_selected_scope",
+      "unavailable": [
+        {
+          "path": "src/worker.py",
+          "reason": "source_and_patch_unavailable"
+        }
+      ],
+      "excluded": []
+    },
+    {
+      "case_id": "sec-01",
+      "family_id": "security-sql-catalog-filter",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-01",
+      "hashes": {
+        "input": "5544d855ed83a945c56c41c42a828c36da8c113fe81321e2c8da2c117fcc453e",
+        "truth": "0ffd9e0cf4c2f607d537a7b228e4f0f37b4af0c3483d12a9fb94fad362bb8742",
+        "oracle": "13eaa81dfd599189f2cb8863a322f25bbdd0d92fa4120da8f36e825f51733750"
+      },
+      "case_digest": "daf4b497c0c0eeee6886a14160ac681d22691eacda366e48d1d9bbc8b6671c85",
+      "base": {
+        "commit": "1d8541c83933cc6bdc13c557f47d01c1a71172b9",
+        "tree": "dd6448398de01a5166605cbb019b0d06b45fa05b",
+        "blobs": {
+          "catalog.py": {
+            "git_blob": "bd595fadfb0e3062c803dc47c73a7a2637f7d89f",
+            "sha256": "13a0ee74b03a782fa8027f6f55051e96dc0005359c8924787279d4600549b38b",
+            "bytes": 627
+          }
+        }
+      },
+      "head": {
+        "commit": "44f897463a2cf33c3da7494fa3490b422e815630",
+        "tree": "dd6448398de01a5166605cbb019b0d06b45fa05b",
+        "blobs": {
+          "catalog.py": {
+            "git_blob": "bd595fadfb0e3062c803dc47c73a7a2637f7d89f",
+            "sha256": "13a0ee74b03a782fa8027f6f55051e96dc0005359c8924787279d4600549b38b",
+            "bytes": 627
+          }
+        }
+      },
+      "merge_base_sha": "1d8541c83933cc6bdc13c557f47d01c1a71172b9",
+      "default_branch_sha": "44f897463a2cf33c3da7494fa3490b422e815630",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [
+        "catalog.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [
+        "catalog.py"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "sec-02",
+      "family_id": "security-tenant-invoice-authorization",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-02",
+      "hashes": {
+        "input": "5d906d9e8aaa15e6f204592cecce6209f567d3d3320a17820493a3ca50cfd72a",
+        "truth": "e22e69ea40baf4dc15ec82c355b7397635b25ff365889cbcc0d9acb6fae733d9",
+        "oracle": "71dc6e5b03e90fc9f0681e1729f4c327ffd2841e385accff05518ee4587d9fa8"
+      },
+      "case_digest": "ba3f2121de60352068b23d3a3e1f4f58ab2053a83ef6dd02aa1a661f54edf754",
+      "base": {
+        "commit": "ee1787faf6a294322119fd4d136816354bf4d92d",
+        "tree": "c56e2db5a01cac2d4aae2e0eb498af9d66dd8f3a",
+        "blobs": {
+          "invoices.py": {
+            "git_blob": "adb745346dfc2a5bcd2e9a94238811cf9645e7dc",
+            "sha256": "9ff3a454b47aefe7130856d2b79d1bdd0dc2d8ca3bd57627dc0a19ea8f6d5115",
+            "bytes": 550
+          }
+        }
+      },
+      "head": {
+        "commit": "ec8f1759f7e5e714b0e0faf420ca2ae3e6ee6400",
+        "tree": "c56e2db5a01cac2d4aae2e0eb498af9d66dd8f3a",
+        "blobs": {
+          "invoices.py": {
+            "git_blob": "adb745346dfc2a5bcd2e9a94238811cf9645e7dc",
+            "sha256": "9ff3a454b47aefe7130856d2b79d1bdd0dc2d8ca3bd57627dc0a19ea8f6d5115",
+            "bytes": 550
+          }
+        }
+      },
+      "merge_base_sha": "ee1787faf6a294322119fd4d136816354bf4d92d",
+      "default_branch_sha": "ec8f1759f7e5e714b0e0faf420ca2ae3e6ee6400",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [
+        "invoices.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [
+        "invoices.py"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "sec-03",
+      "family_id": "security-download-path-containment",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-03",
+      "hashes": {
+        "input": "8c50332f08254e0acbd6854462b95a788ff46b05ee8d619af579e0de9a346bf6",
+        "truth": "2f9374cb9be24c292e5ece39d43e30e2117af2569cad1f7d68feb607de2c1b5f",
+        "oracle": "7fefe2abe700562d39c9c080eca699c4f02d156822c9db8cdaa677664d4c2514"
+      },
+      "case_digest": "30f20bffcf9ba3b19e6046e451f3d1e9fd9799dd6153671947f81153bd4df61c",
+      "base": {
+        "commit": "7e547e96c51385969cc6db5c5b90d6a1bbb100c5",
+        "tree": "d6b5b9e36959a5d3f4d5018125b5c4339c58f061",
+        "blobs": {
+          "downloads.py": {
+            "git_blob": "d7d5e518201362529b9ace2ecd666a01ecdd35f7",
+            "sha256": "77064944b352c94152aa09c1b5353bdeee67bdf5acd20e32c6402de570e386f8",
+            "bytes": 622
+          }
+        }
+      },
+      "head": {
+        "commit": "edbeab6a22c3343becb5b20d8bfb3101e9cbcaef",
+        "tree": "d6b5b9e36959a5d3f4d5018125b5c4339c58f061",
+        "blobs": {
+          "downloads.py": {
+            "git_blob": "d7d5e518201362529b9ace2ecd666a01ecdd35f7",
+            "sha256": "77064944b352c94152aa09c1b5353bdeee67bdf5acd20e32c6402de570e386f8",
+            "bytes": 622
+          }
+        }
+      },
+      "merge_base_sha": "7e547e96c51385969cc6db5c5b90d6a1bbb100c5",
+      "default_branch_sha": "edbeab6a22c3343becb5b20d8bfb3101e9cbcaef",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [
+        "downloads.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [
+        "downloads.py"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "sec-04",
+      "family_id": "security-archive-restore-destination",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-04",
+      "hashes": {
+        "input": "e5b0b357f448c35bb129016efd8376d62b7b252c139cf99c1ad82347a4845e45",
+        "truth": "8db6cc4b1d5820bd54bf9eff35d41a987a00865afe7186650be9d6ace147b654",
+        "oracle": "6cda9f34da2f3a5d7300ee3625ada55fcf0a9b47fb4e26863db087fe73d35689"
+      },
+      "case_digest": "38f617f069361b21c05abdbfd5fe9af00913231f278c604c80435beb2e366b9b",
+      "base": {
+        "commit": "8be04bb67865ee3ae58b41721c77bf17fd717667",
+        "tree": "d0884dcc737024251427a29620014a57d0051f26",
+        "blobs": {
+          "restore.py": {
+            "git_blob": "ee62c04cc33fcced189392f4cab9a858359abf2e",
+            "sha256": "775a20faa043fee7a6549d0bf16dadc80e9b2a261da26e456f4342892c5bf842",
+            "bytes": 603
+          }
+        }
+      },
+      "head": {
+        "commit": "7a83ba4e776c417f1f27e94fb2b01cd15bb576dd",
+        "tree": "d0884dcc737024251427a29620014a57d0051f26",
+        "blobs": {
+          "restore.py": {
+            "git_blob": "ee62c04cc33fcced189392f4cab9a858359abf2e",
+            "sha256": "775a20faa043fee7a6549d0bf16dadc80e9b2a261da26e456f4342892c5bf842",
+            "bytes": 603
+          }
+        }
+      },
+      "merge_base_sha": "8be04bb67865ee3ae58b41721c77bf17fd717667",
+      "default_branch_sha": "7a83ba4e776c417f1f27e94fb2b01cd15bb576dd",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [
+        "restore.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [
+        "restore.py"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "sec-05",
+      "family_id": "security-restricted-storage-policy",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-05",
+      "hashes": {
+        "input": "b31de3a5fd5d8e89d3aeee75ed90f06c60e1138579079d8d18673e6e8c21b2cf",
+        "truth": "66a863e45f08e471da3c73677a6c86117660756ad9d0cad607411da4959984b2",
+        "oracle": "8ffe4d53123abf61ad1f2ea332926490dc332793a94662fca61cbaec84e3686c"
+      },
+      "case_digest": "5b56c639d5d668c7fa6a3de8ee9c0b87e1539815d82f8c27954bec47481af2f0",
+      "base": {
+        "commit": "da24d1c1312c886eeddf41fdb221b0141b5c9576",
+        "tree": "15bef2b67d5de396475e92709563c9f75e894146",
+        "blobs": {
+          "bucket.json": {
+            "git_blob": "fd1439580d702a7a97dd48d8c26fe21e533c92eb",
+            "sha256": "0bac10c820230f075d55f028c61090fbfeb68d90149c653a56ee482f5e1d5a79",
+            "bytes": 69
+          },
+          "storage.py": {
+            "git_blob": "f1b1d89b80c6fc654a1322ec69c65e9167a41daa",
+            "sha256": "3f57217766ef7718aad2aff2f29a62a917da7651f59e9e0cf7c0a2dbf79f7d53",
+            "bytes": 643
+          }
+        }
+      },
+      "head": {
+        "commit": "9242413a19af1040d1062752392defcd6bfc33b2",
+        "tree": "15bef2b67d5de396475e92709563c9f75e894146",
+        "blobs": {
+          "bucket.json": {
+            "git_blob": "fd1439580d702a7a97dd48d8c26fe21e533c92eb",
+            "sha256": "0bac10c820230f075d55f028c61090fbfeb68d90149c653a56ee482f5e1d5a79",
+            "bytes": 69
+          },
+          "storage.py": {
+            "git_blob": "f1b1d89b80c6fc654a1322ec69c65e9167a41daa",
+            "sha256": "3f57217766ef7718aad2aff2f29a62a917da7651f59e9e0cf7c0a2dbf79f7d53",
+            "bytes": 643
+          }
+        }
+      },
+      "merge_base_sha": "da24d1c1312c886eeddf41fdb221b0141b5c9576",
+      "default_branch_sha": "9242413a19af1040d1062752392defcd6bfc33b2",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [
+        "bucket.json",
+        "storage.py"
+      ],
+      "expected_assigned_units": 2,
+      "scanner_inventory_paths": [
+        "bucket.json",
+        "storage.py"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "sec-06",
+      "family_id": "security-safe-tenant-parameterized-orders",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "quality_microcase",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-06",
+      "hashes": {
+        "input": "0e03599eb5851e9e9c3b0bae6c68312d2a1a71add1ef0cb4b0915801f3f7c4b2",
+        "truth": "fa7f18e7b1ef638d4e6cf237f2a77d335e3ee5b0587b03b74115e4fe916c301e",
+        "oracle": "d03c0654448fee3908497cc3668516a8da2ebc39e7311b621b59b26b180ce1f4"
+      },
+      "case_digest": "193de278037c8f9afd83cb48bc1502dc51fc7665ef3795c657dc9652316bedeb",
+      "base": {
+        "commit": "15557042a785359b0f8ecc171c6624dfd96a4af1",
+        "tree": "860abc70dc04c4ea204359d3a897bd46d290ca3f",
+        "blobs": {
+          "orders.py": {
+            "git_blob": "1708403dc9a0aed069304c9ac57e6782a9c38dbd",
+            "sha256": "e7cf39ad9afcf6a314a001c1012f1178d57d34ad89e102c95d5a27cc0227c0df",
+            "bytes": 823
+          }
+        }
+      },
+      "head": {
+        "commit": "03d87096378864aca02724a7c82d0642897e0270",
+        "tree": "860abc70dc04c4ea204359d3a897bd46d290ca3f",
+        "blobs": {
+          "orders.py": {
+            "git_blob": "1708403dc9a0aed069304c9ac57e6782a9c38dbd",
+            "sha256": "e7cf39ad9afcf6a314a001c1012f1178d57d34ad89e102c95d5a27cc0227c0df",
+            "bytes": 823
+          }
+        }
+      },
+      "merge_base_sha": "15557042a785359b0f8ecc171c6624dfd96a4af1",
+      "default_branch_sha": "03d87096378864aca02724a7c82d0642897e0270",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [
+        "orders.py"
+      ],
+      "expected_assigned_units": 1,
+      "scanner_inventory_paths": [
+        "orders.py"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": []
+    },
+    {
+      "case_id": "sec-07",
+      "family_id": "security-stale-advisory-incomplete",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "reliability_fixture",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-07",
+      "hashes": {
+        "input": "825221e8a1f2f180486abb43e02b421d73cac037b137854fc8aaf0da3e7105bd",
+        "truth": "9d0ecd7c7ee38292d6d747503153c3227cbdfcdb2e5515636aa7c4dee4a03407",
+        "oracle": "37795bff69acae96c830fe5225d7aadc38d06b2e696df15f261ca20613113942"
+      },
+      "case_digest": "95fbb0368ea61634506352bfe00fa180bfe47ba714330ea9760568b8bddf44b6",
+      "base": {
+        "commit": "eea8c008e1c15f2a7332088cd08392de227169b3",
+        "tree": "55b0241ae36d190593ffc71a1eb981d3d5812c5f",
+        "blobs": {
+          "coverage.py": {
+            "git_blob": "ca3c03819f4f86a1bf12fab4b514f9ee33a67b70",
+            "sha256": "ba21b664325d44ad84a73c39e7bb45b714f65de5fe8e8cde2abb95924aa54c86",
+            "bytes": 627
+          },
+          "package-lock.json": {
+            "git_blob": "4a7ef8ed67cea276686daa895cefbe5cbe431c10",
+            "sha256": "fc90caf86af365a99c5f3d2ffbe1a391a77224b8f802cea2daa36a10e269454d",
+            "bytes": 201
+          },
+          "scanner-report.json": {
+            "git_blob": "79fcdd3a9ecea55392cf4ca7c9e37f7c9e811ad4",
+            "sha256": "e230f8cd9a6b21fdbd38ec8cfe89ddb84f240170424dc275b29baadf1bea23dc",
+            "bytes": 169
+          }
+        }
+      },
+      "head": {
+        "commit": "aabba4e8ca4cfb4df625870f0a181c60b90ff0b2",
+        "tree": "55b0241ae36d190593ffc71a1eb981d3d5812c5f",
+        "blobs": {
+          "coverage.py": {
+            "git_blob": "ca3c03819f4f86a1bf12fab4b514f9ee33a67b70",
+            "sha256": "ba21b664325d44ad84a73c39e7bb45b714f65de5fe8e8cde2abb95924aa54c86",
+            "bytes": 627
+          },
+          "package-lock.json": {
+            "git_blob": "4a7ef8ed67cea276686daa895cefbe5cbe431c10",
+            "sha256": "fc90caf86af365a99c5f3d2ffbe1a391a77224b8f802cea2daa36a10e269454d",
+            "bytes": 201
+          },
+          "scanner-report.json": {
+            "git_blob": "79fcdd3a9ecea55392cf4ca7c9e37f7c9e811ad4",
+            "sha256": "e230f8cd9a6b21fdbd38ec8cfe89ddb84f240170424dc275b29baadf1bea23dc",
+            "bytes": 169
+          }
+        }
+      },
+      "merge_base_sha": "eea8c008e1c15f2a7332088cd08392de227169b3",
+      "default_branch_sha": "aabba4e8ca4cfb4df625870f0a181c60b90ff0b2",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [
+        "coverage.py",
+        "scanner-report.json"
+      ],
+      "expected_assigned_units": 2,
+      "scanner_inventory_paths": [
+        "coverage.py",
+        "package-lock.json",
+        "scanner-report.json"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": [
+        {
+          "path": "package-lock.json",
+          "reason": "scanner_only_resolved_dependency_data"
+        }
+      ]
+    },
+    {
+      "case_id": "sec-08",
+      "family_id": "security-no-supported-targets",
+      "workload": "security",
+      "split": "pilot",
+      "evaluation_track": "reliability_fixture",
+      "repository_id": "synthetic://mortis-engine-pilot-v1/sec-08",
+      "hashes": {
+        "input": "35988cc8921c206f6518dc7654de2579b953e1a72f3ec2659c1b69514198df37",
+        "truth": "001edea7ac8f2fdcecd69804b1a19b2f86052232224b58dd8f8e497e03697bac",
+        "oracle": "d035edadac03ce3077a5c9a8e2fb860540b21ca256e4528e723e3e8927162e41"
+      },
+      "case_digest": "b8ac1e813f6a409ea276effd9d344356d1a06b488f3f5a3833031855239982d6",
+      "base": {
+        "commit": "1659e16dca7475dfab230ca35b996cbac68c6216",
+        "tree": "68805f137639f8f533c62f0e3f63dac1451c11a1",
+        "blobs": {
+          "README.md": {
+            "git_blob": "96263bfa1d10ddbc59d134e83f0560bdc5a02ef6",
+            "sha256": "4ebf329268ba8c33e316b70806533d5788d0f8345b8ff61fadeb7a7f1ebd3a65",
+            "bytes": 644
+          },
+          "guide.mdx": {
+            "git_blob": "4e19e3833189c7774aa42dd2611ecb0102f7366e",
+            "sha256": "d7b274aaa5745930bbf5d0e27eaf32ed287fb91c211a4abcbe2a05431397b8a1",
+            "bytes": 519
+          }
+        }
+      },
+      "head": {
+        "commit": "b88cc73934c175c8b1bb777e01b74c673c442124",
+        "tree": "68805f137639f8f533c62f0e3f63dac1451c11a1",
+        "blobs": {
+          "README.md": {
+            "git_blob": "96263bfa1d10ddbc59d134e83f0560bdc5a02ef6",
+            "sha256": "4ebf329268ba8c33e316b70806533d5788d0f8345b8ff61fadeb7a7f1ebd3a65",
+            "bytes": 644
+          },
+          "guide.mdx": {
+            "git_blob": "4e19e3833189c7774aa42dd2611ecb0102f7366e",
+            "sha256": "d7b274aaa5745930bbf5d0e27eaf32ed287fb91c211a4abcbe2a05431397b8a1",
+            "bytes": 519
+          }
+        }
+      },
+      "merge_base_sha": "1659e16dca7475dfab230ca35b996cbac68c6216",
+      "default_branch_sha": "b88cc73934c175c8b1bb777e01b74c673c442124",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected_paths": [],
+      "expected_assigned_units": 0,
+      "scanner_inventory_paths": [
+        "README.md",
+        "guide.mdx"
+      ],
+      "selection_contract": "analysis_paths_separate_from_scanner_inventory",
+      "unavailable": [],
+      "excluded": [
+        {
+          "path": "README.md",
+          "reason": "unsupported_security_target"
+        },
+        {
+          "path": "guide.mdx",
+          "reason": "unsupported_security_target"
+        }
+      ]
+    }
+  ],
+  "profile_sha256": "60061de85920b6558322b3a61363d512271ddd70ad0100a9a794b25a9db68456",
+  "review_sha256": {
+    "adjudication.json": "3878fa049740f16919e45c1e6f8116c48b895aab07cbbdfacd79824439fc6e8c",
+    "initial-a.json": "bd1c5787c7b152ca24d5ccc4241d75679b523108ee193f692a1b356f0a7e98af",
+    "initial-b.json": "99b76ba91769733a81c4a0c4fcd56181af024e121dbe95863f43062767b76878",
+    "initial-c.json": "e3963ccfdc3907c32f8d851841219843a451fbd47cfa3bc1902ba1f9c5a38909",
+    "reviewer-a.json": "df9ac1996d28d7c7615aa157436adb062ede030d4aecd5f6482012a24e6e275f",
+    "reviewer-b.json": "3ff9645f0a11e75722b3b2c6ef2ed1eedaa7a58889212bcea85d188fb6b81594",
+    "reviewer-c.json": "362512f4902b508a3fcbdc3a8c5453eead6f2f929c3e5ca390b3688ac94bb2a8"
+  },
+  "selection_evidence_sha256": "114acd1cef13fe5acf9de537dc28d62401b58e8a0a8a51ffb5b05e69d59917f2",
+  "corpus_digest": "7138800b218434b00bcda4802c8f17dad11bbe6510aeb2b9af20a4861a82f772"
+}

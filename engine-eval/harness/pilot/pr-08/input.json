@@ -1,0 +1,25 @@
+{
+  "case_id": "pr-08",
+  "family_id": "validated-file-outcome-aggregation",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "Selected paths are the complete assignment. A file is completed only when it has one completed result with a list of comment objects. Missing, failed, or malformed file results remain incomplete. A run can be clean only when every selected file completed with no findings. This change adds a fast path for empty provider comment collections.",
+  "base": {
+    "src/results.py": "def aggregate_results(selected, results):\n    if len(set(selected)) != len(selected):\n        raise ValueError('Selected paths must be unique')\n    by_path = {}\n    invalid = False\n    for item in results:\n        path = item.get('path')\n        if path not in selected or path in by_path:\n            invalid = True\n            continue\n        by_path[path] = item\n    completed = 0\n    findings = []\n    for path in selected:\n        item = by_path.get(path, {})\n        comments = item.get('comments')\n        if item.get('status') != 'completed' or not isinstance(comments, list):\n            invalid = True\n            continue\n        if any(not isinstance(comment, dict) for comment in comments):\n            invalid = True\n            continue\n        completed += 1\n        findings.extend(comments)\n    complete = not invalid and completed == len(selected) and bool(selected)\n    state = 'clean' if complete and not findings else 'findings' if complete else 'incomplete'\n    return {'state': state, 'completed': completed, 'findings': findings}\n"
+  },
+  "head": {
+    "src/results.py": "def aggregate_results(selected, results):\n    if len(set(selected)) != len(selected):\n        raise ValueError('Selected paths must be unique')\n    by_path = {}\n    invalid = False\n    for item in results:\n        path = item.get('path')\n        if path not in selected or path in by_path:\n            invalid = True\n            continue\n        by_path[path] = item\n    completed = 0\n    findings = []\n    for path in selected:\n        item = by_path.get(path, {})\n        comments = item.get('comments')\n        if not comments:\n            completed += 1\n            continue\n        if item.get('status') != 'completed' or not isinstance(comments, list):\n            invalid = True\n            continue\n        if any(not isinstance(comment, dict) for comment in comments):\n            invalid = True\n            continue\n        completed += 1\n        findings.extend(comments)\n    complete = not invalid and completed == len(selected) and bool(selected)\n    state = 'clean' if complete and not findings else 'findings' if complete else 'incomplete'\n    return {'state': state, 'completed': completed, 'findings': findings}\n"
+  },
+  "selection": {
+    "paths": [
+      "src/results.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

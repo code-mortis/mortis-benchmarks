@@ -1,0 +1,25 @@
+{
+  "case_id": "sec-01",
+  "family_id": "security-sql-catalog-filter",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "This public catalog search accepts a literal title supplied by an unauthenticated reader. Only enabled entries may be returned; disabled internal entries must remain hidden. The complete SQLite fixture models the service query, without external data.",
+  "base": {
+    "catalog.py": "\"\"\"Public search exposes enabled catalog entries only.\"\"\"\nimport sqlite3\n\n\ndef search_catalog(term):\n    connection = sqlite3.connect(\":memory:\")\n    try:\n        connection.execute(\"CREATE TABLE catalog (id INTEGER, title TEXT, enabled INTEGER)\")\n        connection.executemany(\n            \"INSERT INTO catalog VALUES (?, ?, ?)\",\n            [(1, \"public widget\", 1), (2, \"internal export\", 0)],\n        )\n        query = (\n            \"SELECT id, title FROM catalog \"\n            f\"WHERE enabled = 1 AND title = '{term}'\"\n        )\n        return connection.execute(query).fetchall()\n    finally:\n        connection.close()\n"
+  },
+  "head": {
+    "catalog.py": "\"\"\"Public search exposes enabled catalog entries only.\"\"\"\nimport sqlite3\n\n\ndef search_catalog(term):\n    connection = sqlite3.connect(\":memory:\")\n    try:\n        connection.execute(\"CREATE TABLE catalog (id INTEGER, title TEXT, enabled INTEGER)\")\n        connection.executemany(\n            \"INSERT INTO catalog VALUES (?, ?, ?)\",\n            [(1, \"public widget\", 1), (2, \"internal export\", 0)],\n        )\n        query = (\n            \"SELECT id, title FROM catalog \"\n            f\"WHERE enabled = 1 AND title = '{term}'\"\n        )\n        return connection.execute(query).fetchall()\n    finally:\n        connection.close()\n"
+  },
+  "selection": {
+    "paths": [
+      "catalog.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}

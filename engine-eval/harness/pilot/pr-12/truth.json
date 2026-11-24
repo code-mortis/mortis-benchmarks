@@ -1,0 +1,13 @@
+{
+  "case_id": "pr-12",
+  "expected": "incomplete",
+  "defects": [],
+  "control": {
+    "src/coordinator.py": "def summarize(assigned, outcomes, unavailable=()):\n    unavailable = set(unavailable)\n    selected = set(assigned)\n    if len(selected) != len(assigned) or not unavailable <= selected:\n        raise ValueError('Assignment metadata is inconsistent')\n    complete = []\n    incomplete = []\n    for path in assigned:\n        result = outcomes.get(path)\n        if path in unavailable or not isinstance(result, dict):\n            incomplete.append(path)\n            continue\n        if result.get('status') != 'completed':\n            incomplete.append(path)\n            continue\n        complete.append(path)\n    status = 'completed' if complete and not incomplete else 'incomplete'\n    return {'status': status, 'completed': complete, 'unavailable': sorted(unavailable)}\n\n\ndef display_status(summary):\n    if summary['status'] == 'incomplete':\n        return 'Review incomplete: some selected files could not be checked.'\n    return 'All selected file checks completed.'\n"
+  },
+  "oracle_head": true,
+  "oracle_control": true,
+  "limitations": [
+    "The oracle proves only coordinator metadata behavior. src/worker.py source and patch are unavailable in both revisions, so worker correctness and whole-change cleanliness have no supported conclusion. A true structural oracle result must not score this case as clean."
+  ]
+}

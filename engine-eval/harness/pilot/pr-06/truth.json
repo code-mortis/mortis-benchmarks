@@ -1,0 +1,14 @@
+{
+  "case_id": "pr-06",
+  "expected": "clean",
+  "defects": [],
+  "control": {
+    "members.py": "def display_name(value):\n    return \" \".join(value.split())\n\n\ndef visible_names(members):\n    \"\"\"Return active display names sorted case-insensitively and stably.\"\"\"\n    names = (\n        display_name(member[\"name\"])\n        for member in members\n        if not member.get(\"archived\", False)\n    )\n    return sorted((name for name in names if name), key=str.casefold)\n\n\ndef member_count(members):\n    return len(visible_names(members))\n"
+  },
+  "oracle_head": true,
+  "oracle_control": true,
+  "limitations": [
+    "Original synthetic Python case; verifies fixture semantics, not either review engine or production integration.",
+    "Oracle samples the documented boundary; independent adjudication and broader quality evaluation remain separate."
+  ]
+}

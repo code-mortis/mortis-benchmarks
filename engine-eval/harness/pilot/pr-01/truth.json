@@ -1,0 +1,35 @@
+{
+  "case_id": "pr-01",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "pr-01-d1",
+      "severity": "medium",
+      "cause": "The new implementation rounds each line tax before summing, replacing invoice-level rounding.",
+      "trigger": "An invoice with two net lines of Decimal 0.05 at rate Decimal 0.10.",
+      "consequence": "Tax becomes 0.00 rather than 0.01; line splitting changes the invoice total and undercharges tax.",
+      "boundary": "billing.tax_total -> invoice_totals currency calculation",
+      "locations": [
+        {
+          "path": "billing.py",
+          "start_line": 14,
+          "end_line": 15
+        }
+      ],
+      "evidence": {
+        "original": "taxable = sum(amounts, Decimal(\"0\")); round taxable * rate once",
+        "current": "Each 0.005 line tax is half-even rounded to 0.00 before summing."
+      },
+      "proof": "oracle.check(head) is false; base/control produce Decimal(\"0.01\") tax and oracle.check(control) is true."
+    }
+  ],
+  "control": {
+    "billing.py": "from decimal import Decimal, ROUND_HALF_EVEN\n\nCENT = Decimal(\"0.01\")\n\n\ndef tax_total(net_amounts, rate):\n    \"\"\"Return the invoice tax in currency units using half-even rounding.\"\"\"\n    if not isinstance(rate, Decimal) or not Decimal(\"0\") <= rate <= Decimal(\"1\"):\n        raise ValueError(\"rate must be a Decimal between zero and one\")\n    amounts = list(net_amounts)\n    for amount in amounts:\n        if not isinstance(amount, Decimal) or amount < 0:\n            raise ValueError(\"net amounts must be nonnegative Decimals\")\n    taxable = sum(amounts, Decimal(\"0\"))\n    return (taxable * rate).quantize(CENT, rounding=ROUND_HALF_EVEN)\n\n\ndef invoice_totals(net_amounts, rate):\n    amounts = list(net_amounts)\n    subtotal = sum(amounts, Decimal(\"0\"))\n    tax = tax_total(amounts, rate)\n    return {\"subtotal\": subtotal, \"tax\": tax, \"total\": subtotal + tax}\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "Original synthetic Python case; verifies fixture semantics, not either review engine or production integration.",
+    "Oracle samples the documented boundary; independent adjudication and broader quality evaluation remain separate."
+  ]
+}

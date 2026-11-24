@@ -1,0 +1,28 @@
+{
+  "case_id": "sec-05",
+  "family_id": "security-restricted-storage-policy",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "This infrastructure renderer configures customer-invoice storage. A restricted bucket must grant reads only to invoice-service, including when public_read is omitted. Public asset buckets may explicitly enable anonymous reads. The deployment adapter applies read_principals literally; * means every unauthenticated requester. bucket.json is the complete deployment input.",
+  "base": {
+    "storage.py": "\"\"\"Render storage policy consumed by the deployment adapter.\"\"\"\nimport json\n\n\ndef render_policy(config_json):\n    config = json.loads(config_json)\n    if config.get(\"classification\") not in {\"restricted\", \"public\"}:\n        raise ValueError(\"Explicit data classification required\")\n    name = config[\"bucket\"]\n    if not isinstance(name, str) or not name:\n        raise ValueError(\"Bucket name required\")\n    public_read = config.get(\"public_read\", True)\n    if type(public_read) is not bool:\n        raise ValueError(\"public_read must be boolean\")\n    return {\"bucket\": name, \"read_principals\": [\"*\"] if public_read else [\"invoice-service\"]}\n",
+    "bucket.json": "{\n  \"bucket\": \"fixture-invoices\",\n  \"classification\": \"restricted\"\n}\n"
+  },
+  "head": {
+    "storage.py": "\"\"\"Render storage policy consumed by the deployment adapter.\"\"\"\nimport json\n\n\ndef render_policy(config_json):\n    config = json.loads(config_json)\n    if config.get(\"classification\") not in {\"restricted\", \"public\"}:\n        raise ValueError(\"Explicit data classification required\")\n    name = config[\"bucket\"]\n    if not isinstance(name, str) or not name:\n        raise ValueError(\"Bucket name required\")\n    public_read = config.get(\"public_read\", True)\n    if type(public_read) is not bool:\n        raise ValueError(\"public_read must be boolean\")\n    return {\"bucket\": name, \"read_principals\": [\"*\"] if public_read else [\"invoice-service\"]}\n",
+    "bucket.json": "{\n  \"bucket\": \"fixture-invoices\",\n  \"classification\": \"restricted\"\n}\n"
+  },
+  "selection": {
+    "paths": [
+      "bucket.json",
+      "storage.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}

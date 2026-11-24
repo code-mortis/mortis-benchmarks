@@ -1,0 +1,29 @@
+{
+  "case_id": "pr-07",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "pr-07-d1",
+      "severity": "high",
+      "cause": "The retry attempt number changes the gateway idempotency key for the same order.",
+      "trigger": "A first charge commits but its response times out; the second attempt uses another key.",
+      "consequence": "One purchase charges the customer twice.",
+      "boundary": "External payment side effect and retry identity",
+      "locations": [
+        {
+          "path": "src/checkout.py",
+          "start_line": 14,
+          "end_line": 14
+        }
+      ],
+      "evidence": "The key includes str(attempt), while gateway.charge deduplicates only identical keys.",
+      "proof": "oracle.py executes an in-memory gateway that records committed charges before losing the first response; head records two charges, fixed control records one."
+    }
+  ],
+  "control": {
+    "src/checkout.py": "class CheckoutUnavailable(Exception):\n    pass\n\n\ndef charge_order(order, gateway, max_attempts=2):\n    if not isinstance(order['id'], str) or not order['id']:\n        raise ValueError('Order identity is required')\n    amount = order['amount_cents']\n    if type(amount) is not int or amount <= 0:\n        raise ValueError('Charge must be positive integer cents')\n    if type(max_attempts) is not int or not 1 <= max_attempts <= 3:\n        raise ValueError('Invalid attempt count')\n    for attempt in range(max_attempts):\n        key = 'order:' + order['id']\n        try:\n            receipt = gateway.charge(amount, idempotency_key=key)\n        except TimeoutError:\n            if attempt + 1 == max_attempts:\n                raise CheckoutUnavailable('Payment status unavailable')\n            continue\n        return {'order_id': order['id'], 'receipt': receipt}\n    raise CheckoutUnavailable('No payment attempt completed')\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": []
+}

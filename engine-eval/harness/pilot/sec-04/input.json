@@ -1,0 +1,25 @@
+{
+  "case_id": "sec-04",
+  "family_id": "security-archive-restore-destination",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "A member with backup-import permission uploads an untrusted archive. The extractor does not choose paths: it writes regular members only to destinations produced by restore_plan, in order. Every destination must stay inside /srv/imports/current. The upload permission does not grant access outside that root. No symlinks exist in the fixture.",
+  "base": {
+    "restore.py": "\"\"\"Build file-write destinations for an imported backup archive.\"\"\"\nfrom pathlib import PurePosixPath\n\n\ndef restore_plan(members):\n    root = PurePosixPath(\"/srv/imports/current\")\n    planned = []\n    for member in members:\n        if member[\"kind\"] != \"file\":\n            raise ValueError(\"Only regular archive members are supported\")\n        name = member[\"name\"]\n        if not isinstance(name, str) or not name or \"\\x00\" in name:\n            raise ValueError(\"Invalid archive member name\")\n        destination = root / PurePosixPath(name)\n        planned.append(str(destination))\n    return planned\n"
+  },
+  "head": {
+    "restore.py": "\"\"\"Build file-write destinations for an imported backup archive.\"\"\"\nfrom pathlib import PurePosixPath\n\n\ndef restore_plan(members):\n    root = PurePosixPath(\"/srv/imports/current\")\n    planned = []\n    for member in members:\n        if member[\"kind\"] != \"file\":\n            raise ValueError(\"Only regular archive members are supported\")\n        name = member[\"name\"]\n        if not isinstance(name, str) or not name or \"\\x00\" in name:\n            raise ValueError(\"Invalid archive member name\")\n        destination = root / PurePosixPath(name)\n        planned.append(str(destination))\n    return planned\n"
+  },
+  "selection": {
+    "paths": [
+      "restore.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}

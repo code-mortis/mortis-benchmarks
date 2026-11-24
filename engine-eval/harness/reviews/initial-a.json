@@ -1,0 +1,230 @@
+{
+  "reviewer_id": "/root/ocr_feature_inventory",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "stage": "All 14 nonauthored input-only drafts frozen before reading any truth.json or oracle.py",
+  "reviewed_cases": [
+    {
+      "case_id": "pr-07",
+      "input_sha256": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "Adding the attempt number changes the idempotency key after an ambiguous timeout.",
+            "severity": "high",
+            "locations": [
+              {
+                "path": "src/checkout.py",
+                "start_line": 14,
+                "end_line": 14
+              }
+            ],
+            "proof": "Gateway may commit attempt zero then time out; attempt one uses a different key, producing a second charge for the same order."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "pr-08",
+      "input_sha256": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "The falsey-comments fast path increments completed before validating status or comment-list type.",
+            "severity": "high",
+            "locations": [
+              {
+                "path": "src/results.py",
+                "start_line": 17,
+                "end_line": 19
+              }
+            ],
+            "proof": "aggregate_results([\"a.py\"],[]) obtains an empty item, comments None, counts one completed file and returns clean despite no result; failed files with [] are likewise counted."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "pr-09",
+      "input_sha256": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "The untrusted request account replaces the account bound to the reset token, removing the binding check.",
+            "severity": "critical",
+            "locations": [
+              {
+                "path": "src/auth.py",
+                "start_line": 8,
+                "end_line": 8
+              }
+            ],
+            "proof": "A caller holding a valid token for their own account supplies another existing account plus a >=16-character new_hash; head overwrites the other account hash and returns true."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "pr-10",
+      "input_sha256": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+      "draft": {
+        "verdict": "clean",
+        "defects": [],
+        "proof": "TOML concurrency changes 2->4 within the context-supported 1..8 range; README changes to 4; local binding/queue/retries/logging remain consistent."
+      }
+    },
+    {
+      "case_id": "pr-11",
+      "input_sha256": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "draft": {
+        "verdict": "clean",
+        "defects": [],
+        "proof": "The selected report source preserves validation and exposes version=2,total=sum(completed,failed); excluded generated/config files are declared nondependencies. No selected-source defect found."
+      }
+    },
+    {
+      "case_id": "pr-12",
+      "input_sha256": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "draft": {
+        "verdict": "incomplete",
+        "defects": [],
+        "proof": "Available coordinator source only changes accurate incomplete wording and explicitly refuses unavailable worker completion. Missing selected worker prevents a whole-assignment clean verdict."
+      }
+    },
+    {
+      "case_id": "sec-01",
+      "input_sha256": "5544d855ed83a945c56c41c42a828c36da8c113fe81321e2c8da2c117fcc453e",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "The untrusted title is interpolated into SQL instead of bound as a literal value.",
+            "severity": "high",
+            "locations": [
+              {
+                "path": "catalog.py",
+                "start_line": 15,
+                "end_line": 15
+              }
+            ],
+            "proof": "term=\"' OR 1=1 --\" makes the enabled predicate irrelevant and returns the disabled internal catalog row as well."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "sec-02",
+      "input_sha256": "5d906d9e8aaa15e6f204592cecce6209f567d3d3320a17820493a3ca50cfd72a",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "Authentication and a nonempty tenant do not compare invoice.tenant_id with principal.tenant_id.",
+            "severity": "high",
+            "locations": [
+              {
+                "path": "invoices.py",
+                "start_line": 13,
+                "end_line": 16
+              }
+            ],
+            "proof": "Authenticated tenant-a can request inv-b and receive tenant-b total_cents=9200."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "sec-03",
+      "input_sha256": "8c50332f08254e0acbd6854462b95a788ff46b05ee8d619af579e0de9a346bf6",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "Joining attacker input to a PurePosixPath does not enforce relative containment; absolute paths replace the root and .. remains traversable by the downstream opener.",
+            "severity": "high",
+            "locations": [
+              {
+                "path": "downloads.py",
+                "start_line": 14,
+                "end_line": 15
+              }
+            ],
+            "proof": "Tenant-a can submit ../tenant-b/export.csv or /etc/passwd and receive an out-of-root path opened verbatim by the documented adapter."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "sec-04",
+      "input_sha256": "e5b0b357f448c35bb129016efd8376d62b7b252c139cf99c1ad82347a4845e45",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "Archive regular member names are joined without rejecting absolute names or parent traversal before returning file-write destinations.",
+            "severity": "high",
+            "locations": [
+              {
+                "path": "restore.py",
+                "start_line": 14,
+                "end_line": 15
+              }
+            ],
+            "proof": "A regular member with name ../../other/config.py or /tmp/outside.py obtains a destination outside /srv/imports/current; documented extractor writes there."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "sec-05",
+      "input_sha256": "b31de3a5fd5d8e89d3aeee75ed90f06c60e1138579079d8d18673e6e8c21b2cf",
+      "draft": {
+        "verdict": "defect",
+        "defects": [
+          {
+            "cause": "The policy validates classification but never enforces restricted storage: public_read defaults true, and explicit true is also accepted for restricted buckets.",
+            "severity": "high",
+            "locations": [
+              {
+                "path": "storage.py",
+                "start_line": 12,
+                "end_line": 15
+              }
+            ],
+            "proof": "The supplied restricted bucket omits public_read and renders read_principals=[\"*\"], exposing customer invoices to unauthenticated readers. Setting public_read=true remains inconsistent with the stated restricted requirement."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "sec-06",
+      "input_sha256": "0e03599eb5851e9e9c3b0bae6c68312d2a1a71add1ef0cb4b0915801f3f7c4b2",
+      "draft": {
+        "verdict": "clean",
+        "defects": [],
+        "proof": "Trusted tenant is checked and included as a bound SQL predicate; attacker reference is another bound parameter. No authentication/tenant/SQL-injection defect found in complete fixture."
+      }
+    },
+    {
+      "case_id": "sec-07",
+      "input_sha256": "54baec4f7ca106f6e99a5a9bf76e26ee1a257dccc515675b43b9f1b452e571c7",
+      "draft": {
+        "verdict": "incomplete",
+        "defects": [],
+        "proof": "Authoritative report has stale 49-hour DB and unavailable vulnerability scanner; coverage_outcome correctly returns incomplete/clean=false. No defect in that source, but no whole-scan clean result possible."
+      }
+    },
+    {
+      "case_id": "sec-08",
+      "input_sha256": "35988cc8921c206f6518dc7654de2579b953e1a72f3ec2659c1b69514198df37",
+      "draft": {
+        "verdict": "incomplete",
+        "defects": [],
+        "proof": "Complete tree has documentation only, all unsupported for this explicitly defined semantic-security/scanner policy. No eligible implementation evidence exists to certify clean."
+      }
+    }
+  ]
+}

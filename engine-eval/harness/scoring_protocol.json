@@ -1,0 +1,17 @@
+{
+  "schema": "mortis-engine-scoring-protocol/v1",
+  "evaluation_protocol": "mortis-engine-eval/v1.1",
+  "version": "2026-11-07.1",
+  "arms": ["ocr", "mortis"],
+  "bootstrap": {"resamples": 10000, "seed": 20261107, "cluster": "family_id", "lower_quantile": 0.05, "minimum_families": 20},
+  "percentiles": "nearest_rank",
+  "matching": "Independent arm-blinded semantic judgment of cause, trigger, consequence and supporting evidence; path/rule overlap alone never establishes a true positive.",
+  "duplicates": "One finding matches at most one defect; additional findings for that defect are false positives for precision.",
+  "uncertain": "Pending; never a true positive. Unresolved judgments prevent quality acceptance.",
+  "zero_denominator": "undefined",
+  "pair_identity": ["source_sha256", "scope_sha256", "settings_sha256", "effective_resources_sha256", "conditions_sha256"],
+  "quality_acceptance": "Both point precision/recall differences and one-sided 95% lower bounds >= 0; no high/critical loss, incomplete coverage, invariant violation or unresolved judgment. Tiny, no-event and degenerate bootstrap samples are inconclusive.",
+  "performance": "Separate workload/graph/cold-warm strata; all attempts and consumption retained. Speed claims require identical pair identities, complete validated required work, known accounting and representative sealed evidence.",
+  "pilot_limit": "The existing 20 implementer-visible synthetic fixtures are a feasibility pilot, not a sealed holdout. Never tune, relabel or refreeze them in response to engine outputs.",
+  "missing_acceptance_strata": ["sealed independent heldout", "100 PR and 40 security cases", "representative historical defects", "human or external expert adjudication", "critical defects", "large changes", "other languages", "graph-on and graph-gap comparisons", "fresh scanner advisory coverage", "repeated runs", "warm caches", "overlapping workloads"]
+}

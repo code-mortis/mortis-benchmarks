@@ -1,0 +1,450 @@
+{
+  "schema": "mortis-engine-acceptance-protocol/v2",
+  "version": "2026-11-08.frozen-corpus-fixed-blocks-v1",
+  "status": "ready_for_final_prospective_seal",
+  "approved_by": "owner_delegated_engineering_judgment_2026-11-08",
+  "materiality": {
+    "baseline_calibration_sha256": "6b3cc51a2f911c2af8f63839ce01553f4374f03502846d0c013a0d0bab4152d5",
+    "materiality_decision_sha256": "2adbb5a18e5799297a70393f0168edf9ecd04c5ba5333c77553cd426fac358a9",
+    "calibration_kind": "controlled_ocr_engine_overhead",
+    "rationale": "Owner-delegated engineering caps frozen before paired Mortis diagnostic outputs: BOTH p50 <= OCR +1000ms and <=1.05*OCR; BOTH p95 <= OCR +2000ms and <=1.10*OCR, independently for PR/security and each declared stratum. Separate five-repetition OCR-only quiet-Docker calibration observed PR p50 20.180s (spread 0.327s), security p50 5.647s (spread 0.653s). Noise requires more independent paired evidence rather than wider margins; an additional 10s dispatcher tick is a meaningful regression. Calibration has only one visible family per workload and is not acceptance. No existing pilot ratio determined these caps.",
+    "selected_before_acceptance": true
+  },
+  "bootstrap": {
+    "resamples": 10000,
+    "seed": 20261108,
+    "confidence": 0.95,
+    "minimum_families": 20,
+    "minimum_families_source": "Legacy source-family inference floor only. New performance inference uses independent execution blocks with its own >=20 floor; finite-corpus quality separately declares >=19 actual source families."
+  },
+  "strata_rationale": "Live quality is limited to the independently reviewed frozen source corpus, once per case with graph off and no source pre-read. Source-cache pre-reading is a performance intervention, not extra accuracy evidence. Graph/source-inclusion functionality remains separately required. Controlled performance crosses all twelve PR/security x graph off/on/gap x cold/warm cells, with both the fixed profile mixture and each profile required to pass.",
+  "comparisons": [
+    {
+      "workload": "pr",
+      "graph": "off",
+      "cache": "cold",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "pr",
+      "graph": "off",
+      "cache": "warm",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "pr",
+      "graph": "on",
+      "cache": "cold",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "pr",
+      "graph": "on",
+      "cache": "warm",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "pr",
+      "graph": "gap",
+      "cache": "cold",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "pr",
+      "graph": "gap",
+      "cache": "warm",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "security",
+      "graph": "off",
+      "cache": "cold",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "security",
+      "graph": "off",
+      "cache": "warm",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "security",
+      "graph": "on",
+      "cache": "cold",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "security",
+      "graph": "on",
+      "cache": "warm",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "security",
+      "graph": "gap",
+      "cache": "cold",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    },
+    {
+      "workload": "security",
+      "graph": "gap",
+      "cache": "warm",
+      "latency": {
+        "p50": {
+          "absolute_ms": 1000,
+          "relative_fraction": 0.05,
+          "combine": "both"
+        },
+        "p95": {
+          "absolute_ms": 2000,
+          "relative_fraction": 0.1,
+          "combine": "both"
+        }
+      }
+    }
+  ],
+  "execution_profile_sha256": "caaf3bda856c348ae425f3530eae08f5b4bd555488728f7cc348c0418819a001",
+  "required_reliability_checks": [
+    "authorization",
+    "cancellation",
+    "changed_head",
+    "combined_capacity",
+    "coverage",
+    "duplicate_delivery",
+    "endpoint_restrictions",
+    "full_workflow_recovery",
+    "immutable_history",
+    "no_duplicate_publication",
+    "no_fallback",
+    "no_silent_resolution",
+    "production_code_paths",
+    "provider_failure",
+    "resource_headroom",
+    "retained_features",
+    "revocation",
+    "secret_handling",
+    "uncertain_consumption",
+    "uncertain_publication",
+    "worker_loss"
+  ],
+  "required_corpus_strata": [
+    "clean",
+    "critical_defects",
+    "cross_file",
+    "default_parallel_pr",
+    "documentation_config",
+    "excluded_source",
+    "graph_gaps",
+    "historical_defects",
+    "historical_verification",
+    "large_changes",
+    "missing_evidence",
+    "other_languages",
+    "overlapping_workloads",
+    "renames_deletions",
+    "security_above_concurrency",
+    "unsupported_formats"
+  ],
+  "quality_rule": "Owner-approved prospective amendment: exact no-regression in observed precision and recall on the independently reviewed frozen corpus, all confirmed high/critical defects retained, all planned work and reliability gates complete. Family confidence bounds are descriptive; degenerate or imprecise bounds do not establish population parity. Original pilot rules/results remain unchanged. Performance confidence thresholds are unchanged.",
+  "latency_rule": "For every controlled workload/graph/cache cell and each fixed profile within that cell, resample entire paired execution blocks, preserving the same complete case mixture and both arms. Compute differences of arm p50/p95 values inside each draw, then max(absolute_excess_ms,relative_excess_ms); require the nominal one-sided 95% upper excess <=0 with all twenty planned complete independent blocks and nondegenerate evidence. BOTH p50 1000ms/5% and BOTH p95 2000ms/10% remain mandatory. No profile/cell/percentile compensates another. No early pass, optional stopping, source-family relabeling or subtraction of overlapping provider durations.",
+  "consumption_rule": "Freeze required request, total, input and output token counts; compare paired requests and total tokens, including all failures/retries. Preserve complete forwarded provider-event and durable ledger inventories: unfinished/unknown dispatch, inconsistent/missing token counts and unknown/reserved ledger usage block acceptance even when top-level totals look known. Optional invoice USD, cache and reasoning breakdowns remain descriptive unknowns when unreported; never replace them with zero or claim measured billing. Every declared finite cap additionally requires a known observable metric and remains enforced; the owner-selected current aggregate policy is explicitly uncapped, with no USD cap. Effective stage/resource/deadline limits remain bound separately by the frozen execution profile.",
+  "stretch_targets": {
+    "p50_relative_reduction": 0.5,
+    "p95_relative_reduction": 0.3,
+    "required_for_acceptance": false
+  },
+  "authorization": "Owner approved finite-corpus quality and conditional frozen-matrix block inference with unchanged nominal95% performance confidence/caps. Delegated engineering judgment selects fixed20 blocks before acceptance outputs. Final immutable seal and independent scope/evidence audit remain required before this execution; public adoption is not authorized.",
+  "repository_scope": [
+    "wilfredinni/code-mortis"
+  ],
+  "independent_reviewer_ids": [
+    "independent_agent:/root/m5_independent_acceptance",
+    "independent_agent:/root/m5_acceptance_security_judge"
+  ],
+  "allowed_signoff_kinds": [
+    "independent_agent"
+  ],
+  "signoff_authority": "Owner explicitly selected agent signoff. Fresh designated reviewers must be outside implementation and truth authoring, arm-blinded, and cover the entire packet through actual bound judgment documents. Never label agent review as human/external-expert review.",
+  "performance_measurement": {
+    "mode": "deterministic_local_provider",
+    "metric": "queue_to_terminal_ms",
+    "endpoint_scope": "loopback_only",
+    "configured_provider_delay_ms": 0,
+    "response_fixture_sha256": "b7a261d1a47589c29589690d92ff877408d678c44c9424061ea118e83a4ab05f",
+    "limitations": "External provider latency excluded by deterministic local responses and zero configured delay. Tiny local synthetic response processing, loopback round trips and observer overhead remain included; measured server wait is retained diagnostically, never subtracted from overlapping provider duration sums."
+  },
+  "performance_sampling": {
+    "pr": {
+      "minimum_cases": 2,
+      "repetitions": 20,
+      "repetition_rationale": "One paired execution of every fixed profile/cell in each of twenty prospectively frozen complete independent execution blocks. Repetitions are execution blocks, not independent source families."
+    },
+    "security": {
+      "minimum_cases": 2,
+      "repetitions": 20,
+      "repetition_rationale": "One paired execution of every fixed profile/cell in each of twenty prospectively frozen complete independent execution blocks. Repetitions are execution blocks, not independent source families."
+    }
+  },
+  "performance_fixture_rule": "Separate visible truth-free performance plan, cases and paired schedule; no heldout quality truth enters performance workers. Freeze expected_work counts per case (findings, assessment_candidates, historical_verification_targets, source_files, security_analysis_tasks). Include clean/single-file cases and designated nonempty assessment/history/cross-file cases in each workload, with a security case larger than frozen analysis_concurrency. Validate each measured case against its own declared counts and retained outcomes/tasks; do not force clean cases to produce findings. Pin semantically equivalent arm-specific response fixtures and unchanged effective limits. Block-mode v3 plans bind distinct profile_id values and explicit unique block_ids, with the same complete seeded-randomized case/arm schedule in every block. Each workload needs a real clean single-file profile and a real nonempty cross-file assessment/history profile; family_id remains provenance metadata, never the execution independence unit.",
+  "required_usage_fields": [
+    "requests",
+    "tokens",
+    "input_tokens",
+    "output_tokens"
+  ],
+  "comparison_usage_fields": [
+    "requests",
+    "tokens"
+  ],
+  "spending": {
+    "mode": "explicit_owner_uncapped",
+    "aggregate_request_cap": null,
+    "aggregate_token_cap": null,
+    "aggregate_usd_cap": null,
+    "stop_on_unknown_usage": true
+  },
+  "billing_limitation": "This selected-provider prospective acceptance protocol rejects any nonnull aggregate_usd_cap because no observed invoice/billing binding exists; adding a numeric top-level cost claim cannot make such a cap enforceable. This is an evaluation-protocol limitation, not removal of production budget/cap features. Owner-selected aggregate request/token/USD caps remain explicitly null here; finite request/token limits and frozen per-stage/resource/deadline limits still fail closed on missing metrics or excess.",
+  "quality_acceptance": {
+    "mode": "frozen_corpus",
+    "owner_approved": true,
+    "approved_at_date": "2026-11-08",
+    "population_confidence": "descriptive_only",
+    "no_high_critical_loss": true,
+    "scope": "No worse observed precision and recall on the independently reviewed sealed corpus in the two declared PR/security off/cold quality comparisons, once per source case. At least38 cases and19 actual source families per workload; family uncertainty is descriptive only. Undefined metrics, unresolved judgments, missing work, severe losses and reliability failures block. Source-cache pre-reads are not quality interventions; separate checks retain graph and source-inclusion features. Broader validation remains M6."
+  },
+  "quality_sampling": {
+    "pr": {
+      "minimum_cases": 38,
+      "minimum_families": 19,
+      "repetitions": 1,
+      "repetition_rationale": "One live paired accuracy evaluation per sealed source case. Cases sharing an actual source family remain clustered for descriptive quality uncertainty; no cache or graph repetitions manufacture new defects."
+    },
+    "security": {
+      "minimum_cases": 38,
+      "minimum_families": 19,
+      "repetitions": 1,
+      "repetition_rationale": "One live paired accuracy evaluation per sealed source case. Cases sharing an actual source family remain clustered for descriptive quality uncertainty; no cache or graph repetitions manufacture new defects."
+    }
+  },
+  "quality_comparisons": [
+    {
+      "workload": "pr",
+      "graph": "off",
+      "cache": "cold"
+    },
+    {
+      "workload": "security",
+      "graph": "off",
+      "cache": "cold"
+    }
+  ],
+  "performance_inference": {
+    "schema": "mortis-engine-fixed-matrix-block-inference/v1",
+    "mode": "fixed_matrix_blocks",
+    "blocks": 20,
+    "minimum_blocks": 20,
+    "order_seed": 20261108,
+    "case_weighting": "equal_fixed_cases",
+    "profilewise_required": true,
+    "confidence_method": "paired_block_percentile_bootstrap",
+    "scope": "conditional_frozen_matrix",
+    "stopping_rule": "fixed_n_no_early_acceptance",
+    "chosen_before_outputs": true,
+    "sample_size_rationale": "Delegated engineering choice for a bounded local experiment: fixed twenty complete blocks, two profiles per workload, all twelve workload/graph/cache cells, 960 arm executions (about six hours with the production polling interval). The user approved the paired-block approach and unchanged confidence/caps, not this exact N. N is selected prospectively by engineering before acceptance outcomes for practical runtime, not from observed acceptance latency. The inherited >=20 independent-unit floor is retained; no precision or power is established by this count.",
+    "independent_method_recommendation_blocks": 60,
+    "limitations": [
+      "The independent method review recommends sixty blocks for improved p95 tail resolution; delegated engineering judgment chooses twenty for the bounded experiment. Twenty observations/profile/cell make nearest-rank p95 the second largest; forty mixture observations/cell make it the third largest.",
+      "One-sided nominal 95% paired block percentile-bootstrap bounds retain the original confidence level and caps. They are approximate, not guaranteed exact finite-sample 95% coverage; small tail samples, atoms, drift and dependence can under-cover. More resamples do not add execution information.",
+      "Inference concerns repeated execution of this exact equal-weight fixed matrix on the frozen host/resource/cache setup. It does not establish population workload parity, all historical snapshots, external-provider latency or M6 readiness.",
+      "Each whole block must be independently reset and complete, with fixed cases and resource conditions and seeded random pair/arm order. Repetitions alone do not prove independence. Preserve reset/resource/timestamp evidence for independent review.",
+      "No early acceptance at a partial block count and no optional extension until pass. Missing work, invalid resources, failures, degenerate bounds and inconclusive bounds block acceptance. Keep every failed attempt and its usage; a later experiment needs its own prospective design."
+    ]
+  },
+  "strata_claims": {
+    "clean": {
+      "role": "finite_live_quality",
+      "limit": "Only independently reviewed Python contract microcases; broader model accuracy is not established."
+    },
+    "critical_defects": {
+      "role": "finite_live_quality",
+      "limit": "Only independently reviewed Python contract microcases; broader model accuracy is not established."
+    },
+    "cross_file": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum. Prior visible pilot cross-file quality may be retained separately; it is not held-out evidence."
+    },
+    "default_parallel_pr": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "documentation_config": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "excluded_source": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "graph_gaps": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "historical_defects": {
+      "role": "static_historical_review",
+      "limit": "Source/proof review only; not new live model accuracy evidence."
+    },
+    "historical_verification": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "large_changes": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "missing_evidence": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "other_languages": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "overlapping_workloads": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "renames_deletions": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "security_above_concurrency": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    },
+    "unsupported_formats": {
+      "role": "functional_contract_and_workflow",
+      "limit": "Executed source-handling/workflow contracts; not representative live model accuracy for this stratum."
+    }
+  }
+}

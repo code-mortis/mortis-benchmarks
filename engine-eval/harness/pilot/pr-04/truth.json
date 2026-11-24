@@ -1,0 +1,35 @@
+{
+  "case_id": "pr-04",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "pr-04-d1",
+      "severity": "medium",
+      "cause": "The maximum-file predicate changes from strictly greater than to greater than or equal.",
+      "trigger": "A review selects exactly two eligible files with maximum=2.",
+      "consequence": "A valid review is marked skipped and dispatches no analysis despite being within the configured inclusive limit.",
+      "boundary": "select_review -> queue_review inference admission",
+      "locations": [
+        {
+          "path": "review_gate.py",
+          "start_line": 10,
+          "end_line": 10
+        }
+      ],
+      "evidence": {
+        "original": "len(selected) > maximum",
+        "current": "len(selected) >= maximum"
+      },
+      "proof": "The oracle checks equality, above-limit all-or-none behavior and None unlimited. Head fails equality; control passes all three."
+    }
+  ],
+  "control": {
+    "review_gate.py": "def select_review(paths, maximum):\n    \"\"\"Admit all eligible paths or skip; maximum=None means unlimited.\"\"\"\n    selected = list(paths)\n    if maximum is not None and (type(maximum) is not int or maximum <= 0):\n        raise ValueError(\"maximum must be a positive integer or None\")\n    if any(not isinstance(path, str) or not path for path in selected):\n        raise ValueError(\"eligible paths must be nonempty strings\")\n    if len(set(selected)) != len(selected):\n        raise ValueError(\"eligible paths must be unique\")\n    if maximum is not None and len(selected) > maximum:\n        return {\"status\": \"skipped\", \"selected\": selected, \"assigned\": []}\n    return {\"status\": \"ready\", \"selected\": selected, \"assigned\": selected}\n\n\ndef queue_review(paths, maximum, dispatch):\n    plan = select_review(paths, maximum)\n    if plan[\"status\"] == \"ready\":\n        for path in plan[\"assigned\"]:\n            dispatch(path)\n    return plan\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "Original synthetic Python case; verifies fixture semantics, not either review engine or production integration.",
+    "Oracle samples the documented boundary; independent adjudication and broader quality evaluation remain separate."
+  ]
+}

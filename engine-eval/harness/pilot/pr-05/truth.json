@@ -1,0 +1,42 @@
+{
+  "case_id": "pr-05",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "pr-05-d1",
+      "severity": "medium",
+      "cause": "The formatter module is removed/renamed while report.py still imports its old module name.",
+      "trigger": "The email adapter imports report after deploying the complete head source tree.",
+      "consequence": "ModuleNotFoundError prevents report loading, so all invoice report rendering becomes unavailable.",
+      "boundary": "formatter.py -> rendering.py rename and report.py import dependency",
+      "locations": [
+        {
+          "path": "report.py",
+          "start_line": 3,
+          "end_line": 3
+        }
+      ],
+      "evidence": {
+        "base_path": "formatter.py",
+        "head_path": "rendering.py",
+        "caller": "from formatter import format_customer, format_total",
+        "head_tree": [
+          "rendering.py",
+          "report.py"
+        ],
+        "report_change": "The report module adds a module docstring but retains the formatter import in the changed file."
+      },
+      "proof": "The oracle uses an isolated in-memory importer that resolves only fixture modules, avoiding accidental host formatter imports. Head fails import; base/control render identical output."
+    }
+  ],
+  "control": {
+    "rendering.py": "from decimal import Decimal, ROUND_HALF_UP\n\n\ndef format_total(cents):\n    if type(cents) is not int or cents < 0:\n        raise ValueError(\"cents must be a nonnegative integer\")\n    amount = (Decimal(cents) / Decimal(100)).quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP)\n    return f\"USD {amount:.2f}\"\n\n\ndef format_customer(name):\n    normalized = \" \".join(name.split())\n    if not normalized:\n        raise ValueError(\"customer name is required\")\n    return normalized\n\n\ndef heading(name, cents):\n    return f\"{format_customer(name)}: {format_total(cents)}\"\n",
+    "report.py": "\"\"\"Billing report adapter for customer-facing invoice messages.\"\"\"\n\nfrom rendering import format_customer, format_total\n\n\ndef render_invoice(invoice):\n    \"\"\"Render the plain-text billing summary used by the email adapter.\"\"\"\n    if not isinstance(invoice, dict):\n        raise ValueError(\"invoice must be an object\")\n    customer = format_customer(invoice[\"customer\"])\n    total = format_total(invoice[\"total_cents\"])\n    invoice_id = invoice[\"id\"]\n    return f\"Invoice {invoice_id}\\nCustomer: {customer}\\nTotal: {total}\\n\"\n\n\ndef email_subject(invoice):\n    return f\"Invoice {invoice['id']} for {format_customer(invoice['customer'])}\"\n\n\ndef render_batch(invoices):\n    return [render_invoice(invoice) for invoice in invoices]\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "Original synthetic Python case; verifies fixture semantics, not either review engine or production integration.",
+    "Oracle samples the documented boundary; independent adjudication and broader quality evaluation remain separate."
+  ]
+}

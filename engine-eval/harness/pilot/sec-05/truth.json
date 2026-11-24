@@ -1,0 +1,32 @@
+{
+  "case_id": "sec-05",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "sec-05-restricted-bucket-anonymous-read",
+      "severity": "high",
+      "cause": "The renderer defaults missing public_read to True and does not enforce restricted classification.",
+      "trigger": "Deploy the supplied restricted customer-invoice bucket configuration, which omits public_read.",
+      "consequence": "The emitted policy grants anonymous reads to restricted invoice storage under the documented deployment adapter.",
+      "boundary": "Restricted customer data must not be exposed to anonymous readers by generated infrastructure policy.",
+      "locations": [
+        {
+          "path": "storage.py",
+          "start_line": 12,
+          "end_line": 12
+        }
+      ],
+      "evidence": "bucket.json selects restricted classification; the default emits read_principals=[\"*\"].",
+      "proof": "oracle.py parses supplied JSON, proves the emitted public principal, rejects explicit restricted-public configuration in the control, and preserves explicit public assets."
+    }
+  ],
+  "control": {
+    "storage.py": "\"\"\"Render storage policy consumed by the deployment adapter.\"\"\"\nimport json\n\n\ndef render_policy(config_json):\n    config = json.loads(config_json)\n    if config.get(\"classification\") not in {\"restricted\", \"public\"}:\n        raise ValueError(\"Explicit data classification required\")\n    name = config[\"bucket\"]\n    if not isinstance(name, str) or not name:\n        raise ValueError(\"Bucket name required\")\n    public_read = config.get(\"public_read\", False)\n    if type(public_read) is not bool:\n        raise ValueError(\"public_read must be boolean\")\n    if config[\"classification\"] == \"restricted\" and public_read:\n        raise ValueError(\"Restricted data cannot be public\")\n    return {\"bucket\": name, \"read_principals\": [\"*\"] if public_read else [\"invoice-service\"]}\n",
+    "bucket.json": "{\n  \"bucket\": \"fixture-invoices\",\n  \"classification\": \"restricted\"\n}\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "The access grant is proven in the emitted policy only; no storage bucket is provisioned and no live data is accessed."
+  ]
+}

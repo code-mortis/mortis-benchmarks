@@ -1,0 +1,29 @@
+{
+  "case_id": "sec-02",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "sec-02-cross-tenant-invoice",
+      "severity": "high",
+      "cause": "Lookup checks authentication but never compares the invoice tenant with the authenticated tenant.",
+      "trigger": "A tenant-a member requests inv-b, an existing tenant-b invoice ID.",
+      "consequence": "The caller receives tenant-b invoice contents across the isolation boundary.",
+      "boundary": "Trusted principal tenant membership must constrain client-selected invoice IDs.",
+      "locations": [
+        {
+          "path": "invoices.py",
+          "start_line": 16,
+          "end_line": 16
+        }
+      ],
+      "evidence": "The fetched invoice is returned after presence checks only.",
+      "proof": "oracle.py proves both tenants can read their own invoices; head also exposes the other tenant, while control returns None."
+    }
+  ],
+  "control": {
+    "invoices.py": "\"\"\"Authenticated tenant members may read their own invoices.\"\"\"\nINVOICES = {\n    \"inv-a\": {\"tenant_id\": \"tenant-a\", \"total_cents\": 1700},\n    \"inv-b\": {\"tenant_id\": \"tenant-b\", \"total_cents\": 9200},\n}\n\n\ndef get_invoice(principal, invoice_id):\n    if not principal.get(\"authenticated\"):\n        raise PermissionError(\"Authentication required\")\n    if not principal.get(\"tenant_id\"):\n        raise PermissionError(\"Tenant membership required\")\n    invoice = INVOICES.get(invoice_id)\n    if invoice is None or invoice[\"tenant_id\"] != principal[\"tenant_id\"]:\n        return None\n    return dict(invoice)\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": []
+}

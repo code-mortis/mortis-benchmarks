@@ -1,0 +1,250 @@
+{
+  "reviewer_id": "/root/security_graph_evaluation",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "authored_excluded": [
+    "sec-01",
+    "sec-02",
+    "sec-03",
+    "sec-04",
+    "sec-05",
+    "sec-06",
+    "sec-07",
+    "sec-08"
+  ],
+  "method": "All12 input-only judgments saved before reading PR truth/oracles; then compared truth, inspected oracle code and executed head/control locally with Python standard library. Authored security cases excluded from adjudication.",
+  "cases": [
+    {
+      "case_id": "pr-01",
+      "input_sha256": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+      "draft_verdict": "defect",
+      "reason": "Tax rounds each amount before summing, violating round-once requirement; two amounts0.05 at rate0.10 produce0.00 rather than0.01.",
+      "final_verdict": "defect",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": "medium"
+    },
+    {
+      "case_id": "pr-02",
+      "input_sha256": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+      "draft_verdict": "defect",
+      "reason": "New-record branch returns a three-key dict while order_api still unpacks (order, created), so first valid create raises ValueError.",
+      "final_verdict": "defect",
+      "disagreements": [
+        {
+          "field": "severity",
+          "draft": "medium",
+          "proposed": "high",
+          "issue": "Initial input-only severity was medium; proposed truth labels the complete adapter outage high."
+        }
+      ],
+      "resolution": "Accept high on source inspection: every ordinary new create fails after persisting its record (pr-02), or the entire invoice-report adapter fails at import (pr-05). The disagreement is severity calibration, not defect presence.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": "high",
+      "draft_severity": "medium"
+    },
+    {
+      "case_id": "pr-03",
+      "input_sha256": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+      "draft_verdict": "defect",
+      "reason": "Replacing tzinfo relabels local clock time as UTC rather than preserving its instant; nonzero-offset token expiry decisions change.",
+      "final_verdict": "defect",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": "high"
+    },
+    {
+      "case_id": "pr-04",
+      "input_sha256": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+      "draft_verdict": "defect",
+      "reason": "The new >= gate rejects an exactly-at-maximum assignment that the inclusive maximum requirement admits.",
+      "final_verdict": "defect",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": "medium"
+    },
+    {
+      "case_id": "pr-05",
+      "input_sha256": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+      "draft_verdict": "defect",
+      "reason": "report.py imports formatter after that module is removed/renamed to rendering.py; the complete package cannot import the report adapter.",
+      "final_verdict": "defect",
+      "disagreements": [
+        {
+          "field": "severity",
+          "draft": "medium",
+          "proposed": "high",
+          "issue": "Initial input-only severity was medium; proposed truth labels the complete adapter outage high."
+        }
+      ],
+      "resolution": "Accept high on source inspection: every ordinary new create fails after persisting its record (pr-02), or the entire invoice-report adapter fails at import (pr-05). The disagreement is severity calibration, not defect presence.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration.",
+        "The stale import is unchanged context in a changed file; production introduced-defect and publication-location handling must attribute the rename and preserve non-publishable-location behavior rather than require an added import line."
+      ],
+      "final_severity": "high",
+      "draft_severity": "medium",
+      "draft_input_sha256": "93631f1213df98f004bae41de6c3245663c728374b1ef0ceee30b80d02afc26e",
+      "scope_amendment": {
+        "old_input_sha256": "93631f1213df98f004bae41de6c3245663c728374b1ef0ceee30b80d02afc26e",
+        "new_input_sha256": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+        "old_selected_paths": [
+          "formatter.py",
+          "rendering.py",
+          "report.py"
+        ],
+        "new_selected_paths": [
+          "rendering.py",
+          "report.py"
+        ],
+        "rationale": "Accept pinned OCR preview scope correction: removed old formatter path is not separately assigned. Base/head source maps still prove its rename/removal, and selected report.py still imports the absent formatter module. Source and truth are unchanged; defect verdict and initial blinded judgment remain unchanged.",
+        "independent_verification": "Inspected current base/head maps, corrected selected paths and stale import after notification. This checks the amendment semantics; the real pinned OCR preview was performed by parent, not repeated by reviewer C."
+      }
+    },
+    {
+      "case_id": "pr-06",
+      "input_sha256": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+      "draft_verdict": "clean",
+      "reason": "Generator refactor consumes members once, filters archived/blank names and uses stable casefold sorting equivalently.",
+      "final_verdict": "clean",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": true,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": null
+    },
+    {
+      "case_id": "pr-07",
+      "input_sha256": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "draft_verdict": "defect",
+      "reason": "Attempt-suffixed idempotency keys turn an ambiguous timeout retry into a new charge instead of recovering the original receipt.",
+      "final_verdict": "defect",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": "high"
+    },
+    {
+      "case_id": "pr-08",
+      "input_sha256": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "draft_verdict": "defect",
+      "reason": "Falsy comments fast path counts missing/failed/malformed results as completed, allowing incomplete selected work to be labeled clean.",
+      "final_verdict": "defect",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": "high"
+    },
+    {
+      "case_id": "pr-09",
+      "input_sha256": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "draft_verdict": "defect",
+      "reason": "The request account overrides the issued token subject; a valid token for one account can replace another account login hash.",
+      "final_verdict": "defect",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": false,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": "high"
+    },
+    {
+      "case_id": "pr-10",
+      "input_sha256": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+      "draft_verdict": "clean",
+      "reason": "Staging concurrency and guide both change2to4 within required bounds; binding, queue, retries and payload logging remain unchanged.",
+      "final_verdict": "clean",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": true,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration."
+      ],
+      "final_severity": null
+    },
+    {
+      "case_id": "pr-11",
+      "input_sha256": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "draft_verdict": "clean",
+      "reason": "Selected source adds version2 total correctly and keeps validation; excluded generated/example credential changes are outside review scope.",
+      "final_verdict": "clean",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": true,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration.",
+        "Excluded generated/example credential bytes must stay out of both model contexts; this adjudication inspects scope metadata, not permission to expose excluded source."
+      ],
+      "final_severity": null
+    },
+    {
+      "case_id": "pr-12",
+      "input_sha256": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "draft_verdict": "incomplete",
+      "reason": "Selected worker source and patch are unavailable; coordinator change preserves truthful incompleteness but cannot certify the missing assigned file.",
+      "final_verdict": "incomplete",
+      "disagreements": [],
+      "resolution": "Input-only verdict agrees with proposed truth; inspected source/caller evidence and head/control oracle results support it.",
+      "oracle_head_observed": true,
+      "oracle_control_observed": true,
+      "limitations": [
+        "Oracle checks finite contract examples; it is not a proof of every possible input or production integration.",
+        "A true coordinator oracle does not make the whole assigned change clean: worker source/patch remains unavailable."
+      ],
+      "final_severity": null
+    }
+  ],
+  "initial_judgments_sha256": "e3963ccfdc3907c32f8d851841219843a451fbd47cfa3bc1902ba1f9c5a38909",
+  "review_type": "independent_non_author_agent_adjudication",
+  "limitations": [
+    "Agent review is independent of case authors and tested engines; it is not human adjudication or empirical engine output scoring.",
+    "Synthetic fixtures establish local contract examples, not representative real-repository recall or precision."
+  ],
+  "summary": {
+    "cases": 12,
+    "verdict_agreements": 12,
+    "semantic_blockers": 0,
+    "severity_calibrations": 2,
+    "oracle_checks": 24,
+    "external_model_calls": 0
+  },
+  "effort": "high",
+  "retained_initial_record": "initial-c.json",
+  "retained_initial_sha256": "e3963ccfdc3907c32f8d851841219843a451fbd47cfa3bc1902ba1f9c5a38909"
+}

@@ -1,0 +1,27 @@
+{
+  "case_id": "pr-02",
+  "family_id": "pr-order-repository-return-contract",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "The order endpoint uses the repository through dependency injection. A first valid request returns status 201 and an order; a repeated request_key returns the same order with status 200 and creates no additional record. Preserve the callable interface used by the API adapter.",
+  "base": {
+    "order_store.py": "class OrderRepository:\n    def __init__(self):\n        self.orders = {}\n        self.next_id = 1\n\n    def create(self, request_key, amount):\n        \"\"\"Return (order, created) for an idempotent order request.\"\"\"\n        if not request_key or amount <= 0:\n            raise ValueError(\"request key and positive amount required\")\n        if request_key in self.orders:\n            return dict(self.orders[request_key]), False\n        order = {\"id\": self.next_id, \"amount\": amount, \"state\": \"pending\"}\n        self.next_id += 1\n        self.orders[request_key] = order\n        return dict(order), True\n\n    def count(self):\n        return len(self.orders)\n\n    def find(self, request_key):\n        order = self.orders.get(request_key)\n        return dict(order) if order is not None else None\n",
+    "order_api.py": "def create_order(repository, body):\n    \"\"\"Adapt a repository result to an HTTP-style response tuple.\"\"\"\n    if not isinstance(body, dict):\n        return 400, {\"error\": \"object required\"}\n    request_key = body.get(\"request_key\", \"\")\n    amount = body.get(\"amount\", 0)\n    if not isinstance(request_key, str) or not request_key:\n        return 400, {\"error\": \"request_key required\"}\n    if type(amount) is not int or amount <= 0:\n        return 400, {\"error\": \"positive integer amount required\"}\n    order, created = repository.create(request_key, amount)\n    status = 201 if created else 200\n    return status, {\"order\": order}\n\n\ndef order_count(repository):\n    return 200, {\"count\": repository.count()}\n"
+  },
+  "head": {
+    "order_store.py": "class OrderRepository:\n    def __init__(self):\n        self.orders = {}\n        self.next_id = 1\n\n    def create(self, request_key, amount):\n        \"\"\"Return (order, created) for an idempotent order request.\"\"\"\n        if not request_key or amount <= 0:\n            raise ValueError(\"request key and positive amount required\")\n        if request_key in self.orders:\n            return dict(self.orders[request_key]), False\n        order = {\"id\": self.next_id, \"amount\": amount, \"state\": \"pending\"}\n        self.next_id += 1\n        self.orders[request_key] = order\n        return dict(order)\n\n    def count(self):\n        return len(self.orders)\n\n    def find(self, request_key):\n        order = self.orders.get(request_key)\n        return dict(order) if order is not None else None\n",
+    "order_api.py": "def create_order(repository, body):\n    \"\"\"Adapt a repository result to an HTTP-style response tuple.\"\"\"\n    if not isinstance(body, dict):\n        return 400, {\"error\": \"object required\"}\n    request_key = body.get(\"request_key\", \"\")\n    amount = body.get(\"amount\", 0)\n    if not isinstance(request_key, str) or not request_key:\n        return 400, {\"error\": \"request_key required\"}\n    if type(amount) is not int or amount <= 0:\n        return 400, {\"error\": \"positive integer amount required\"}\n    order, created = repository.create(request_key, amount)\n    status = 201 if created else 200\n    return status, {\"order\": order}\n\n\ndef order_count(repository):\n    return 200, {\"count\": repository.count()}\n"
+  },
+  "selection": {
+    "paths": [
+      "order_store.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

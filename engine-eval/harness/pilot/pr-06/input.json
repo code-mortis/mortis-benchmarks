@@ -1,0 +1,25 @@
+{
+  "case_id": "pr-06",
+  "family_id": "pr-stable-display-name-refactor",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "Refactor active member display-name collection without changing behavior. Collapse whitespace, omit archived/blank names, sort by casefold while preserving input order for equal sort keys, and accept one-pass member iterables. Inputs contain string names and optional boolean archived flags.",
+  "base": {
+    "members.py": "def display_name(value):\n    return \" \".join(value.split())\n\n\ndef visible_names(members):\n    \"\"\"Return active display names sorted case-insensitively and stably.\"\"\"\n    names = []\n    for member in members:\n        if member.get(\"archived\", False):\n            continue\n        name = display_name(member[\"name\"])\n        if name:\n            names.append(name)\n    names.sort(key=str.casefold)\n    return names\n\n\ndef member_count(members):\n    return len(visible_names(members))\n"
+  },
+  "head": {
+    "members.py": "def display_name(value):\n    return \" \".join(value.split())\n\n\ndef visible_names(members):\n    \"\"\"Return active display names sorted case-insensitively and stably.\"\"\"\n    names = (\n        display_name(member[\"name\"])\n        for member in members\n        if not member.get(\"archived\", False)\n    )\n    return sorted((name for name in names if name), key=str.casefold)\n\n\ndef member_count(members):\n    return len(visible_names(members))\n"
+  },
+  "selection": {
+    "paths": [
+      "members.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

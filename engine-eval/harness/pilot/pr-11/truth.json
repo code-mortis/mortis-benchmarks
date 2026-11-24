@@ -1,0 +1,15 @@
+{
+  "case_id": "pr-11",
+  "expected": "clean",
+  "defects": [],
+  "control": {
+    "src/report.py": "def public_summary(rows):\n    totals = {'completed': 0, 'failed': 0}\n    for row in rows:\n        state = row.get('state')\n        count = row.get('count')\n        if state not in totals:\n            raise ValueError('Unsupported report state')\n        if type(count) is not int or count < 0:\n            raise ValueError('Count must be a nonnegative integer')\n        totals[state] += count\n    return totals\n\n\ndef response(rows):\n    totals = public_summary(rows)\n    return {'version': 2, 'counts': totals, 'total': sum(totals.values())}\n",
+    "generated/report_schema.py": "GENERATED_SCHEMA_VERSION = 2\nSERVICE_NAME = 'reporting-fixture'\nSTATUS_COMPLETED = 'completed'\nSTATUS_FAILED = 'failed'\nFIELD_STATE = 'state'\nFIELD_COUNT = 'count'\nFIELD_TOTAL = 'total'\nFIELD_VERSION = 'version'\nFIELD_COUNTS = 'counts'\nEMPTY_COUNT = 0\nEMPTY_TOTAL = 0\nEXAMPLE_COMPLETED = 2\nEXAMPLE_FAILED = 1\nEXAMPLE_TOTAL = 3\nSAMPLE_LABEL = 'synthetic-only'\nFORMAT_NAME = 'json'\n",
+    "config/credentials.example.json": "{\n  \"fixture_only\": true,\n  \"environment\": \"example\",\n  \"service\": \"reporting-fixture\",\n  \"api_key\": \"synthetic-evaluation-placeholder\",\n  \"account\": \"other-example-account\",\n  \"endpoint\": \"https://example.invalid\",\n  \"active\": false,\n  \"rotation_days\": 30,\n  \"scope\": \"example-read\",\n  \"format\": \"json\",\n  \"timeout\": 10,\n  \"retries\": 0,\n  \"owner\": \"fixture\",\n  \"notes\": \"No usable credential is present.\"\n}\n"
+  },
+  "oracle_head": true,
+  "oracle_control": true,
+  "limitations": [
+    "Only src/report.py is eligible. Excluded input text must not be supplied to either model arm; it is retained here solely to verify scope accounting. All example credential values are deliberately nonfunctional synthetic strings."
+  ]
+}

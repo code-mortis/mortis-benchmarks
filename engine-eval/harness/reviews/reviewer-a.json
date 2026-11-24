@@ -1,0 +1,573 @@
+{
+  "reviewer_id": "/root/ocr_feature_inventory",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "review_type": "independent_nonauthor_agent_input_first",
+  "authored_excluded": [
+    "pr-01",
+    "pr-02",
+    "pr-03",
+    "pr-04",
+    "pr-05",
+    "pr-06"
+  ],
+  "initial_freeze": "initial-a.json",
+  "initial_freeze_sequence": "All 14 input-only verdicts were saved before opening any nonauthored truth.json or oracle.py.",
+  "input_hash_method": "SHA-256 of UTF-8 json.dumps(input,sort_keys=True,separators=(\",\",\":\"),ensure_ascii=False)",
+  "status": "Review complete; parent must adjudicate recorded severity calibration before final freeze.",
+  "reviewed_cases": [
+    {
+      "case_id": "pr-07",
+      "input_sha256": "39890effab86d444e9a2cf03217e254bead5f1deed5e7f3beeb3fc9ae4166974",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "Adding the attempt number changes the idempotency key after an ambiguous timeout.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "src/checkout.py",
+              "start_line": 14,
+              "end_line": 14
+            }
+          ],
+          "proof": "Gateway may commit attempt zero then time out; attempt one uses a different key, producing a second charge for the same order."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "Adding the attempt number changes the idempotency key after an ambiguous timeout.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "src/checkout.py",
+              "start_line": 14,
+              "end_line": 14
+            }
+          ],
+          "proof": "Gateway may commit attempt zero then time out; attempt one uses a different key, producing a second charge for the same order."
+        }
+      ],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "pr-08",
+      "input_sha256": "65157dfbfb3ab0a781693a3a6cc19a89adef4f1a93a5ee40c9105c4de15c5b52",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "The falsey-comments fast path increments completed before validating status or comment-list type.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "src/results.py",
+              "start_line": 17,
+              "end_line": 19
+            }
+          ],
+          "proof": "aggregate_results([\"a.py\"],[]) obtains an empty item, comments None, counts one completed file and returns clean despite no result; failed files with [] are likewise counted."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "The falsey-comments fast path increments completed before validating status or comment-list type.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "src/results.py",
+              "start_line": 17,
+              "end_line": 19
+            }
+          ],
+          "proof": "aggregate_results([\"a.py\"],[]) obtains an empty item, comments None, counts one completed file and returns clean despite no result; failed files with [] are likewise counted."
+        }
+      ],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "pr-09",
+      "input_sha256": "8c36d468de572d7751b650fe99e276b29c997aeb671fd5133c7212c6c709310c",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "The untrusted request account replaces the account bound to the reset token, removing the binding check.",
+          "severity": "critical",
+          "locations": [
+            {
+              "path": "src/auth.py",
+              "start_line": 8,
+              "end_line": 8
+            }
+          ],
+          "proof": "A caller holding a valid token for their own account supplies another existing account plus a >=16-character new_hash; head overwrites the other account hash and returns true."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "The untrusted request account replaces the account bound to the reset token, removing the binding check.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "src/auth.py",
+              "start_line": 8,
+              "end_line": 8
+            }
+          ],
+          "proof": "A caller holding a valid token for their own account supplies another existing account plus a >=16-character new_hash; head overwrites the other account hash and returns true."
+        }
+      ],
+      "disagreements": [
+        {
+          "kind": "severity",
+          "draft": "critical",
+          "truth": "high",
+          "reviewer_proposed_final": "high",
+          "reason": "Cross-account reset is proven. Administrative impact, MFA bypass and a broader service compromise are not established; high is the conservative documented severity.",
+          "resolution": "Reviewer accepts high after calibration; parent adjudication requested before corpus freeze."
+        }
+      ],
+      "resolution": "No semantic disagreement; severity calibration proposed to parent.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "pr-10",
+      "input_sha256": "1c929ef4f5cbb1da8b484f92e3d067a945675825f78e5ecf7b812408af613ee4",
+      "draft_verdict": "clean",
+      "draft_findings": [],
+      "draft_proof": "TOML concurrency changes 2->4 within the context-supported 1..8 range; README changes to 4; local binding/queue/retries/logging remain consistent.",
+      "final_verdict": "clean",
+      "final_findings": [],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": true,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "pr-11",
+      "input_sha256": "3c685551bdc140cd28c3e65862c1582ec5f2b9a9a23cdf651cc0b08ac004c590",
+      "draft_verdict": "clean",
+      "draft_findings": [],
+      "draft_proof": "The selected report source preserves validation and exposes version=2,total=sum(completed,failed); excluded generated/config files are declared nondependencies. No selected-source defect found.",
+      "final_verdict": "clean",
+      "final_findings": [],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": true,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised.",
+        "Excluded bodies in the source archive are not reviewer evidence for findings and must remain outside model context in each evaluation arm."
+      ]
+    },
+    {
+      "case_id": "pr-12",
+      "input_sha256": "00c8bb8c5708bda2d99477ff75f40ab88ddbe714d1362d508675b6707fff4e1b",
+      "draft_verdict": "incomplete",
+      "draft_findings": [],
+      "draft_proof": "Available coordinator source only changes accurate incomplete wording and explicitly refuses unavailable worker completion. Missing selected worker prevents a whole-assignment clean verdict.",
+      "final_verdict": "incomplete",
+      "final_findings": [],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": true,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised.",
+        "Worker source and patch are unavailable; passing coordinator oracle does not establish whole-change cleanliness."
+      ]
+    },
+    {
+      "case_id": "sec-01",
+      "input_sha256": "5544d855ed83a945c56c41c42a828c36da8c113fe81321e2c8da2c117fcc453e",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "The untrusted title is interpolated into SQL instead of bound as a literal value.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "catalog.py",
+              "start_line": 15,
+              "end_line": 15
+            }
+          ],
+          "proof": "term=\"' OR 1=1 --\" makes the enabled predicate irrelevant and returns the disabled internal catalog row as well."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "The untrusted title is interpolated into SQL instead of bound as a literal value.",
+          "severity": "medium",
+          "locations": [
+            {
+              "path": "catalog.py",
+              "start_line": 15,
+              "end_line": 15
+            }
+          ],
+          "proof": "term=\"' OR 1=1 --\" makes the enabled predicate irrelevant and returns the disabled internal catalog row as well."
+        }
+      ],
+      "disagreements": [
+        {
+          "kind": "severity",
+          "draft": "high",
+          "truth": "medium",
+          "reviewer_proposed_final": "medium",
+          "reason": "The demonstrated effect is bounded disclosure of disabled synthetic catalog rows. Additional sensitive data, writes and external database access are not established.",
+          "resolution": "Reviewer accepts medium after calibration; parent adjudication requested before corpus freeze."
+        }
+      ],
+      "resolution": "No semantic disagreement; severity calibration proposed to parent.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "sec-02",
+      "input_sha256": "5d906d9e8aaa15e6f204592cecce6209f567d3d3320a17820493a3ca50cfd72a",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "Authentication and a nonempty tenant do not compare invoice.tenant_id with principal.tenant_id.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "invoices.py",
+              "start_line": 13,
+              "end_line": 16
+            }
+          ],
+          "proof": "Authenticated tenant-a can request inv-b and receive tenant-b total_cents=9200."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "Authentication and a nonempty tenant do not compare invoice.tenant_id with principal.tenant_id.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "invoices.py",
+              "start_line": 13,
+              "end_line": 16
+            }
+          ],
+          "proof": "Authenticated tenant-a can request inv-b and receive tenant-b total_cents=9200."
+        }
+      ],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [
+        "Nonblocking: truth proof says the oracle directly proves both tenants can read their own invoices; oracle checks only tenant-a own-read. Source is symmetric; add read(bob,\"inv-b\") or narrow that proof wording."
+      ],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "sec-03",
+      "input_sha256": "8c50332f08254e0acbd6854462b95a788ff46b05ee8d619af579e0de9a346bf6",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "Joining attacker input to a PurePosixPath does not enforce relative containment; absolute paths replace the root and .. remains traversable by the downstream opener.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "downloads.py",
+              "start_line": 14,
+              "end_line": 15
+            }
+          ],
+          "proof": "Tenant-a can submit ../tenant-b/export.csv or /etc/passwd and receive an out-of-root path opened verbatim by the documented adapter."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "Joining attacker input to a PurePosixPath does not enforce relative containment; absolute paths replace the root and .. remains traversable by the downstream opener.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "downloads.py",
+              "start_line": 14,
+              "end_line": 15
+            }
+          ],
+          "proof": "Tenant-a can submit ../tenant-b/export.csv or /etc/passwd and receive an out-of-root path opened verbatim by the documented adapter."
+        }
+      ],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "sec-04",
+      "input_sha256": "e5b0b357f448c35bb129016efd8376d62b7b252c139cf99c1ad82347a4845e45",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "Archive regular member names are joined without rejecting absolute names or parent traversal before returning file-write destinations.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "restore.py",
+              "start_line": 14,
+              "end_line": 15
+            }
+          ],
+          "proof": "A regular member with name ../../other/config.py or /tmp/outside.py obtains a destination outside /srv/imports/current; documented extractor writes there."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "Archive regular member names are joined without rejecting absolute names or parent traversal before returning file-write destinations.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "restore.py",
+              "start_line": 14,
+              "end_line": 15
+            }
+          ],
+          "proof": "A regular member with name ../../other/config.py or /tmp/outside.py obtains a destination outside /srv/imports/current; documented extractor writes there."
+        }
+      ],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "sec-05",
+      "input_sha256": "b31de3a5fd5d8e89d3aeee75ed90f06c60e1138579079d8d18673e6e8c21b2cf",
+      "draft_verdict": "defect",
+      "draft_findings": [
+        {
+          "cause": "The policy validates classification but never enforces restricted storage: public_read defaults true, and explicit true is also accepted for restricted buckets.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "storage.py",
+              "start_line": 12,
+              "end_line": 15
+            }
+          ],
+          "proof": "The supplied restricted bucket omits public_read and renders read_principals=[\"*\"], exposing customer invoices to unauthenticated readers. Setting public_read=true remains inconsistent with the stated restricted requirement."
+        }
+      ],
+      "draft_proof": null,
+      "final_verdict": "defect",
+      "final_findings": [
+        {
+          "cause": "The policy validates classification but never enforces restricted storage: public_read defaults true, and explicit true is also accepted for restricted buckets.",
+          "severity": "high",
+          "locations": [
+            {
+              "path": "storage.py",
+              "start_line": 12,
+              "end_line": 15
+            }
+          ],
+          "proof": "The supplied restricted bucket omits public_read and renders read_principals=[\"*\"], exposing customer invoices to unauthenticated readers. Setting public_read=true remains inconsistent with the stated restricted requirement."
+        }
+      ],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": false,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "sec-06",
+      "input_sha256": "0e03599eb5851e9e9c3b0bae6c68312d2a1a71add1ef0cb4b0915801f3f7c4b2",
+      "draft_verdict": "clean",
+      "draft_findings": [],
+      "draft_proof": "Trusted tenant is checked and included as a bound SQL predicate; attacker reference is another bound parameter. No authentication/tenant/SQL-injection defect found in complete fixture.",
+      "final_verdict": "clean",
+      "final_findings": [],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": true,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised."
+      ]
+    },
+    {
+      "case_id": "sec-07",
+      "input_sha256": "825221e8a1f2f180486abb43e02b421d73cac037b137854fc8aaf0da3e7105bd",
+      "draft_verdict": "incomplete",
+      "draft_findings": [],
+      "draft_proof": "Authoritative report has stale 49-hour DB and unavailable vulnerability scanner; coverage_outcome correctly returns incomplete/clean=false. No defect in that source, but no whole-scan clean result possible.",
+      "final_verdict": "incomplete",
+      "final_findings": [],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": true,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised.",
+        "scanner-report.json is injected synthetic report data, not an actual Trivy report; oracle checks freshness/status accounting only.",
+        "package-lock.json is retained scanner inventory, excluded from semantic-AI assignments; scanner-report.json remains injected fixture data, not an actual Trivy result."
+      ],
+      "scope_amendments": [
+        {
+          "previous_input_sha256": "54baec4f7ca106f6e99a5a9bf76e26ee1a257dccc515675b43b9f1b452e571c7",
+          "amended_input_sha256": "825221e8a1f2f180486abb43e02b421d73cac037b137854fc8aaf0da3e7105bd",
+          "change": "Remove package-lock.json from semantic-AI selection.paths and identify it as scanner-only resolved dependency inventory; retain its source in the archive for deterministic scanner inventory and structural oracle.",
+          "independent_evidence": "backend/code_mortis/security_scans/engine.py:208-211 marks package-lock.json code=False and records that resolved dependency data is checked by Trivy, not AI.",
+          "verdict_impact": "No change: injected stale scanner report still implies incomplete, not clean.",
+          "resolution": "Reviewer independently accepts scope correction; no source semantics changed and no lockfile AI denominator alias remains."
+        }
+      ]
+    },
+    {
+      "case_id": "sec-08",
+      "input_sha256": "35988cc8921c206f6518dc7654de2579b953e1a72f3ec2659c1b69514198df37",
+      "draft_verdict": "incomplete",
+      "draft_findings": [],
+      "draft_proof": "Complete tree has documentation only, all unsupported for this explicitly defined semantic-security/scanner policy. No eligible implementation evidence exists to certify clean.",
+      "final_verdict": "incomplete",
+      "final_findings": [],
+      "disagreements": [],
+      "resolution": "Independent input-only verdict and reachable defect cause agree with constructor truth; no correction required.",
+      "oracle_checks": {
+        "head": true,
+        "control": true,
+        "matches_declared": true
+      },
+      "issues": [],
+      "limitations": [
+        "Independent nonauthor agent review, not a human review or independence from the same model family.",
+        "No engine outputs existed or were consulted; constructor truth and oracle were consulted only after all input-only drafts were persisted.",
+        "Synthetic fixture semantics only; no real provider, GitHub, production scan or deployed service was exercised.",
+        "Unsupported documentation-only inventory cannot establish implementation security; structural oracle success remains incomplete."
+      ]
+    }
+  ],
+  "retained_initial_record": "initial-a.json",
+  "retained_initial_sha256": "bd1c5787c7b152ca24d5ccc4241d75679b523108ee193f692a1b356f0a7e98af"
+}

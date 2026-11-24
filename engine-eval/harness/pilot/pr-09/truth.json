@@ -1,0 +1,31 @@
+{
+  "case_id": "pr-09",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "pr-09-d1",
+      "severity": "high",
+      "cause": "The browser-supplied account replaces the account bound to the reset token.",
+      "trigger": "A caller holding an unexpired Alice token submits account=Bob and a replacement hash.",
+      "consequence": "The caller changes another account login hash without its reset token.",
+      "boundary": "Account reset authorization subject",
+      "locations": [
+        {
+          "path": "src/auth.py",
+          "start_line": 8,
+          "end_line": 8
+        }
+      ],
+      "evidence": "account = request.get('account', record['account']) selects an arbitrary existing account after validating only the token's expiry/use.",
+      "proof": "oracle.py creates two users and one Alice token; cross-account update succeeds on head and is refused without mutation on control. It also checks legitimate reset, expiry, and replay."
+    }
+  ],
+  "control": {
+    "src/auth.py": "def apply_reset(request, resets, users, now):\n    token = request.get('token')\n    if not isinstance(token, str) or not token:\n        return False\n    record = resets.get(token)\n    if not record or record['expires_at'] <= now or record['used']:\n        return False\n    account = record['account']\n    if request.get('account', account) != account:\n        return False\n    if account not in users:\n        return False\n    replacement = request.get('new_hash')\n    if not isinstance(replacement, str) or len(replacement) < 16:\n        return False\n    users[account]['login_hash'] = replacement\n    record['used'] = True\n    return True\n\n\ndef issue_reset(account, token, expires_at):\n    if not account or not token:\n        raise ValueError('Account and token are required')\n    return {'account': account, 'expires_at': expires_at, 'used': False}\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "The hash value is an already-derived synthetic hash; password hashing algorithm strength and token entropy are outside this case."
+  ]
+}

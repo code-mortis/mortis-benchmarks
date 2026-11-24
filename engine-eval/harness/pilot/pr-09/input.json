@@ -1,0 +1,25 @@
+{
+  "case_id": "pr-09",
+  "family_id": "reset-token-subject-binding",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "Reset tokens are scoped to the account stored when the link was issued. A browser can submit an optional account field, but it must not let one account token change another account. Tokens expire at expires_at, are single use, and invalid requests must leave account hashes and token state unchanged. The form now submits the displayed account identifier.",
+  "base": {
+    "src/auth.py": "def apply_reset(request, resets, users, now):\n    token = request.get('token')\n    if not isinstance(token, str) or not token:\n        return False\n    record = resets.get(token)\n    if not record or record['expires_at'] <= now or record['used']:\n        return False\n    account = record['account']\n    if request.get('account', account) != account:\n        return False\n    if account not in users:\n        return False\n    replacement = request.get('new_hash')\n    if not isinstance(replacement, str) or len(replacement) < 16:\n        return False\n    users[account]['login_hash'] = replacement\n    record['used'] = True\n    return True\n\n\ndef issue_reset(account, token, expires_at):\n    if not account or not token:\n        raise ValueError('Account and token are required')\n    return {'account': account, 'expires_at': expires_at, 'used': False}\n"
+  },
+  "head": {
+    "src/auth.py": "def apply_reset(request, resets, users, now):\n    token = request.get('token')\n    if not isinstance(token, str) or not token:\n        return False\n    record = resets.get(token)\n    if not record or record['expires_at'] <= now or record['used']:\n        return False\n    account = request.get('account', record['account'])\n    if account not in users:\n        return False\n    replacement = request.get('new_hash')\n    if not isinstance(replacement, str) or len(replacement) < 16:\n        return False\n    users[account]['login_hash'] = replacement\n    record['used'] = True\n    return True\n\n\ndef issue_reset(account, token, expires_at):\n    if not account or not token:\n        raise ValueError('Account and token are required')\n    return {'account': account, 'expires_at': expires_at, 'used': False}\n"
+  },
+  "selection": {
+    "paths": [
+      "src/auth.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

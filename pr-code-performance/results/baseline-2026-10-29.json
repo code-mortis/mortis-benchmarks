@@ -1,0 +1,83 @@
+{
+  "controlled_mount_span_ms": 3899,
+  "date": "2026-10-29",
+  "idle_api_counts": {
+    "/api/v1/repositories": 11,
+    "pull/code": 2,
+    "pull/code-graph": 2,
+    "pull/code-graph/query": 2,
+    "pull/detail": 12,
+    "pull/findings": 12
+  },
+  "source": {
+    "name": "pr-code-performance-2026-10-29.json",
+    "sha256": "7feecfdcc4143c4998c210ff38a004bcd3f791c5bb818611f76e0492c4ad6d11"
+  },
+  "warm_medians": [
+    {
+      "baseline": {
+        "max_ms": 1281.97,
+        "median_ms": 1188.54,
+        "min_ms": 1146.2,
+        "n": 3
+      },
+      "median_reduction_percent": 24.9,
+      "operation": "overview",
+      "pooled": {
+        "max_ms": 1014.36,
+        "median_ms": 892.96,
+        "min_ms": 883.94,
+        "n": 3
+      }
+    },
+    {
+      "baseline": {
+        "max_ms": 1259.22,
+        "median_ms": 1201.04,
+        "min_ms": 1157.95,
+        "n": 3
+      },
+      "median_reduction_percent": 25.5,
+      "operation": "diff",
+      "pooled": {
+        "max_ms": 1083.4,
+        "median_ms": 894.26,
+        "min_ms": 879.22,
+        "n": 3
+      }
+    },
+    {
+      "baseline": {
+        "max_ms": 1280.84,
+        "median_ms": 1280.61,
+        "min_ms": 1181.27,
+        "n": 3
+      },
+      "median_reduction_percent": 21.4,
+      "operation": "dependencies",
+      "pooled": {
+        "max_ms": 1079.29,
+        "median_ms": 1006.79,
+        "min_ms": 933.68,
+        "n": 3
+      }
+    },
+    {
+      "baseline": {
+        "max_ms": 1266.16,
+        "median_ms": 1247.86,
+        "min_ms": 1245.04,
+        "n": 3
+      },
+      "median_reduction_percent": 26.6,
+      "operation": "source",
+      "pooled": {
+        "max_ms": 941.64,
+        "median_ms": 916.07,
+        "min_ms": 887.12,
+        "n": 3
+      }
+    }
+  ],
+  "workspace_requests": 3
+}

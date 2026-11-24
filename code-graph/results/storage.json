@@ -1,0 +1,160 @@
+{
+  "checked_at": "2026-10-26T19:37:27.562275+00:00",
+  "corpora": [
+    {
+      "commit": "d8a09f12956bf074cdc9f5db868ecf04895eb812",
+      "empty_relations": {
+        "code_graph_files": {
+          "index_bytes": 8192,
+          "table_bytes": 8192,
+          "total_bytes": 16384
+        },
+        "code_graph_imports": {
+          "index_bytes": 16384,
+          "table_bytes": 8192,
+          "total_bytes": 24576
+        },
+        "code_graph_repositories": {
+          "index_bytes": 8192,
+          "table_bytes": 8192,
+          "total_bytes": 16384
+        },
+        "code_graph_snapshots": {
+          "index_bytes": 16384,
+          "table_bytes": 8192,
+          "total_bytes": 24576
+        },
+        "code_graph_symbols": {
+          "index_bytes": 24576,
+          "table_bytes": 8192,
+          "total_bytes": 32768
+        }
+      },
+      "full_tree_admission": {
+        "files": 392,
+        "state": "admitted"
+      },
+      "full_tree_files": 392,
+      "insert_wal_bytes": 3661232,
+      "manifest_sha256": "ba4e772a58d9edd62e10c113925ca5c6564fe29b3a26063a3053d3097f2bc618",
+      "name": "code-mortis",
+      "retained_git_allocated_bytes": 1265664,
+      "retained_git_logical_bytes": 1230066,
+      "rows": {
+        "files": 244,
+        "imports": 2124,
+        "symbols": 2999
+      },
+      "source_bytes": 4176007,
+      "source_files": 244,
+      "stored_relations": {
+        "code_graph_files": {
+          "index_bytes": 40960,
+          "table_bytes": 81920,
+          "total_bytes": 122880
+        },
+        "code_graph_imports": {
+          "index_bytes": 294912,
+          "table_bytes": 385024,
+          "total_bytes": 679936
+        },
+        "code_graph_repositories": {
+          "index_bytes": 8192,
+          "table_bytes": 8192,
+          "total_bytes": 16384
+        },
+        "code_graph_snapshots": {
+          "index_bytes": 32768,
+          "table_bytes": 16384,
+          "total_bytes": 49152
+        },
+        "code_graph_symbols": {
+          "index_bytes": 1294336,
+          "table_bytes": 737280,
+          "total_bytes": 2031616
+        }
+      }
+    },
+    {
+      "commit": "2153c7745e66b72f48dee76b992e91b3be7c653f",
+      "empty_relations": {
+        "code_graph_files": {
+          "index_bytes": 8192,
+          "table_bytes": 8192,
+          "total_bytes": 16384
+        },
+        "code_graph_imports": {
+          "index_bytes": 16384,
+          "table_bytes": 8192,
+          "total_bytes": 24576
+        },
+        "code_graph_repositories": {
+          "index_bytes": 8192,
+          "table_bytes": 8192,
+          "total_bytes": 16384
+        },
+        "code_graph_snapshots": {
+          "index_bytes": 16384,
+          "table_bytes": 8192,
+          "total_bytes": 24576
+        },
+        "code_graph_symbols": {
+          "index_bytes": 24576,
+          "table_bytes": 8192,
+          "total_bytes": 32768
+        }
+      },
+      "full_tree_admission": {
+        "reason": "Graph tree exceeds 1000 files.",
+        "state": "rejected"
+      },
+      "full_tree_files": 1055,
+      "insert_wal_bytes": 4806176,
+      "manifest_sha256": "4c25bafd4b5324adf76365b91b60df8378070e6e4418d2a0311aea9d4e09b6b0",
+      "name": "noodle",
+      "retained_git_allocated_bytes": 17592320,
+      "retained_git_logical_bytes": 17557282,
+      "rows": {
+        "files": 653,
+        "imports": 4370,
+        "symbols": 3106
+      },
+      "source_bytes": 6275421,
+      "source_files": 653,
+      "stored_relations": {
+        "code_graph_files": {
+          "index_bytes": 81920,
+          "table_bytes": 155648,
+          "total_bytes": 237568
+        },
+        "code_graph_imports": {
+          "index_bytes": 548864,
+          "table_bytes": 770048,
+          "total_bytes": 1318912
+        },
+        "code_graph_repositories": {
+          "index_bytes": 8192,
+          "table_bytes": 8192,
+          "total_bytes": 16384
+        },
+        "code_graph_snapshots": {
+          "index_bytes": 32768,
+          "table_bytes": 16384,
+          "total_bytes": 49152
+        },
+        "code_graph_symbols": {
+          "index_bytes": 1236992,
+          "table_bytes": 704512,
+          "total_bytes": 1941504
+        }
+      }
+    }
+  ],
+  "extractor_version": "tree-sitter/0.25.2-mortis/1",
+  "limits": "One snapshot per corpus; WAL is cluster LSN delta and may include background writes. No peak memory, deployment or GitHub integration claim.",
+  "scope": "DB rows use the exact Phase 0 extension-filtered source corpus. Git storage retains the full shallow commit. Full-tree admission is reported separately.",
+  "source": {
+    "name": "code-graph-phase1-storage.json",
+    "sha256": "9c95ae443c11164cd6929ab6fe69ef9583f0b89c24bc7206b0517f0c6b960465"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "case_id": "pr-07",
+  "family_id": "checkout-ambiguous-timeout-retry",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "The gateway commits charges independently of HTTP response delivery. Reusing an idempotency key returns the original receipt without charging again, including after a response timeout. Order IDs identify one purchase and retry attempts must not create additional charges. The change adds attempt identity to gateway request tracking.",
+  "base": {
+    "src/checkout.py": "class CheckoutUnavailable(Exception):\n    pass\n\n\ndef charge_order(order, gateway, max_attempts=2):\n    if not isinstance(order['id'], str) or not order['id']:\n        raise ValueError('Order identity is required')\n    amount = order['amount_cents']\n    if type(amount) is not int or amount <= 0:\n        raise ValueError('Charge must be positive integer cents')\n    if type(max_attempts) is not int or not 1 <= max_attempts <= 3:\n        raise ValueError('Invalid attempt count')\n    for attempt in range(max_attempts):\n        key = 'order:' + order['id']\n        try:\n            receipt = gateway.charge(amount, idempotency_key=key)\n        except TimeoutError:\n            if attempt + 1 == max_attempts:\n                raise CheckoutUnavailable('Payment status unavailable')\n            continue\n        return {'order_id': order['id'], 'receipt': receipt}\n    raise CheckoutUnavailable('No payment attempt completed')\n"
+  },
+  "head": {
+    "src/checkout.py": "class CheckoutUnavailable(Exception):\n    pass\n\n\ndef charge_order(order, gateway, max_attempts=2):\n    if not isinstance(order['id'], str) or not order['id']:\n        raise ValueError('Order identity is required')\n    amount = order['amount_cents']\n    if type(amount) is not int or amount <= 0:\n        raise ValueError('Charge must be positive integer cents')\n    if type(max_attempts) is not int or not 1 <= max_attempts <= 3:\n        raise ValueError('Invalid attempt count')\n    for attempt in range(max_attempts):\n        key = 'order:' + order['id'] + ':' + str(attempt)\n        try:\n            receipt = gateway.charge(amount, idempotency_key=key)\n        except TimeoutError:\n            if attempt + 1 == max_attempts:\n                raise CheckoutUnavailable('Payment status unavailable')\n            continue\n        return {'order_id': order['id'], 'receipt': receipt}\n    raise CheckoutUnavailable('No payment attempt completed')\n"
+  },
+  "selection": {
+    "paths": [
+      "src/checkout.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

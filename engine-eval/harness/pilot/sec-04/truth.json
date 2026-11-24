@@ -1,0 +1,32 @@
+{
+  "case_id": "sec-04",
+  "expected": "defect",
+  "defects": [
+    {
+      "id": "sec-04-archive-destination-escape",
+      "severity": "high",
+      "cause": "The restore planner joins untrusted archive member names without enforcing its destination root.",
+      "trigger": "A backup importer uploads a regular member named ../../service/settings.json.",
+      "consequence": "The planned write resolves outside the import sandbox; the stated extractor would overwrite an out-of-scope file.",
+      "boundary": "Backup-import permission authorizes writes inside the import root only.",
+      "locations": [
+        {
+          "path": "restore.py",
+          "start_line": 14,
+          "end_line": 14
+        }
+      ],
+      "evidence": "The regular-file restriction does not constrain path traversal or absolute member names.",
+      "proof": "oracle.py proves normalized destinations leave the restore root and verifies regular valid imports still work in the control."
+    }
+  ],
+  "control": {
+    "restore.py": "\"\"\"Build file-write destinations for an imported backup archive.\"\"\"\nfrom pathlib import PurePosixPath\n\n\ndef restore_plan(members):\n    root = PurePosixPath(\"/srv/imports/current\")\n    planned = []\n    for member in members:\n        if member[\"kind\"] != \"file\":\n            raise ValueError(\"Only regular archive members are supported\")\n        name = member[\"name\"]\n        if not isinstance(name, str) or not name or \"\\x00\" in name:\n            raise ValueError(\"Invalid archive member name\")\n        relative = PurePosixPath(name)\n        if relative.is_absolute() or \"..\" in relative.parts:\n            raise ValueError(\"Archive member escapes restore root\")\n        destination = root / relative\n        planned.append(str(destination))\n    return planned\n"
+  },
+  "oracle_head": false,
+  "oracle_control": true,
+  "limitations": [
+    "The oracle plans destinations only; no archive extraction, filesystem modification or actual service takeover occurs.",
+    "No symlink-resolution claim is made."
+  ]
+}

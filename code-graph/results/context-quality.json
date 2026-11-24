@@ -1,0 +1,83 @@
+{
+  "acceptance": {
+    "additional_false_positives": 0,
+    "citation_accuracy_100_percent": false,
+    "decision": "Keep experimental repository opt-in; no broader rollout or token-saving claim.",
+    "quality_or_token_benefit_against_both_baselines": false
+  },
+  "complete_matrix": true,
+  "completed_results": 18,
+  "date": "2026-10-26",
+  "expected_results": 18,
+  "matched_case_metrics": {
+    "baseline": {
+      "attempts": 6,
+      "citation_ranges_total": 12,
+      "citation_ranges_valid": 12,
+      "completed": 6,
+      "confirmed_target_defects": 0,
+      "correct_fixed_controls": 0,
+      "executed_source_expansion_rounds": 0,
+      "false_positives": 0,
+      "fully_supported_citation_sets": 1,
+      "input_tokens": null,
+      "output_tokens": null,
+      "p95_runner_seconds_all_attempts_nearest_rank": 9.3,
+      "reported_tokens_all_attempts": 87909,
+      "reported_tokens_completed_attempts": 87909,
+      "runner_seconds_all_attempts": 36.499,
+      "verdicts": {
+        "uncertain": 6
+      }
+    },
+    "graph": {
+      "attempts": 6,
+      "citation_ranges_total": 13,
+      "citation_ranges_valid": 13,
+      "completed": 6,
+      "confirmed_target_defects": 0,
+      "correct_fixed_controls": 2,
+      "executed_source_expansion_rounds": 0,
+      "false_positives": 0,
+      "fully_supported_citation_sets": 1,
+      "input_tokens": null,
+      "output_tokens": null,
+      "p95_runner_seconds_all_attempts_nearest_rank": 7.279,
+      "reported_tokens_all_attempts": 87652,
+      "reported_tokens_completed_attempts": 87652,
+      "runner_seconds_all_attempts": 34.559,
+      "verdicts": {
+        "no_defect": 2,
+        "uncertain": 4
+      }
+    },
+    "text_symbols": {
+      "attempts": 8,
+      "citation_ranges_total": 13,
+      "citation_ranges_valid": 13,
+      "completed": 6,
+      "confirmed_target_defects": 0,
+      "correct_fixed_controls": 1,
+      "executed_source_expansion_rounds": 0,
+      "false_positives": 0,
+      "fully_supported_citation_sets": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "p95_runner_seconds_all_attempts_nearest_rank": 6.273,
+      "reported_tokens_all_attempts": 130728,
+      "reported_tokens_completed_attempts": 101409,
+      "runner_seconds_all_attempts": 45.989,
+      "verdicts": {
+        "no_defect": 1,
+        "uncertain": 5
+      }
+    }
+  },
+  "native_invocations": 20,
+  "reported_tokens_all_attempts": 306289,
+  "results_sha256": "a6958aca87e8e09366b8f1cba22e3b69cc36c5b845a091ccbdc501d6d35cdea7",
+  "source": {
+    "name": "code-graph-phase2-quality-analysis.json",
+    "sha256": "8b84eaf33aae403c0f55fbd999d93000cee158d514f2db21aecd03f33e339834"
+  }
+}

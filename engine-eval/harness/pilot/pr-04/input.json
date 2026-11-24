@@ -1,0 +1,25 @@
+{
+  "case_id": "pr-04",
+  "family_id": "pr-review-file-limit-inclusive-boundary",
+  "workload": "pr",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "Review admission receives already eligible unique paths. A positive maximum permits up to that many files, while None is unlimited. Reviews exceeding the maximum are skipped as a whole without dispatching a truncated subset. The selected denominator remains visible even when skipped.",
+  "base": {
+    "review_gate.py": "def select_review(paths, maximum):\n    \"\"\"Admit all eligible paths or skip; maximum=None means unlimited.\"\"\"\n    selected = list(paths)\n    if maximum is not None and (type(maximum) is not int or maximum <= 0):\n        raise ValueError(\"maximum must be a positive integer or None\")\n    if any(not isinstance(path, str) or not path for path in selected):\n        raise ValueError(\"eligible paths must be nonempty strings\")\n    if len(set(selected)) != len(selected):\n        raise ValueError(\"eligible paths must be unique\")\n    if maximum is not None and len(selected) > maximum:\n        return {\"status\": \"skipped\", \"selected\": selected, \"assigned\": []}\n    return {\"status\": \"ready\", \"selected\": selected, \"assigned\": selected}\n\n\ndef queue_review(paths, maximum, dispatch):\n    plan = select_review(paths, maximum)\n    if plan[\"status\"] == \"ready\":\n        for path in plan[\"assigned\"]:\n            dispatch(path)\n    return plan\n"
+  },
+  "head": {
+    "review_gate.py": "def select_review(paths, maximum):\n    \"\"\"Admit all eligible paths or skip; maximum=None means unlimited.\"\"\"\n    selected = list(paths)\n    if maximum is not None and (type(maximum) is not int or maximum <= 0):\n        raise ValueError(\"maximum must be a positive integer or None\")\n    if any(not isinstance(path, str) or not path for path in selected):\n        raise ValueError(\"eligible paths must be nonempty strings\")\n    if len(set(selected)) != len(selected):\n        raise ValueError(\"eligible paths must be unique\")\n    if maximum is not None and len(selected) >= maximum:\n        return {\"status\": \"skipped\", \"selected\": selected, \"assigned\": []}\n    return {\"status\": \"ready\", \"selected\": selected, \"assigned\": selected}\n\n\ndef queue_review(paths, maximum, dispatch):\n    plan = select_review(paths, maximum)\n    if plan[\"status\"] == \"ready\":\n        for path in plan[\"assigned\"]:\n            dispatch(path)\n    return plan\n"
+  },
+  "selection": {
+    "paths": [
+      "review_gate.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "paired_equal_context"
+  }
+}

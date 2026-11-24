@@ -1,0 +1,411 @@
+{
+  "acceptance": "inconclusive",
+  "attempt_statuses": {
+    "completed": 34,
+    "unsupported_fixture": 6
+  },
+  "corpus_digest": "7138800b218434b00bcda4802c8f17dad11bbe6510aeb2b9af20a4861a82f772",
+  "date": "2026-11-08",
+  "judgments_sha256": [
+    "cf03fc5fa00d7046b7d861d01e0e12b2cacd6aa6e58f6ade36a13124950eaa39",
+    "55ba9949067c578ef03493a7437f12a324ee366d91fab95c8abb844722846192"
+  ],
+  "model": "muse-spark-1.3-contributor",
+  "performance": {
+    "pr/off/cold/mortis": {
+      "attempts": 12,
+      "statuses": {
+        "completed": 11,
+        "unsupported_fixture": 1
+      },
+      "timing_ms_all_statuses": {
+        "assessment": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 10158.311353065073,
+          "p95": 23062.15598201379
+        },
+        "first_validated": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 11718.388114008121,
+          "p95": 31867.727909004316
+        },
+        "planning": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 29.834382003173232,
+          "p95": 44.77211192715913
+        },
+        "provider_sum": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 29156.892,
+          "p95": 60552.393
+        },
+        "summary": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 7942.318286979571,
+          "p95": 14502.670726040378
+        },
+        "terminal": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 30443.93425306771,
+          "p95": 62052.57578205783
+        },
+        "verification": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 0.9389210026711226,
+          "p95": 1.1632139794528484
+        }
+      },
+      "usage": {
+        "cache_read_tokens": {
+          "observed_sum": 0,
+          "unknown_attempts": 1
+        },
+        "cache_write_tokens": {
+          "observed_sum": 0,
+          "unknown_attempts": 12
+        },
+        "cost_usd": {
+          "observed_sum": 0,
+          "unknown_attempts": 12
+        },
+        "input_tokens": {
+          "observed_sum": 58314,
+          "unknown_attempts": 1
+        },
+        "output_tokens": {
+          "observed_sum": 51104,
+          "unknown_attempts": 1
+        },
+        "reasoning_tokens": {
+          "observed_sum": 41630,
+          "unknown_attempts": 1
+        },
+        "requests": {
+          "observed_sum": 31,
+          "unknown_attempts": 1
+        },
+        "tokens": {
+          "observed_sum": 109418,
+          "unknown_attempts": 1
+        }
+      }
+    },
+    "pr/off/cold/ocr": {
+      "attempts": 12,
+      "statuses": {
+        "completed": 11,
+        "unsupported_fixture": 1
+      },
+      "timing_ms_all_statuses": {
+        "assessment": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 8977.564015076496,
+          "p95": 51459.74348799791
+        },
+        "first_validated": {
+          "missing_attempts": 12,
+          "observed_attempts": 0,
+          "p50": null,
+          "p95": null
+        },
+        "provider_sum": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 32779.292,
+          "p95": 84245.825
+        },
+        "summary": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 9023.49436597433,
+          "p95": 14404.98785302043
+        },
+        "terminal": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 34217.6233449718,
+          "p95": 86491.21980706695
+        },
+        "verification": {
+          "missing_attempts": 1,
+          "observed_attempts": 11,
+          "p50": 1.0727060725912452,
+          "p95": 1.8651329446583986
+        }
+      },
+      "usage": {
+        "cache_read_tokens": {
+          "observed_sum": 180550,
+          "unknown_attempts": 1
+        },
+        "cache_write_tokens": {
+          "observed_sum": 0,
+          "unknown_attempts": 12
+        },
+        "cost_usd": {
+          "observed_sum": 0,
+          "unknown_attempts": 12
+        },
+        "input_tokens": {
+          "observed_sum": 366340,
+          "unknown_attempts": 1
+        },
+        "output_tokens": {
+          "observed_sum": 52457,
+          "unknown_attempts": 1
+        },
+        "reasoning_tokens": {
+          "observed_sum": 40280,
+          "unknown_attempts": 1
+        },
+        "requests": {
+          "observed_sum": 77,
+          "unknown_attempts": 1
+        },
+        "tokens": {
+          "observed_sum": 418797,
+          "unknown_attempts": 1
+        }
+      }
+    },
+    "security/off/cold/mortis": {
+      "attempts": 8,
+      "statuses": {
+        "completed": 6,
+        "unsupported_fixture": 2
+      },
+      "timing_ms_all_statuses": {
+        "analysis": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 19006.653985008597,
+          "p95": 30783.046814030968
+        },
+        "assessment": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 12430.440429016016,
+          "p95": 39520.284126047045
+        },
+        "first_validated": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 19579.368598992005,
+          "p95": 34112.899477011524
+        },
+        "provider_sum": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 33693.771,
+          "p95": 77176.164
+        },
+        "snapshot": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 17.677473952062428,
+          "p95": 28.407408040948212
+        },
+        "terminal": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 36959.25346703734,
+          "p95": 66650.28284396976
+        },
+        "trivy": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 3157.3521150276065,
+          "p95": 3538.548897020519
+        },
+        "verification": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 1.1192959500476718,
+          "p95": 1.3045890955254436
+        }
+      },
+      "usage": {
+        "cache_read_tokens": {
+          "observed_sum": 1747,
+          "unknown_attempts": 2
+        },
+        "cache_write_tokens": {
+          "observed_sum": 0,
+          "unknown_attempts": 8
+        },
+        "cost_usd": {
+          "observed_sum": 0,
+          "unknown_attempts": 8
+        },
+        "input_tokens": {
+          "observed_sum": 22574,
+          "unknown_attempts": 2
+        },
+        "output_tokens": {
+          "observed_sum": 32127,
+          "unknown_attempts": 2
+        },
+        "reasoning_tokens": {
+          "observed_sum": 26741,
+          "unknown_attempts": 2
+        },
+        "requests": {
+          "observed_sum": 14,
+          "unknown_attempts": 2
+        },
+        "tokens": {
+          "observed_sum": 54701,
+          "unknown_attempts": 2
+        }
+      }
+    },
+    "security/off/cold/ocr": {
+      "attempts": 8,
+      "statuses": {
+        "completed": 6,
+        "unsupported_fixture": 2
+      },
+      "timing_ms_all_statuses": {
+        "analysis": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 11780.190450022928,
+          "p95": 22273.20148993749
+        },
+        "assessment": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 19075.684637995437,
+          "p95": 73346.80753201246
+        },
+        "first_validated": {
+          "missing_attempts": 8,
+          "observed_attempts": 0,
+          "p50": null,
+          "p95": null
+        },
+        "provider_sum": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 30311.163,
+          "p95": 103122.552
+        },
+        "snapshot": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 15.785356052219868,
+          "p95": 28.559950063936412
+        },
+        "terminal": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 33982.88337397389,
+          "p95": 98762.88976694923
+        },
+        "trivy": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 3031.4641480799764,
+          "p95": 3362.6803630031645
+        },
+        "verification": {
+          "missing_attempts": 2,
+          "observed_attempts": 6,
+          "p50": 1.0072540026158094,
+          "p95": 1.1857550125569105
+        }
+      },
+      "usage": {
+        "cache_read_tokens": {
+          "observed_sum": 1762,
+          "unknown_attempts": 2
+        },
+        "cache_write_tokens": {
+          "observed_sum": 0,
+          "unknown_attempts": 8
+        },
+        "cost_usd": {
+          "observed_sum": 0,
+          "unknown_attempts": 8
+        },
+        "input_tokens": {
+          "observed_sum": 51281,
+          "unknown_attempts": 2
+        },
+        "output_tokens": {
+          "observed_sum": 25973,
+          "unknown_attempts": 2
+        },
+        "reasoning_tokens": {
+          "observed_sum": 21026,
+          "unknown_attempts": 2
+        },
+        "requests": {
+          "observed_sum": 13,
+          "unknown_attempts": 2
+        },
+        "tokens": {
+          "observed_sum": 77254,
+          "unknown_attempts": 2
+        }
+      }
+    }
+  },
+  "protocol_sha256": "60967082e445319a324686b3f7c8b5a983768c14d4858bfbdc3511d8eafbb0df",
+  "provenance": {
+    "corpus": "implementer_visible_original_synthetic_pilot",
+    "independent_quality_families": 17,
+    "sealed_heldout": false
+  },
+  "provider": "OpenCode Go",
+  "quality": {
+    "pr/off/cold": {
+      "mortis": {
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 8
+      },
+      "ocr": {
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 8
+      }
+    },
+    "security/off/cold": {
+      "mortis": {
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 5
+      },
+      "ocr": {
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 5
+      }
+    }
+  },
+  "results_sha256": "2f927539d687d62f1e3c2feb1079f0d50e4f3a36f40d67b887065270f349960e",
+  "run_id": "mortis-m5-20261108-pilot-03",
+  "schema": "mortis-engine-score-report/v1",
+  "source": {
+    "name": "score-adjudicated.json",
+    "sha256": "a79f00975d7a80a229e15b35edb4800808547303f09c4b8800ff1546e03249b3"
+  },
+  "speedup_claim_allowed": false
+}

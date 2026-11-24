@@ -1,0 +1,25 @@
+{
+  "case_id": "sec-02",
+  "family_id": "security-tenant-invoice-authorization",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "Invoice IDs are client-supplied and discoverable. An authenticated user belongs to exactly the tenant in principal.tenant_id; that identity is set by a trusted authentication layer. get_invoice is the complete authorization boundary and returns data to that user.",
+  "base": {
+    "invoices.py": "\"\"\"Authenticated tenant members may read their own invoices.\"\"\"\nINVOICES = {\n    \"inv-a\": {\"tenant_id\": \"tenant-a\", \"total_cents\": 1700},\n    \"inv-b\": {\"tenant_id\": \"tenant-b\", \"total_cents\": 9200},\n}\n\n\ndef get_invoice(principal, invoice_id):\n    if not principal.get(\"authenticated\"):\n        raise PermissionError(\"Authentication required\")\n    if not principal.get(\"tenant_id\"):\n        raise PermissionError(\"Tenant membership required\")\n    invoice = INVOICES.get(invoice_id)\n    if invoice is None:\n        return None\n    return dict(invoice)\n"
+  },
+  "head": {
+    "invoices.py": "\"\"\"Authenticated tenant members may read their own invoices.\"\"\"\nINVOICES = {\n    \"inv-a\": {\"tenant_id\": \"tenant-a\", \"total_cents\": 1700},\n    \"inv-b\": {\"tenant_id\": \"tenant-b\", \"total_cents\": 9200},\n}\n\n\ndef get_invoice(principal, invoice_id):\n    if not principal.get(\"authenticated\"):\n        raise PermissionError(\"Authentication required\")\n    if not principal.get(\"tenant_id\"):\n        raise PermissionError(\"Tenant membership required\")\n    invoice = INVOICES.get(invoice_id)\n    if invoice is None:\n        return None\n    return dict(invoice)\n"
+  },
+  "selection": {
+    "paths": [
+      "invoices.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}

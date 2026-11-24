@@ -1,0 +1,25 @@
+{
+  "case_id": "sec-03",
+  "family_id": "security-download-path-containment",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "An authenticated member downloads files beneath /srv/exports/<their tenant>. The tenant claim is trusted and restricted to the two configured tenants. The request name is attacker-controlled; downstream file delivery opens the returned path verbatim. Fixture exports contain no symlinks; the case concerns lexical path containment.",
+  "base": {
+    "downloads.py": "\"\"\"The file adapter opens only the path returned by this download planner.\"\"\"\nfrom pathlib import PurePosixPath\n\n\ndef download_plan(principal, name):\n    if not principal.get(\"authenticated\"):\n        raise PermissionError(\"Authentication required\")\n    tenant = principal.get(\"tenant_id\")\n    if tenant not in {\"tenant-a\", \"tenant-b\"}:\n        raise PermissionError(\"Unknown tenant\")\n    if not isinstance(name, str) or not name or \"\\x00\" in name:\n        raise ValueError(\"Expected a relative export name\")\n    root = PurePosixPath(\"/srv/exports\") / tenant\n    target = root / PurePosixPath(name)\n    return str(target)\n"
+  },
+  "head": {
+    "downloads.py": "\"\"\"The file adapter opens only the path returned by this download planner.\"\"\"\nfrom pathlib import PurePosixPath\n\n\ndef download_plan(principal, name):\n    if not principal.get(\"authenticated\"):\n        raise PermissionError(\"Authentication required\")\n    tenant = principal.get(\"tenant_id\")\n    if tenant not in {\"tenant-a\", \"tenant-b\"}:\n        raise PermissionError(\"Unknown tenant\")\n    if not isinstance(name, str) or not name or \"\\x00\" in name:\n        raise ValueError(\"Expected a relative export name\")\n    root = PurePosixPath(\"/srv/exports\") / tenant\n    target = root / PurePosixPath(name)\n    return str(target)\n"
+  },
+  "selection": {
+    "paths": [
+      "downloads.py"
+    ],
+    "excluded": [],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}

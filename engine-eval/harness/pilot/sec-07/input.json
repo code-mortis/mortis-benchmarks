@@ -1,0 +1,35 @@
+{
+  "case_id": "sec-07",
+  "family_id": "security-stale-advisory-incomplete",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "The security scan includes package-lock.json as a legitimate dependency inventory input, independently of PR/graph exclusions. The supplied scanner report is authoritative: misconfiguration and secret checks completed, but vulnerability checking was unavailable because its advisory data is 49 hours old. Empty findings alone do not establish a clean scan. coverage_outcome must preserve advisory freshness and incomplete coverage separately.",
+  "base": {
+    "coverage.py": "\"\"\"Keep vulnerability coverage separate from other scanner successes.\"\"\"\nimport json\n\n\ndef coverage_outcome(report_json):\n    report = json.loads(report_json)\n    results = report[\"scanners\"]\n    age = report.get(\"advisory_age_hours\")\n    database_fresh = type(age) is int and 0 <= age <= 24\n    required = (\"vulnerability\", \"misconfiguration\", \"secret\")\n    missing = [name for name in required if results.get(name) != \"completed\"]\n    if not database_fresh or missing:\n        return {\"status\": \"incomplete\", \"clean\": False}\n    findings = report.get(\"findings\", [])\n    return {\"status\": \"completed\", \"clean\": not findings}\n",
+    "scanner-report.json": "{\n  \"advisory_age_hours\": 49,\n  \"scanners\": {\n    \"vulnerability\": \"unavailable\",\n    \"misconfiguration\": \"completed\",\n    \"secret\": \"completed\"\n  },\n  \"findings\": []\n}\n",
+    "package-lock.json": "{\n  \"name\": \"fixture-application\",\n  \"version\": \"1.0.0\",\n  \"lockfileVersion\": 3,\n  \"requires\": true,\n  \"packages\": {\n    \"\": {\n      \"name\": \"fixture-application\",\n      \"version\": \"1.0.0\"\n    }\n  }\n}\n"
+  },
+  "head": {
+    "coverage.py": "\"\"\"Keep vulnerability coverage separate from other scanner successes.\"\"\"\nimport json\n\n\ndef coverage_outcome(report_json):\n    report = json.loads(report_json)\n    results = report[\"scanners\"]\n    age = report.get(\"advisory_age_hours\")\n    database_fresh = type(age) is int and 0 <= age <= 24\n    required = (\"vulnerability\", \"misconfiguration\", \"secret\")\n    missing = [name for name in required if results.get(name) != \"completed\"]\n    if not database_fresh or missing:\n        return {\"status\": \"incomplete\", \"clean\": False}\n    findings = report.get(\"findings\", [])\n    return {\"status\": \"completed\", \"clean\": not findings}\n",
+    "scanner-report.json": "{\n  \"advisory_age_hours\": 49,\n  \"scanners\": {\n    \"vulnerability\": \"unavailable\",\n    \"misconfiguration\": \"completed\",\n    \"secret\": \"completed\"\n  },\n  \"findings\": []\n}\n",
+    "package-lock.json": "{\n  \"name\": \"fixture-application\",\n  \"version\": \"1.0.0\",\n  \"lockfileVersion\": 3,\n  \"requires\": true,\n  \"packages\": {\n    \"\": {\n      \"name\": \"fixture-application\",\n      \"version\": \"1.0.0\"\n    }\n  }\n}\n"
+  },
+  "selection": {
+    "paths": [
+      "coverage.py",
+      "scanner-report.json"
+    ],
+    "excluded": [
+      {
+        "path": "package-lock.json",
+        "reason": "scanner_only_resolved_dependency_data"
+      }
+    ],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}

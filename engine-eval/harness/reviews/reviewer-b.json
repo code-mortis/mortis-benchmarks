@@ -1,0 +1,720 @@
+{
+  "schema_version": "mortis-pilot-peer-review/v1",
+  "reviewer_id": "/root/subscriptions_inventory",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "authored_excluded": [
+    "pr-07",
+    "pr-08",
+    "pr-09",
+    "pr-10",
+    "pr-11",
+    "pr-12"
+  ],
+  "blind_initial_record": "initial-b.json",
+  "procedure": "All 14 independent input-only draft verdicts persisted before reading any nonauthored truth or oracle. Then compared all truth and ran head/fixed-control oracles in memory. No model-arm output reviewed.",
+  "cases": [
+    {
+      "case_id": "pr-01",
+      "input_sha256": "df9d0e6e63a1072f0ccd5b19b7d15b15a68b931ad37a1eb2a65a693422bcfb7a",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "Line-by-line half-even rounding replaces rounding once on the combined taxable amount.",
+        "locations": [
+          {
+            "path": "billing.py",
+            "start_line": 14,
+            "end_line": 15
+          }
+        ],
+        "proof": "With Decimal amounts [0.05,0.05] and rate 0.1, combined tax is 0.01; individually rounded taxes sum to 0.00, violating invoice contract.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "Line-by-line half-even rounding replaces rounding once on the combined taxable amount.",
+        "locations": [
+          {
+            "path": "billing.py",
+            "start_line": 14,
+            "end_line": 15
+          }
+        ],
+        "proof": "With Decimal amounts [0.05,0.05] and rate 0.1, combined tax is 0.01; individually rounded taxes sum to 0.00, violating invoice contract."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "pr-01-d1"
+      ],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "pr-02",
+      "input_sha256": "a7318c4068db0db626f7f23fb97d69daea0283b8190b90c7e9fb123f9858d310",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "The newly created order returns a dict rather than the documented (order,created) pair required by the adapter.",
+        "locations": [
+          {
+            "path": "order_store.py",
+            "start_line": 15,
+            "end_line": 15
+          }
+        ],
+        "proof": "order_api.create_order unpacks repository.create into two values; a first new order returns three dict keys, raising ValueError instead of status 201. Repeat branch still returns the pair.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "The newly created order returns a dict rather than the documented (order,created) pair required by the adapter.",
+        "locations": [
+          {
+            "path": "order_store.py",
+            "start_line": 15,
+            "end_line": 15
+          }
+        ],
+        "proof": "order_api.create_order unpacks repository.create into two values; a first new order returns three dict keys, raising ValueError instead of status 201. Repeat branch still returns the pair."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "pr-02-d1"
+      ],
+      "disagreements": [
+        {
+          "field": "severity",
+          "blind_draft": "medium",
+          "truth": "high"
+        }
+      ],
+      "resolution": "Retain defect; high is justified by every first order creation failing after the repository has already inserted the order. Draft impact rating refined after inspecting the complete proof.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "pr-03",
+      "input_sha256": "d66d61638502170ecde2f0c1003318e8324f53ebb5627bbe4c7f37f769eb3a29",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "Replacing tzinfo reinterprets the local wall clock as UTC instead of converting the represented instant.",
+        "locations": [
+          {
+            "path": "token_expiry.py",
+            "start_line": 9,
+            "end_line": 9
+          }
+        ],
+        "proof": "An expiry at 2026-01-01T12:00:00+02:00 is 10:00 UTC; at 11:00 UTC it must be expired but the new function considers it active until 12:00 UTC.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "Replacing tzinfo reinterprets the local wall clock as UTC instead of converting the represented instant.",
+        "locations": [
+          {
+            "path": "token_expiry.py",
+            "start_line": 9,
+            "end_line": 9
+          }
+        ],
+        "proof": "An expiry at 2026-01-01T12:00:00+02:00 is 10:00 UTC; at 11:00 UTC it must be expired but the new function considers it active until 12:00 UTC."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "pr-03-d1"
+      ],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "pr-04",
+      "input_sha256": "db0a12d8dca464d4a5650d49b4d1bb18fd2b77d44f6d0d6e971d5b5ee5d6e89a",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "The skip condition includes equality despite an inclusive maximum.",
+        "locations": [
+          {
+            "path": "review_gate.py",
+            "start_line": 10,
+            "end_line": 11
+          }
+        ],
+        "proof": "Two eligible files and maximum=2 produce skipped and no dispatch; contract requires ready and both files assigned. Unlimited and one-over behavior are distinct.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "The skip condition includes equality despite an inclusive maximum.",
+        "locations": [
+          {
+            "path": "review_gate.py",
+            "start_line": 10,
+            "end_line": 11
+          }
+        ],
+        "proof": "Two eligible files and maximum=2 produce skipped and no dispatch; contract requires ready and both files assigned. Unlimited and one-over behavior are distinct."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "pr-04-d1"
+      ],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "pr-05",
+      "input_sha256": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "report.py still imports formatter after the module was removed and renamed rendering.",
+        "locations": [
+          {
+            "path": "report.py",
+            "start_line": 3,
+            "end_line": 3
+          }
+        ],
+        "proof": "The complete head source map has rendering.py but no formatter.py, so importing the adapter fails with ModuleNotFoundError before any invoice can render.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "report.py still imports formatter after the module was removed and renamed rendering.",
+        "locations": [
+          {
+            "path": "report.py",
+            "start_line": 3,
+            "end_line": 3
+          }
+        ],
+        "proof": "The complete head source map has rendering.py but no formatter.py, so importing the adapter fails with ModuleNotFoundError before any invoice can render."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "pr-05-d1"
+      ],
+      "disagreements": [
+        {
+          "field": "severity",
+          "blind_draft": "medium",
+          "truth": "high"
+        }
+      ],
+      "resolution": "Root cause and finding are accepted. Reviewer B retains medium because the demonstrated impact is the report/email rendering subsystem; final severity requires independent root adjudication of whether that whole-subsystem outage qualifies as high.",
+      "notes": [
+        {
+          "kind": "scope_amendment",
+          "detail": "Pinned OCR changed-file scope selects the renamed destination rendering.py and changed report.py, not the removed formatter.py source. The complete base tree still preserves formatter.py for rename/deletion context. The supported report.py:3 import defect and accepted medium severity are unchanged."
+        }
+      ],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "severity_adjudication_requested",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "pr-06",
+      "input_sha256": "1e2e64e88d5bebf87e15c644ab9520633353f24977e386cce6e75ba4cc25c702",
+      "draft_verdict": {
+        "verdict": "clean",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "Generator evaluates each active member once; whitespace collapsing and blank filtering agree with base. Python sorted is stable with casefold keys, and one-pass input iterables are consumed once.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "clean",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "Generator evaluates each active member once; whitespace collapsing and blank filtering agree with base. Python sorted is stable with casefold keys, and one-pass input iterables are consumed once."
+      },
+      "truth_expected": "clean",
+      "truth_defect_ids": [],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": true,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-01",
+      "input_sha256": "5544d855ed83a945c56c41c42a828c36da8c113fe81321e2c8da2c117fcc453e",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "An untrusted literal title is interpolated into SQL rather than passed as a parameter.",
+        "locations": [
+          {
+            "path": "catalog.py",
+            "start_line": 15,
+            "end_line": 15
+          }
+        ],
+        "proof": "search_catalog(\"' OR 1=1 --\") makes the WHERE expression true for disabled rows, exposing internal export ID 2.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "medium",
+        "root_cause": "An untrusted literal title is interpolated into SQL rather than passed as a parameter.",
+        "locations": [
+          {
+            "path": "catalog.py",
+            "start_line": 15,
+            "end_line": 15
+          }
+        ],
+        "proof": "search_catalog(\"' OR 1=1 --\") makes the WHERE expression true for disabled rows, exposing internal export ID 2."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "sec-01-sql-filter-bypass"
+      ],
+      "disagreements": [
+        {
+          "field": "severity",
+          "blind_draft": "high",
+          "truth": "medium"
+        }
+      ],
+      "resolution": "Retain defect; medium better reflects the bounded disabled-catalog disclosure actually demonstrated. Arbitrary private-data compromise or a live database attack is not established.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-02",
+      "input_sha256": "5d906d9e8aaa15e6f204592cecce6209f567d3d3320a17820493a3ca50cfd72a",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "The authorization boundary checks that principal has a tenant but never compares the requested invoice tenant to it.",
+        "locations": [
+          {
+            "path": "invoices.py",
+            "start_line": 13,
+            "end_line": 16
+          }
+        ],
+        "proof": "A tenant-a principal requests inv-b and receives tenant-b invoice fields; IDs are explicitly discoverable.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "The authorization boundary checks that principal has a tenant but never compares the requested invoice tenant to it.",
+        "locations": [
+          {
+            "path": "invoices.py",
+            "start_line": 13,
+            "end_line": 16
+          }
+        ],
+        "proof": "A tenant-a principal requests inv-b and receives tenant-b invoice fields; IDs are explicitly discoverable."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "sec-02-cross-tenant-invoice"
+      ],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [
+        {
+          "kind": "oracle_proof_precision",
+          "detail": "Truth says the oracle proves both tenants own reads, but oracle tests only alice/inv-a as positive. Bob is used only for denied inv-a. Add read(bob,inv-b) == 9200 or narrow truth proof. Existing defect and fixed control remain valid."
+        }
+      ],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-03",
+      "input_sha256": "8c50332f08254e0acbd6854462b95a788ff46b05ee8d619af579e0de9a346bf6",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "Joining attacker-controlled names to a trusted root does not enforce lexical containment.",
+        "locations": [
+          {
+            "path": "downloads.py",
+            "start_line": 14,
+            "end_line": 15
+          }
+        ],
+        "proof": "name='../tenant-b/export.csv' escapes tenant-a on downstream open; an absolute name such as '/etc/hosts' discards the configured root entirely.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "Joining attacker-controlled names to a trusted root does not enforce lexical containment.",
+        "locations": [
+          {
+            "path": "downloads.py",
+            "start_line": 14,
+            "end_line": 15
+          }
+        ],
+        "proof": "name='../tenant-b/export.csv' escapes tenant-a on downstream open; an absolute name such as '/etc/hosts' discards the configured root entirely."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "sec-03-download-root-escape"
+      ],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-04",
+      "input_sha256": "e5b0b357f448c35bb129016efd8376d62b7b252c139cf99c1ad82347a4845e45",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "Archive regular-file destinations are accepted without rejecting absolute or parent traversal member names.",
+        "locations": [
+          {
+            "path": "restore.py",
+            "start_line": 14,
+            "end_line": 15
+          }
+        ],
+        "proof": "A member named '../../outside.txt' returns an outside-root destination when opened, while an absolute '/srv/other.txt' overrides root; permitted backup import does not authorize these writes.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "Archive regular-file destinations are accepted without rejecting absolute or parent traversal member names.",
+        "locations": [
+          {
+            "path": "restore.py",
+            "start_line": 14,
+            "end_line": 15
+          }
+        ],
+        "proof": "A member named '../../outside.txt' returns an outside-root destination when opened, while an absolute '/srv/other.txt' overrides root; permitted backup import does not authorize these writes."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "sec-04-archive-destination-escape"
+      ],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-05",
+      "input_sha256": "b31de3a5fd5d8e89d3aeee75ed90f06c60e1138579079d8d18673e6e8c21b2cf",
+      "draft_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "A restricted bucket defaults omitted public_read to true and the renderer never constrains public access by classification.",
+        "locations": [
+          {
+            "path": "storage.py",
+            "start_line": 12,
+            "end_line": 15
+          }
+        ],
+        "proof": "The complete bucket.json is restricted and omits public_read; render_policy returns read_principals=[\"*\"], allowing unauthenticated reads.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "defect",
+        "severity": "high",
+        "root_cause": "A restricted bucket defaults omitted public_read to true and the renderer never constrains public access by classification.",
+        "locations": [
+          {
+            "path": "storage.py",
+            "start_line": 12,
+            "end_line": 15
+          }
+        ],
+        "proof": "The complete bucket.json is restricted and omits public_read; render_policy returns read_principals=[\"*\"], allowing unauthenticated reads."
+      },
+      "truth_expected": "defect",
+      "truth_defect_ids": [
+        "sec-05-restricted-bucket-anonymous-read"
+      ],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-06",
+      "input_sha256": "0e03599eb5851e9e9c3b0bae6c68312d2a1a71add1ef0cb4b0915801f3f7c4b2",
+      "draft_verdict": {
+        "verdict": "clean",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "The trusted tenant claim is allowlisted and bound in the same parameterized SQL predicate as reference. Attacker quote characters remain literal; no other source boundary is shown.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "clean",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "The trusted tenant claim is allowlisted and bound in the same parameterized SQL predicate as reference. Attacker quote characters remain literal; no other source boundary is shown."
+      },
+      "truth_expected": "clean",
+      "truth_defect_ids": [],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [],
+      "oracle_results": {
+        "head": true,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-07",
+      "input_sha256": "825221e8a1f2f180486abb43e02b421d73cac037b137854fc8aaf0da3e7105bd",
+      "draft_verdict": {
+        "verdict": "incomplete",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "The vulnerability scanner is unavailable and advisory age is 49 hours, beyond the declared 24-hour freshness threshold. coverage_outcome correctly returns incomplete/clean=False; zero findings cannot establish vulnerability coverage.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "incomplete",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "The vulnerability scanner is unavailable and advisory age is 49 hours, beyond the declared 24-hour freshness threshold. coverage_outcome correctly returns incomplete/clean=False; zero findings cannot establish vulnerability coverage."
+      },
+      "truth_expected": "incomplete",
+      "truth_defect_ids": [],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [
+        {
+          "kind": "scope_limit",
+          "detail": "Oracle proves supplied freshness/status bookkeeping, not vulnerability detection or scanner execution; incomplete remains the correct case classification despite oracle_head=true."
+        },
+        {
+          "kind": "scope_amendment",
+          "detail": "security_scans/engine.py Snapshot.populate retains package-lock.json in the scanner inventory and materialized files while setting code=False and excluding it from AI analysis as resolved dependency data. Restrict semantic paths to coverage.py/scanner-report.json; keep package-lock.json in both source trees for Trivy. Stale advisory coverage remains incomplete, not clean."
+        }
+      ],
+      "oracle_results": {
+        "head": true,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    },
+    {
+      "case_id": "sec-08",
+      "input_sha256": "35988cc8921c206f6518dc7654de2579b953e1a72f3ec2659c1b69514198df37",
+      "draft_verdict": {
+        "verdict": "incomplete",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "The entire input repository contains only static documentation. Selection has no eligible semantic-security or Trivy targets; no supported security conclusion exists. Unsupported/incomplete is appropriate, not clean.",
+        "limitations": [
+          "Source-only independent adjudication; no model output reviewed."
+        ]
+      },
+      "final_verdict": {
+        "verdict": "incomplete",
+        "severity": null,
+        "root_cause": null,
+        "locations": [],
+        "proof": "The entire input repository contains only static documentation. Selection has no eligible semantic-security or Trivy targets; no supported security conclusion exists. Unsupported/incomplete is appropriate, not clean."
+      },
+      "truth_expected": "incomplete",
+      "truth_defect_ids": [],
+      "disagreements": [],
+      "resolution": "Expected verdict, root cause, trigger, consequence and supporting source agree with truth. No additional supported defect found within the stated contract.",
+      "notes": [
+        {
+          "kind": "scope_limit",
+          "detail": "Oracle proves only the frozen documentation-only inventory. No supported target is available; true oracle result does not establish security cleanliness."
+        }
+      ],
+      "oracle_results": {
+        "head": true,
+        "control": true
+      },
+      "status": "accepted",
+      "limitations": [
+        "Automated independent peer review by a nonauthor model agent, not a human review.",
+        "No engine outputs, provider calls, production workflow, live database, or real vulnerability scanner used."
+      ]
+    }
+  ],
+  "retained_initial_record": "initial-b.json",
+  "retained_initial_sha256": "99b76ba91769733a81c4a0c4fcd56181af024e121dbe95863f43062767b76878",
+  "scope_amendments": [
+    {
+      "case_id": "pr-05",
+      "old_input_sha256": "93631f1213df98f004bae41de6c3245663c728374b1ef0ceee30b80d02afc26e",
+      "new_input_sha256": "a16a1be9debd73175523a39d676c7f2b0e725d622539c15b53f0c6cc974ae024",
+      "rationale": "Pinned OCR changed-file scope selects the renamed destination rendering.py and changed report.py, not the removed formatter.py source. The complete base tree still preserves formatter.py for rename/deletion context. The supported report.py:3 import defect and accepted medium severity are unchanged.",
+      "changes": "Selection metadata only; no source or truth semantics changed.",
+      "final_verdict": "defect",
+      "oracle_results": {
+        "head": false,
+        "control": true
+      },
+      "prior_blind_record_preserved": true
+    },
+    {
+      "case_id": "sec-07",
+      "old_input_sha256": "54baec4f7ca106f6e99a5a9bf76e26ee1a257dccc515675b43b9f1b452e571c7",
+      "new_input_sha256": "825221e8a1f2f180486abb43e02b421d73cac037b137854fc8aaf0da3e7105bd",
+      "rationale": "security_scans/engine.py Snapshot.populate retains package-lock.json in the scanner inventory and materialized files while setting code=False and excluding it from AI analysis as resolved dependency data. Restrict semantic paths to coverage.py/scanner-report.json; keep package-lock.json in both source trees for Trivy. Stale advisory coverage remains incomplete, not clean.",
+      "changes": "Selection metadata only; no source or truth semantics changed.",
+      "final_verdict": "incomplete",
+      "oracle_results": {
+        "head": true,
+        "control": true
+      },
+      "prior_blind_record_preserved": true
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "backend_warm": {
+    "definitions": {
+      "median_ms": 901.94,
+      "p95_ms": 944.16,
+      "samples": 20
+    },
+    "dependencies": {
+      "median_ms": 917.39,
+      "p95_ms": 985.31,
+      "samples": 20
+    },
+    "diff": {
+      "median_ms": 893.99,
+      "p95_ms": 979.77,
+      "samples": 20
+    },
+    "source": {
+      "median_ms": 899.75,
+      "p95_ms": 957.8,
+      "samples": 20
+    }
+  },
+  "browser": {
+    "file_revisit": {
+      "all": {
+        "median_ms": 28.55,
+        "p95_ms": 929.5,
+        "samples": 40
+      },
+      "blocking_requests": 5,
+      "without_blocking_request": {
+        "median_ms": 28.5,
+        "p95_ms": 30.9,
+        "samples": 35
+      }
+    },
+    "first_view": {
+      "all": {
+        "median_ms": 979.7,
+        "p95_ms": 1039.1,
+        "samples": 4
+      },
+      "blocking_requests": 3,
+      "without_blocking_request": {
+        "median_ms": 25.1,
+        "p95_ms": 25.1,
+        "samples": 1
+      }
+    },
+    "reopen_code": {
+      "all": {
+        "median_ms": 966.95,
+        "p95_ms": 1188.1,
+        "samples": 20
+      },
+      "blocking_requests": 20
+    },
+    "retained_view": {
+      "all": {
+        "median_ms": 25.7,
+        "p95_ms": 912.9,
+        "samples": 80
+      },
+      "blocking_requests": 8,
+      "without_blocking_request": {
+        "median_ms": 25.3,
+        "p95_ms": 28.3,
+        "samples": 72
+      }
+    }
+  },
+  "date": "2026-10-29",
+  "idle": {
+    "api_calls": 5,
+    "window_ms": 60000
+  },
+  "limits": [
+    "The initial backend iteration labels all four views cold in the raw capture, but only its first Diff acquired the comparison. The repeatable probe now labels the other initial views separately.",
+    "Baseline browser entry is a single trace, not a matched 20-sample distribution.",
+    "Cached-only statistics exclude initial or expired requests. All-interaction statistics are also retained.",
+    "No live access grant was revoked and no eight-GB capacity, hosted CI, full-suite or production verification was performed."
+  ],
+  "source": {
+    "name": "pr-code-performance-acceptance-2026-10-29.json",
+    "sha256": "4cd786561d831b50e84506827a012f7635c534d6a1377f6d0f76b96218dac0a2"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "case_id": "sec-08",
+  "family_id": "security-no-supported-targets",
+  "workload": "security",
+  "split": "pilot",
+  "provenance": "original_synthetic",
+  "context": "This complete repository contains documentation only. No application source, dependency manifest, lockfile or infrastructure configuration is present. Markdown and MDX are unsupported semantic-security targets under the retained scanner policy; no supported Trivy target is present. A scan must remain unsupported/incomplete rather than claim the unavailable implementation is clean.",
+  "base": {
+    "README.md": "# Documentation-only fixture\n\nThis repository stores a guide for users of a separate application.\nIt does not contain that application's source or dependency inventory.\n\n## Opening a project\n\nChoose an existing project from the navigation list.\nThe list displays projects already visible to your account.\nChoose a row to inspect its description.\n\n## Drafting notes\n\nNotes are examples written for this guide.\nThey do not configure a running service.\nSave a draft using the application's normal editor.\n\n## Questions\n\nContact the project owner for the corresponding source repository.\nThis guide alone does not describe implementation security.\n",
+    "guide.mdx": "# Navigation walkthrough\n\n<section>\n  <h2>Project overview</h2>\n  <p>This is static guide content.</p>\n</section>\n\n## List view\n\nRows represent projects made available by another application.\nThis document contains no implementation for those permissions.\n\n## Detail view\n\nSelect a project to read its summary.\nUse the normal application navigation to return to the list.\n\n## Source location\n\nThe application source is maintained in a different repository.\nThese pages contain no dependency lockfile or scanner target.\n"
+  },
+  "head": {
+    "README.md": "# Documentation-only fixture\n\nThis repository stores a guide for users of a separate application.\nIt does not contain that application's source or dependency inventory.\n\n## Opening a project\n\nChoose an existing project from the navigation list.\nThe list displays projects already visible to your account.\nChoose a row to inspect its description.\n\n## Drafting notes\n\nNotes are examples written for this guide.\nThey do not configure a running service.\nSave a draft using the application's normal editor.\n\n## Questions\n\nContact the project owner for the corresponding source repository.\nThis guide alone does not describe implementation security.\n",
+    "guide.mdx": "# Navigation walkthrough\n\n<section>\n  <h2>Project overview</h2>\n  <p>This is static guide content.</p>\n</section>\n\n## List view\n\nRows represent projects made available by another application.\nThis document contains no implementation for those permissions.\n\n## Detail view\n\nSelect a project to read its summary.\nUse the normal application navigation to return to the list.\n\n## Source location\n\nThe application source is maintained in a different repository.\nThese pages contain no dependency lockfile or scanner target.\n"
+  },
+  "selection": {
+    "paths": [],
+    "excluded": [
+      {
+        "path": "README.md",
+        "reason": "unsupported_security_target"
+      },
+      {
+        "path": "guide.mdx",
+        "reason": "unsupported_security_target"
+      }
+    ],
+    "unavailable": []
+  },
+  "graph": {
+    "state": "off",
+    "reason": "security_independent_policy"
+  }
+}
