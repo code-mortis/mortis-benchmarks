@@ -39,3 +39,27 @@ Use `compare --acceptance review-improvements/harness/acceptance.json` to apply 
 PYTHONPATH="$MORTIS_ENGINE/src" "$MORTIS_ENGINE/.venv/bin/python" -B \
   -m pytest -q review-improvements/tests
 ```
+
+## Standalone Engine caller coverage and preview latency
+
+The [caller coverage protocol](harness/python-callers/protocol.md) checks five deletion previews and five incremental coverage decisions against frozen expectations. Use its JSON outcomes to find the exact call site or reuse decision that differed. The [preview benchmark protocol](harness/preview-git/protocol.md) compares the public Python preview with a prototype that reuses the immediately preceding Git tree lookup. Its output includes the complete set of timings and separate Git process counts.
+
+Run these commands from the benchmarks root with `MORTIS_ENGINE` pointing at an Engine development checkout. Choose a fresh output filename for each run.
+
+```sh
+mkdir -p .local
+PYTHONPATH="$MORTIS_ENGINE/src" "$MORTIS_ENGINE/.venv/bin/python" -B \
+  review-improvements/harness/python-callers/run.py --output .local/python-callers.json
+PYTHONPATH="$MORTIS_ENGINE/src" "$MORTIS_ENGINE/.venv/bin/python" -B \
+  review-improvements/harness/preview-git/run.py --output .local/preview-git.json
+```
+
+To reproduce the November 26 review replay comparison, use `harness/fixtures/second-pass.json` as the recording for **both** arms. Run the existing replay command once with second discovery disabled and once with `--second-pass`. Compare those two output files using the existing acceptance criteria. The recorded result includes per-case status, request counts and whether the historical integrated metrics matched.
+
+The public API check repeats four of the incremental cases against two successive calls to `review_commits`. It verifies the saved baseline ID and captures the actual paths sent to a scripted provider. Run this check separately from other state-backed Engine tests.
+
+```sh
+PYTHONPATH="$MORTIS_ENGINE/src" "$MORTIS_ENGINE/.venv/bin/python" -B \
+  review-improvements/harness/python-callers/review_commits_probe.py \
+  --output .local/python-caller-assignments.json
+```

@@ -1,0 +1,130 @@
+{
+  "acceptance": {
+    "met": false,
+    "passed": 2,
+    "total": 4
+  },
+  "engine_revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+  "engine_tracked_changes": false,
+  "evidence": "mocked provider with real local Git and isolated SQLite review history",
+  "observations": {
+    "incremental-body-only": {
+      "actual": {
+        "assigned_paths": [
+          "shop/billing.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "shop/checkout.py"
+        ],
+        "strategy": "incremental"
+      },
+      "expected": {
+        "assigned_paths": [
+          "shop/billing.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "shop/checkout.py"
+        ],
+        "strategy": "incremental"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+        "head": "5974839994fe02b16ed1d3a9e8aaa143a4654d3b",
+        "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+      }
+    },
+    "incremental-removed-function": {
+      "actual": {
+        "assigned_paths": [
+          "shop/billing.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "shop/checkout.py"
+        ],
+        "strategy": "incremental"
+      },
+      "expected": {
+        "assigned_paths": [
+          "shop/billing.py",
+          "shop/checkout.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "pass": false,
+      "revisions": {
+        "base": "0dee4f15f23694ddbe328d762893cc2b41f95a68",
+        "head": "32158af297f4eb7959494bff90ec726ba1413bf2",
+        "previous": "f2d9a3ccc44e69228165b2e98a5c62d99b537bc2"
+      }
+    },
+    "incremental-renamed-optional-keyword": {
+      "actual": {
+        "assigned_paths": [
+          "shop/billing.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "shop/checkout.py"
+        ],
+        "strategy": "incremental"
+      },
+      "expected": {
+        "assigned_paths": [
+          "shop/billing.py",
+          "shop/checkout.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "pass": false,
+      "revisions": {
+        "base": "2df385621a4ea72d7c6f90ebbadea336ae0009d2",
+        "head": "ac9abcb88551fa6fcb3f199738d947080fc3c336",
+        "previous": "679e684ffcaaf1869dd1b7ca68474793151ed67c"
+      }
+    },
+    "incremental-required-parameter": {
+      "actual": {
+        "assigned_paths": [
+          "shop/billing.py",
+          "shop/checkout.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "expected": {
+        "assigned_paths": [
+          "shop/billing.py",
+          "shop/checkout.py"
+        ],
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+        "head": "5cd07242d1b527c02159da859c180831b3b32f8d",
+        "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+      }
+    }
+  },
+  "sha256": {
+    "cases.json": "bacc3b35b33f89eedf0e7455544d14f83682afd9ca304bbf3753f3985eaedd00",
+    "expected.json": "713368113f91eb240237fe9350bde3b9c2df6dbcd6dde97df8ca3184a91880da",
+    "review_commits_probe.py": "bb235312a91e2ec05f9fbc44d3c9130c2e9babe88f2c07ed1e5696e41ecb4669",
+    "run.py": "fe712adf2d681d641d49615eabbef1c4ebbd6cff645ba8b0ebc5c206ea1c514f"
+  },
+  "tool_versions": {
+    "git": "git version 2.56.1",
+    "python": "3.15.2"
+  }
+}

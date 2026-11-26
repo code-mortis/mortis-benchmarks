@@ -1,0 +1,71 @@
+{
+  "deletion": {
+    "deleted_file": "src/shop/billing.py",
+    "base_files": {
+      "src/shop/__init__.py": "",
+      "src/shop/billing.py": "def total(amount):\n    return amount\n",
+      "src/elsewhere/__init__.py": "",
+      "src/elsewhere/billing.py": "def total(amount):\n    return amount\n"
+    },
+    "cases": [
+      {
+        "id": "delete-absolute-multiline",
+        "caller": "from shop import (\n    billing as api,\n)\n\nprice = api.total(10)\n"
+      },
+      {
+        "id": "delete-relative-single-line",
+        "caller": "from . import billing as api\n\nprice = api.total(10)\n"
+      },
+      {
+        "id": "delete-relative-multiline",
+        "caller": "from . import (\n    billing as api,\n)\n\nprice = api.total(10)\n"
+      },
+      {
+        "id": "delete-unrelated-import",
+        "caller": "from elsewhere import (\n    billing as api,\n)\n\nprice = api.total(10)\n"
+      },
+      {
+        "id": "delete-source-limit",
+        "caller": "from . import billing as api\n\nprice = api.total(10)\n",
+        "caller_padding_bytes": 262144
+      }
+    ]
+  },
+  "incremental": {
+    "dependency_path": "shop/billing.py",
+    "caller_path": "shop/checkout.py",
+    "base_files": {"shop/__init__.py": ""},
+    "cases": [
+      {
+        "id": "incremental-required-parameter",
+        "before": "def total(amount):\n    return amount\n",
+        "after": "def total(amount, currency):\n    return amount\n",
+        "caller": "from shop.billing import total\n\nprice = total(10)\n"
+      },
+      {
+        "id": "incremental-body-only",
+        "before": "def total(amount):\n    return amount\n",
+        "after": "def total(amount):\n    return round(amount)\n",
+        "caller": "from shop.billing import total\n\nprice = total(10)\n"
+      },
+      {
+        "id": "incremental-caller-parse-failure",
+        "before": "def total(amount):\n    return amount\n",
+        "after": "def total(amount, currency):\n    return amount\n",
+        "caller": "from shop.billing import total\n\nprice = total(10)\nif\n"
+      },
+      {
+        "id": "incremental-removed-function",
+        "before": "def total(amount):\n    return amount\n\ndef rate():\n    return 1\n",
+        "after": "def rate():\n    return 1\n",
+        "caller": "from shop.billing import total\n\nprice = total(10)\n"
+      },
+      {
+        "id": "incremental-renamed-optional-keyword",
+        "before": "def total(amount, *, currency='USD'):\n    return amount\n",
+        "after": "def total(amount, *, denomination='USD'):\n    return amount\n",
+        "caller": "from shop.billing import total\n\nprice = total(10, currency='JPY')\n"
+      }
+    ]
+  }
+}

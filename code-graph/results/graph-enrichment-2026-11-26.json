@@ -1,0 +1,257 @@
+{
+  "evidence": "deterministic offline component benchmark with replayed parser transport",
+  "timed_component": "mortis_engine.code_graph.enrich",
+  "versions": {
+    "base_revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+    "baseline_module_sha256": "c343417e6ee402293c35922d71dfb092187f7ce11253b19dbdaa8549aff74132",
+    "candidate_module_sha256": "fb785a23427f9f012e9b8e8c61b5c9030fd1e3cc477d8e8a8dc2b5ae1733933e",
+    "replacement_sha256": "711ea8d425319889d62900c448bf7cd549d603a15196eeb4e96c2dae280e642f",
+    "harness_sha256": "42452a0840e66704e5b23074f6f07e58410ea48c9f99edff12a8a1d9548cb046",
+    "protocol_sha256": "08001b9aa9eb5248bf045f69883df0721a4853e4fe3e6b4657f74a18bab2259c",
+    "python": "3.15.2",
+    "pydantic": "2.14.4",
+    "git": "git version 2.56.1",
+    "os_release": "27.2.0"
+  },
+  "configuration": {
+    "machine": "arm64",
+    "os": "Darwin",
+    "logical_cpu_count": 12,
+    "concurrency": 1,
+    "python_hash_seed": "0"
+  },
+  "warmups_per_arm": 2,
+  "samples_per_arm": 9,
+  "controls": {
+    "fixture_sha256": "701b53e93e9d50d85e9cad25ab718be9b439592b913691989d96afdbb52415b9",
+    "indexed_files": 10,
+    "assignments": 3,
+    "parser_imports": 11,
+    "serialized_source_bytes": 13969,
+    "checks": {
+      "only_assigned_with_eligible_neighbors": true,
+      "three_ordered_sources": true,
+      "truncation_reported": true,
+      "partial_coverage_reported": true,
+      "source_bytes_correct": true
+    },
+    "output_sha256": "9895273704d58ad1e293c04af48d5f7074fa28b6653cb4626662538ed9ddc70b"
+  },
+  "workloads": {
+    "single_assignment": {
+      "fixture_sha256": "94bde6cd8d5fe1768ace30a33a014f6f1d1347cee6f2565d3a95e5a9b00fcda4",
+      "indexed_files": 1000,
+      "assignments": 1,
+      "parser_imports": 18000,
+      "serialized_source_bytes": 473000,
+      "elapsed_ms": {
+        "baseline": [
+          1.860875,
+          1.749708,
+          1.753584,
+          1.767375,
+          1.684416,
+          1.750208,
+          1.615834,
+          1.643583,
+          1.616041
+        ],
+        "candidate": [
+          1.561916,
+          1.611042,
+          1.564875,
+          1.635792,
+          1.494125,
+          1.520875,
+          1.503584,
+          1.5435,
+          1.679334
+        ]
+      },
+      "elapsed_ms_summary": {
+        "baseline": {
+          "count": 9,
+          "median": 1.749708,
+          "min": 1.615834,
+          "max": 1.860875
+        },
+        "candidate": {
+          "count": 9,
+          "median": 1.561916,
+          "min": 1.494125,
+          "max": 1.679334
+        }
+      },
+      "output_sha256": "696e3e6c4be62f76f3f1e2f9bfe55aa711bf29073ee12f48f1c26f57fee9b1c8",
+      "median_reduction_percent": 10.7327622666182,
+      "threshold_reduction_percent": -10,
+      "passes": true,
+      "errors": [],
+      "failed_calls": 0,
+      "peak_traced_python_bytes": {
+        "baseline": 64928,
+        "candidate": 64928
+      }
+    },
+    "small": {
+      "fixture_sha256": "ab0b5cdedcc8624f4cab5982606a7f8e4f6ba23b68c1122077be36c1236d44e9",
+      "indexed_files": 100,
+      "assignments": 25,
+      "parser_imports": 600,
+      "serialized_source_bytes": 18500,
+      "elapsed_ms": {
+        "baseline": [
+          1.334792,
+          1.343708,
+          1.3495,
+          1.400375,
+          1.361458,
+          1.365125,
+          1.340125,
+          1.304125,
+          1.30325
+        ],
+        "candidate": [
+          0.203792,
+          0.186333,
+          0.184917,
+          0.186292,
+          0.194166,
+          0.182584,
+          0.227875,
+          0.204209,
+          0.183541
+        ]
+      },
+      "elapsed_ms_summary": {
+        "baseline": {
+          "count": 9,
+          "median": 1.343708,
+          "min": 1.30325,
+          "max": 1.400375
+        },
+        "candidate": {
+          "count": 9,
+          "median": 0.186333,
+          "min": 0.182584,
+          "max": 0.227875
+        }
+      },
+      "output_sha256": "988d5c7f6a230b9f24f0fd0b494f6bf7350b5e2c51091f50049037b683fae6d8",
+      "median_reduction_percent": 86.13292471280963,
+      "threshold_reduction_percent": -10,
+      "passes": true,
+      "errors": [],
+      "failed_calls": 0
+    },
+    "medium": {
+      "fixture_sha256": "c1a4a2bf0c542825eaa85c3479df1e857cba2c211075ad8d5f3866e063deed5b",
+      "indexed_files": 1000,
+      "assignments": 100,
+      "parser_imports": 18000,
+      "serialized_source_bytes": 473000,
+      "elapsed_ms": {
+        "baseline": [
+          152.200167,
+          152.132,
+          153.65175,
+          152.171083,
+          151.742333,
+          153.185792,
+          152.874167,
+          151.483292,
+          152.333959
+        ],
+        "candidate": [
+          2.571167,
+          2.44025,
+          2.472667,
+          2.418708,
+          2.422875,
+          2.372958,
+          2.608167,
+          2.42725,
+          2.489625
+        ]
+      },
+      "elapsed_ms_summary": {
+        "baseline": {
+          "count": 9,
+          "median": 152.200167,
+          "min": 151.483292,
+          "max": 153.65175
+        },
+        "candidate": {
+          "count": 9,
+          "median": 2.44025,
+          "min": 2.372958,
+          "max": 2.608167
+        }
+      },
+      "output_sha256": "fd5e8003e835f37b80487746fc89e4a96254dec47cc414678be67a508db7d15f",
+      "median_reduction_percent": 98.39668375659535,
+      "threshold_reduction_percent": 25,
+      "passes": true,
+      "errors": [],
+      "failed_calls": 0
+    },
+    "many_assignments": {
+      "fixture_sha256": "548cf3ab1043b217020d1a9be162f66cf9f6f0d7098ce949a147742cd349f458",
+      "indexed_files": 1000,
+      "assignments": 1000,
+      "parser_imports": 18000,
+      "serialized_source_bytes": 473000,
+      "elapsed_ms": {
+        "baseline": [
+          1512.702375,
+          1482.782291,
+          1517.439458,
+          1507.148875,
+          1522.13475,
+          1511.074584,
+          1489.72325,
+          1510.362292,
+          1513.994084
+        ],
+        "candidate": [
+          6.561375,
+          6.40375,
+          6.448709,
+          6.427541,
+          6.649458,
+          6.747709,
+          6.418208,
+          6.583125,
+          6.420666
+        ]
+      },
+      "elapsed_ms_summary": {
+        "baseline": {
+          "count": 9,
+          "median": 1511.074584,
+          "min": 1482.782291,
+          "max": 1522.13475
+        },
+        "candidate": {
+          "count": 9,
+          "median": 6.448709,
+          "min": 6.40375,
+          "max": 6.747709
+        }
+      },
+      "output_sha256": "aa53eec0e7550601fac94fcd00068a2b8d824ddf400a75261c649652b044a15b",
+      "median_reduction_percent": 99.57323688266072,
+      "threshold_reduction_percent": 25,
+      "passes": true,
+      "errors": [],
+      "failed_calls": 0,
+      "peak_traced_python_bytes": {
+        "baseline": 164319,
+        "candidate": 2452591
+      }
+    }
+  },
+  "provider_usage": null,
+  "provider_cost": null,
+  "passes": true
+}

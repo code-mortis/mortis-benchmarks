@@ -1,0 +1,12 @@
+{
+  "delete-absolute-multiline": {"matched_paths": ["src/shop/checkout.py"], "status": "planned", "limits": []},
+  "delete-relative-single-line": {"matched_paths": ["src/shop/checkout.py"], "status": "planned", "limits": []},
+  "delete-relative-multiline": {"matched_paths": ["src/shop/checkout.py"], "status": "planned", "limits": []},
+  "delete-unrelated-import": {"matched_paths": [], "status": "planned", "limits": []},
+  "delete-source-limit": {"matched_paths": [], "status": "partial", "limits": ["file_bytes"]},
+  "incremental-required-parameter": {"strategy": "incremental", "reason": "compatible_ancestor", "reused_paths": []},
+  "incremental-body-only": {"strategy": "incremental", "reason": "compatible_ancestor", "reused_paths": ["shop/checkout.py"]},
+  "incremental-caller-parse-failure": {"strategy": "full", "reason": "python_caller_inspection_incomplete", "reused_paths": []},
+  "incremental-removed-function": {"strategy": "incremental", "reason": "compatible_ancestor", "reused_paths": []},
+  "incremental-renamed-optional-keyword": {"strategy": "incremental", "reason": "compatible_ancestor", "reused_paths": []}
+}

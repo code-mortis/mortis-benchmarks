@@ -29,3 +29,16 @@ PYTHONPATH="$CODE_MORTIS/backend" "$CODE_MORTIS/backend/.venv/bin/python" -B \
 ```
 
 The context-quality and resource-overlap launchers are retired. Their source preserves the original experiment, and their [result reports](results/README.md) record the outcomes. The checkpoint tests run offline with `python3 -B -m unittest discover -s code-graph/harness`.
+
+## Standalone Engine graph enrichment
+
+The [enrichment benchmark](harness/graph_enrichment_protocol.md) measures how the standalone Engine selects supporting source from an already validated parser result. It times the current enrichment function and a prototype that indexes imports once. Synthetic graphs cover one to 1,000 assigned paths, including a separate check for source order, byte limits and partial coverage.
+
+Run this command from the benchmark checkout using an Engine development environment and a fresh output path.
+
+```sh
+mkdir -p .local
+PYTHONPATH="../mortis-engine/src" PYTHONHASHSEED=0 ../mortis-engine/.venv/bin/python -B \
+  code-graph/harness/graph_enrichment.py --engine-checkout ../mortis-engine \
+  --output .local/graph-enrichment.json
+```

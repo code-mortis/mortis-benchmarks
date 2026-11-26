@@ -21,3 +21,18 @@ Time includes extraction and JSON sizing. The timer excludes Git export, Docker 
 | [Storage](storage.json) | One snapshot per corpus. Records relation sizes, WAL growth, and retained Git bytes. |
 | [Context quality](context-quality.json) | 18 completed answers across six matched cases and three context strategies. None of the strategies confirmed a target defect. The graph arm correctly classified two fixed controls and the rollout gate remained unmet. |
 | [Resource overlap](overlap.json) | Concurrent graph, review, security, and database workloads. Over 360 seconds, simultaneous container memory peaked at 2.49 GiB. Model and GitHub responses were stubbed. The security workload remained partial because vulnerability advisory data was stale. |
+
+## Standalone Engine enrichment · November 26, 2026
+
+Indexing neighboring files in one pass reduced the time spent selecting graph context. In the current implementation, each assigned path scans every import in the parser result. Both arms received the same validated, synthetic result and produced byte-identical context and coverage status on every comparison. The timings cover host-side enrichment after source collection and parsing.
+
+| Assigned paths | Import records | Current median | Prototype median |
+| ---: | ---: | ---: | ---: |
+| 1 | 18,000 | 1.750 ms | 1.562 ms |
+| 25 | 600 | 1.344 ms | 0.186 ms |
+| 100 | 18,000 | 152.200 ms | 2.440 ms |
+| 1,000 | 18,000 | 1,511.075 ms | 6.449 ms |
+
+All 72 timed calls completed after two warm-ups per arm and workload. With 1,000 assigned paths, peak traced Python allocations rose from 164,319 to 2,452,591 bytes (+2.18 MiB) in separate memory measurements. For one assigned path, both arms peaked at 64,928 bytes. Each memory measurement used one sample per arm, excluding the prepared fixtures. The run met the predeclared timing and correctness thresholds.
+
+Engine `b02e6f7b4ec67b8d25b8e2de05502ee8835b133c`, Python 3.15.2, Pydantic 2.14.4, macOS arm64, 12 logical CPUs. See [individual samples, range, fixture hashes and controls](graph-enrichment-2026-11-26.json) and the [reproduction protocol](../harness/graph_enrichment_protocol.md).

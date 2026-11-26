@@ -1,0 +1,376 @@
+{
+  "evidence": "deterministic offline public Python API benchmark",
+  "engine_revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+  "engine_src_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "harness_sha256": "37a7e717361f7fe4b6401465c2818a41dcc95df5ad3bfc91f8b0ca305d83fd96",
+  "python": "3.15.2",
+  "git": "git version 2.56.1",
+  "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "model": "",
+  "logical_cpu_count": 12,
+  "samples_per_arm": 5,
+  "hardware_cache": "warm, with fresh private snapshot per invocation",
+  "provider_cost_tokens": null,
+  "cases": {
+    "edge": {
+      "input": {
+        "mode": "commits",
+        "base": "f30e7d52baeaae6dc28a433f6a4dfcafaf6b0454",
+        "head": "8c1cd25c491a6a9b44c1250f8c08f8b1ad59a19c"
+      },
+      "preview_sha256": "de66fd0634152bbe19d22e547e99580648e16692e86be003dd4cffaec21f9c7a",
+      "preview_totals": {
+        "selected_files": 6,
+        "excluded_files": 2,
+        "units": 5,
+        "planned_batches": 1,
+        "source_bytes": 926,
+        "diff_bytes": 805,
+        "assigned_unit_json_bytes": 5404
+      },
+      "preview_errors": [
+        {
+          "path": "invalid.py",
+          "message": "Required source is binary or is not UTF-8 text."
+        },
+        {
+          "path": "link.py",
+          "message": "Source is not a regular text file at the pinned revision."
+        }
+      ],
+      "preview_exclusions": [
+        {
+          "path": "binary.py",
+          "old_path": null,
+          "reason": "binary"
+        },
+        {
+          "path": "obsolete.py",
+          "reason": "deleted",
+          "source_sha": "f30e7d52baeaae6dc28a433f6a4dfcafaf6b0454"
+        }
+      ],
+      "git_commands": {
+        "current": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 14,
+          "diff": 6,
+          "cat-file": 12
+        },
+        "reuse": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 9,
+          "diff": 6,
+          "cat-file": 12
+        }
+      },
+      "git_total": {
+        "current": 37,
+        "reuse": 32
+      },
+      "git_saved": 5
+    },
+    "commits_4": {
+      "input": {
+        "mode": "commits",
+        "base": "aede0fec140c71a25af9f4e3ac9559b753bd0d23",
+        "head": "132d69a53130ee58080909bc065832a1318aa64f"
+      },
+      "preview_sha256": "98f5b558bba67a37e97eafafb4a6873c683861d60696048b9dd662de2d9ed278",
+      "preview_totals": {
+        "selected_files": 4,
+        "excluded_files": 0,
+        "units": 4,
+        "planned_batches": 1,
+        "source_bytes": 1706,
+        "diff_bytes": 832,
+        "assigned_unit_json_bytes": 5242
+      },
+      "preview_errors": [],
+      "preview_exclusions": [],
+      "git_commands": {
+        "current": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 9,
+          "diff": 6,
+          "cat-file": 4
+        },
+        "reuse": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 5,
+          "diff": 6,
+          "cat-file": 4
+        }
+      },
+      "git_total": {
+        "current": 24,
+        "reuse": 20
+      },
+      "git_saved": 4,
+      "samples_ms": {
+        "current": [
+          212.941167,
+          226.955542,
+          214.63125,
+          210.718042,
+          217.529708
+        ],
+        "reuse": [
+          187.927,
+          181.105084,
+          204.857,
+          240.614333,
+          169.326375
+        ]
+      },
+      "pair_order": [
+        [
+          "current",
+          "reuse"
+        ],
+        [
+          "reuse",
+          "current"
+        ],
+        [
+          "current",
+          "reuse"
+        ],
+        [
+          "reuse",
+          "current"
+        ],
+        [
+          "current",
+          "reuse"
+        ]
+      ],
+      "failures": [],
+      "incomplete_samples": 0,
+      "median_ms": {
+        "current": 214.63125,
+        "reuse": 187.927
+      },
+      "range_ms": {
+        "current": [
+          210.718042,
+          226.955542
+        ],
+        "reuse": [
+          169.326375,
+          240.614333
+        ]
+      },
+      "median_reduction_pct": 12.441920736146294
+    },
+    "commits_80": {
+      "input": {
+        "mode": "commits",
+        "base": "14699c955fd3497d3753d6123c637378a74a69d7",
+        "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+      },
+      "preview_sha256": "fcdd7ccd92823c8c7f58fc85845997b5e4d5752a35b5ed5932b7c6e20d3465d5",
+      "preview_totals": {
+        "selected_files": 80,
+        "excluded_files": 0,
+        "units": 80,
+        "planned_batches": 2,
+        "source_bytes": 34790,
+        "diff_bytes": 16664,
+        "assigned_unit_json_bytes": 105534
+      },
+      "preview_errors": [],
+      "preview_exclusions": [],
+      "git_commands": {
+        "current": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 161,
+          "diff": 82,
+          "cat-file": 80
+        },
+        "reuse": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 81,
+          "diff": 82,
+          "cat-file": 80
+        }
+      },
+      "git_total": {
+        "current": 328,
+        "reuse": 248
+      },
+      "git_saved": 80,
+      "samples_ms": {
+        "current": [
+          3315.811167,
+          3125.41525,
+          2930.317875,
+          3163.647959,
+          2800.346209
+        ],
+        "reuse": [
+          2241.019625,
+          2360.451583,
+          2394.364042,
+          2581.2215,
+          2036.760959
+        ]
+      },
+      "pair_order": [
+        [
+          "current",
+          "reuse"
+        ],
+        [
+          "reuse",
+          "current"
+        ],
+        [
+          "current",
+          "reuse"
+        ],
+        [
+          "reuse",
+          "current"
+        ],
+        [
+          "current",
+          "reuse"
+        ]
+      ],
+      "failures": [],
+      "incomplete_samples": 0,
+      "median_ms": {
+        "current": 3125.41525,
+        "reuse": 2360.451583
+      },
+      "range_ms": {
+        "current": [
+          2800.346209,
+          3315.811167
+        ],
+        "reuse": [
+          2036.760959,
+          2581.2215
+        ]
+      },
+      "median_reduction_pct": 24.47558502826145
+    },
+    "all_80": {
+      "input": {
+        "mode": "all",
+        "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+      },
+      "preview_sha256": "6afa8d07f86c59327049a0abff073a593db267758101a40d74a8ecff06f45464",
+      "preview_totals": {
+        "selected_files": 80,
+        "excluded_files": 0,
+        "units": 80,
+        "planned_batches": 1,
+        "source_bytes": 34790,
+        "diff_bytes": 0,
+        "assigned_unit_json_bytes": 85670
+      },
+      "preview_errors": [],
+      "preview_exclusions": [],
+      "git_commands": {
+        "current": {
+          "init": 1,
+          "rev-parse": 2,
+          "read-tree": 1,
+          "write-tree": 1,
+          "commit-tree": 2,
+          "ls-tree": 161,
+          "merge-base": 1,
+          "diff": 2,
+          "cat-file": 80
+        },
+        "reuse": {
+          "init": 1,
+          "rev-parse": 2,
+          "read-tree": 1,
+          "write-tree": 1,
+          "commit-tree": 2,
+          "ls-tree": 81,
+          "merge-base": 1,
+          "diff": 2,
+          "cat-file": 80
+        }
+      },
+      "git_total": {
+        "current": 251,
+        "reuse": 171
+      },
+      "git_saved": 80,
+      "samples_ms": {
+        "current": [
+          2196.904625,
+          2252.680167,
+          2066.3815,
+          1966.327584,
+          2092.812792
+        ],
+        "reuse": [
+          1464.703875,
+          1486.205416,
+          1437.080708,
+          1366.134917,
+          1349.999167
+        ]
+      },
+      "pair_order": [
+        [
+          "current",
+          "reuse"
+        ],
+        [
+          "reuse",
+          "current"
+        ],
+        [
+          "current",
+          "reuse"
+        ],
+        [
+          "reuse",
+          "current"
+        ],
+        [
+          "current",
+          "reuse"
+        ]
+      ],
+      "failures": [],
+      "incomplete_samples": 0,
+      "median_ms": {
+        "current": 2092.812792,
+        "reuse": 1437.080708
+      },
+      "range_ms": {
+        "current": [
+          1966.327584,
+          2252.680167
+        ],
+        "reuse": [
+          1349.999167,
+          1486.205416
+        ]
+      },
+      "median_reduction_pct": 31.332572435843563
+    }
+  },
+  "passed": true
+}
