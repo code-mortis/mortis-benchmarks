@@ -62,3 +62,9 @@ The candidate used v0.1.7 (`b02e6f7`) with working-tree changes. The frozen fixt
 The multiline relative import now produces a caller site. After removal of an imported function or renaming an optional keyword, the incremental review assigned both the dependency and its caller to the scripted provider. The body-only control still reused the caller. The malformed-source control fell back to full review and the large-file deletion fixture retained explicit partial coverage.
 
 The final Engine checkout passed all 1,468 tests, including the native parser cases. All 19 companion replay tests passed. Ruff, distribution validation and the installed-wheel smoke test also passed. These checks ran offline.
+
+### Caller coverage fixes · November 26, 2026
+
+The [offline rerun](python-caller-fixes-2026-11-26.json) compares the repaired working tree at `277ae12` with v0.1.7. Caller selection passed 10/10 cases (baseline 7/10) and public review assignment passed 4/4 (baseline 2/4). Both scripted replay arms matched the historical case outcomes, including partial coverage for c05 on the second pass.
+
+On the original performance-only comparison, 80-file branch and full-tree previews were 21.3% and 30.8% faster. The full repaired checkout was 25.7% and 31.2% faster against a baseline with matching caller policies. Each pair produced identical previews and saved 80 Git subprocesses on both large workloads.

@@ -1,0 +1,1700 @@
+{
+  "harness_revision": "777304dc76d56b223e7e0ab6902fadc8c9c21843",
+  "engine_revision": "277ae12c7ebaf67b6677949e89d0185f770a3ab8",
+  "engine_source_diff_sha256": "0be5c65edb100bb1268ddb255773eb1b0aab1e38df42462dfdff12b078a741f8",
+  "baseline_revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+  "evidence": "Offline synthetic Git fixtures and scripted review responses",
+  "protocol": [
+    "- Run the ten caller selection cases and the four public review assignment cases once per checkout. Require 10/10 and 4/4 on the candidate. Check the three newly reported failures with public-entry-point regression tests, including compatible controls and pinned-plan replay.",
+    "- Compare graph enrichment on v0.1.7 and the repaired checkout. Use two warm-ups and nine alternating timed calls per arm and workload. Require full output parity, zero errors, at least 25% median reduction on medium and many, and at most 10% slowdown on the other two. Report peak traced allocations separately.",
+    "- Repeat the original preview protocol with its exact performance-only projection over v0.1.7, verified by patch digest. Check full-output parity, process counts, one warm-up and five alternating timed calls per arm/workload. Require at least 15% lower median wall time on both 80-file workloads.",
+    "- Confirm preview performance also on the complete fixed checkout. For this second pair, give the baseline the candidate's caller policies and retain v0.1.7 source reading and planner lookup, so the intentional policy fields and affected-unit IDs agree. Apply the same frozen fixtures, metrics and gates.",
+    "- Replay the frozen second-pass recording once with one pass and once with two through the repaired checkout. Match the historical case statuses (five complete on one pass, four complete and the c05 unknown-usage case partial on two passes), 1/2 and 2/2 unique known defects confirmed respectively, zero false or duplicate confirmations. The separate historical gate requires live quality and observed billing and is expected to remain unevaluated in this offline run."
+  ],
+  "caller_selection": {
+    "baseline": {
+      "acceptance": {
+        "met": false,
+        "passed": 7,
+        "total": 10
+      },
+      "engine_revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+      "engine_tracked_changes": false,
+      "evidence": "offline deterministic",
+      "observations": {
+        "delete-absolute-multiline": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "36d3e022bc03a1d920c87fee3e98cc80445b6c02",
+            "head": "aa52aaebe1c772b93d85f4ef810abe2a19d7173a"
+          }
+        },
+        "delete-relative-multiline": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "pass": false,
+          "revisions": {
+            "base": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43",
+            "head": "3e6fed82489387b5c5764292c7a133209fdb0611"
+          }
+        },
+        "delete-relative-single-line": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "798dd5ecf9063ce9239a468366cb9b723c923133",
+            "head": "866056ebe0e9458166ec7b078c88fb9dc2e00e62"
+          }
+        },
+        "delete-source-limit": {
+          "actual": {
+            "limits": [
+              "file_bytes"
+            ],
+            "matched_paths": [],
+            "status": "partial"
+          },
+          "expected": {
+            "limits": [
+              "file_bytes"
+            ],
+            "matched_paths": [],
+            "status": "partial"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "37cff02bc39d47374267ce280c4897972828357d",
+            "head": "3f606a8c52b99358bb6ec217a887c27118e81b1f"
+          }
+        },
+        "delete-unrelated-import": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [],
+            "status": "planned"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4",
+            "head": "5032bf9c20ae962e6e52717f9774c2d2798d8a48"
+          }
+        },
+        "incremental-body-only": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5974839994fe02b16ed1d3a9e8aaa143a4654d3b",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        },
+        "incremental-caller-parse-failure": {
+          "actual": {
+            "reason": "python_caller_inspection_incomplete",
+            "reused_paths": [],
+            "strategy": "full"
+          },
+          "expected": {
+            "reason": "python_caller_inspection_incomplete",
+            "reused_paths": [],
+            "strategy": "full"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "6d1060dc0ed31088e7e9e475ee38d4223864bd15",
+            "head": "dafcb14c9e2474aa2003b2b7d5c54fcb0adc4c5a",
+            "previous": "6e8f944e0f4d5dd05f91ef9d7ace6f8dbe8d0bea"
+          }
+        },
+        "incremental-removed-function": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": false,
+          "revisions": {
+            "base": "0dee4f15f23694ddbe328d762893cc2b41f95a68",
+            "head": "32158af297f4eb7959494bff90ec726ba1413bf2",
+            "previous": "f2d9a3ccc44e69228165b2e98a5c62d99b537bc2"
+          }
+        },
+        "incremental-renamed-optional-keyword": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": false,
+          "revisions": {
+            "base": "2df385621a4ea72d7c6f90ebbadea336ae0009d2",
+            "head": "ac9abcb88551fa6fcb3f199738d947080fc3c336",
+            "previous": "679e684ffcaaf1869dd1b7ca68474793151ed67c"
+          }
+        },
+        "incremental-required-parameter": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5cd07242d1b527c02159da859c180831b3b32f8d",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        }
+      },
+      "platform": {
+        "arch": "arm64",
+        "os": "Darwin",
+        "release": "27.2.0"
+      },
+      "sha256": {
+        "cases.json": "bacc3b35b33f89eedf0e7455544d14f83682afd9ca304bbf3753f3985eaedd00",
+        "expected.json": "713368113f91eb240237fe9350bde3b9c2df6dbcd6dde97df8ca3184a91880da",
+        "protocol.md": "ec5aba5a1f990c5ccfa0400955b594d42efbf04cb5d73dc8f7b89bd46f29631f",
+        "run.py": "fe712adf2d681d641d49615eabbef1c4ebbd6cff645ba8b0ebc5c206ea1c514f"
+      },
+      "tool_versions": {
+        "git": "git version 2.56.1",
+        "python": "3.15.2"
+      }
+    },
+    "candidate": {
+      "acceptance": {
+        "met": true,
+        "passed": 10,
+        "total": 10
+      },
+      "engine_revision": "277ae12c7ebaf67b6677949e89d0185f770a3ab8",
+      "engine_tracked_changes": true,
+      "evidence": "offline deterministic",
+      "observations": {
+        "delete-absolute-multiline": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "36d3e022bc03a1d920c87fee3e98cc80445b6c02",
+            "head": "aa52aaebe1c772b93d85f4ef810abe2a19d7173a"
+          }
+        },
+        "delete-relative-multiline": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43",
+            "head": "3e6fed82489387b5c5764292c7a133209fdb0611"
+          }
+        },
+        "delete-relative-single-line": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [
+              "src/shop/checkout.py"
+            ],
+            "status": "planned"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "798dd5ecf9063ce9239a468366cb9b723c923133",
+            "head": "866056ebe0e9458166ec7b078c88fb9dc2e00e62"
+          }
+        },
+        "delete-source-limit": {
+          "actual": {
+            "limits": [
+              "file_bytes"
+            ],
+            "matched_paths": [],
+            "status": "partial"
+          },
+          "expected": {
+            "limits": [
+              "file_bytes"
+            ],
+            "matched_paths": [],
+            "status": "partial"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "37cff02bc39d47374267ce280c4897972828357d",
+            "head": "3f606a8c52b99358bb6ec217a887c27118e81b1f"
+          }
+        },
+        "delete-unrelated-import": {
+          "actual": {
+            "limits": [],
+            "matched_paths": [],
+            "status": "planned"
+          },
+          "expected": {
+            "limits": [],
+            "matched_paths": [],
+            "status": "planned"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4",
+            "head": "5032bf9c20ae962e6e52717f9774c2d2798d8a48"
+          }
+        },
+        "incremental-body-only": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5974839994fe02b16ed1d3a9e8aaa143a4654d3b",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        },
+        "incremental-caller-parse-failure": {
+          "actual": {
+            "reason": "python_caller_inspection_incomplete",
+            "reused_paths": [],
+            "strategy": "full"
+          },
+          "expected": {
+            "reason": "python_caller_inspection_incomplete",
+            "reused_paths": [],
+            "strategy": "full"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "6d1060dc0ed31088e7e9e475ee38d4223864bd15",
+            "head": "dafcb14c9e2474aa2003b2b7d5c54fcb0adc4c5a",
+            "previous": "6e8f944e0f4d5dd05f91ef9d7ace6f8dbe8d0bea"
+          }
+        },
+        "incremental-removed-function": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "0dee4f15f23694ddbe328d762893cc2b41f95a68",
+            "head": "32158af297f4eb7959494bff90ec726ba1413bf2",
+            "previous": "f2d9a3ccc44e69228165b2e98a5c62d99b537bc2"
+          }
+        },
+        "incremental-renamed-optional-keyword": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "2df385621a4ea72d7c6f90ebbadea336ae0009d2",
+            "head": "ac9abcb88551fa6fcb3f199738d947080fc3c336",
+            "previous": "679e684ffcaaf1869dd1b7ca68474793151ed67c"
+          }
+        },
+        "incremental-required-parameter": {
+          "actual": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5cd07242d1b527c02159da859c180831b3b32f8d",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        }
+      },
+      "platform": {
+        "arch": "arm64",
+        "os": "Darwin",
+        "release": "27.2.0"
+      },
+      "sha256": {
+        "cases.json": "bacc3b35b33f89eedf0e7455544d14f83682afd9ca304bbf3753f3985eaedd00",
+        "expected.json": "713368113f91eb240237fe9350bde3b9c2df6dbcd6dde97df8ca3184a91880da",
+        "protocol.md": "ec5aba5a1f990c5ccfa0400955b594d42efbf04cb5d73dc8f7b89bd46f29631f",
+        "run.py": "fe712adf2d681d641d49615eabbef1c4ebbd6cff645ba8b0ebc5c206ea1c514f"
+      },
+      "tool_versions": {
+        "git": "git version 2.56.1",
+        "python": "3.15.2"
+      }
+    }
+  },
+  "public_review_assignments": {
+    "baseline": {
+      "acceptance": {
+        "met": false,
+        "passed": 2,
+        "total": 4
+      },
+      "engine_revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+      "engine_tracked_changes": false,
+      "evidence": "mocked provider with real local Git and isolated SQLite review history",
+      "observations": {
+        "incremental-body-only": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5974839994fe02b16ed1d3a9e8aaa143a4654d3b",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        },
+        "incremental-removed-function": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": false,
+          "revisions": {
+            "base": "0dee4f15f23694ddbe328d762893cc2b41f95a68",
+            "head": "32158af297f4eb7959494bff90ec726ba1413bf2",
+            "previous": "f2d9a3ccc44e69228165b2e98a5c62d99b537bc2"
+          }
+        },
+        "incremental-renamed-optional-keyword": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": false,
+          "revisions": {
+            "base": "2df385621a4ea72d7c6f90ebbadea336ae0009d2",
+            "head": "ac9abcb88551fa6fcb3f199738d947080fc3c336",
+            "previous": "679e684ffcaaf1869dd1b7ca68474793151ed67c"
+          }
+        },
+        "incremental-required-parameter": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5cd07242d1b527c02159da859c180831b3b32f8d",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        }
+      },
+      "sha256": {
+        "cases.json": "bacc3b35b33f89eedf0e7455544d14f83682afd9ca304bbf3753f3985eaedd00",
+        "expected.json": "713368113f91eb240237fe9350bde3b9c2df6dbcd6dde97df8ca3184a91880da",
+        "review_commits_probe.py": "bb235312a91e2ec05f9fbc44d3c9130c2e9babe88f2c07ed1e5696e41ecb4669",
+        "run.py": "fe712adf2d681d641d49615eabbef1c4ebbd6cff645ba8b0ebc5c206ea1c514f"
+      },
+      "tool_versions": {
+        "git": "git version 2.56.1",
+        "python": "3.15.2"
+      }
+    },
+    "candidate": {
+      "acceptance": {
+        "met": true,
+        "passed": 4,
+        "total": 4
+      },
+      "engine_revision": "277ae12c7ebaf67b6677949e89d0185f770a3ab8",
+      "engine_tracked_changes": true,
+      "evidence": "mocked provider with real local Git and isolated SQLite review history",
+      "observations": {
+        "incremental-body-only": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [
+              "shop/checkout.py"
+            ],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5974839994fe02b16ed1d3a9e8aaa143a4654d3b",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        },
+        "incremental-removed-function": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "0dee4f15f23694ddbe328d762893cc2b41f95a68",
+            "head": "32158af297f4eb7959494bff90ec726ba1413bf2",
+            "previous": "f2d9a3ccc44e69228165b2e98a5c62d99b537bc2"
+          }
+        },
+        "incremental-renamed-optional-keyword": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "2df385621a4ea72d7c6f90ebbadea336ae0009d2",
+            "head": "ac9abcb88551fa6fcb3f199738d947080fc3c336",
+            "previous": "679e684ffcaaf1869dd1b7ca68474793151ed67c"
+          }
+        },
+        "incremental-required-parameter": {
+          "actual": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "expected": {
+            "assigned_paths": [
+              "shop/billing.py",
+              "shop/checkout.py"
+            ],
+            "reason": "compatible_ancestor",
+            "reused_paths": [],
+            "strategy": "incremental"
+          },
+          "pass": true,
+          "revisions": {
+            "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+            "head": "5cd07242d1b527c02159da859c180831b3b32f8d",
+            "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+          }
+        }
+      },
+      "sha256": {
+        "cases.json": "bacc3b35b33f89eedf0e7455544d14f83682afd9ca304bbf3753f3985eaedd00",
+        "expected.json": "713368113f91eb240237fe9350bde3b9c2df6dbcd6dde97df8ca3184a91880da",
+        "review_commits_probe.py": "bb235312a91e2ec05f9fbc44d3c9130c2e9babe88f2c07ed1e5696e41ecb4669",
+        "run.py": "fe712adf2d681d641d49615eabbef1c4ebbd6cff645ba8b0ebc5c206ea1c514f"
+      },
+      "tool_versions": {
+        "git": "git version 2.56.1",
+        "python": "3.15.2"
+      }
+    }
+  },
+  "preview": {
+    "projection": {
+      "evidence": "offline public Python API benchmark comparing actual Engine source",
+      "engine": {
+        "baseline": {
+          "revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+          "dirty": false,
+          "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "source_inventory_sha256": "872066606e1919b7f8cbff9bbbd71de46215e3af95cd253412a0fb401c9af925",
+          "source_inventory_entries": 76
+        },
+        "candidate": {
+          "revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+          "dirty": true,
+          "tracked_diff_sha256": "cc8879de492642df83cd9686019689acbc56a6e4c063fc9af6dfdc9f2826de66",
+          "source_inventory_sha256": "0e9ae44faa563a6cc51126bf916dd59afacbabe338c4c897f30facf0ce34fd29",
+          "source_inventory_entries": 76
+        }
+      },
+      "checkout_stable": true,
+      "harness_sha256": {
+        "compare.py": "af4f713be8f7857ec9e24b0768f6ee0c08d300e52837965455d352cc060fcbaa",
+        "run.py": "37a7e717361f7fe4b6401465c2818a41dcc95df5ad3bfc91f8b0ca305d83fd96"
+      },
+      "python": "3.15.2",
+      "git": "git version 2.56.1",
+      "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+      "machine": "arm64",
+      "logical_cpu_count": 12,
+      "samples_per_arm": 5,
+      "provider_cost_tokens": null,
+      "cases": {
+        "edge": {
+          "input": {
+            "mode": "commits",
+            "base": "f30e7d52baeaae6dc28a433f6a4dfcafaf6b0454",
+            "head": "8c1cd25c491a6a9b44c1250f8c08f8b1ad59a19c"
+          },
+          "failures": [],
+          "preview_sha256": "5cc1ae8b10ba39fc3aadb1463137f13eb63cbc2ed8164ce78caf3fbaac2397f9",
+          "preview_totals": {
+            "selected_files": 6,
+            "excluded_files": 2,
+            "units": 5,
+            "planned_batches": 1,
+            "source_bytes": 926,
+            "diff_bytes": 805,
+            "assigned_unit_json_bytes": 5404
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 14,
+              "diff": 6,
+              "cat-file": 12
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 9,
+              "diff": 6,
+              "cat-file": 12
+            }
+          },
+          "git_total": {
+            "baseline": 37,
+            "candidate": 32
+          },
+          "git_saved": 5,
+          "ls_tree_saved": 5,
+          "full_preview_parity": true
+        },
+        "commits_4": {
+          "input": {
+            "mode": "commits",
+            "base": "aede0fec140c71a25af9f4e3ac9559b753bd0d23",
+            "head": "132d69a53130ee58080909bc065832a1318aa64f"
+          },
+          "failures": [],
+          "preview_sha256": "98f5b558bba67a37e97eafafb4a6873c683861d60696048b9dd662de2d9ed278",
+          "preview_totals": {
+            "selected_files": 4,
+            "excluded_files": 0,
+            "units": 4,
+            "planned_batches": 1,
+            "source_bytes": 1706,
+            "diff_bytes": 832,
+            "assigned_unit_json_bytes": 5242
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 9,
+              "diff": 6,
+              "cat-file": 4
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 5,
+              "diff": 6,
+              "cat-file": 4
+            }
+          },
+          "git_total": {
+            "baseline": 24,
+            "candidate": 20
+          },
+          "git_saved": 4,
+          "ls_tree_saved": 4,
+          "full_preview_parity": true,
+          "samples_ms": {
+            "baseline": [
+              190.253083,
+              184.169708,
+              192.508917,
+              197.908583,
+              201.592959
+            ],
+            "candidate": [
+              161.021209,
+              160.733583,
+              163.055417,
+              161.479292,
+              156.274458
+            ]
+          },
+          "pair_order": [
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ]
+          ],
+          "incomplete_samples": 0,
+          "median_ms": {
+            "baseline": 192.508917,
+            "candidate": 161.021209
+          },
+          "range_ms": {
+            "baseline": [
+              184.169708,
+              201.592959
+            ],
+            "candidate": [
+              156.274458,
+              163.055417
+            ]
+          },
+          "median_reduction_pct": 16.356493242336402
+        },
+        "commits_80": {
+          "input": {
+            "mode": "commits",
+            "base": "14699c955fd3497d3753d6123c637378a74a69d7",
+            "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+          },
+          "failures": [],
+          "preview_sha256": "fcdd7ccd92823c8c7f58fc85845997b5e4d5752a35b5ed5932b7c6e20d3465d5",
+          "preview_totals": {
+            "selected_files": 80,
+            "excluded_files": 0,
+            "units": 80,
+            "planned_batches": 2,
+            "source_bytes": 34790,
+            "diff_bytes": 16664,
+            "assigned_unit_json_bytes": 105534
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 161,
+              "diff": 82,
+              "cat-file": 80
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 81,
+              "diff": 82,
+              "cat-file": 80
+            }
+          },
+          "git_total": {
+            "baseline": 328,
+            "candidate": 248
+          },
+          "git_saved": 80,
+          "ls_tree_saved": 80,
+          "full_preview_parity": true,
+          "samples_ms": {
+            "baseline": [
+              2583.121166,
+              2602.265709,
+              2593.555625,
+              2560.757458,
+              2669.70275
+            ],
+            "candidate": [
+              1967.526625,
+              1929.107,
+              2048.908083,
+              2042.232125,
+              2066.759292
+            ]
+          },
+          "pair_order": [
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ]
+          ],
+          "incomplete_samples": 0,
+          "median_ms": {
+            "baseline": 2593.555625,
+            "candidate": 2042.232125
+          },
+          "range_ms": {
+            "baseline": [
+              2560.757458,
+              2669.70275
+            ],
+            "candidate": [
+              1929.107,
+              2066.759292
+            ]
+          },
+          "median_reduction_pct": 21.257438810474717
+        },
+        "all_80": {
+          "input": {
+            "mode": "all",
+            "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+          },
+          "failures": [],
+          "preview_sha256": "6afa8d07f86c59327049a0abff073a593db267758101a40d74a8ecff06f45464",
+          "preview_totals": {
+            "selected_files": 80,
+            "excluded_files": 0,
+            "units": 80,
+            "planned_batches": 1,
+            "source_bytes": 34790,
+            "diff_bytes": 0,
+            "assigned_unit_json_bytes": 85670
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "read-tree": 1,
+              "write-tree": 1,
+              "commit-tree": 2,
+              "ls-tree": 161,
+              "merge-base": 1,
+              "diff": 2,
+              "cat-file": 80
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "read-tree": 1,
+              "write-tree": 1,
+              "commit-tree": 2,
+              "ls-tree": 81,
+              "merge-base": 1,
+              "diff": 2,
+              "cat-file": 80
+            }
+          },
+          "git_total": {
+            "baseline": 251,
+            "candidate": 171
+          },
+          "git_saved": 80,
+          "ls_tree_saved": 80,
+          "full_preview_parity": true,
+          "samples_ms": {
+            "baseline": [
+              2404.791916,
+              1929.995333,
+              2081.645417,
+              2207.867292,
+              1963.524625
+            ],
+            "candidate": [
+              1440.998125,
+              1342.866541,
+              1464.467375,
+              1561.166542,
+              1422.792208
+            ]
+          },
+          "pair_order": [
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ]
+          ],
+          "incomplete_samples": 0,
+          "median_ms": {
+            "baseline": 2081.645417,
+            "candidate": 1440.998125
+          },
+          "range_ms": {
+            "baseline": [
+              1929.995333,
+              2404.791916
+            ],
+            "candidate": [
+              1342.866541,
+              1561.166542
+            ]
+          },
+          "median_reduction_pct": 30.776004730108177
+        }
+      },
+      "timing_threshold_passed": true,
+      "passed": true
+    },
+    "fixed": {
+      "evidence": "offline public Python API benchmark comparing actual Engine source",
+      "engine": {
+        "baseline": {
+          "revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+          "dirty": true,
+          "tracked_diff_sha256": "a89f6b7af32d4734ce7b17282c591c69d3a7d34419c83b694dc0c7ccb846dee6",
+          "source_inventory_sha256": "a97d3ba2ba121d33949d098fcf451d68b75a4736eaad02fac41cf365887ba250",
+          "source_inventory_entries": 76
+        },
+        "candidate": {
+          "revision": "277ae12c7ebaf67b6677949e89d0185f770a3ab8",
+          "dirty": true,
+          "tracked_diff_sha256": "49925b8c374705c2dae71624df1298dee67b629e8bf10239539cbf4f26b14669",
+          "source_inventory_sha256": "84ada1379e5c0237c110c125bb03ebf6a8f4375f26e8afc00dbab638622a92f2",
+          "source_inventory_entries": 76
+        }
+      },
+      "checkout_stable": true,
+      "harness_sha256": {
+        "compare.py": "af4f713be8f7857ec9e24b0768f6ee0c08d300e52837965455d352cc060fcbaa",
+        "run.py": "37a7e717361f7fe4b6401465c2818a41dcc95df5ad3bfc91f8b0ca305d83fd96"
+      },
+      "python": "3.15.2",
+      "git": "git version 2.56.1",
+      "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+      "machine": "arm64",
+      "logical_cpu_count": 12,
+      "samples_per_arm": 5,
+      "provider_cost_tokens": null,
+      "cases": {
+        "edge": {
+          "input": {
+            "mode": "commits",
+            "base": "f30e7d52baeaae6dc28a433f6a4dfcafaf6b0454",
+            "head": "8c1cd25c491a6a9b44c1250f8c08f8b1ad59a19c"
+          },
+          "failures": [],
+          "preview_sha256": "bcfd1021ac37b1c2a219cc08d2442dbbc914a20b8c5b4d708e5fe7e5db87e48a",
+          "preview_totals": {
+            "selected_files": 6,
+            "excluded_files": 2,
+            "units": 5,
+            "planned_batches": 1,
+            "source_bytes": 926,
+            "diff_bytes": 805,
+            "assigned_unit_json_bytes": 5404
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 14,
+              "diff": 6,
+              "cat-file": 12
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 9,
+              "diff": 6,
+              "cat-file": 12
+            }
+          },
+          "git_total": {
+            "baseline": 37,
+            "candidate": 32
+          },
+          "git_saved": 5,
+          "ls_tree_saved": 5,
+          "full_preview_parity": true
+        },
+        "commits_4": {
+          "input": {
+            "mode": "commits",
+            "base": "aede0fec140c71a25af9f4e3ac9559b753bd0d23",
+            "head": "132d69a53130ee58080909bc065832a1318aa64f"
+          },
+          "failures": [],
+          "preview_sha256": "98f5b558bba67a37e97eafafb4a6873c683861d60696048b9dd662de2d9ed278",
+          "preview_totals": {
+            "selected_files": 4,
+            "excluded_files": 0,
+            "units": 4,
+            "planned_batches": 1,
+            "source_bytes": 1706,
+            "diff_bytes": 832,
+            "assigned_unit_json_bytes": 5242
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 9,
+              "diff": 6,
+              "cat-file": 4
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 5,
+              "diff": 6,
+              "cat-file": 4
+            }
+          },
+          "git_total": {
+            "baseline": 24,
+            "candidate": 20
+          },
+          "git_saved": 4,
+          "ls_tree_saved": 4,
+          "full_preview_parity": true,
+          "samples_ms": {
+            "baseline": [
+              214.008167,
+              217.271708,
+              212.655208,
+              194.180708,
+              190.67125
+            ],
+            "candidate": [
+              173.402416,
+              174.634583,
+              174.977458,
+              166.431583,
+              163.924125
+            ]
+          },
+          "pair_order": [
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ]
+          ],
+          "incomplete_samples": 0,
+          "median_ms": {
+            "baseline": 212.655208,
+            "candidate": 173.402416
+          },
+          "range_ms": {
+            "baseline": [
+              190.67125,
+              217.271708
+            ],
+            "candidate": [
+              163.924125,
+              174.977458
+            ]
+          },
+          "median_reduction_pct": 18.45842026121458
+        },
+        "commits_80": {
+          "input": {
+            "mode": "commits",
+            "base": "14699c955fd3497d3753d6123c637378a74a69d7",
+            "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+          },
+          "failures": [],
+          "preview_sha256": "fcdd7ccd92823c8c7f58fc85845997b5e4d5752a35b5ed5932b7c6e20d3465d5",
+          "preview_totals": {
+            "selected_files": 80,
+            "excluded_files": 0,
+            "units": 80,
+            "planned_batches": 2,
+            "source_bytes": 34790,
+            "diff_bytes": 16664,
+            "assigned_unit_json_bytes": 105534
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 161,
+              "diff": 82,
+              "cat-file": 80
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "merge-base": 2,
+              "ls-tree": 81,
+              "diff": 82,
+              "cat-file": 80
+            }
+          },
+          "git_total": {
+            "baseline": 328,
+            "candidate": 248
+          },
+          "git_saved": 80,
+          "ls_tree_saved": 80,
+          "full_preview_parity": true,
+          "samples_ms": {
+            "baseline": [
+              2828.163125,
+              2841.535625,
+              2728.148625,
+              2826.366959,
+              2913.466708
+            ],
+            "candidate": [
+              2068.810292,
+              2093.365125,
+              2274.06875,
+              2100.192167,
+              2171.269917
+            ]
+          },
+          "pair_order": [
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ]
+          ],
+          "incomplete_samples": 0,
+          "median_ms": {
+            "baseline": 2828.163125,
+            "candidate": 2100.192167
+          },
+          "range_ms": {
+            "baseline": [
+              2728.148625,
+              2913.466708
+            ],
+            "candidate": [
+              2068.810292,
+              2274.06875
+            ]
+          },
+          "median_reduction_pct": 25.740062571532185
+        },
+        "all_80": {
+          "input": {
+            "mode": "all",
+            "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+          },
+          "failures": [],
+          "preview_sha256": "6afa8d07f86c59327049a0abff073a593db267758101a40d74a8ecff06f45464",
+          "preview_totals": {
+            "selected_files": 80,
+            "excluded_files": 0,
+            "units": 80,
+            "planned_batches": 1,
+            "source_bytes": 34790,
+            "diff_bytes": 0,
+            "assigned_unit_json_bytes": 85670
+          },
+          "git_commands": {
+            "baseline": {
+              "init": 1,
+              "rev-parse": 2,
+              "read-tree": 1,
+              "write-tree": 1,
+              "commit-tree": 2,
+              "ls-tree": 161,
+              "merge-base": 1,
+              "diff": 2,
+              "cat-file": 80
+            },
+            "candidate": {
+              "init": 1,
+              "rev-parse": 2,
+              "read-tree": 1,
+              "write-tree": 1,
+              "commit-tree": 2,
+              "ls-tree": 81,
+              "merge-base": 1,
+              "diff": 2,
+              "cat-file": 80
+            }
+          },
+          "git_total": {
+            "baseline": 251,
+            "candidate": 171
+          },
+          "git_saved": 80,
+          "ls_tree_saved": 80,
+          "full_preview_parity": true,
+          "samples_ms": {
+            "baseline": [
+              2023.684458,
+              2067.773125,
+              2027.24175,
+              2001.878084,
+              2036.131834
+            ],
+            "candidate": [
+              1369.33425,
+              1433.535958,
+              1352.431667,
+              1397.769541,
+              1394.8975
+            ]
+          },
+          "pair_order": [
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ],
+            [
+              "candidate",
+              "baseline"
+            ],
+            [
+              "baseline",
+              "candidate"
+            ]
+          ],
+          "incomplete_samples": 0,
+          "median_ms": {
+            "baseline": 2027.24175,
+            "candidate": 1394.8975
+          },
+          "range_ms": {
+            "baseline": [
+              2001.878084,
+              2067.773125
+            ],
+            "candidate": [
+              1352.431667,
+              1433.535958
+            ]
+          },
+          "median_reduction_pct": 31.192345461511927
+        }
+      },
+      "timing_threshold_passed": true,
+      "passed": true
+    }
+  },
+  "review_replay": {
+    "single": {
+      "metrics": {
+        "completed_files": 5,
+        "confirmed_false": 0,
+        "confirmed_precision": 1.0,
+        "confirmed_true": 1,
+        "discovered_defects": 1,
+        "discovery_recall": 0.5,
+        "duplicate_candidates": 0,
+        "duplicate_confirmations": 0,
+        "expected_defects": 2,
+        "incomplete_cases": 0,
+        "known_tokens": 120,
+        "raw_candidates": 3,
+        "selected_files": 5,
+        "total_tokens": null,
+        "unknown_usage_requests": 2
+      },
+      "case_outcomes": [
+        {
+          "id": "c01",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 1,
+          "findings": 1
+        },
+        {
+          "id": "c02",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 1,
+          "findings": 0
+        },
+        {
+          "id": "c03",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 0,
+          "findings": 0
+        },
+        {
+          "id": "c04",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 1,
+          "findings": 0
+        },
+        {
+          "id": "c05",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 0,
+          "findings": 0
+        }
+      ],
+      "requests_by_stage": {
+        "analysis": 5,
+        "assessment": 4,
+        "summary": 5
+      },
+      "requests": 14,
+      "recording_sha256": "b2c264cc3c00be20baf2c38a024f3deeadc1cb488264a71fbcbf8cec624772b5",
+      "input_manifest": {
+        "case_pairs": [
+          {
+            "base_sha": "3f53c680e7a09d45827400cce752b764740ceb41",
+            "head_sha": "52d3675dbcf311cf64b10c97f3b03367f675a5b9",
+            "id": "c01"
+          },
+          {
+            "base_sha": "623b9861929d2194da55dada2b7eda164e0a923a",
+            "head_sha": "0e8be75c8f717617413102959c669a92fc3a282f",
+            "id": "c02"
+          },
+          {
+            "base_sha": "4fd52a8c7f4400ab3995c775b4d4845390a3acae",
+            "head_sha": "708292477e51d230f128df832d9b453c4f874ad3",
+            "id": "c03"
+          },
+          {
+            "base_sha": "2ac1263fd96ec13c27636aa7f1d585e7d0a0f4ef",
+            "head_sha": "718e602df7057264d9110f40e72acef253d25c9f",
+            "id": "c04"
+          },
+          {
+            "base_sha": "21b13a45d5c7d2b59fb66d55b6438bb676b1cc2e",
+            "head_sha": "a3b8d682ebaa4c6431fac556053d447ca9573066",
+            "id": "c05"
+          }
+        ],
+        "engine_revision": "35fbc999dd7fd4bf42251b22c04059dfdbc51c22",
+        "evidence_kind": "offline_scripted_replay",
+        "inputs_sha256": {
+          "expected.json": "c6548922fc162980de1a1f393cebeaa631494be94a3a114a1d32a9dddf4989d8",
+          "fixtures/cases.json": "2eb237b703958a01ba3e1d795bdd8a227a13e17173762c1a392b54af9ca56913",
+          "fixtures/replay.json": "19580324b56129d1365a41c4461214f6e6311a42553761a6470a3c0febc3c831"
+        },
+        "quality_evidence": false,
+        "schema_version": "mortis.review-eval-baseline/v1"
+      },
+      "billed_cost": null,
+      "matches_frozen_replay": true
+    },
+    "second": {
+      "metrics": {
+        "completed_files": 5,
+        "confirmed_false": 0,
+        "confirmed_precision": 1.0,
+        "confirmed_true": 2,
+        "discovered_defects": 2,
+        "discovery_recall": 1.0,
+        "duplicate_candidates": 0,
+        "duplicate_confirmations": 0,
+        "expected_defects": 2,
+        "incomplete_cases": 1,
+        "known_tokens": 180,
+        "raw_candidates": 4,
+        "selected_files": 5,
+        "total_tokens": null,
+        "unknown_usage_requests": 2
+      },
+      "case_outcomes": [
+        {
+          "id": "c01",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 1,
+          "findings": 1
+        },
+        {
+          "id": "c02",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 1,
+          "findings": 0
+        },
+        {
+          "id": "c03",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 1,
+          "findings": 1
+        },
+        {
+          "id": "c04",
+          "status": "completed",
+          "workflow_status": "completed",
+          "candidates": 1,
+          "findings": 0
+        },
+        {
+          "id": "c05",
+          "status": "partial",
+          "workflow_status": "completed",
+          "candidates": 0,
+          "findings": 0
+        }
+      ],
+      "requests_by_stage": {
+        "analysis": 9,
+        "assessment": 6,
+        "summary": 5
+      },
+      "requests": 20,
+      "recording_sha256": "b2c264cc3c00be20baf2c38a024f3deeadc1cb488264a71fbcbf8cec624772b5",
+      "input_manifest": {
+        "case_pairs": [
+          {
+            "base_sha": "3f53c680e7a09d45827400cce752b764740ceb41",
+            "head_sha": "52d3675dbcf311cf64b10c97f3b03367f675a5b9",
+            "id": "c01"
+          },
+          {
+            "base_sha": "623b9861929d2194da55dada2b7eda164e0a923a",
+            "head_sha": "0e8be75c8f717617413102959c669a92fc3a282f",
+            "id": "c02"
+          },
+          {
+            "base_sha": "4fd52a8c7f4400ab3995c775b4d4845390a3acae",
+            "head_sha": "708292477e51d230f128df832d9b453c4f874ad3",
+            "id": "c03"
+          },
+          {
+            "base_sha": "2ac1263fd96ec13c27636aa7f1d585e7d0a0f4ef",
+            "head_sha": "718e602df7057264d9110f40e72acef253d25c9f",
+            "id": "c04"
+          },
+          {
+            "base_sha": "21b13a45d5c7d2b59fb66d55b6438bb676b1cc2e",
+            "head_sha": "a3b8d682ebaa4c6431fac556053d447ca9573066",
+            "id": "c05"
+          }
+        ],
+        "engine_revision": "35fbc999dd7fd4bf42251b22c04059dfdbc51c22",
+        "evidence_kind": "offline_scripted_replay",
+        "inputs_sha256": {
+          "expected.json": "c6548922fc162980de1a1f393cebeaa631494be94a3a114a1d32a9dddf4989d8",
+          "fixtures/cases.json": "2eb237b703958a01ba3e1d795bdd8a227a13e17173762c1a392b54af9ca56913",
+          "fixtures/replay.json": "19580324b56129d1365a41c4461214f6e6311a42553761a6470a3c0febc3c831"
+        },
+        "quality_evidence": false,
+        "schema_version": "mortis.review-eval-baseline/v1"
+      },
+      "billed_cost": null,
+      "matches_frozen_replay": true
+    },
+    "historical_acceptance": {
+      "discovery_recall_delta": 0.5,
+      "confirmed_true_delta": 1,
+      "confirmed_precision_delta": 0.0,
+      "quality_accepted": false,
+      "acceptance_requested": true,
+      "checks": {
+        "quality_evidence": false,
+        "recall_gain": true,
+        "confirmed_gain": true,
+        "precision": true,
+        "coverage": false,
+        "duplicates": true,
+        "known_usage": false,
+        "token_limit": false,
+        "cost_limit": false
+      }
+    },
+    "harness_sha256": "e9689f26265ddc520dc0f10e42bc7522a822ef0823f23d36b71dd493660429e7",
+    "acceptance_sha256": "a3bdd1200f5f8fc3dd65588d2bdcce43ef4945acd18db4991c65101a26d60a16"
+  }
+}

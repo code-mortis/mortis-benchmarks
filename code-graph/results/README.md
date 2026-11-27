@@ -49,3 +49,7 @@ The working-tree implementation was compared with v0.1.7 (`b02e6f7`) using the r
 | 1,000 | 18,000 | 1,498.154 ms | 6.699 ms |
 
 Peak traced Python allocations were 64,928 bytes for both single-path arms. With 1,000 assigned paths they rose from 163,951 to 2,443,735 bytes (+2.17 MiB). These isolated component timings exclude Git and parser execution. The [individual results](graph-enrichment-checkouts-2026-11-26.json) include source and fixture digests. The [reconstruction instructions](../../review-improvements/harness/preview-git/compare.md) describe the performance-only checkout shared by both benchmarks.
+
+### Graph enrichment after caller coverage fixes · November 26, 2026
+
+The [offline component rerun](graph-enrichment-caller-fixes-2026-11-26.json) measured the repaired working tree at `277ae12` against v0.1.7 using nine samples per arm and workload. All 72 timed calls passed output parity and all four workload thresholds passed. With 1,000 assigned paths the median fell from 1491.69 ms to 6.64 ms.
