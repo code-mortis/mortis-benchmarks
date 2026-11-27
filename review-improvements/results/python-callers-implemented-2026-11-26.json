@@ -1,0 +1,731 @@
+{
+  "acceptance": {
+    "met": true,
+    "passed": 10,
+    "total": 10
+  },
+  "engine_revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+  "engine_tracked_changes": true,
+  "evidence": "offline deterministic",
+  "observations": {
+    "delete-absolute-multiline": {
+      "actual": {
+        "limits": [],
+        "matched_paths": [
+          "src/shop/checkout.py"
+        ],
+        "status": "planned"
+      },
+      "details": {
+        "preview": {
+          "affected_callers": {
+            "limits_reached": [],
+            "policy": "affected-callers/v5",
+            "scanned_bytes": 101,
+            "scanned_files": 4,
+            "sites": [
+              {
+                "end_line": 5,
+                "path": "src/shop/checkout.py",
+                "start_line": 1,
+                "status": "planned",
+                "triggers": [
+                  "src/shop/billing.py"
+                ],
+                "unit_key": "pr-15274ac90d20e000b81fc77dc0dcb7b01d90e6bb87165c0a1005c5c9e4192e57"
+              }
+            ],
+            "status": "planned",
+            "triggers": [
+              {
+                "blob_sha": "c1d281d07ad253778130aeda36017220f11ae2a5",
+                "new_path": null,
+                "path": "src/shop/billing.py",
+                "source_sha": "36d3e022bc03a1d920c87fee3e98cc80445b6c02",
+                "status": "deleted"
+              }
+            ]
+          },
+          "assumptions": [
+            "No review history was read; the preview shows the full comparison scope.",
+            "No saved connection was read; unit sizing uses only the explicit ceiling or the default bound.",
+            "Bytes describe assigned source, diff and unit JSON, not tokens or a complete provider request.",
+            "Planned batches exclude provider-envelope splitting, graph context, source follow-ups and later stages."
+          ],
+          "base_sha": "36d3e022bc03a1d920c87fee3e98cc80445b6c02",
+          "batches": [
+            {
+              "assigned_unit_json_bytes": 1119,
+              "diff_bytes": 0,
+              "number": 1,
+              "paths": [
+                "src/shop/checkout.py"
+              ],
+              "source_bytes": 64,
+              "unit_keys": [
+                "pr-15274ac90d20e000b81fc77dc0dcb7b01d90e6bb87165c0a1005c5c9e4192e57"
+              ]
+            }
+          ],
+          "bounds": {
+            "max_batch_bytes": 98304,
+            "max_files": null,
+            "max_source_bytes": 20000000,
+            "max_unit_bytes": 49152,
+            "prompt_token_ceiling": null
+          },
+          "errors": [],
+          "excluded_files": [
+            {
+              "path": "src/shop/billing.py",
+              "reason": "deleted",
+              "source_sha": "36d3e022bc03a1d920c87fee3e98cc80445b6c02"
+            }
+          ],
+          "full_tree_source_policy": "source-only/v1",
+          "head_sha": "aa52aaebe1c772b93d85f4ef810abe2a19d7173a",
+          "limit_reason": null,
+          "merge_base": "36d3e022bc03a1d920c87fee3e98cc80445b6c02",
+          "mode": "commits",
+          "plan_version": "mortis-pr-plan/v1",
+          "policy_digest": "23319f2c0c6ae986f9aa0dd1050859ba88c29d17d1d3a3c24e57d93dbd8b7514",
+          "revision": "aa52aaebe1c772b93d85f4ef810abe2a19d7173a",
+          "rules_digest": "1a9df8a3be8832410034e67c66cd7bd506567e70a9d5cb38456678ade631dc54",
+          "schema_version": "mortis.review-preview/v1",
+          "selected_files": [],
+          "settings_sha": "36d3e022bc03a1d920c87fee3e98cc80445b6c02",
+          "totals": {
+            "assigned_unit_json_bytes": 1119,
+            "diff_bytes": 0,
+            "excluded_files": 1,
+            "planned_batches": 1,
+            "selected_files": 0,
+            "source_bytes": 64,
+            "units": 1
+          },
+          "units": [
+            {
+              "assigned_unit_json_bytes": 1119,
+              "diff_bytes": 0,
+              "end_line": 5,
+              "key": "pr-15274ac90d20e000b81fc77dc0dcb7b01d90e6bb87165c0a1005c5c9e4192e57",
+              "old_path": null,
+              "path": "src/shop/checkout.py",
+              "source_bytes": 64,
+              "source_only": false,
+              "source_sha": "aa52aaebe1c772b93d85f4ef810abe2a19d7173a",
+              "start_line": 1
+            }
+          ],
+          "warnings": []
+        }
+      },
+      "expected": {
+        "limits": [],
+        "matched_paths": [
+          "src/shop/checkout.py"
+        ],
+        "status": "planned"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "36d3e022bc03a1d920c87fee3e98cc80445b6c02",
+        "head": "aa52aaebe1c772b93d85f4ef810abe2a19d7173a"
+      }
+    },
+    "delete-relative-multiline": {
+      "actual": {
+        "limits": [],
+        "matched_paths": [
+          "src/shop/checkout.py"
+        ],
+        "status": "planned"
+      },
+      "details": {
+        "preview": {
+          "affected_callers": {
+            "limits_reached": [],
+            "policy": "affected-callers/v5",
+            "scanned_bytes": 98,
+            "scanned_files": 4,
+            "sites": [
+              {
+                "end_line": 5,
+                "path": "src/shop/checkout.py",
+                "start_line": 1,
+                "status": "planned",
+                "triggers": [
+                  "src/shop/billing.py"
+                ],
+                "unit_key": "pr-86a4023ae4849f473ecb9bda69221bdef2238c8406d8fa7522f93922c14c271a"
+              }
+            ],
+            "status": "planned",
+            "triggers": [
+              {
+                "blob_sha": "c1d281d07ad253778130aeda36017220f11ae2a5",
+                "new_path": null,
+                "path": "src/shop/billing.py",
+                "source_sha": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43",
+                "status": "deleted"
+              }
+            ]
+          },
+          "assumptions": [
+            "No review history was read; the preview shows the full comparison scope.",
+            "No saved connection was read; unit sizing uses only the explicit ceiling or the default bound.",
+            "Bytes describe assigned source, diff and unit JSON, not tokens or a complete provider request.",
+            "Planned batches exclude provider-envelope splitting, graph context, source follow-ups and later stages."
+          ],
+          "base_sha": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43",
+          "batches": [
+            {
+              "assigned_unit_json_bytes": 1116,
+              "diff_bytes": 0,
+              "number": 1,
+              "paths": [
+                "src/shop/checkout.py"
+              ],
+              "source_bytes": 61,
+              "unit_keys": [
+                "pr-86a4023ae4849f473ecb9bda69221bdef2238c8406d8fa7522f93922c14c271a"
+              ]
+            }
+          ],
+          "bounds": {
+            "max_batch_bytes": 98304,
+            "max_files": null,
+            "max_source_bytes": 20000000,
+            "max_unit_bytes": 49152,
+            "prompt_token_ceiling": null
+          },
+          "errors": [],
+          "excluded_files": [
+            {
+              "path": "src/shop/billing.py",
+              "reason": "deleted",
+              "source_sha": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43"
+            }
+          ],
+          "full_tree_source_policy": "source-only/v1",
+          "head_sha": "3e6fed82489387b5c5764292c7a133209fdb0611",
+          "limit_reason": null,
+          "merge_base": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43",
+          "mode": "commits",
+          "plan_version": "mortis-pr-plan/v1",
+          "policy_digest": "e11a3565dfe69051128fa9f17b4f1812bbcf2d02cfff4ac172e848f654624ada",
+          "revision": "3e6fed82489387b5c5764292c7a133209fdb0611",
+          "rules_digest": "711bc48fa88b08643f884ba4ca01c7cd977b380ab0a152fd975b625ddd5e8fc2",
+          "schema_version": "mortis.review-preview/v1",
+          "selected_files": [],
+          "settings_sha": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43",
+          "totals": {
+            "assigned_unit_json_bytes": 1116,
+            "diff_bytes": 0,
+            "excluded_files": 1,
+            "planned_batches": 1,
+            "selected_files": 0,
+            "source_bytes": 61,
+            "units": 1
+          },
+          "units": [
+            {
+              "assigned_unit_json_bytes": 1116,
+              "diff_bytes": 0,
+              "end_line": 5,
+              "key": "pr-86a4023ae4849f473ecb9bda69221bdef2238c8406d8fa7522f93922c14c271a",
+              "old_path": null,
+              "path": "src/shop/checkout.py",
+              "source_bytes": 61,
+              "source_only": false,
+              "source_sha": "3e6fed82489387b5c5764292c7a133209fdb0611",
+              "start_line": 1
+            }
+          ],
+          "warnings": []
+        }
+      },
+      "expected": {
+        "limits": [],
+        "matched_paths": [
+          "src/shop/checkout.py"
+        ],
+        "status": "planned"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "c0d9d85c45c5d15e1f98a9987abd8ab435ea4b43",
+        "head": "3e6fed82489387b5c5764292c7a133209fdb0611"
+      }
+    },
+    "delete-relative-single-line": {
+      "actual": {
+        "limits": [],
+        "matched_paths": [
+          "src/shop/checkout.py"
+        ],
+        "status": "planned"
+      },
+      "details": {
+        "preview": {
+          "affected_callers": {
+            "limits_reached": [],
+            "policy": "affected-callers/v5",
+            "scanned_bytes": 89,
+            "scanned_files": 4,
+            "sites": [
+              {
+                "end_line": 3,
+                "path": "src/shop/checkout.py",
+                "start_line": 1,
+                "status": "planned",
+                "triggers": [
+                  "src/shop/billing.py"
+                ],
+                "unit_key": "pr-06bcd02461e191d8452ff171cfecb79aac9a641b97f8c5f1190e0c47a7fcc5dd"
+              }
+            ],
+            "status": "planned",
+            "triggers": [
+              {
+                "blob_sha": "c1d281d07ad253778130aeda36017220f11ae2a5",
+                "new_path": null,
+                "path": "src/shop/billing.py",
+                "source_sha": "798dd5ecf9063ce9239a468366cb9b723c923133",
+                "status": "deleted"
+              }
+            ]
+          },
+          "assumptions": [
+            "No review history was read; the preview shows the full comparison scope.",
+            "No saved connection was read; unit sizing uses only the explicit ceiling or the default bound.",
+            "Bytes describe assigned source, diff and unit JSON, not tokens or a complete provider request.",
+            "Planned batches exclude provider-envelope splitting, graph context, source follow-ups and later stages."
+          ],
+          "base_sha": "798dd5ecf9063ce9239a468366cb9b723c923133",
+          "batches": [
+            {
+              "assigned_unit_json_bytes": 1105,
+              "diff_bytes": 0,
+              "number": 1,
+              "paths": [
+                "src/shop/checkout.py"
+              ],
+              "source_bytes": 52,
+              "unit_keys": [
+                "pr-06bcd02461e191d8452ff171cfecb79aac9a641b97f8c5f1190e0c47a7fcc5dd"
+              ]
+            }
+          ],
+          "bounds": {
+            "max_batch_bytes": 98304,
+            "max_files": null,
+            "max_source_bytes": 20000000,
+            "max_unit_bytes": 49152,
+            "prompt_token_ceiling": null
+          },
+          "errors": [],
+          "excluded_files": [
+            {
+              "path": "src/shop/billing.py",
+              "reason": "deleted",
+              "source_sha": "798dd5ecf9063ce9239a468366cb9b723c923133"
+            }
+          ],
+          "full_tree_source_policy": "source-only/v1",
+          "head_sha": "866056ebe0e9458166ec7b078c88fb9dc2e00e62",
+          "limit_reason": null,
+          "merge_base": "798dd5ecf9063ce9239a468366cb9b723c923133",
+          "mode": "commits",
+          "plan_version": "mortis-pr-plan/v1",
+          "policy_digest": "f44779f8f8d6568ce22928c28979b684a0561cc09c9c013697f1c695d70c59b4",
+          "revision": "866056ebe0e9458166ec7b078c88fb9dc2e00e62",
+          "rules_digest": "cb1ef24c47735da92882bbe89378d060259a228912994bd9e03b49fed74343a7",
+          "schema_version": "mortis.review-preview/v1",
+          "selected_files": [],
+          "settings_sha": "798dd5ecf9063ce9239a468366cb9b723c923133",
+          "totals": {
+            "assigned_unit_json_bytes": 1105,
+            "diff_bytes": 0,
+            "excluded_files": 1,
+            "planned_batches": 1,
+            "selected_files": 0,
+            "source_bytes": 52,
+            "units": 1
+          },
+          "units": [
+            {
+              "assigned_unit_json_bytes": 1105,
+              "diff_bytes": 0,
+              "end_line": 3,
+              "key": "pr-06bcd02461e191d8452ff171cfecb79aac9a641b97f8c5f1190e0c47a7fcc5dd",
+              "old_path": null,
+              "path": "src/shop/checkout.py",
+              "source_bytes": 52,
+              "source_only": false,
+              "source_sha": "866056ebe0e9458166ec7b078c88fb9dc2e00e62",
+              "start_line": 1
+            }
+          ],
+          "warnings": []
+        }
+      },
+      "expected": {
+        "limits": [],
+        "matched_paths": [
+          "src/shop/checkout.py"
+        ],
+        "status": "planned"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "798dd5ecf9063ce9239a468366cb9b723c923133",
+        "head": "866056ebe0e9458166ec7b078c88fb9dc2e00e62"
+      }
+    },
+    "delete-source-limit": {
+      "actual": {
+        "limits": [
+          "file_bytes"
+        ],
+        "matched_paths": [],
+        "status": "partial"
+      },
+      "details": {
+        "preview": {
+          "affected_callers": {
+            "limits_reached": [
+              "file_bytes"
+            ],
+            "policy": "affected-callers/v5",
+            "scanned_bytes": 37,
+            "scanned_files": 4,
+            "sites": [],
+            "status": "partial",
+            "triggers": [
+              {
+                "blob_sha": "c1d281d07ad253778130aeda36017220f11ae2a5",
+                "new_path": null,
+                "path": "src/shop/billing.py",
+                "source_sha": "37cff02bc39d47374267ce280c4897972828357d",
+                "status": "deleted"
+              }
+            ]
+          },
+          "assumptions": [
+            "No review history was read; the preview shows the full comparison scope.",
+            "No saved connection was read; unit sizing uses only the explicit ceiling or the default bound.",
+            "Bytes describe assigned source, diff and unit JSON, not tokens or a complete provider request.",
+            "Planned batches exclude provider-envelope splitting, graph context, source follow-ups and later stages."
+          ],
+          "base_sha": "37cff02bc39d47374267ce280c4897972828357d",
+          "batches": [],
+          "bounds": {
+            "max_batch_bytes": 98304,
+            "max_files": null,
+            "max_source_bytes": 20000000,
+            "max_unit_bytes": 49152,
+            "prompt_token_ceiling": null
+          },
+          "errors": [],
+          "excluded_files": [
+            {
+              "path": "src/shop/billing.py",
+              "reason": "deleted",
+              "source_sha": "37cff02bc39d47374267ce280c4897972828357d"
+            }
+          ],
+          "full_tree_source_policy": "source-only/v1",
+          "head_sha": "3f606a8c52b99358bb6ec217a887c27118e81b1f",
+          "limit_reason": null,
+          "merge_base": "37cff02bc39d47374267ce280c4897972828357d",
+          "mode": "commits",
+          "plan_version": "mortis-pr-plan/v1",
+          "policy_digest": "11bbe48bfeac91365641c320c5773fab6f0a07ce96958e4b3df53b8d32d227e0",
+          "revision": "3f606a8c52b99358bb6ec217a887c27118e81b1f",
+          "rules_digest": "ee56ed00b03f48ef91fc9c34120a43d6faf3807305b1ffe613ab0601d16e0176",
+          "schema_version": "mortis.review-preview/v1",
+          "selected_files": [],
+          "settings_sha": "37cff02bc39d47374267ce280c4897972828357d",
+          "totals": {
+            "assigned_unit_json_bytes": 0,
+            "diff_bytes": 0,
+            "excluded_files": 1,
+            "planned_batches": 0,
+            "selected_files": 0,
+            "source_bytes": 0,
+            "units": 0
+          },
+          "units": [],
+          "warnings": []
+        }
+      },
+      "expected": {
+        "limits": [
+          "file_bytes"
+        ],
+        "matched_paths": [],
+        "status": "partial"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "37cff02bc39d47374267ce280c4897972828357d",
+        "head": "3f606a8c52b99358bb6ec217a887c27118e81b1f"
+      }
+    },
+    "delete-unrelated-import": {
+      "actual": {
+        "limits": [],
+        "matched_paths": [],
+        "status": "planned"
+      },
+      "details": {
+        "preview": {
+          "affected_callers": {
+            "limits_reached": [],
+            "policy": "affected-callers/v5",
+            "scanned_bytes": 106,
+            "scanned_files": 4,
+            "sites": [],
+            "status": "planned",
+            "triggers": [
+              {
+                "blob_sha": "c1d281d07ad253778130aeda36017220f11ae2a5",
+                "new_path": null,
+                "path": "src/shop/billing.py",
+                "source_sha": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4",
+                "status": "deleted"
+              }
+            ]
+          },
+          "assumptions": [
+            "No review history was read; the preview shows the full comparison scope.",
+            "No saved connection was read; unit sizing uses only the explicit ceiling or the default bound.",
+            "Bytes describe assigned source, diff and unit JSON, not tokens or a complete provider request.",
+            "Planned batches exclude provider-envelope splitting, graph context, source follow-ups and later stages."
+          ],
+          "base_sha": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4",
+          "batches": [],
+          "bounds": {
+            "max_batch_bytes": 98304,
+            "max_files": null,
+            "max_source_bytes": 20000000,
+            "max_unit_bytes": 49152,
+            "prompt_token_ceiling": null
+          },
+          "errors": [],
+          "excluded_files": [
+            {
+              "path": "src/shop/billing.py",
+              "reason": "deleted",
+              "source_sha": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4"
+            }
+          ],
+          "full_tree_source_policy": "source-only/v1",
+          "head_sha": "5032bf9c20ae962e6e52717f9774c2d2798d8a48",
+          "limit_reason": null,
+          "merge_base": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4",
+          "mode": "commits",
+          "plan_version": "mortis-pr-plan/v1",
+          "policy_digest": "c36246d51c6d7dbb111e572ec03c568f0f43851d217a290787d4bbc19e8da8be",
+          "revision": "5032bf9c20ae962e6e52717f9774c2d2798d8a48",
+          "rules_digest": "2d49bfa2e0296370814b04ef2bbbca235217ec136b39cf051d831c4152ee7928",
+          "schema_version": "mortis.review-preview/v1",
+          "selected_files": [],
+          "settings_sha": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4",
+          "totals": {
+            "assigned_unit_json_bytes": 0,
+            "diff_bytes": 0,
+            "excluded_files": 1,
+            "planned_batches": 0,
+            "selected_files": 0,
+            "source_bytes": 0,
+            "units": 0
+          },
+          "units": [],
+          "warnings": []
+        }
+      },
+      "expected": {
+        "limits": [],
+        "matched_paths": [],
+        "status": "planned"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "6eef2939db77ff10f80d1f1a1cafe348f7eb3ee4",
+        "head": "5032bf9c20ae962e6e52717f9774c2d2798d8a48"
+      }
+    },
+    "incremental-body-only": {
+      "actual": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "shop/checkout.py"
+        ],
+        "strategy": "incremental"
+      },
+      "details": {
+        "selection": {
+          "baseline_head_sha": "2dfa095361f295709852ae3c2533c3beaaae313d",
+          "baseline_run_id": "synthetic-baseline",
+          "reason": "compatible_ancestor",
+          "reused_paths": [
+            "shop/checkout.py"
+          ],
+          "signature": "d47a28744e75b16223b73c21a1498a9d019f552d5471e076481bef69fdb79b66",
+          "strategy": "incremental",
+          "version": "branch-review/v1"
+        }
+      },
+      "expected": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "shop/checkout.py"
+        ],
+        "strategy": "incremental"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+        "head": "5974839994fe02b16ed1d3a9e8aaa143a4654d3b",
+        "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+      }
+    },
+    "incremental-caller-parse-failure": {
+      "actual": {
+        "reason": "python_caller_inspection_incomplete",
+        "reused_paths": [],
+        "strategy": "full"
+      },
+      "details": {
+        "selection": {
+          "baseline_head_sha": "6e8f944e0f4d5dd05f91ef9d7ace6f8dbe8d0bea",
+          "baseline_run_id": "synthetic-baseline",
+          "reason": "python_caller_inspection_incomplete",
+          "signature": "a4ec0cd6acced683852078bde2f3fc95a530e4ca22d4ccb8b2adffc977313093",
+          "strategy": "full",
+          "version": "branch-review/v1"
+        }
+      },
+      "expected": {
+        "reason": "python_caller_inspection_incomplete",
+        "reused_paths": [],
+        "strategy": "full"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "6d1060dc0ed31088e7e9e475ee38d4223864bd15",
+        "head": "dafcb14c9e2474aa2003b2b7d5c54fcb0adc4c5a",
+        "previous": "6e8f944e0f4d5dd05f91ef9d7ace6f8dbe8d0bea"
+      }
+    },
+    "incremental-removed-function": {
+      "actual": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "details": {
+        "selection": {
+          "baseline_head_sha": "f2d9a3ccc44e69228165b2e98a5c62d99b537bc2",
+          "baseline_run_id": "synthetic-baseline",
+          "reason": "compatible_ancestor",
+          "reused_paths": [],
+          "signature": "72a22206a0de018d730258c117924df3b415a814de415dfe17c4084223f0deb7",
+          "strategy": "incremental",
+          "version": "branch-review/v1"
+        }
+      },
+      "expected": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "0dee4f15f23694ddbe328d762893cc2b41f95a68",
+        "head": "32158af297f4eb7959494bff90ec726ba1413bf2",
+        "previous": "f2d9a3ccc44e69228165b2e98a5c62d99b537bc2"
+      }
+    },
+    "incremental-renamed-optional-keyword": {
+      "actual": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "details": {
+        "selection": {
+          "baseline_head_sha": "679e684ffcaaf1869dd1b7ca68474793151ed67c",
+          "baseline_run_id": "synthetic-baseline",
+          "reason": "compatible_ancestor",
+          "reused_paths": [],
+          "signature": "e1f1d8cc3f15be8615dce382dfe58d8ce2ba0a7cea2a7b98d093fc23d8044973",
+          "strategy": "incremental",
+          "version": "branch-review/v1"
+        }
+      },
+      "expected": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "2df385621a4ea72d7c6f90ebbadea336ae0009d2",
+        "head": "ac9abcb88551fa6fcb3f199738d947080fc3c336",
+        "previous": "679e684ffcaaf1869dd1b7ca68474793151ed67c"
+      }
+    },
+    "incremental-required-parameter": {
+      "actual": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "details": {
+        "selection": {
+          "baseline_head_sha": "2dfa095361f295709852ae3c2533c3beaaae313d",
+          "baseline_run_id": "synthetic-baseline",
+          "reason": "compatible_ancestor",
+          "reused_paths": [],
+          "signature": "d47a28744e75b16223b73c21a1498a9d019f552d5471e076481bef69fdb79b66",
+          "strategy": "incremental",
+          "version": "branch-review/v1"
+        }
+      },
+      "expected": {
+        "reason": "compatible_ancestor",
+        "reused_paths": [],
+        "strategy": "incremental"
+      },
+      "pass": true,
+      "revisions": {
+        "base": "40515626790e912c5d972878ed0c6996e7042b6b",
+        "head": "5cd07242d1b527c02159da859c180831b3b32f8d",
+        "previous": "2dfa095361f295709852ae3c2533c3beaaae313d"
+      }
+    }
+  },
+  "platform": {
+    "arch": "arm64",
+    "os": "Darwin",
+    "release": "27.2.0"
+  },
+  "provenance": {
+    "benchmark_base_revision": "37acf189c29e03394e7297f5e4cf5ff707bfea6c",
+    "diff_command": "git diff --binary HEAD -- src/mortis_engine",
+    "engine_source_diff_sha256": "d9cf032a3a5bf978c681104f2e3eaa8ea9ee95cb1d99da33793c4b0dd79f0042"
+  },
+  "sha256": {
+    "cases.json": "bacc3b35b33f89eedf0e7455544d14f83682afd9ca304bbf3753f3985eaedd00",
+    "expected.json": "713368113f91eb240237fe9350bde3b9c2df6dbcd6dde97df8ca3184a91880da",
+    "protocol.md": "ec5aba5a1f990c5ccfa0400955b594d42efbf04cb5d73dc8f7b89bd46f29631f",
+    "run.py": "fe712adf2d681d641d49615eabbef1c4ebbd6cff645ba8b0ebc5c206ea1c514f"
+  },
+  "tool_versions": {
+    "git": "git version 2.56.1",
+    "python": "3.15.2"
+  }
+}

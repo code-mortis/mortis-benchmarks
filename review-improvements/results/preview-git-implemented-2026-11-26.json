@@ -1,0 +1,374 @@
+{
+  "evidence": "offline public Python API benchmark comparing actual Engine source",
+  "engine": {
+    "baseline": {
+      "revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+      "dirty": false,
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_inventory_sha256": "872066606e1919b7f8cbff9bbbd71de46215e3af95cd253412a0fb401c9af925",
+      "source_inventory_entries": 76
+    },
+    "candidate": {
+      "revision": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+      "dirty": true,
+      "tracked_diff_sha256": "cc8879de492642df83cd9686019689acbc56a6e4c063fc9af6dfdc9f2826de66",
+      "source_inventory_sha256": "0e9ae44faa563a6cc51126bf916dd59afacbabe338c4c897f30facf0ce34fd29",
+      "source_inventory_entries": 76
+    }
+  },
+  "checkout_stable": true,
+  "harness_sha256": {
+    "compare.py": "af4f713be8f7857ec9e24b0768f6ee0c08d300e52837965455d352cc060fcbaa",
+    "run.py": "37a7e717361f7fe4b6401465c2818a41dcc95df5ad3bfc91f8b0ca305d83fd96"
+  },
+  "python": "3.15.2",
+  "git": "git version 2.56.1",
+  "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "logical_cpu_count": 12,
+  "samples_per_arm": 5,
+  "provider_cost_tokens": null,
+  "cases": {
+    "edge": {
+      "input": {
+        "mode": "commits",
+        "base": "f30e7d52baeaae6dc28a433f6a4dfcafaf6b0454",
+        "head": "8c1cd25c491a6a9b44c1250f8c08f8b1ad59a19c"
+      },
+      "failures": [],
+      "preview_sha256": "5cc1ae8b10ba39fc3aadb1463137f13eb63cbc2ed8164ce78caf3fbaac2397f9",
+      "preview_totals": {
+        "selected_files": 6,
+        "excluded_files": 2,
+        "units": 5,
+        "planned_batches": 1,
+        "source_bytes": 926,
+        "diff_bytes": 805,
+        "assigned_unit_json_bytes": 5404
+      },
+      "git_commands": {
+        "baseline": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 14,
+          "diff": 6,
+          "cat-file": 12
+        },
+        "candidate": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 9,
+          "diff": 6,
+          "cat-file": 12
+        }
+      },
+      "git_total": {
+        "baseline": 37,
+        "candidate": 32
+      },
+      "git_saved": 5,
+      "ls_tree_saved": 5,
+      "full_preview_parity": true
+    },
+    "commits_4": {
+      "input": {
+        "mode": "commits",
+        "base": "aede0fec140c71a25af9f4e3ac9559b753bd0d23",
+        "head": "132d69a53130ee58080909bc065832a1318aa64f"
+      },
+      "failures": [],
+      "preview_sha256": "98f5b558bba67a37e97eafafb4a6873c683861d60696048b9dd662de2d9ed278",
+      "preview_totals": {
+        "selected_files": 4,
+        "excluded_files": 0,
+        "units": 4,
+        "planned_batches": 1,
+        "source_bytes": 1706,
+        "diff_bytes": 832,
+        "assigned_unit_json_bytes": 5242
+      },
+      "git_commands": {
+        "baseline": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 9,
+          "diff": 6,
+          "cat-file": 4
+        },
+        "candidate": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 5,
+          "diff": 6,
+          "cat-file": 4
+        }
+      },
+      "git_total": {
+        "baseline": 24,
+        "candidate": 20
+      },
+      "git_saved": 4,
+      "ls_tree_saved": 4,
+      "full_preview_parity": true,
+      "samples_ms": {
+        "baseline": [
+          197.796708,
+          206.534209,
+          205.3105,
+          190.679875,
+          199.483458
+        ],
+        "candidate": [
+          167.312875,
+          171.369667,
+          173.52225,
+          173.474917,
+          216.127667
+        ]
+      },
+      "pair_order": [
+        [
+          "baseline",
+          "candidate"
+        ],
+        [
+          "candidate",
+          "baseline"
+        ],
+        [
+          "baseline",
+          "candidate"
+        ],
+        [
+          "candidate",
+          "baseline"
+        ],
+        [
+          "baseline",
+          "candidate"
+        ]
+      ],
+      "incomplete_samples": 0,
+      "median_ms": {
+        "baseline": 199.483458,
+        "candidate": 173.474917
+      },
+      "range_ms": {
+        "baseline": [
+          190.679875,
+          206.534209
+        ],
+        "candidate": [
+          167.312875,
+          216.127667
+        ]
+      },
+      "median_reduction_pct": 13.03794372764483
+    },
+    "commits_80": {
+      "input": {
+        "mode": "commits",
+        "base": "14699c955fd3497d3753d6123c637378a74a69d7",
+        "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+      },
+      "failures": [],
+      "preview_sha256": "fcdd7ccd92823c8c7f58fc85845997b5e4d5752a35b5ed5932b7c6e20d3465d5",
+      "preview_totals": {
+        "selected_files": 80,
+        "excluded_files": 0,
+        "units": 80,
+        "planned_batches": 2,
+        "source_bytes": 34790,
+        "diff_bytes": 16664,
+        "assigned_unit_json_bytes": 105534
+      },
+      "git_commands": {
+        "baseline": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 161,
+          "diff": 82,
+          "cat-file": 80
+        },
+        "candidate": {
+          "init": 1,
+          "rev-parse": 2,
+          "merge-base": 2,
+          "ls-tree": 81,
+          "diff": 82,
+          "cat-file": 80
+        }
+      },
+      "git_total": {
+        "baseline": 328,
+        "candidate": 248
+      },
+      "git_saved": 80,
+      "ls_tree_saved": 80,
+      "full_preview_parity": true,
+      "samples_ms": {
+        "baseline": [
+          2914.335709,
+          2954.327041,
+          2865.567334,
+          2924.493167,
+          2840.958833
+        ],
+        "candidate": [
+          2236.221584,
+          2263.159625,
+          2274.565333,
+          2484.580875,
+          2198.822
+        ]
+      },
+      "pair_order": [
+        [
+          "baseline",
+          "candidate"
+        ],
+        [
+          "candidate",
+          "baseline"
+        ],
+        [
+          "baseline",
+          "candidate"
+        ],
+        [
+          "candidate",
+          "baseline"
+        ],
+        [
+          "baseline",
+          "candidate"
+        ]
+      ],
+      "incomplete_samples": 0,
+      "median_ms": {
+        "baseline": 2914.335709,
+        "candidate": 2263.159625
+      },
+      "range_ms": {
+        "baseline": [
+          2840.958833,
+          2954.327041
+        ],
+        "candidate": [
+          2198.822,
+          2484.580875
+        ]
+      },
+      "median_reduction_pct": 22.343894081558613
+    },
+    "all_80": {
+      "input": {
+        "mode": "all",
+        "head": "3ae954f76dbd4ebd66f3859ff822173eecff24c4"
+      },
+      "failures": [],
+      "preview_sha256": "6afa8d07f86c59327049a0abff073a593db267758101a40d74a8ecff06f45464",
+      "preview_totals": {
+        "selected_files": 80,
+        "excluded_files": 0,
+        "units": 80,
+        "planned_batches": 1,
+        "source_bytes": 34790,
+        "diff_bytes": 0,
+        "assigned_unit_json_bytes": 85670
+      },
+      "git_commands": {
+        "baseline": {
+          "init": 1,
+          "rev-parse": 2,
+          "read-tree": 1,
+          "write-tree": 1,
+          "commit-tree": 2,
+          "ls-tree": 161,
+          "merge-base": 1,
+          "diff": 2,
+          "cat-file": 80
+        },
+        "candidate": {
+          "init": 1,
+          "rev-parse": 2,
+          "read-tree": 1,
+          "write-tree": 1,
+          "commit-tree": 2,
+          "ls-tree": 81,
+          "merge-base": 1,
+          "diff": 2,
+          "cat-file": 80
+        }
+      },
+      "git_total": {
+        "baseline": 251,
+        "candidate": 171
+      },
+      "git_saved": 80,
+      "ls_tree_saved": 80,
+      "full_preview_parity": true,
+      "samples_ms": {
+        "baseline": [
+          2132.180833,
+          2235.260125,
+          2118.175125,
+          2216.562333,
+          2219.142333
+        ],
+        "candidate": [
+          1525.823625,
+          1487.007417,
+          1588.421,
+          1644.884791,
+          1643.148667
+        ]
+      },
+      "pair_order": [
+        [
+          "baseline",
+          "candidate"
+        ],
+        [
+          "candidate",
+          "baseline"
+        ],
+        [
+          "baseline",
+          "candidate"
+        ],
+        [
+          "candidate",
+          "baseline"
+        ],
+        [
+          "baseline",
+          "candidate"
+        ]
+      ],
+      "incomplete_samples": 0,
+      "median_ms": {
+        "baseline": 2216.562333,
+        "candidate": 1588.421
+      },
+      "range_ms": {
+        "baseline": [
+          2118.175125,
+          2235.260125
+        ],
+        "candidate": [
+          1487.007417,
+          1644.884791
+        ]
+      },
+      "median_reduction_pct": 28.33853682561879
+    }
+  },
+  "timing_threshold_passed": true,
+  "passed": true
+}
