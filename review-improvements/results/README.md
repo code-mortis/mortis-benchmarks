@@ -37,3 +37,28 @@ Reusing one validated tree lookup per admitted file removed 80 Git subprocesses 
 | Full tree, 80 files | 2,093 ms | 1,437 ms | 31.3% | 251 → 171 |
 
 Both 80-file comparisons passed the predeclared 15% latency threshold. The small control had overlapping timing ranges. Timings cover the public Python preview on local, warm filesystem caches. The implementation opportunity is to pass the already validated blob ID and size into the reader and retain the existing decoding, cancellation and size checks. See the [individual samples, process counts, exclusions and input hashes](preview-git-2026-11-26.json).
+
+### Implemented preview, two-checkout comparison · November 26, 2026
+
+Each checkout ran its public preview in a separate worker. The candidate contained only the two performance changes over v0.1.7 (`b02e6f7`). Both complete previews matched on the edge fixture and all 30 timed calls. The only difference in Git subprocess counts was one fewer `ls-tree` lookup per admitted blob.
+
+| Workload | v0.1.7 median | Implemented median | Git subprocesses |
+| --- | ---: | ---: | ---: |
+| Branch, 4 files | 199.48 ms | 173.47 ms | 24 → 20 |
+| Branch, 80 files | 2,914.34 ms | 2,263.16 ms | 328 → 248 |
+| Full tree, 80 files | 2,216.56 ms | 1,588.42 ms | 251 → 171 |
+
+The 80-file median fell by 22.3% for branch previews and 28.3% for full-tree previews, passing the predeclared 15% gate. The four-file control had overlapping sample ranges. See the [individual timings and Git process counts](preview-git-implemented-2026-11-26.json) and [reproduction commands](../harness/preview-git/compare.md).
+
+### Implemented Python caller coverage · November 26, 2026
+
+The candidate used v0.1.7 (`b02e6f7`) with working-tree changes. The frozen fixtures and their scoring expectations came from benchmark commit `37acf18`. The retained reports include the Engine source diff digest, harness hashes, Git revisions and per-case outcomes.
+
+| Check | v0.1.7 | Implemented |
+| --- | ---: | ---: |
+| [Deletion preview and incremental selection](python-callers-implemented-2026-11-26.json) | 7/10 | 10/10 |
+| [Assignments through public review_commits and SQLite history](python-caller-assignments-implemented-2026-11-26.json) | 2/4 | 4/4 |
+
+The multiline relative import now produces a caller site. After removal of an imported function or renaming an optional keyword, the incremental review assigned both the dependency and its caller to the scripted provider. The body-only control still reused the caller. The malformed-source control fell back to full review and the large-file deletion fixture retained explicit partial coverage.
+
+The final Engine checkout passed all 1,468 tests, including the native parser cases. All 19 companion replay tests passed. Ruff, distribution validation and the installed-wheel smoke test also passed. These checks ran offline.

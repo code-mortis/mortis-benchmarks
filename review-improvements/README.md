@@ -63,3 +63,5 @@ PYTHONPATH="$MORTIS_ENGINE/src" "$MORTIS_ENGINE/.venv/bin/python" -B \
   review-improvements/harness/python-callers/review_commits_probe.py \
   --output .local/python-caller-assignments.json
 ```
+
+The [two-checkout preview benchmark](harness/preview-git/compare.md) runs the actual Engine implementations against the same inputs. It checks the complete preview results, records Git subprocess counts and measures each call inside its worker process.

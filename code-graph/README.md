@@ -42,3 +42,20 @@ PYTHONPATH="../mortis-engine/src" PYTHONHASHSEED=0 ../mortis-engine/.venv/bin/py
   code-graph/harness/graph_enrichment.py --engine-checkout ../mortis-engine \
   --output .local/graph-enrichment.json
 ```
+
+## Compare two Engine checkouts
+
+Run the graph enrichment component with the same validated synthetic data and runtime dependencies in both checkouts. This measures how the standalone Engine selects supporting source after the parser returns. Git source collection, Docker, native parsing, provider calls and worker startup are outside the timed region.
+
+Run this command from the benchmarks repository with `BASE` and `CANDIDATE` pointing to local Engine checkouts.
+
+```sh
+mkdir -p .local
+"$BASE/.venv/bin/python" -B code-graph/harness/graph_enrichment_compare.py \
+  --baseline-checkout "$BASE" --candidate-checkout "$CANDIDATE" \
+  --output .local/graph-enrichment-checkouts.json
+```
+
+The runner defaults to each checkout's `.venv/bin/python`. Worktrees with identical locked dependencies can share a development environment by specifying that interpreter for both `--baseline-python` and `--candidate-python`. Use `--check-fixtures-only` for an untimed preflight.
+
+The comparison uses the workloads, timing and thresholds from the [graph enrichment protocol](harness/graph_enrichment_protocol.md). Each checkout runs in a persistent Python worker with two warm-up and nine measured calls per workload. Calls alternate across workers, and each measured response must match the baseline byte for byte. The JSON records both source revisions, hashes of tracked and untracked changes under `src/mortis_engine`, `pyproject.toml` and `uv.lock`, individual timings, failures and separate Python allocation measurements.

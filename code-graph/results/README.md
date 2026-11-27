@@ -36,3 +36,16 @@ Indexing neighboring files in one pass reduced the time spent selecting graph co
 All 72 timed calls completed after two warm-ups per arm and workload. With 1,000 assigned paths, peak traced Python allocations rose from 164,319 to 2,452,591 bytes (+2.18 MiB) in separate memory measurements. For one assigned path, both arms peaked at 64,928 bytes. Each memory measurement used one sample per arm, excluding the prepared fixtures. The run met the predeclared timing and correctness thresholds.
 
 Engine `b02e6f7b4ec67b8d25b8e2de05502ee8835b133c`, Python 3.15.2, Pydantic 2.14.4, macOS arm64, 12 logical CPUs. See [individual samples, range, fixture hashes and controls](graph-enrichment-2026-11-26.json) and the [reproduction protocol](../harness/graph_enrichment_protocol.md).
+
+### Implemented enrichment, two-checkout comparison · November 26, 2026
+
+The working-tree implementation was compared with v0.1.7 (`b02e6f7`) using the real enrichment function from each checkout. The synthetic parser result and assigned files were identical per pair. All 72 timed calls passed output parity and the four predeclared latency criteria.
+
+| Assigned paths | Import records | v0.1.7 median | Implemented median |
+| ---: | ---: | ---: | ---: |
+| 1 | 18,000 | 1.741 ms | 1.654 ms |
+| 25 | 600 | 1.342 ms | 0.191 ms |
+| 100 | 18,000 | 152.312 ms | 2.480 ms |
+| 1,000 | 18,000 | 1,498.154 ms | 6.699 ms |
+
+Peak traced Python allocations were 64,928 bytes for both single-path arms. With 1,000 assigned paths they rose from 163,951 to 2,443,735 bytes (+2.17 MiB). These isolated component timings exclude Git and parser execution. The [individual results](graph-enrichment-checkouts-2026-11-26.json) include source and fixture digests. The [reconstruction instructions](../../review-improvements/harness/preview-git/compare.md) describe the performance-only checkout shared by both benchmarks.
