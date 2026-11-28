@@ -1,0 +1,73 @@
+{
+  "method": "Native OSV-Scanner v2.7.1, one live lookup per fixture using only npm lockfile data. Compare presence of the target advisory and report all other IDs.",
+  "utc_time": "2026-11-28T14:02:28.475226+00:00",
+  "release_metadata_url": "https://github.com/google/osv-scanner/releases/expanded_assets/v2.7.1",
+  "binary": {
+    "sha256": "b22c02877a811c8f78956e8643efa554932b7378f590d13f8e97d4e9448a29f3",
+    "version_info": [
+      "osv-scanner version: 2.7.1",
+      "osv-scalibr version: 0.5.3",
+      "commit: 02f96a40691c2d155fdda799af436e111231e365",
+      "built at: 2026-11-09T03:39:40Z"
+    ]
+  },
+  "input_protocol_sha256": "98c5cbdaa6936486fa02aa03bd7a16c5c554715b228b52ac4ef193a86e5d06d0",
+  "runner_sha256": "d73613a1074a164d7bfab4b568688990711f7b6367007595e878487c59288e1a",
+  "platform": {
+    "os": "Darwin",
+    "arch": "arm64",
+    "release": "27.2.0"
+  },
+  "command": [
+    "osv-scanner_darwin_arm64",
+    "scan",
+    "source",
+    "--no-resolve",
+    "--all-packages",
+    "--format=json",
+    "--lockfile=package-lock.json"
+  ],
+  "state": "Separate empty temporary config, cache, data, state and temp directories. No inherited environment or credentials.",
+  "units": "Elapsed wall seconds include OSV API latency and process startup. One sample per fixture.",
+  "cases": [
+    {
+      "case": "affected",
+      "path": "affected/package-lock.json",
+      "ecosystem": "npm",
+      "package": "minimist",
+      "version": "1.2.5",
+      "target_advisory_expected": true,
+      "sha256": "386a5110f751303118347e43e0fdee7c9c6cdcfc377ab9c040fddbb4767d1cdc",
+      "elapsed_seconds": 0.829279,
+      "exit_code": 1,
+      "package_matches": 1,
+      "vulnerability_records_count": 1,
+      "advisory_record_ids": [
+        "GHSA-xvch-5gv4-984h"
+      ],
+      "advisory_ids_with_aliases": [
+        "CVE-2021-44906",
+        "GHSA-xvch-5gv4-984h"
+      ],
+      "target_advisory_found": true,
+      "status": "pass"
+    },
+    {
+      "case": "updated",
+      "path": "updated/package-lock.json",
+      "ecosystem": "npm",
+      "package": "minimist",
+      "version": "1.2.8",
+      "target_advisory_expected": false,
+      "sha256": "c084d797113e2f75cfcff8c8c9eef5cf42ee3e5462db9d62fdda908fe7b6f849",
+      "elapsed_seconds": 1.397346,
+      "exit_code": 0,
+      "package_matches": 1,
+      "vulnerability_records_count": 0,
+      "advisory_record_ids": [],
+      "advisory_ids_with_aliases": [],
+      "target_advisory_found": false,
+      "status": "pass"
+    }
+  ]
+}

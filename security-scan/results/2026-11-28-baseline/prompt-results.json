@@ -1,0 +1,967 @@
+{
+  "schema_version": "mortis.security.prompt-amplification-benchmark/v1",
+  "created_at": "2026-11-28T14:04:58.797264+00:00",
+  "scope": "offline deterministic prompt construction with actual security inference and payload packing",
+  "protocol": {
+    "source_file_counts": [
+      1,
+      8,
+      16,
+      17
+    ],
+    "source_bytes_each": 1024,
+    "source_language": "Python",
+    "source_content": "Benign equivalent synthetic functions with per-file names and padding comments",
+    "task": "One actual inference.ask analysis invocation per assigned source file",
+    "provider_calls": 0,
+    "saved_state_or_history": false,
+    "capture_point": "Session.request after inference.ask compacts evidence and before provider transport",
+    "byte_metrics": {
+      "unique_corpus_source_bytes_by_path": "Each distinct repository path counted once",
+      "source_bytes_across_requests": "UTF-8 bytes in current source maps passed to each request",
+      "packed_context_bytes_across_requests": "UTF-8 bytes in the actual packed user message built by Session.request"
+    }
+  },
+  "environment": {
+    "python": "3.15.2",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "engine_revision": "a4a52ea591591b32e0ff9c64579d24de6aeb61dd",
+    "engine_source_sha256": {
+      "src/mortis_engine/security_scans/inference.py": "2ae481f191aba1933a00de65a02bdb555aa4826bdd849512f0f7b21843101a99",
+      "src/mortis_engine/security_scans/payload.py": "c3290c78aff94acba1e3b942c056e2a45228e709a14e50a77f9465133369daba",
+      "src/mortis_engine/security_scans/context.py": "b68c8819565663463f7c471f9abf86609ade33606784b2bfba363b6593f92b65",
+      "src/mortis_engine/workflow.py": "b2ca23e562dea77035052728fe997b14ed83d21b1469595b0f602f92f93a1b4b"
+    },
+    "harness_sha256": "a9577e928add5032cff3a6859d19f1ba7582e459c3a2227749cb10c9ea473a6d"
+  },
+  "runs": [
+    {
+      "source_files": 1,
+      "source_bytes_each": 1024,
+      "dispatch_count": 1,
+      "unique_corpus_source_bytes_by_path": 1024,
+      "distinct_file_content_bytes": 1,
+      "source_bytes_across_requests": 1024,
+      "source_replication_factor": 1.0,
+      "packed_context_bytes_across_requests": 2313,
+      "packed_context_bytes_per_request": [
+        2313
+      ],
+      "raw_source_bytes_per_request": [
+        1024
+      ],
+      "source_paths_per_request": [
+        1
+      ],
+      "source_read_count": 1,
+      "dispatches": [
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_00.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_00.py"
+          ],
+          "packed_context_bytes": 2313,
+          "packed_context_sha256": "596b13065b9decfab6c651815fafed267c89a2cbccbc5818146b6ef60236cdad"
+        }
+      ]
+    },
+    {
+      "source_files": 8,
+      "source_bytes_each": 1024,
+      "dispatch_count": 8,
+      "unique_corpus_source_bytes_by_path": 8192,
+      "distinct_file_content_bytes": 8,
+      "source_bytes_across_requests": 65536,
+      "source_replication_factor": 8.0,
+      "packed_context_bytes_across_requests": 90352,
+      "packed_context_bytes_per_request": [
+        11294,
+        11294,
+        11294,
+        11294,
+        11294,
+        11294,
+        11294,
+        11294
+      ],
+      "raw_source_bytes_per_request": [
+        8192,
+        8192,
+        8192,
+        8192,
+        8192,
+        8192,
+        8192,
+        8192
+      ],
+      "source_paths_per_request": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "source_read_count": 64,
+      "dispatches": [
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_00.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "ce94b93b06b2b7463ce69aba14b374524148134067e60cacb746385a211dd411"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_01.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "7000a2a79fda58452519b86f3401850710e25208bd9bd2343a059ff4fc59ce65"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_02.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "ca7460ca673f788026828b8f72f6bce1a5bfc06e421ecfc3379456052703d6b3"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_03.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "947c790433f7d11413294ecfdf606c515539abdd77762b2bb9e065c1fcc37174"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_04.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "29e982075b3f544a833eab30ae2fbc1e1adc12f5a9838ba6331d9874e97ecbbf"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_05.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "1752c35a213d32970ae2b215bd2afb75408772ed9131da4f7cb5ae380b284101"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_06.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "240ce70e76be0028543ddf8d68eebf239c915d1be3f682163cdc12e8d19b2d75"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_07.py:pass:0",
+          "raw_source_bytes": 8192,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 11294,
+          "packed_context_sha256": "7c8806b520b8eb1f2b7d343f6e72beb6dc02a18714dcd48d1b4e0adc63ad8d1e"
+        }
+      ]
+    },
+    {
+      "source_files": 16,
+      "source_bytes_each": 1024,
+      "dispatch_count": 16,
+      "unique_corpus_source_bytes_by_path": 16384,
+      "distinct_file_content_bytes": 16,
+      "source_bytes_across_requests": 262144,
+      "source_replication_factor": 16.0,
+      "packed_context_bytes_across_requests": 345040,
+      "packed_context_bytes_per_request": [
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565,
+        21565
+      ],
+      "raw_source_bytes_per_request": [
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384
+      ],
+      "source_paths_per_request": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "source_read_count": 256,
+      "dispatches": [
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_00.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "534f2c107250fa0505de64867da41afc69ef7d6c9ae09d8c8f730d4a95309fcb"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_01.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "94cb5167216cd50ccd41505bff51bffdfe920b752a608b56ccbbaedbd11191a3"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_02.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "0b581d20b46f64e8ff3c43f63901e5a93257efddbd768087ca927810f8c1ff4a"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_03.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "8d863172bdfc1417e92a51bee51e706077f586663e0f3e3c45460c6839a1b7a0"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_04.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "348736713135aec970584718cac91de729a6663f6aafa3886560a113e5184086"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_05.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "ab2970a21d71c349d34e224ed7dc4d8f863f0e20159498e11582538da4d5b7a7"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_06.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "2bb02a6068beb5cf3632e57c0eba7a4dc768b46fc748de62ac98709f07215705"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_07.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "6fb23bfd1084bbe1e5c399d58443209c98775da56f39ba8415ac8e35fc289b86"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_08.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "e881540db7b55e34365a37c5de409c53d06d33c6ca0fd5f868ee85d078e4c18e"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_09.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "f285b1f6247d91eb939a16601a334203d56e087430d25a402c4eeab749a4d16e"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_10.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "a88a08806361449d49dd0ec7afa29db1f9c379ccd182583d9ea1cc82b0d85fac"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_11.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "fe57367ccefab64affd5199c2652adafc3e7548609f12f2b347be99582bd72bf"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_12.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "f80f53256d330680224bfd554be2b9adec963c5d93d34cae83afd20122b73ae0"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_13.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "2a08f53cfc2f9ed961286b1c48a6b3391421cdf389139e0679f6193e98db47eb"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_14.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "e3870891a20751ceace6cf3c2b52e6b5d9db48f533684bad5b5086d47fa76568"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_15.py:pass:0",
+          "raw_source_bytes": 16384,
+          "source_paths": [
+            "src/module_00.py",
+            "src/module_01.py",
+            "src/module_02.py",
+            "src/module_03.py",
+            "src/module_04.py",
+            "src/module_05.py",
+            "src/module_06.py",
+            "src/module_07.py",
+            "src/module_08.py",
+            "src/module_09.py",
+            "src/module_10.py",
+            "src/module_11.py",
+            "src/module_12.py",
+            "src/module_13.py",
+            "src/module_14.py",
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 21565,
+          "packed_context_sha256": "042eee5dfec5469aafaecd92eab6dcecc3d9bb5a74c0cf72621cdc340688c8d4"
+        }
+      ]
+    },
+    {
+      "source_files": 17,
+      "source_bytes_each": 1024,
+      "dispatch_count": 17,
+      "unique_corpus_source_bytes_by_path": 17408,
+      "distinct_file_content_bytes": 17,
+      "source_bytes_across_requests": 17408,
+      "source_replication_factor": 1.0,
+      "packed_context_bytes_across_requests": 45866,
+      "packed_context_bytes_per_request": [
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698,
+        2698
+      ],
+      "raw_source_bytes_per_request": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "source_paths_per_request": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source_read_count": 34,
+      "dispatches": [
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_00.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_00.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "48d49d52b86955f572155480ca105edc392b7300c5aebf46d53634bf7ba7694c"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_01.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_01.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "a9466dad1a1cf91aaf0ea0314f8c31b78116aa1bb4a0a6a07569c820837f89ba"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_02.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_02.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "60ff81b56a4b48f10d2729a16305d21549a1784f33903413a0c76360b2b8d3d9"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_03.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_03.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "92bee5103937ebe98b7c6edb93a07de73b62d5457d89c42afe2b2fe79fc9782e"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_04.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_04.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "8accb1971458a13db7e64ece6b5a96f860ab90cdbf139a433beefbfd90c695b2"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_05.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_05.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "60c04c445263460d6b8dd166d956e1e7546e122e7f40cdacf76b6be50c513ddf"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_06.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_06.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "1ecf87611bc8290452d951d18ef0731d97d3928f512ac2dc2bd571909afa2eff"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_07.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_07.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "38edcb601a8df1672355ad41405e4e50254d6a3f6c4c4b2cb7e32a1827c5729a"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_08.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_08.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "97d02c6513c133fffa91ae819fae52359bbcdba31a35fb1927c10272a200d7d7"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_09.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_09.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "ab8ee716a251c2d92eca58d014eda3821e162e9ff2e8098b1fc3a8116655b653"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_10.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_10.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "261c77149d4dcbdf3f2ee6036b1de45b58151486d7aaa80996f3ec5a4d8ecd5d"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_11.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_11.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "b1138d2055d5a17bb5388b48469899d8c31c7a360e4725c9f6b1ab58e383e829"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_12.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_12.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "368dab0eadd99a0eff6f1dcc9308d271a0c069f5cc2333d613e7dea7c2a91fca"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_13.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_13.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "8df246e9339fad05172d0ff456a68ed637d8d1b7c77d090804c4f8441b0eca58"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_14.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_14.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "8aae72d0dd7909978228e0db383ab13b5010bcdc4543001ad41e06dfae14655f"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_15.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_15.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "9cc31dcd1a4d82b5dc5061b2a612c63f4e903bb1e6e23138be4e6978411d411c"
+        },
+        {
+          "stage": "security_analysis",
+          "key": "analysis:src/module_16.py:pass:0",
+          "raw_source_bytes": 1024,
+          "source_paths": [
+            "src/module_16.py"
+          ],
+          "packed_context_bytes": 2698,
+          "packed_context_sha256": "ceae934706b320cc660cec54e7f73600d7b8e8e68bece3bc660b3817faf64cde"
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "replication_at_or_below_16": "confirmed",
+    "reason": "For 1, 8, and 16 Python files, the actual analysis context prefills all source when aggregate source is at most 32 KiB. The harness sends one analysis request per assigned file, so each corpus source is repeated across that many requests.",
+    "17_file_behavior": "The prefill branch stops applying above 16 files. The 17-file corpus therefore sends one assigned file per request, although Python source navigation still reads the corpus for local hints."
+  },
+  "limitations": [
+    "Measures source bytes and packed user-message bytes, not provider tokenizer token counts or billing.",
+    "Uses benign synthetic files and a capture session that returns a validated empty analysis result.",
+    "No Trivy, provider, HTTP, database, or saved history access occurs."
+  ]
+}

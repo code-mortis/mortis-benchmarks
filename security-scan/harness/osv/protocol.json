@@ -1,0 +1,27 @@
+{
+  "method": "Native OSV-Scanner v2.7.1, one live lookup per fixture using only npm lockfile data. Compare presence of the target advisory and report all other IDs.",
+  "advisory_ids": [
+    "CVE-2021-44906",
+    "GHSA-xvch-5gv4-984h"
+  ],
+  "cases": [
+    {
+      "case": "affected",
+      "path": "affected/package-lock.json",
+      "ecosystem": "npm",
+      "package": "minimist",
+      "version": "1.2.5",
+      "target_advisory_expected": true,
+      "sha256": "386a5110f751303118347e43e0fdee7c9c6cdcfc377ab9c040fddbb4767d1cdc"
+    },
+    {
+      "case": "updated",
+      "path": "updated/package-lock.json",
+      "ecosystem": "npm",
+      "package": "minimist",
+      "version": "1.2.8",
+      "target_advisory_expected": false,
+      "sha256": "c084d797113e2f75cfcff8c8c9eef5cf42ee3e5462db9d62fdda908fe7b6f849"
+    }
+  ]
+}

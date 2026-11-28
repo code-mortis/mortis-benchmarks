@@ -4,6 +4,7 @@ Evaluation harnesses and recorded results for [Code Mortis](https://github.com/c
 
 | Suite | What it measures | How to run | Recorded results |
 | --- | --- | --- | --- |
+| [Mortis Engine Security Scan](security-scan/README.md) | Scan coverage, history, snapshot and prompt performance, OpenCode runs, and dependency scanner comparison | Offline scoring of saved results. | [Results](security-scan/results/README.md) |
 | [Mortis Engine Review Improvements](review-improvements/README.md) | Standalone review pipeline wiring, including optional second discovery, duplicate handling, and usage accounting | Offline replay with scripted provider responses. | [Results](review-improvements/results/README.md) |
 | [Code Mortis Engine Comparison](engine-eval/README.md) | PR review and security finding quality, reliability, provider usage, and controlled latency | Offline fixture validation and scoring. The original live comparison is retired. | [Results](engine-eval/results/README.md) |
 | [Code Graph](code-graph/README.md) | Extraction time and memory, storage, context quality, and concurrent workload resource use | Docker for extraction. Historical results cover the context-quality and overlap experiments. | [Results](code-graph/results/README.md) |

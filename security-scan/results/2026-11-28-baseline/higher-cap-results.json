@@ -1,0 +1,386 @@
+{
+  "protocol": {
+    "question": "Does a larger output cap allow the same two-file scan to finish with a warm cache?",
+    "workload": "One root-user Dockerfile and one clean arithmetic file. Fresh repository identity each time, same Git commit and shared isolated scanner cache.",
+    "samples": [
+      "warm-higher-1",
+      "warm-higher-2",
+      "warm-higher-3"
+    ],
+    "threshold": "Every sample completes two selected semantic files, detects a root-user configuration finding and has no arithmetic.py findings. Descriptive timings only.",
+    "limits": {
+      "concurrency": 2,
+      "effort": "medium",
+      "timeout_seconds": 180,
+      "token_budget": 64000,
+      "max_output_tokens": 8192
+    },
+    "stop": "Stop on failed scanner or provider transport/auth failure. Do not retry uncertain provider usage."
+  },
+  "engine_version": "0.1.8",
+  "revision": "a4a52ea591591b32e0ff9c64579d24de6aeb61dd",
+  "working_diff_sha256": "bc74833eead7d4707bf67256675e90b85b3c06a4f06f902843fc73550397343e",
+  "platform": [
+    "Darwin",
+    "27.2.0",
+    "arm64",
+    "3.15.2"
+  ],
+  "fixture_sha256": {
+    "Dockerfile": "811ac075dcd83382c843b5660d62f141341db48ee94f484a4412e79b2176cc54",
+    "arithmetic.py": "3774bce8bdb418722cf0830e56c4380cc833e8636357b6fe632ceb6121e9300e"
+  },
+  "samples": [
+    {
+      "sample": "warm-higher-1",
+      "sha": "04fdd61075302c84e17731dadc4eac6b06fd66e4",
+      "exit": 0,
+      "wall_seconds": 20.963,
+      "phase_start_seconds": {
+        "snapshot": 0.0527,
+        "trivy": 0.113,
+        "analysis": 0.9709,
+        "connection_capacity": 1.009,
+        "assessment": 13.0008,
+        "verification": 20.9518,
+        "report": 20.9518
+      },
+      "trivy_commands": [
+        {
+          "stage": "version",
+          "seconds": 0.0427,
+          "returncode": 0
+        },
+        {
+          "stage": "db_update",
+          "seconds": 0.0448,
+          "returncode": 0
+        },
+        {
+          "stage": "checks_update",
+          "seconds": 0.3766,
+          "returncode": 0
+        },
+        {
+          "stage": "source_scan",
+          "seconds": 0.3896,
+          "returncode": 0
+        }
+      ],
+      "status": "completed",
+      "grade": "D",
+      "engine_seconds": 20.956566999899223,
+      "model": "muse-spark-1.3-contributor",
+      "provider": "opencode-go",
+      "database_fresh": true,
+      "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+      "selected": 2,
+      "completed": 2,
+      "findings": [
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0026",
+          "severity": "low",
+          "source": [
+            "trivy"
+          ],
+          "title": "No HEALTHCHECK defined"
+        },
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0002",
+          "severity": "high",
+          "source": [
+            "mortis",
+            "trivy"
+          ],
+          "title": "Image user should not be 'root'"
+        }
+      ],
+      "problems": [],
+      "trivy_stage": "completed",
+      "requests_by_stage": {
+        "security_analysis": 2,
+        "security_assessment": 1
+      },
+      "request_status": {
+        "completed": 3
+      },
+      "request_errors": [],
+      "request_usage": [
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1484,
+            "output_tokens": 2000,
+            "total_tokens": 3484,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1749
+          }
+        },
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1484,
+            "output_tokens": 531,
+            "total_tokens": 2015,
+            "cache_read_tokens": 1393,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 514
+          }
+        },
+        {
+          "stage": "security_assessment",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2567,
+            "output_tokens": 1044,
+            "total_tokens": 3611,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 926
+          }
+        }
+      ],
+      "tokens": 9110,
+      "cost": null
+    },
+    {
+      "sample": "warm-higher-2",
+      "sha": "04fdd61075302c84e17731dadc4eac6b06fd66e4",
+      "exit": 0,
+      "wall_seconds": 29.9964,
+      "phase_start_seconds": {
+        "snapshot": 0.0397,
+        "trivy": 0.096,
+        "analysis": 0.9399,
+        "connection_capacity": 0.9736,
+        "assessment": 20.8435,
+        "verification": 29.9865,
+        "report": 29.9866
+      },
+      "trivy_commands": [
+        {
+          "stage": "version",
+          "seconds": 0.0427,
+          "returncode": 0
+        },
+        {
+          "stage": "db_update",
+          "seconds": 0.0443,
+          "returncode": 0
+        },
+        {
+          "stage": "checks_update",
+          "seconds": 0.3714,
+          "returncode": 0
+        },
+        {
+          "stage": "source_scan",
+          "seconds": 0.3835,
+          "returncode": 0
+        }
+      ],
+      "status": "completed",
+      "grade": "D",
+      "engine_seconds": 29.991136083146557,
+      "model": "muse-spark-1.3-contributor",
+      "provider": "opencode-go",
+      "database_fresh": true,
+      "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+      "selected": 2,
+      "completed": 2,
+      "findings": [
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0026",
+          "severity": "low",
+          "source": [
+            "trivy"
+          ],
+          "title": "No HEALTHCHECK defined"
+        },
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0002",
+          "severity": "high",
+          "source": [
+            "mortis",
+            "trivy"
+          ],
+          "title": "Image user should not be 'root'"
+        }
+      ],
+      "problems": [],
+      "trivy_stage": "completed",
+      "requests_by_stage": {
+        "security_analysis": 2,
+        "security_assessment": 1
+      },
+      "request_status": {
+        "completed": 3
+      },
+      "request_errors": [],
+      "request_usage": [
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1484,
+            "output_tokens": 2271,
+            "total_tokens": 3755,
+            "cache_read_tokens": 1393,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1985
+          }
+        },
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1484,
+            "output_tokens": 593,
+            "total_tokens": 2077,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 576
+          }
+        },
+        {
+          "stage": "security_assessment",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2605,
+            "output_tokens": 1386,
+            "total_tokens": 3991,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1238
+          }
+        }
+      ],
+      "tokens": 9823,
+      "cost": null
+    },
+    {
+      "sample": "warm-higher-3",
+      "sha": "04fdd61075302c84e17731dadc4eac6b06fd66e4",
+      "exit": 0,
+      "wall_seconds": 47.1483,
+      "phase_start_seconds": {
+        "snapshot": 0.0448,
+        "trivy": 0.1056,
+        "analysis": 1.1969,
+        "connection_capacity": 1.2308,
+        "assessment": 33.6658,
+        "verification": 47.1408,
+        "report": 47.1408
+      },
+      "trivy_commands": [
+        {
+          "stage": "version",
+          "seconds": 0.2284,
+          "returncode": 0
+        },
+        {
+          "stage": "db_update",
+          "seconds": 0.0474,
+          "returncode": 0
+        },
+        {
+          "stage": "checks_update",
+          "seconds": 0.4265,
+          "returncode": 0
+        },
+        {
+          "stage": "source_scan",
+          "seconds": 0.3871,
+          "returncode": 0
+        }
+      ],
+      "status": "completed",
+      "grade": "D",
+      "engine_seconds": 47.143215333111584,
+      "model": "muse-spark-1.3-contributor",
+      "provider": "opencode-go",
+      "database_fresh": true,
+      "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+      "selected": 2,
+      "completed": 2,
+      "findings": [
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0026",
+          "severity": "low",
+          "source": [
+            "trivy"
+          ],
+          "title": "No HEALTHCHECK defined"
+        },
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0002",
+          "severity": "high",
+          "source": [
+            "mortis",
+            "trivy"
+          ],
+          "title": "Image user should not be 'root'"
+        }
+      ],
+      "problems": [],
+      "trivy_stage": "completed",
+      "requests_by_stage": {
+        "security_analysis": 2,
+        "security_assessment": 1
+      },
+      "request_status": {
+        "completed": 3
+      },
+      "request_errors": [],
+      "request_usage": [
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1484,
+            "output_tokens": 3594,
+            "total_tokens": 5078,
+            "cache_read_tokens": 1393,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 3343
+          }
+        },
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1484,
+            "output_tokens": 1305,
+            "total_tokens": 2789,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1288
+          }
+        },
+        {
+          "stage": "security_assessment",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2567,
+            "output_tokens": 1913,
+            "total_tokens": 4480,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1804
+          }
+        }
+      ],
+      "tokens": 12347,
+      "cost": null
+    }
+  ]
+}
