@@ -1,0 +1,47 @@
+{
+  "engine_revision": "b358049a61fa13b9aafd2792862172c382a2bab3",
+  "working_diff_sha256": "8c2028f25e7541e420d06c2b966d9bdb26cc65067bf32f3716c20f91228c31cb",
+  "engine_changed_files_sha256": {
+    "README.md": "cc96913dda2a9361eb55dd35ad1a69d87f6e72baacb4d76f02945aa36a207344",
+    "src/mortis_engine/assessments.py": "52e2c893da0a1b406ddd1f1af57339615dfedaa9ae7110b4444e24b4251e8255",
+    "src/mortis_engine/findings.py": "6b7ddf5ee91eeca74727a8fc4478048cf8553fa50c4d91ffe87912d742c39a8e",
+    "src/mortis_engine/history.py": "aa70db77f69c2979522b73effa282ab445a299d923dc1a188521ec9962d10fa7",
+    "src/mortis_engine/operations.py": "d010390ef18522694364bc0a7105922718179ca719e526a0ff9ef6be7b864ba8",
+    "src/mortis_engine/security_scans/contracts.py": "756b680462d1e23219f47009a03e6c96e8409f3e73ed7b74c14f9dd5b9c1cee1",
+    "src/mortis_engine/security_scans/engine.py": "b128f33721b6f90d7cf250a20a22fc0ce84e972741e5ab30e9569e0d0759d964",
+    "src/mortis_engine/security_scans/inference.py": "f27fb77723c1e453cade8ac9bed053869792206840f3567ec8303fff265a2820",
+    "src/mortis_engine/security_scans/policy.py": "70e1415e7212713c9b20698d2c160871831abb6177dc0f5aff0b607c65c1d12e",
+    "src/mortis_engine/security_scans/service.py": "cd1980f03e19181643c89e7d1d36c226b644f5160baf7b0d9ac5620bbe423c3e",
+    "tests/security_scans/test_dependency_coverage.py": "ec0f63e7b70bc17d8f75763601b8e1b4ee89225dfab51dee89f66c126c884bc4",
+    "tests/security_scans/test_scan_inference_policy.py": "68289eb2323b2dbb3b1d4408acc44a3e2964b7f9e29eeb8fc4975c8a30f24f0e",
+    "tests/security_scans/test_security.py": "88439dba8e2c65c7d035888dc347ede7a6f3f9ce2a64f8fadd14fef4501dd4ca",
+    "tests/test_assessments.py": "8f69513a66008e10c85573e0c48fa0e502d2243d1baefa7f53a45aa50135e5ac",
+    "tests/test_findings.py": "f552ed3bd8e9cd3f156a4c043499a7b81aa38e59aeba45a12e1b30912459862c"
+  },
+  "benchmark_revision": "c582fe11e0a5079029ef9737ed7ec22846c38c05",
+  "harness_sha256": {
+    "coverage_probes.py": "0d20c4629e3cc95d462c76e6117bafcf1fc3e6e57a675b08922b5b7104e5f9d6",
+    "dependency_bench.py": "2e30f07ab5bc1f123c77638e8c347539616b6f747c938d15296b975ae0822caf",
+    "live_bench.py": "91d23a5f474f06a4a3b97fef99998a8eb023d6877989d95e0c09ac4155700031",
+    "osv/run_osv.py": "d73613a1074a164d7bfab4b568688990711f7b6367007595e878487c59288e1a",
+    "prompt_bench.py": "a9577e928add5032cff3a6859d19f1ba7582e459c3a2227749cb10c9ea473a6d",
+    "score.py": "63aab365b5b497905203d33a1887d9c7dbbf91d122b5bb8bc3d7c3712e804c43",
+    "snapshot_bench.py": "415c35fec648af2d8ab015c65c69356341f2ff604d2a23362bfc7e87779ad150"
+  },
+  "scanner": "Trivy 0.76.2",
+  "osv_scanner": "2.7.1",
+  "timing_samples": 7,
+  "timing_sample_tokens": 25374,
+  "mixed_manifest_tokens": 8617,
+  "prior_candidates": [
+    {
+      "file": "attempts/01-live-cap-2048.json",
+      "working_diff_sha256": "38211008c91aecf7929ad04654c9fc7e95076ceb9d728a5734bd89ee3d10e308",
+      "samples": 4,
+      "completed": 2,
+      "tokens": 35662
+    }
+  ],
+  "all_recorded_candidate_tokens": 69653,
+  "provider_reported_invoice_cost": null
+}

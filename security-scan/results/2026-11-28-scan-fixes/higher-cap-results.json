@@ -1,0 +1,344 @@
+{
+  "protocol": {
+    "question": "Does a larger output cap allow the same two-file scan to finish with a warm cache?",
+    "workload": "One root-user Dockerfile and one clean arithmetic file. Fresh repository identity each time, same Git commit and shared isolated scanner cache.",
+    "samples": [
+      "warm-higher-1",
+      "warm-higher-2",
+      "warm-higher-3"
+    ],
+    "threshold": "Every sample completes two selected semantic files, detects a root-user configuration finding and has no arithmetic.py findings. Descriptive timings only.",
+    "limits": {
+      "concurrency": 2,
+      "effort": "medium",
+      "timeout_seconds": 180,
+      "token_budget": 64000,
+      "max_output_tokens": 8192
+    },
+    "stop": "Stop on failed scanner or provider transport/auth failure. Do not retry uncertain provider usage."
+  },
+  "engine_version": "0.1.8",
+  "revision": "b358049a61fa13b9aafd2792862172c382a2bab3",
+  "working_diff_sha256": "8c2028f25e7541e420d06c2b966d9bdb26cc65067bf32f3716c20f91228c31cb",
+  "platform": [
+    "Darwin",
+    "27.2.0",
+    "arm64",
+    "3.15.2"
+  ],
+  "fixture_sha256": {
+    "Dockerfile": "811ac075dcd83382c843b5660d62f141341db48ee94f484a4412e79b2176cc54",
+    "arithmetic.py": "3774bce8bdb418722cf0830e56c4380cc833e8636357b6fe632ceb6121e9300e"
+  },
+  "samples": [
+    {
+      "sample": "warm-higher-1",
+      "sha": "04fdd61075302c84e17731dadc4eac6b06fd66e4",
+      "exit": 0,
+      "wall_seconds": 9.8899,
+      "phase_start_seconds": {
+        "snapshot": 0.0646,
+        "trivy": 0.136,
+        "analysis": 1.0863,
+        "connection_capacity": 1.1264,
+        "assessment": 9.8833,
+        "verification": 9.8833,
+        "report": 9.8833
+      },
+      "trivy_commands": [
+        {
+          "stage": "version",
+          "seconds": 0.0473,
+          "returncode": 0
+        },
+        {
+          "stage": "db_update",
+          "seconds": 0.0467,
+          "returncode": 0
+        },
+        {
+          "stage": "checks_update",
+          "seconds": 0.4548,
+          "returncode": 0
+        },
+        {
+          "stage": "source_scan",
+          "seconds": 0.3966,
+          "returncode": 0
+        }
+      ],
+      "status": "completed",
+      "grade": "D",
+      "engine_seconds": 9.884921375196427,
+      "model": "muse-spark-1.3-contributor",
+      "provider": "opencode-go",
+      "database_fresh": true,
+      "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+      "selected": 2,
+      "completed": 2,
+      "findings": [
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0002",
+          "severity": "high",
+          "source": [
+            "trivy"
+          ],
+          "title": "Image user should not be 'root'"
+        },
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0026",
+          "severity": "low",
+          "source": [
+            "trivy"
+          ],
+          "title": "No HEALTHCHECK defined"
+        }
+      ],
+      "problems": [],
+      "trivy_stage": "completed",
+      "requests_by_stage": {
+        "security_analysis": 2
+      },
+      "request_status": {
+        "completed": 2
+      },
+      "request_errors": [],
+      "request_usage": [
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1061,
+            "output_tokens": 1061,
+            "total_tokens": 2122,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1044
+          }
+        },
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 974,
+            "output_tokens": 436,
+            "total_tokens": 1410,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 419
+          }
+        }
+      ],
+      "tokens": 3532,
+      "cost": null
+    },
+    {
+      "sample": "warm-higher-2",
+      "sha": "04fdd61075302c84e17731dadc4eac6b06fd66e4",
+      "exit": 0,
+      "wall_seconds": 11.2157,
+      "phase_start_seconds": {
+        "snapshot": 0.0456,
+        "trivy": 0.1043,
+        "analysis": 0.9611,
+        "connection_capacity": 0.9997,
+        "assessment": 11.2073,
+        "verification": 11.2073,
+        "report": 11.2073
+      },
+      "trivy_commands": [
+        {
+          "stage": "version",
+          "seconds": 0.0466,
+          "returncode": 0
+        },
+        {
+          "stage": "db_update",
+          "seconds": 0.0455,
+          "returncode": 0
+        },
+        {
+          "stage": "checks_update",
+          "seconds": 0.3755,
+          "returncode": 0
+        },
+        {
+          "stage": "source_scan",
+          "seconds": 0.3862,
+          "returncode": 0
+        }
+      ],
+      "status": "completed",
+      "grade": "D",
+      "engine_seconds": 11.210526457987726,
+      "model": "muse-spark-1.3-contributor",
+      "provider": "opencode-go",
+      "database_fresh": true,
+      "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+      "selected": 2,
+      "completed": 2,
+      "findings": [
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0002",
+          "severity": "high",
+          "source": [
+            "trivy"
+          ],
+          "title": "Image user should not be 'root'"
+        },
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0026",
+          "severity": "low",
+          "source": [
+            "trivy"
+          ],
+          "title": "No HEALTHCHECK defined"
+        }
+      ],
+      "problems": [],
+      "trivy_stage": "completed",
+      "requests_by_stage": {
+        "security_analysis": 2
+      },
+      "request_status": {
+        "completed": 2
+      },
+      "request_errors": [],
+      "request_usage": [
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1061,
+            "output_tokens": 1562,
+            "total_tokens": 2623,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1545
+          }
+        },
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 974,
+            "output_tokens": 362,
+            "total_tokens": 1336,
+            "cache_read_tokens": 881,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 345
+          }
+        }
+      ],
+      "tokens": 3959,
+      "cost": null
+    },
+    {
+      "sample": "warm-higher-3",
+      "sha": "04fdd61075302c84e17731dadc4eac6b06fd66e4",
+      "exit": 0,
+      "wall_seconds": 12.8205,
+      "phase_start_seconds": {
+        "snapshot": 0.0463,
+        "trivy": 0.1147,
+        "analysis": 1.0635,
+        "connection_capacity": 1.1025,
+        "assessment": 12.8158,
+        "verification": 12.8159,
+        "report": 12.8159
+      },
+      "trivy_commands": [
+        {
+          "stage": "version",
+          "seconds": 0.0463,
+          "returncode": 0
+        },
+        {
+          "stage": "db_update",
+          "seconds": 0.046,
+          "returncode": 0
+        },
+        {
+          "stage": "checks_update",
+          "seconds": 0.4574,
+          "returncode": 0
+        },
+        {
+          "stage": "source_scan",
+          "seconds": 0.3961,
+          "returncode": 0
+        }
+      ],
+      "status": "completed",
+      "grade": "D",
+      "engine_seconds": 12.816587624838576,
+      "model": "muse-spark-1.3-contributor",
+      "provider": "opencode-go",
+      "database_fresh": true,
+      "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+      "selected": 2,
+      "completed": 2,
+      "findings": [
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0002",
+          "severity": "high",
+          "source": [
+            "trivy"
+          ],
+          "title": "Image user should not be 'root'"
+        },
+        {
+          "path": "Dockerfile",
+          "rule": "DS-0026",
+          "severity": "low",
+          "source": [
+            "trivy"
+          ],
+          "title": "No HEALTHCHECK defined"
+        }
+      ],
+      "problems": [],
+      "trivy_stage": "completed",
+      "requests_by_stage": {
+        "security_analysis": 2
+      },
+      "request_status": {
+        "completed": 2
+      },
+      "request_errors": [],
+      "request_usage": [
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1061,
+            "output_tokens": 1321,
+            "total_tokens": 2382,
+            "cache_read_tokens": 1009,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 1304
+          }
+        },
+        {
+          "stage": "security_analysis",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 974,
+            "output_tokens": 505,
+            "total_tokens": 1479,
+            "cache_read_tokens": 0,
+            "cache_write_tokens": null,
+            "reasoning_tokens": 488
+          }
+        }
+      ],
+      "tokens": 3861,
+      "cost": null
+    }
+  ]
+}

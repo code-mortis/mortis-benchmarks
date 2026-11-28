@@ -1,0 +1,225 @@
+{
+  "schema_version": "mortis.security.snapshot-benchmark/v1",
+  "created_at": "2026-11-28T14:55:11.782204+00:00",
+  "scope": "offline deterministic component benchmark of snapshot population only",
+  "baseline": "current Snapshot.populate using read_source path lookup and blob read",
+  "candidate": "benchmark-only population prototype reusing the OID from ls-tree",
+  "protocol": {
+    "predeclared_thresholds": {
+      "minimum_samples_per_arm": 3,
+      "minimum_git_process_reduction_percent": 40.0,
+      "maximum_median_elapsed_regression_percent": 10.0,
+      "correctness_guard": "inventory, exclusions, problems, and materialized-byte digest must match exactly"
+    },
+    "sizes": [
+      20,
+      100
+    ],
+    "source_file_bytes": 8192,
+    "samples_per_arm_per_size": 4,
+    "warmup_runs_per_arm_per_size": 1,
+    "order": "alternating arm order for each sample pair after warmups",
+    "git_process_count": "count of git_source.git calls, each of which launches one Git subprocess",
+    "guards": [
+      "valid UTF-8 regular files",
+      "NUL-containing binary file",
+      "node_modules exclusion",
+      "symlink exclusion"
+    ],
+    "included_in_timing": [
+      "Git tree listing",
+      "Git blob reads",
+      "snapshot file writes",
+      "inventory and exclusion construction"
+    ],
+    "excluded_from_timing": [
+      "fixture creation",
+      "isolated local_repository preparation",
+      "temporary directory setup",
+      "materialized output hashing"
+    ]
+  },
+  "environment": {
+    "engine_revision": "b358049a61fa13b9aafd2792862172c382a2bab3",
+    "engine_source_sha256": {
+      "src/mortis_engine/security_scans/engine.py": "b128f33721b6f90d7cf250a20a22fc0ce84e972741e5ab30e9569e0d0759d964",
+      "src/mortis_engine/review/source.py": "4b81208308bd2c3f643368ee9e241fa49ffc0db9a78757817f8d9ef9e7a11aec"
+    },
+    "harness_sha256": "415c35fec648af2d8ab015c65c69356341f2ff604d2a23362bfc7e87779ad150",
+    "python": "3.15.2",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "git": "git version 2.56.1"
+  },
+  "runs": [
+    {
+      "fixture_files": 20,
+      "fixture_commit": "75c68e37b9ef66116ee733f610641decfc0492f2",
+      "guard_outputs_equal": true,
+      "git_process_reduction_percent": 48.83720930232558,
+      "median_elapsed_change_percent": -46.87034108405308,
+      "thresholds_passed": true,
+      "arms": {
+        "current": {
+          "sample_count": 4,
+          "elapsed_seconds": {
+            "median": 0.3283494794741273,
+            "min": 0.3174292501062155,
+            "max": 0.3492517920676619,
+            "samples": [
+              0.3492517920676619,
+              0.33458633394911885,
+              0.32211262499913573,
+              0.3174292501062155
+            ]
+          },
+          "git_processes": {
+            "median": 43.0,
+            "min": 43,
+            "max": 43,
+            "samples": [
+              43,
+              43,
+              43,
+              43
+            ]
+          },
+          "output": {
+            "inventory_digest": "5c43a7588eb7e01fae5c357d818428f022d7888c74f675a3e35772c4b828cb4e",
+            "excluded_digest": "dc733b56bff45ef5526c215cc6c5f6972f8e4fea902efd9901132f8456c4530e",
+            "problems_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "materialized_digest": "75386a1f121864a71c34781cf9fa21a199bd347ad8543fd448e25329c4cb6414",
+            "materialized_bytes": 163840,
+            "inventory_files": 20,
+            "excluded_entries": 3,
+            "problems": 0
+          },
+          "all_samples_match_output": true
+        },
+        "oid": {
+          "sample_count": 4,
+          "elapsed_seconds": {
+            "median": 0.17445095849689096,
+            "min": 0.16560970805585384,
+            "max": 0.18311629188247025,
+            "samples": [
+              0.18235445790924132,
+              0.18311629188247025,
+              0.1665474590845406,
+              0.16560970805585384
+            ]
+          },
+          "git_processes": {
+            "median": 22.0,
+            "min": 22,
+            "max": 22,
+            "samples": [
+              22,
+              22,
+              22,
+              22
+            ]
+          },
+          "output": {
+            "inventory_digest": "5c43a7588eb7e01fae5c357d818428f022d7888c74f675a3e35772c4b828cb4e",
+            "excluded_digest": "dc733b56bff45ef5526c215cc6c5f6972f8e4fea902efd9901132f8456c4530e",
+            "problems_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "materialized_digest": "75386a1f121864a71c34781cf9fa21a199bd347ad8543fd448e25329c4cb6414",
+            "materialized_bytes": 163840,
+            "inventory_files": 20,
+            "excluded_entries": 3,
+            "problems": 0
+          },
+          "all_samples_match_output": true
+        }
+      }
+    },
+    {
+      "fixture_files": 100,
+      "fixture_commit": "da04a6aab3ca50b15165459eefcabe3e1afc32fa",
+      "guard_outputs_equal": true,
+      "git_process_reduction_percent": 49.75369458128079,
+      "median_elapsed_change_percent": -48.01136477768696,
+      "thresholds_passed": true,
+      "arms": {
+        "current": {
+          "sample_count": 4,
+          "elapsed_seconds": {
+            "median": 1.6964214789913967,
+            "min": 1.6262064999900758,
+            "max": 1.735980291152373,
+            "samples": [
+              1.7040032919030637,
+              1.6262064999900758,
+              1.6888396660797298,
+              1.735980291152373
+            ]
+          },
+          "git_processes": {
+            "median": 203.0,
+            "min": 203,
+            "max": 203,
+            "samples": [
+              203,
+              203,
+              203,
+              203
+            ]
+          },
+          "output": {
+            "inventory_digest": "fc930eb035cc675a2e476709f92aeb3178e74c8f62be2615c4a74ccad7f11801",
+            "excluded_digest": "dc733b56bff45ef5526c215cc6c5f6972f8e4fea902efd9901132f8456c4530e",
+            "problems_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "materialized_digest": "71e9a78dd3f7b5d4f73f0063241387635a08d3f2d32180e35e685c8c61e73d92",
+            "materialized_bytes": 819200,
+            "inventory_files": 100,
+            "excluded_entries": 3,
+            "problems": 0
+          },
+          "all_samples_match_output": true
+        },
+        "oid": {
+          "sample_count": 4,
+          "elapsed_seconds": {
+            "median": 0.8819463745458052,
+            "min": 0.8434116248972714,
+            "max": 0.9049882909748703,
+            "samples": [
+              0.8434116248972714,
+              0.8918444579467177,
+              0.8720482911448926,
+              0.9049882909748703
+            ]
+          },
+          "git_processes": {
+            "median": 102.0,
+            "min": 102,
+            "max": 102,
+            "samples": [
+              102,
+              102,
+              102,
+              102
+            ]
+          },
+          "output": {
+            "inventory_digest": "fc930eb035cc675a2e476709f92aeb3178e74c8f62be2615c4a74ccad7f11801",
+            "excluded_digest": "dc733b56bff45ef5526c215cc6c5f6972f8e4fea902efd9901132f8456c4530e",
+            "problems_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "materialized_digest": "71e9a78dd3f7b5d4f73f0063241387635a08d3f2d32180e35e685c8c61e73d92",
+            "materialized_bytes": 819200,
+            "inventory_files": 100,
+            "excluded_entries": 3,
+            "problems": 0
+          },
+          "all_samples_match_output": true
+        }
+      }
+    }
+  ],
+  "overall_thresholds_passed": true,
+  "limitations": [
+    "Synthetic committed files only, with no Trivy, provider, or end-to-end scan time.",
+    "Four samples per arm provide a local timing comparison, not a production performance guarantee.",
+    "The candidate is a benchmark-only prototype and does not modify engine source."
+  ]
+}

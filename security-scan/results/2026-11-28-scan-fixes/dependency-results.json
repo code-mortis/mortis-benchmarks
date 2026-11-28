@@ -1,0 +1,126 @@
+[
+  {
+    "sample": "dep-affected",
+    "sha": "511aeaf99303693b66566fda97ea8c9f9308b150",
+    "exit": 0,
+    "wall_seconds": 1.0116,
+    "phase_start_seconds": {
+      "snapshot": 0.0612,
+      "trivy": 0.1149,
+      "analysis": 1.0077,
+      "assessment": 1.0078,
+      "verification": 1.0078,
+      "report": 1.0078
+    },
+    "trivy_commands": [
+      {
+        "stage": "version",
+        "seconds": 0.0439,
+        "returncode": 0
+      },
+      {
+        "stage": "db_update",
+        "seconds": 0.0462,
+        "returncode": 0
+      },
+      {
+        "stage": "checks_update",
+        "seconds": 0.3973,
+        "returncode": 0
+      },
+      {
+        "stage": "source_scan",
+        "seconds": 0.4002,
+        "returncode": 0
+      }
+    ],
+    "status": "completed",
+    "grade": "F",
+    "engine_seconds": 1.006984957959503,
+    "model": "muse-spark-1.3-contributor",
+    "provider": "opencode-go",
+    "database_fresh": true,
+    "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+    "selected": 0,
+    "completed": 0,
+    "findings": [
+      {
+        "path": "package-lock.json",
+        "rule": "CVE-2021-44906",
+        "severity": "critical",
+        "source": [
+          "trivy"
+        ],
+        "title": "minimist: prototype pollution"
+      }
+    ],
+    "problems": [],
+    "trivy_stage": "completed",
+    "requests_by_stage": {},
+    "request_status": {},
+    "request_errors": [],
+    "request_usage": [],
+    "tokens": 0,
+    "cost": null,
+    "fixture_sha256": "386a5110f751303118347e43e0fdee7c9c6cdcfc377ab9c040fddbb4767d1cdc",
+    "target_found": true,
+    "passed": true
+  },
+  {
+    "sample": "dep-updated",
+    "sha": "0b9b9e9100f7c8bb28aaf509f3576dfe570e15b2",
+    "exit": 0,
+    "wall_seconds": 0.9829,
+    "phase_start_seconds": {
+      "snapshot": 0.0461,
+      "trivy": 0.0938,
+      "analysis": 0.9795,
+      "assessment": 0.9795,
+      "verification": 0.9795,
+      "report": 0.9795
+    },
+    "trivy_commands": [
+      {
+        "stage": "version",
+        "seconds": 0.0443,
+        "returncode": 0
+      },
+      {
+        "stage": "db_update",
+        "seconds": 0.0464,
+        "returncode": 0
+      },
+      {
+        "stage": "checks_update",
+        "seconds": 0.3951,
+        "returncode": 0
+      },
+      {
+        "stage": "source_scan",
+        "seconds": 0.3973,
+        "returncode": 0
+      }
+    ],
+    "status": "completed",
+    "grade": "A",
+    "engine_seconds": 0.9795539169572294,
+    "model": "muse-spark-1.3-contributor",
+    "provider": "opencode-go",
+    "database_fresh": true,
+    "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+    "selected": 0,
+    "completed": 0,
+    "findings": [],
+    "problems": [],
+    "trivy_stage": "completed",
+    "requests_by_stage": {},
+    "request_status": {},
+    "request_errors": [],
+    "request_usage": [],
+    "tokens": 0,
+    "cost": null,
+    "fixture_sha256": "c084d797113e2f75cfcff8c8c9eef5cf42ee3e5462db9d62fdda908fe7b6f849",
+    "target_found": false,
+    "passed": true
+  }
+]
