@@ -1,0 +1,87 @@
+{
+  "caller-delete-src-single-module": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/legacy.py", null]],
+    "sites": [["jobs/run.py", 1, 2, "planned", ["src/legacy.py"]]],
+    "preview_errors": []
+  },
+  "caller-delete-src-package-module": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/legacy.py", null]],
+    "sites": [["jobs/run.py", 1, 2, "planned", ["src/shop/legacy.py"]]],
+    "preview_errors": []
+  },
+  "caller-delete-unrelated-python-package": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/legacy.py", null]],
+    "sites": [],
+    "preview_errors": []
+  },
+  "caller-delete-unrelated-top-level-module": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/legacy.py", null]],
+    "sites": [],
+    "preview_errors": []
+  },
+  "caller-delete-distant-symbol-alias": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/legacy.py", null]],
+    "sites": [
+      ["jobs/run.py", 1, 4, "planned", ["src/shop/legacy.py"]],
+      ["jobs/run.py", 7, 10, "planned", ["src/shop/legacy.py"]]
+    ],
+    "unit_ranges": [["jobs/run.py", 1, 4], ["jobs/run.py", 7, 10]],
+    "preview_errors": []
+  },
+  "caller-delete-distant-declared-symbol": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/legacy.py", null]],
+    "sites": [
+      ["jobs/run.py", 1, 4, "planned", ["src/shop/legacy.py"]],
+      ["jobs/run.py", 7, 10, "planned", ["src/shop/legacy.py"]]
+    ],
+    "unit_ranges": [["jobs/run.py", 1, 4], ["jobs/run.py", 7, 10]],
+    "preview_errors": []
+  },
+  "caller-delete-escaped-shell-path": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["scripts/legacy task.sh", null]],
+    "sites": [["run.sh", 1, 1, "planned", ["scripts/legacy task.sh"]]],
+    "preview_errors": []
+  },
+  "caller-delete-quoted-shell-path": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["scripts/legacy task.sh", null]],
+    "sites": [["run.sh", 1, 1, "planned", ["scripts/legacy task.sh"]]],
+    "preview_errors": []
+  },
+  "caller-rename-stale-symbol-alias": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/old.py", "src/shop/new.py"]],
+    "sites": [["src/shop/orders.py", 10, 13, "planned", ["src/shop/old.py"]]],
+    "preview_errors": []
+  },
+  "caller-rename-stale-declared-symbol": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/old.py", "src/shop/new.py"]],
+    "sites": [["src/shop/orders.py", 10, 13, "planned", ["src/shop/old.py"]]],
+    "preview_errors": []
+  },
+  "caller-rename-updated-symbol-alias": {
+    "affected_status": "planned",
+    "limits": [],
+    "triggers": [["src/shop/old.py", "src/shop/new.py"]],
+    "sites": [],
+    "preview_errors": []
+  }
+}

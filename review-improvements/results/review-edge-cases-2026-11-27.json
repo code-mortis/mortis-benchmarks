@@ -1,0 +1,4583 @@
+{
+  "benchmarks_base": "cbb8cef56adb215ae4ecb53cce38b1d97484475c",
+  "cases": {
+    "caller-delete-distant-declared-symbol": {
+      "baseline": [
+        {
+          "api_ms": [
+            110.758
+          ],
+          "ms": 177.074,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            102.423
+          ],
+          "ms": 162.59,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            112.742
+          ],
+          "ms": 180.098,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            102.638
+          ],
+          "ms": 164.217,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            102.744
+          ],
+          "ms": 166.752,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            99.558
+          ],
+          "ms": 161.042,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            102.782
+          ],
+          "ms": 165.365,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            98.841
+          ],
+          "ms": 159.893,
+          "observed": "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "762f91c0ad1dd7294e122fb13e95647f545dc99080cab12fac82442fad4f6601",
+      "observations": {
+        "986507d605c9082869e42b284627c0034ddad4b733c5a31a7af2f1645409dbea": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "72df78861bb9ff90575071d09b65912eda63993b",
+            "head": "b9ad2a3a7ad6ea9ed177c3e728ed9de078a694b0"
+          },
+          "scanned_bytes": 48,
+          "scanned_files": 2,
+          "sites": [
+            [
+              "jobs/run.py",
+              1,
+              4,
+              "planned",
+              [
+                "src/shop/legacy.py"
+              ]
+            ],
+            [
+              "jobs/run.py",
+              7,
+              10,
+              "planned",
+              [
+                "src/shop/legacy.py"
+              ]
+            ]
+          ],
+          "triggers": [
+            [
+              "src/shop/legacy.py",
+              null
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "jobs/run.py",
+              1,
+              4
+            ],
+            [
+              "jobs/run.py",
+              7,
+              10
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 180.098,
+          "median": 164.217,
+          "min": 162.59,
+          "public_calls": [
+            {
+              "max": 112.742,
+              "median": 102.638,
+              "min": 102.423
+            }
+          ]
+        },
+        "candidate": {
+          "max": 165.365,
+          "median": 161.042,
+          "min": 159.893,
+          "public_calls": [
+            {
+              "max": 102.782,
+              "median": 99.558,
+              "min": 98.841
+            }
+          ]
+        }
+      }
+    },
+    "caller-delete-distant-symbol-alias": {
+      "baseline": [
+        {
+          "api_ms": [
+            100.653
+          ],
+          "ms": 163.837,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            96.759
+          ],
+          "ms": 160.287,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            109.197
+          ],
+          "ms": 176.956,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            100.405
+          ],
+          "ms": 165.026,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            100.062
+          ],
+          "ms": 162.163,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            102.443
+          ],
+          "ms": 163.336,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            104.333
+          ],
+          "ms": 165.398,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            102.219
+          ],
+          "ms": 164.606,
+          "observed": "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "2ee6dce1d60cff6fef26f49c424099ae7b82806f4f9d2f7a2a96110eed2217fd",
+      "observations": {
+        "2ff490ba7f626e47349e041676a4439fbaa1e83ea391956b8b91408fdf9db436": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "a2b2ed66d99f3cc3904ddab1c89c515eb20fac6d",
+            "head": "5baad797ad63caa43e205a1bda91f2a041055ae3"
+          },
+          "scanned_bytes": 57,
+          "scanned_files": 2,
+          "sites": [
+            [
+              "jobs/run.py",
+              1,
+              4,
+              "planned",
+              [
+                "src/shop/legacy.py"
+              ]
+            ]
+          ],
+          "triggers": [
+            [
+              "src/shop/legacy.py",
+              null
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "jobs/run.py",
+              1,
+              4
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 176.956,
+          "median": 165.026,
+          "min": 160.287,
+          "public_calls": [
+            {
+              "max": 109.197,
+              "median": 100.405,
+              "min": 96.759
+            }
+          ]
+        },
+        "candidate": {
+          "max": 165.398,
+          "median": 164.606,
+          "min": 163.336,
+          "public_calls": [
+            {
+              "max": 104.333,
+              "median": 102.443,
+              "min": 102.219
+            }
+          ]
+        }
+      }
+    },
+    "caller-delete-escaped-shell-path": {
+      "baseline": [
+        {
+          "api_ms": [
+            98.509
+          ],
+          "ms": 163.265,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            92.761
+          ],
+          "ms": 151.872,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            95.01
+          ],
+          "ms": 157.119,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            108.454
+          ],
+          "ms": 179.489,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            88.492
+          ],
+          "ms": 146.061,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            88.913
+          ],
+          "ms": 146.76,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            98.438
+          ],
+          "ms": 158.793,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            89.099
+          ],
+          "ms": 147.392,
+          "observed": "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "e0ac05e28cdf3d69a27c6e775ad8bf6044f497873c568dfa869c9c1c72f96b6e",
+      "observations": {
+        "1ae8529b72a88a5300ebcee7e8f405ed9a02bd9a97d2108a80ded78c608d6f5f": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "0469d213692fb727d6dbfbe6b91fe7524ca713e3",
+            "head": "3b0828fc7d487935b3cf670ee88e4df22f70d3c6"
+          },
+          "scanned_bytes": 26,
+          "scanned_files": 1,
+          "sites": [],
+          "triggers": [
+            [
+              "scripts/legacy task.sh",
+              null
+            ]
+          ],
+          "unit_ranges": []
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 179.489,
+          "median": 157.119,
+          "min": 151.872,
+          "public_calls": [
+            {
+              "max": 108.454,
+              "median": 95.01,
+              "min": 92.761
+            }
+          ]
+        },
+        "candidate": {
+          "max": 158.793,
+          "median": 147.392,
+          "min": 146.76,
+          "public_calls": [
+            {
+              "max": 98.438,
+              "median": 89.099,
+              "min": 88.913
+            }
+          ]
+        }
+      }
+    },
+    "caller-delete-quoted-shell-path": {
+      "baseline": [
+        {
+          "api_ms": [
+            91.623
+          ],
+          "ms": 151.172,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            92.16
+          ],
+          "ms": 150.161,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            94.456
+          ],
+          "ms": 153.431,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            98.007
+          ],
+          "ms": 158.817,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            87.961
+          ],
+          "ms": 152.59,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            92.996
+          ],
+          "ms": 151.638,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            96.282
+          ],
+          "ms": 158.521,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            87.765
+          ],
+          "ms": 144.568,
+          "observed": "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "a3e44528b51fbbaf2bd0ebec391eda0b46a426f66e8423dd37e4b027b36a68cd",
+      "observations": {
+        "b9012964e0914650c5c7fd7399c927b3d281193b13eb2394ea91295343c54d0b": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "05f077f9484e4d71ffc4adfc96fd5a0b533300ce",
+            "head": "296a101328a8eaeee5f105829bdae31492ce0156"
+          },
+          "scanned_bytes": 27,
+          "scanned_files": 1,
+          "sites": [
+            [
+              "run.sh",
+              1,
+              1,
+              "planned",
+              [
+                "scripts/legacy task.sh"
+              ]
+            ]
+          ],
+          "triggers": [
+            [
+              "scripts/legacy task.sh",
+              null
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "run.sh",
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 158.817,
+          "median": 153.431,
+          "min": 150.161,
+          "public_calls": [
+            {
+              "max": 98.007,
+              "median": 94.456,
+              "min": 92.16
+            }
+          ]
+        },
+        "candidate": {
+          "max": 158.521,
+          "median": 151.638,
+          "min": 144.568,
+          "public_calls": [
+            {
+              "max": 96.282,
+              "median": 92.996,
+              "min": 87.765
+            }
+          ]
+        }
+      }
+    },
+    "caller-delete-src-package-module": {
+      "baseline": [
+        {
+          "api_ms": [
+            100.12
+          ],
+          "ms": 166.467,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            99.732
+          ],
+          "ms": 160.072,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            109.809
+          ],
+          "ms": 177.592,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            101.592
+          ],
+          "ms": 166.21,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            95.558
+          ],
+          "ms": 155.915,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            101.242
+          ],
+          "ms": 168.044,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            101.927
+          ],
+          "ms": 166.682,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            100.994
+          ],
+          "ms": 166.439,
+          "observed": "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "3444390ecb2f47dc9f08e1731fb4051b021d27a3a3c0cc3fdca7453736785e2d",
+      "observations": {
+        "abf4016e3adbfeb05aa31d09f677fad7448309e6b204839698a9a153781cc212": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "ed0c6f1b342a36fb282bd911b7404159f8dc1a0a",
+            "head": "26b99256b3b258dedfd6ab5b9bc4012d1e6de629"
+          },
+          "scanned_bytes": 40,
+          "scanned_files": 2,
+          "sites": [
+            [
+              "jobs/run.py",
+              1,
+              2,
+              "planned",
+              [
+                "src/shop/legacy.py"
+              ]
+            ]
+          ],
+          "triggers": [
+            [
+              "src/shop/legacy.py",
+              null
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "jobs/run.py",
+              1,
+              2
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 177.592,
+          "median": 166.21,
+          "min": 160.072,
+          "public_calls": [
+            {
+              "max": 109.809,
+              "median": 101.592,
+              "min": 99.732
+            }
+          ]
+        },
+        "candidate": {
+          "max": 168.044,
+          "median": 166.682,
+          "min": 166.439,
+          "public_calls": [
+            {
+              "max": 101.927,
+              "median": 101.242,
+              "min": 100.994
+            }
+          ]
+        }
+      }
+    },
+    "caller-delete-src-single-module": {
+      "baseline": [
+        {
+          "api_ms": [
+            102.436
+          ],
+          "ms": 165.011,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            90.491
+          ],
+          "ms": 147.547,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            91.881
+          ],
+          "ms": 150.399,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            96.896
+          ],
+          "ms": 160.08,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            87.674
+          ],
+          "ms": 147.85,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            101.875
+          ],
+          "ms": 161.869,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            93.04
+          ],
+          "ms": 151.778,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            91.844
+          ],
+          "ms": 154.288,
+          "observed": "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "7e253c2ce145ad979b5ade178af86bed4a0aba10fb01532e2b463cb9720215d9",
+      "observations": {
+        "3e64249e6c467a42f1dd96abf65b91bc9ac8f1dc0cf463a82e040d740bb57d5a": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "e06ff613e6bfbabeeb8602594c4a8bf2e55a7d8a",
+            "head": "9c73fb47545562cc29df3d3aa6b9e353b7a7d7bf"
+          },
+          "scanned_bytes": 35,
+          "scanned_files": 1,
+          "sites": [
+            [
+              "jobs/run.py",
+              1,
+              2,
+              "planned",
+              [
+                "src/legacy.py"
+              ]
+            ]
+          ],
+          "triggers": [
+            [
+              "src/legacy.py",
+              null
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "jobs/run.py",
+              1,
+              2
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 160.08,
+          "median": 150.399,
+          "min": 147.547,
+          "public_calls": [
+            {
+              "max": 96.896,
+              "median": 91.881,
+              "min": 90.491
+            }
+          ]
+        },
+        "candidate": {
+          "max": 161.869,
+          "median": 154.288,
+          "min": 151.778,
+          "public_calls": [
+            {
+              "max": 101.875,
+              "median": 93.04,
+              "min": 91.844
+            }
+          ]
+        }
+      }
+    },
+    "caller-delete-unrelated-python-package": {
+      "baseline": [
+        {
+          "api_ms": [
+            114.313
+          ],
+          "ms": 179.897,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            113.906
+          ],
+          "ms": 185.401,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            117.268
+          ],
+          "ms": 184.032,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            104.355
+          ],
+          "ms": 175.487,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            98.988
+          ],
+          "ms": 158.362,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            100.194
+          ],
+          "ms": 163.815,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            101.833
+          ],
+          "ms": 161.727,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            109.418
+          ],
+          "ms": 171.344,
+          "observed": "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "18208c66033646ac335322affdf9e3d3423cc203b179a6640c8b6fdde021edee",
+      "observations": {
+        "f271775979b09386502923ee533d4c83322666cf221704cabf0dfab75fa7ca19": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "4f30c4a26686291552a874bbc55c9efad066e0ca",
+            "head": "37eadb2268fe394dce5593ab17d22142ea581d26"
+          },
+          "scanned_bytes": 82,
+          "scanned_files": 4,
+          "sites": [],
+          "triggers": [
+            [
+              "src/shop/legacy.py",
+              null
+            ]
+          ],
+          "unit_ranges": []
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 185.401,
+          "median": 184.032,
+          "min": 175.487,
+          "public_calls": [
+            {
+              "max": 117.268,
+              "median": 113.906,
+              "min": 104.355
+            }
+          ]
+        },
+        "candidate": {
+          "max": 171.344,
+          "median": 163.815,
+          "min": 161.727,
+          "public_calls": [
+            {
+              "max": 109.418,
+              "median": 101.833,
+              "min": 100.194
+            }
+          ]
+        }
+      }
+    },
+    "caller-delete-unrelated-top-level-module": {
+      "baseline": [
+        {
+          "api_ms": [
+            113.635
+          ],
+          "ms": 180.514,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            100.25
+          ],
+          "ms": 162.634,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            111.218
+          ],
+          "ms": 178.544,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            106.85
+          ],
+          "ms": 171.339,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            108.13
+          ],
+          "ms": 168.051,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            99.568
+          ],
+          "ms": 160.434,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            96.283
+          ],
+          "ms": 157.392,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            101.509
+          ],
+          "ms": 168.258,
+          "observed": "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "c47cafbc4eb20f75cffab69aef55e4e51626839556f2bf4cd7ffd33c63effded",
+      "observations": {
+        "c6a3805429837cf8cd6a3449df115ab2c4317c68b6018145934c3cce7d7ef06e": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "041ce467612feb4ed702bceb09dd6453a5f65162",
+            "head": "367f12910eccefee933494c9cb3a674586f76477"
+          },
+          "scanned_bytes": 72,
+          "scanned_files": 3,
+          "sites": [
+            [
+              "jobs/run.py",
+              1,
+              2,
+              "planned",
+              [
+                "src/shop/legacy.py"
+              ]
+            ]
+          ],
+          "triggers": [
+            [
+              "src/shop/legacy.py",
+              null
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "jobs/run.py",
+              1,
+              2
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 178.544,
+          "median": 171.339,
+          "min": 162.634,
+          "public_calls": [
+            {
+              "max": 111.218,
+              "median": 106.85,
+              "min": 100.25
+            }
+          ]
+        },
+        "candidate": {
+          "max": 168.258,
+          "median": 160.434,
+          "min": 157.392,
+          "public_calls": [
+            {
+              "max": 101.509,
+              "median": 99.568,
+              "min": 96.283
+            }
+          ]
+        }
+      }
+    },
+    "caller-rename-stale-declared-symbol": {
+      "baseline": [
+        {
+          "api_ms": [
+            180.645
+          ],
+          "ms": 249.478,
+          "observed": "c2dee61d9355f15e8ff4cf41422f52f3f2bff91d3c0eeeae015ff6b8f631fbac",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            158.27
+          ],
+          "ms": 217.816,
+          "observed": "c2dee61d9355f15e8ff4cf41422f52f3f2bff91d3c0eeeae015ff6b8f631fbac",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            159.688
+          ],
+          "ms": 220.24,
+          "observed": "c2dee61d9355f15e8ff4cf41422f52f3f2bff91d3c0eeeae015ff6b8f631fbac",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            164.484
+          ],
+          "ms": 230.329,
+          "observed": "c2dee61d9355f15e8ff4cf41422f52f3f2bff91d3c0eeeae015ff6b8f631fbac",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            154.45
+          ],
+          "ms": 214.802,
+          "observed": "baf11aafee26b1220993a2ce5e19097f53a39c9510b2ad01c29923b11ade041e",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            171.311
+          ],
+          "ms": 236.669,
+          "observed": "baf11aafee26b1220993a2ce5e19097f53a39c9510b2ad01c29923b11ade041e",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            166.183
+          ],
+          "ms": 231.061,
+          "observed": "baf11aafee26b1220993a2ce5e19097f53a39c9510b2ad01c29923b11ade041e",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            160.075
+          ],
+          "ms": 223.784,
+          "observed": "baf11aafee26b1220993a2ce5e19097f53a39c9510b2ad01c29923b11ade041e",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "bdcd2f866ab7680157f49f9146026e1c804d8f4afd70be6cc66011d29e75ed7d",
+      "observations": {
+        "baf11aafee26b1220993a2ce5e19097f53a39c9510b2ad01c29923b11ade041e": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "fbacb4926be1eebf57a789f94199627d698eeb0f",
+            "head": "fc6c28d96cfe324b295433b0f95c5686fe104231"
+          },
+          "scanned_bytes": 176,
+          "scanned_files": 3,
+          "sites": [
+            [
+              "src/shop/orders.py",
+              10,
+              13,
+              "planned",
+              [
+                "src/shop/old.py"
+              ]
+            ]
+          ],
+          "triggers": [
+            [
+              "src/shop/old.py",
+              "src/shop/new.py"
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "src/shop/new.py",
+              1,
+              2
+            ],
+            [
+              "src/shop/orders.py",
+              1,
+              13
+            ]
+          ]
+        },
+        "c2dee61d9355f15e8ff4cf41422f52f3f2bff91d3c0eeeae015ff6b8f631fbac": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "fbacb4926be1eebf57a789f94199627d698eeb0f",
+            "head": "fc6c28d96cfe324b295433b0f95c5686fe104231"
+          },
+          "scanned_bytes": 176,
+          "scanned_files": 3,
+          "sites": [],
+          "triggers": [
+            [
+              "src/shop/old.py",
+              "src/shop/new.py"
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "src/shop/new.py",
+              1,
+              2
+            ],
+            [
+              "src/shop/orders.py",
+              1,
+              13
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 230.329,
+          "median": 220.24,
+          "min": 217.816,
+          "public_calls": [
+            {
+              "max": 164.484,
+              "median": 159.688,
+              "min": 158.27
+            }
+          ]
+        },
+        "candidate": {
+          "max": 236.669,
+          "median": 231.061,
+          "min": 223.784,
+          "public_calls": [
+            {
+              "max": 171.311,
+              "median": 166.183,
+              "min": 160.075
+            }
+          ]
+        }
+      }
+    },
+    "caller-rename-stale-symbol-alias": {
+      "baseline": [
+        {
+          "api_ms": [
+            172.874
+          ],
+          "ms": 237.276,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            153.976
+          ],
+          "ms": 214.773,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            157.144
+          ],
+          "ms": 217.258,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            162.844
+          ],
+          "ms": 227.619,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            142.873
+          ],
+          "ms": 203.437,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            152.424
+          ],
+          "ms": 221.537,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            166.299
+          ],
+          "ms": 238.673,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            145.506
+          ],
+          "ms": 206.379,
+          "observed": "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "d9b8b333a8498acb10bd0573e3c8d5f200d6377a79dde79d03a7fbc72943d115",
+      "observations": {
+        "23e7454d50f811c574dd35ff12673908e703449d5591733c62fe3fcdda5c5964": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "fd79594df7ee2e03d7cc5fd264b5232f04b84e4b",
+            "head": "8da2a50614eb1f0cb0e2026954541c941b74f593"
+          },
+          "scanned_bytes": 176,
+          "scanned_files": 3,
+          "sites": [],
+          "triggers": [
+            [
+              "src/shop/old.py",
+              "src/shop/new.py"
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "src/shop/new.py",
+              1,
+              2
+            ],
+            [
+              "src/shop/orders.py",
+              1,
+              13
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 227.619,
+          "median": 217.258,
+          "min": 214.773,
+          "public_calls": [
+            {
+              "max": 162.844,
+              "median": 157.144,
+              "min": 153.976
+            }
+          ]
+        },
+        "candidate": {
+          "max": 238.673,
+          "median": 221.537,
+          "min": 206.379,
+          "public_calls": [
+            {
+              "max": 166.299,
+              "median": 152.424,
+              "min": 145.506
+            }
+          ]
+        }
+      }
+    },
+    "caller-rename-updated-symbol-alias": {
+      "baseline": [
+        {
+          "api_ms": [
+            179.321
+          ],
+          "ms": 244.468,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            155.242
+          ],
+          "ms": 214.817,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            156.158
+          ],
+          "ms": 216.857,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            167.24
+          ],
+          "ms": 229.077,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            143.597
+          ],
+          "ms": 205.196,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            168.831
+          ],
+          "ms": 232.635,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            146.395
+          ],
+          "ms": 207.889,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            143.01
+          ],
+          "ms": 201.443,
+          "observed": "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "callers",
+      "input_sha256": "6789416aca5c281cf41bd65e5c6695c0ab4a77886cfe621d9e3c72966b73185f",
+      "observations": {
+        "6c60269074ce1d9fa3e84610a1b72314089e35234ff15aa8afbc627a7ad0ecfd": {
+          "affected_status": "planned",
+          "limits": [],
+          "preview_errors": [],
+          "revisions": {
+            "base": "fd79594df7ee2e03d7cc5fd264b5232f04b84e4b",
+            "head": "71ee06cf840a24c03d13cde6be2e29f56ab5cfb4"
+          },
+          "scanned_bytes": 182,
+          "scanned_files": 3,
+          "sites": [],
+          "triggers": [
+            [
+              "src/shop/old.py",
+              "src/shop/new.py"
+            ]
+          ],
+          "unit_ranges": [
+            [
+              "src/shop/new.py",
+              1,
+              2
+            ],
+            [
+              "src/shop/orders.py",
+              1,
+              13
+            ]
+          ]
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 229.077,
+          "median": 216.857,
+          "min": 214.817,
+          "public_calls": [
+            {
+              "max": 167.24,
+              "median": 156.158,
+              "min": 155.242
+            }
+          ]
+        },
+        "candidate": {
+          "max": 232.635,
+          "median": 207.889,
+          "min": 201.443,
+          "public_calls": [
+            {
+              "max": 168.831,
+              "median": 146.395,
+              "min": 143.01
+            }
+          ]
+        }
+      }
+    },
+    "incremental-async-body-only-control": {
+      "baseline": [
+        {
+          "api_ms": [
+            202.417,
+            284.24
+          ],
+          "ms": 591.485,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            191.754,
+            270.788
+          ],
+          "ms": 560.517,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            187.06,
+            241.543
+          ],
+          "ms": 526.852,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            191.6,
+            247.4
+          ],
+          "ms": 536.488,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            195.305,
+            256.065
+          ],
+          "ms": 558.585,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            189.404,
+            249.18
+          ],
+          "ms": 540.792,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            171.838,
+            251.139
+          ],
+          "ms": 520.569,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            169.869,
+            238.095
+          ],
+          "ms": 502.843,
+          "observed": "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "incremental",
+      "input_sha256": "14a6efdf4ade6b704e3cfc83af966dc38b51882abcd5449ca5f5b8ef2f148be8",
+      "observations": {
+        "e81503daa37601992c3f17ba529775a3d8e0aa6968c00d65d5055ba1db79a7b3": {
+          "assigned_paths": [
+            "billing.py"
+          ],
+          "baseline_linked": true,
+          "completed_paths": [
+            "billing.py"
+          ],
+          "errors": 0,
+          "first_assigned_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "first_comparison_reason": "no_baseline",
+          "pinned_revisions_match": true,
+          "reason": "compatible_ancestor",
+          "reused_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "revisions": {
+            "base": "3457e1fa98be094e00660fe46591f17e343527ff",
+            "head": "be8d06156fb27d07fb77a44511c269865ab9dcfb",
+            "previous": "092c19ec8e67286aabf0be0fb7a2fbce3c5b9d5b"
+          },
+          "schema_versions": [
+            "mortis.review/v1",
+            "mortis.review/v1"
+          ],
+          "statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ],
+          "strategy": "incremental"
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 560.517,
+          "median": 536.488,
+          "min": 526.852,
+          "public_calls": [
+            {
+              "max": 191.754,
+              "median": 191.6,
+              "min": 187.06
+            },
+            {
+              "max": 270.788,
+              "median": 247.4,
+              "min": 241.543
+            }
+          ]
+        },
+        "candidate": {
+          "max": 540.792,
+          "median": 520.569,
+          "min": 502.843,
+          "public_calls": [
+            {
+              "max": 189.404,
+              "median": 171.838,
+              "min": 169.869
+            },
+            {
+              "max": 251.139,
+              "median": 249.18,
+              "min": 238.095
+            }
+          ]
+        }
+      }
+    },
+    "incremental-async-to-sync": {
+      "baseline": [
+        {
+          "api_ms": [
+            219.628,
+            259.16
+          ],
+          "ms": 585.326,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            194.099,
+            257.979
+          ],
+          "ms": 547.375,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            201.7,
+            248.041
+          ],
+          "ms": 547.66,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            196.055,
+            256.347
+          ],
+          "ms": 550.074,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            195.091,
+            274.468
+          ],
+          "ms": 573.82,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            195.537,
+            286.224
+          ],
+          "ms": 581.6,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            187.041,
+            241.532
+          ],
+          "ms": 528.492,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            174.434,
+            241.001
+          ],
+          "ms": 509.031,
+          "observed": "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "incremental",
+      "input_sha256": "75e9f1c2a7ede014a689950438597a72e55471243dc75a8f6de3dd0fe3f4cac5",
+      "observations": {
+        "c00ee16d5bb767576dbc742df5cb70165046c959cc9faeba8c5b975d23bf4b28": {
+          "assigned_paths": [
+            "billing.py"
+          ],
+          "baseline_linked": true,
+          "completed_paths": [
+            "billing.py"
+          ],
+          "errors": 0,
+          "first_assigned_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "first_comparison_reason": "no_baseline",
+          "pinned_revisions_match": true,
+          "reason": "compatible_ancestor",
+          "reused_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "revisions": {
+            "base": "3457e1fa98be094e00660fe46591f17e343527ff",
+            "head": "b9c8ac23a5802fdede6918126665a997f7ff5753",
+            "previous": "092c19ec8e67286aabf0be0fb7a2fbce3c5b9d5b"
+          },
+          "schema_versions": [
+            "mortis.review/v1",
+            "mortis.review/v1"
+          ],
+          "statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ],
+          "strategy": "incremental"
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 550.074,
+          "median": 547.66,
+          "min": 547.375,
+          "public_calls": [
+            {
+              "max": 201.7,
+              "median": 196.055,
+              "min": 194.099
+            },
+            {
+              "max": 257.979,
+              "median": 256.347,
+              "min": 248.041
+            }
+          ]
+        },
+        "candidate": {
+          "max": 581.6,
+          "median": 528.492,
+          "min": 509.031,
+          "public_calls": [
+            {
+              "max": 195.537,
+              "median": 187.041,
+              "min": 174.434
+            },
+            {
+              "max": 286.224,
+              "median": 241.532,
+              "min": 241.001
+            }
+          ]
+        }
+      }
+    },
+    "incremental-keyword-captured-from-kwargs": {
+      "baseline": [
+        {
+          "api_ms": [
+            187.349,
+            278.693
+          ],
+          "ms": 563.546,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            203.116,
+            283.165
+          ],
+          "ms": 595.076,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            198.689,
+            274.321
+          ],
+          "ms": 574.665,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            201.785,
+            252.911
+          ],
+          "ms": 559.627,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            174.577,
+            233.673
+          ],
+          "ms": 503.945,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            174.212,
+            247.402
+          ],
+          "ms": 520.89,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            194.068,
+            253.613
+          ],
+          "ms": 636.645,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            184.482,
+            260.474
+          ],
+          "ms": 547.069,
+          "observed": "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "incremental",
+      "input_sha256": "58afde29bcc8578422981f729da85e769bc583af35d2d12af1f7d76686dbd5ca",
+      "observations": {
+        "e02270366f80d51326cb2bf2e35734eb3f5620d3d8dbec96627e36dfa78022c8": {
+          "assigned_paths": [
+            "billing.py"
+          ],
+          "baseline_linked": true,
+          "completed_paths": [
+            "billing.py"
+          ],
+          "errors": 0,
+          "first_assigned_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "first_comparison_reason": "no_baseline",
+          "pinned_revisions_match": true,
+          "reason": "compatible_ancestor",
+          "reused_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "revisions": {
+            "base": "7b5d002b1f4e5bd7672395b9e0ee5b38dd4f576b",
+            "head": "ddd8741dd34c0f311f913d31066ec3648f3f60f8",
+            "previous": "8ddc4f6ad879792164a70f422e0df33d77738a95"
+          },
+          "schema_versions": [
+            "mortis.review/v1",
+            "mortis.review/v1"
+          ],
+          "statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ],
+          "strategy": "incremental"
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 595.076,
+          "median": 574.665,
+          "min": 559.627,
+          "public_calls": [
+            {
+              "max": 203.116,
+              "median": 201.785,
+              "min": 198.689
+            },
+            {
+              "max": 283.165,
+              "median": 274.321,
+              "min": 252.911
+            }
+          ]
+        },
+        "candidate": {
+          "max": 636.645,
+          "median": 547.069,
+          "min": 520.89,
+          "public_calls": [
+            {
+              "max": 194.068,
+              "median": 184.482,
+              "min": 174.212
+            },
+            {
+              "max": 260.474,
+              "median": 253.613,
+              "min": 247.402
+            }
+          ]
+        }
+      }
+    },
+    "incremental-optional-keyword-control": {
+      "baseline": [
+        {
+          "api_ms": [
+            188.225,
+            251.95
+          ],
+          "ms": 543.156,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            202.608,
+            273.445
+          ],
+          "ms": 583.385,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            199.315,
+            269.593
+          ],
+          "ms": 573.747,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            180.87,
+            231.049
+          ],
+          "ms": 507.968,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            173.483,
+            236.017
+          ],
+          "ms": 504.727,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            174.735,
+            267.121
+          ],
+          "ms": 543.828,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            191.938,
+            264.152
+          ],
+          "ms": 560.202,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            185.669,
+            256.649
+          ],
+          "ms": 544.198,
+          "observed": "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "incremental",
+      "input_sha256": "a87d552d65d9cc5aab8212d4094e1488f12dc39bbea400cdb4d4b5a011358c58",
+      "observations": {
+        "1d6d165e09b9d28de53ec0edcf5e6a69b4bdf4062292b8140b361ca971c2407f": {
+          "assigned_paths": [
+            "billing.py"
+          ],
+          "baseline_linked": true,
+          "completed_paths": [
+            "billing.py"
+          ],
+          "errors": 0,
+          "first_assigned_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "first_comparison_reason": "no_baseline",
+          "pinned_revisions_match": true,
+          "reason": "compatible_ancestor",
+          "reused_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "revisions": {
+            "base": "a45881e40a131ff533c7944f93816006846a9b5f",
+            "head": "e065d616ab6037fa79156414fbc6632356be5f9c",
+            "previous": "4c2a332fc2092438abf1bfece21712cf511e189a"
+          },
+          "schema_versions": [
+            "mortis.review/v1",
+            "mortis.review/v1"
+          ],
+          "statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ],
+          "strategy": "incremental"
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 583.385,
+          "median": 573.747,
+          "min": 507.968,
+          "public_calls": [
+            {
+              "max": 202.608,
+              "median": 199.315,
+              "min": 180.87
+            },
+            {
+              "max": 273.445,
+              "median": 269.593,
+              "min": 231.049
+            }
+          ]
+        },
+        "candidate": {
+          "max": 560.202,
+          "median": 544.198,
+          "min": 543.828,
+          "public_calls": [
+            {
+              "max": 191.938,
+              "median": 185.669,
+              "min": 174.735
+            },
+            {
+              "max": 267.121,
+              "median": 264.152,
+              "min": 256.649
+            }
+          ]
+        }
+      }
+    },
+    "incremental-positional-only-reorder": {
+      "baseline": [
+        {
+          "api_ms": [
+            190.946,
+            258.285
+          ],
+          "ms": 544.65,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            196.314,
+            261.528
+          ],
+          "ms": 558.628,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            186.346,
+            241.881
+          ],
+          "ms": 525.529,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            202.219,
+            261.114
+          ],
+          "ms": 562.39,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            176.432,
+            253.453
+          ],
+          "ms": 528.95,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            168.231,
+            232.999
+          ],
+          "ms": 498.448,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            173.68,
+            245.293
+          ],
+          "ms": 519.437,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            170.748,
+            258.51
+          ],
+          "ms": 533.041,
+          "observed": "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "incremental",
+      "input_sha256": "26c97767d587776091e6e381683f0917c0f131240721aeb509fd8e38952d9d8b",
+      "observations": {
+        "09d216a83f11a57cb2ffa2a9e7960cbbaa56eed4d223e48c516f60fdc7b9eaf0": {
+          "assigned_paths": [
+            "billing.py"
+          ],
+          "baseline_linked": true,
+          "completed_paths": [
+            "billing.py"
+          ],
+          "errors": 0,
+          "first_assigned_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "first_comparison_reason": "no_baseline",
+          "pinned_revisions_match": true,
+          "reason": "compatible_ancestor",
+          "reused_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "revisions": {
+            "base": "f34024cd791e49d04be12895258bc54b0916fb19",
+            "head": "3ac252e8fbd3c15c95347b8389ab38ac71eab766",
+            "previous": "c389e958b7ac1b66afaafbca5adc019c99f7ab4b"
+          },
+          "schema_versions": [
+            "mortis.review/v1",
+            "mortis.review/v1"
+          ],
+          "statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ],
+          "strategy": "incremental"
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 562.39,
+          "median": 558.628,
+          "min": 525.529,
+          "public_calls": [
+            {
+              "max": 202.219,
+              "median": 196.314,
+              "min": 186.346
+            },
+            {
+              "max": 261.528,
+              "median": 261.114,
+              "min": 241.881
+            }
+          ]
+        },
+        "candidate": {
+          "max": 533.041,
+          "median": 519.437,
+          "min": 498.448,
+          "public_calls": [
+            {
+              "max": 173.68,
+              "median": 170.748,
+              "min": 168.231
+            },
+            {
+              "max": 258.51,
+              "median": 245.293,
+              "min": 232.999
+            }
+          ]
+        }
+      }
+    },
+    "incremental-required-positional-only-guard": {
+      "baseline": [
+        {
+          "api_ms": [
+            201.715,
+            300.831
+          ],
+          "ms": 608.588,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            216.798,
+            351.08
+          ],
+          "ms": 669.431,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            184.472,
+            310.489
+          ],
+          "ms": 589.845,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            225.444,
+            360.22
+          ],
+          "ms": 686.846,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            175.068,
+            282.994
+          ],
+          "ms": 557.192,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            172.801,
+            280.349
+          ],
+          "ms": 549.416,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            175.265,
+            344.491
+          ],
+          "ms": 614.881,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            188.432,
+            312.825
+          ],
+          "ms": 602.375,
+          "observed": "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "incremental",
+      "input_sha256": "22d626949f46351b078d1aa7b2bbebde1a296938f9760d1592c960c0fbd592b3",
+      "observations": {
+        "54a24b7b0c2a208336bff05a2acee987e20979fe5548523c16d0821429c81465": {
+          "assigned_paths": [
+            "billing.py",
+            "checkout.py"
+          ],
+          "baseline_linked": true,
+          "completed_paths": [
+            "billing.py",
+            "checkout.py"
+          ],
+          "errors": 0,
+          "first_assigned_paths": [
+            "checkout.py",
+            "inventory.py"
+          ],
+          "first_comparison_reason": "no_baseline",
+          "pinned_revisions_match": true,
+          "reason": "compatible_ancestor",
+          "reused_paths": [
+            "inventory.py"
+          ],
+          "revisions": {
+            "base": "b50fbe590f777930cb676289731c8c63abff9de6",
+            "head": "1a37bd25b433b72ff50da8a2b95a050d916fb788",
+            "previous": "ab78337b7d12f6b30a5ec8003288616f2c6841d5"
+          },
+          "schema_versions": [
+            "mortis.review/v1",
+            "mortis.review/v1"
+          ],
+          "statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ],
+          "strategy": "incremental"
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 686.846,
+          "median": 669.431,
+          "min": 589.845,
+          "public_calls": [
+            {
+              "max": 225.444,
+              "median": 216.798,
+              "min": 184.472
+            },
+            {
+              "max": 360.22,
+              "median": 351.08,
+              "min": 310.489
+            }
+          ]
+        },
+        "candidate": {
+          "max": 614.881,
+          "median": 602.375,
+          "min": 549.416,
+          "public_calls": [
+            {
+              "max": 188.432,
+              "median": 175.265,
+              "min": 172.801
+            },
+            {
+              "max": 344.491,
+              "median": 312.825,
+              "min": 280.349
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-crlf-auto-text": {
+      "baseline": [
+        {
+          "api_ms": [
+            152.755
+          ],
+          "ms": 217.682,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            148.993
+          ],
+          "ms": 215.116,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            174.097
+          ],
+          "ms": 246.516,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            147.671
+          ],
+          "ms": 212.117,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            137.493
+          ],
+          "ms": 202.699,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            147.999
+          ],
+          "ms": 215.743,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            146.82
+          ],
+          "ms": 212.726,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            158.667
+          ],
+          "ms": 230.699,
+          "observed": "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "c556f0e92fb06575c778086c429ed8d0b698c877eeecbeffa3942d9a03d2d509",
+      "observations": {
+        "afd676c64e4292d57e2315bce399e0480ef3179f1bcbe8c7b54c007110d990ef": {
+          "deleted": [],
+          "errors": [],
+          "exception": null,
+          "git_clean": true,
+          "git_staged": [],
+          "repository_unchanged": true,
+          "selected": [
+            [
+              "app.py",
+              "M",
+              11
+            ]
+          ],
+          "units": 1
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 246.516,
+          "median": 215.116,
+          "min": 212.117,
+          "public_calls": [
+            {
+              "max": 174.097,
+              "median": 148.993,
+              "min": 147.671
+            }
+          ]
+        },
+        "candidate": {
+          "max": 230.699,
+          "median": 215.743,
+          "min": 212.726,
+          "public_calls": [
+            {
+              "max": 158.667,
+              "median": 147.999,
+              "min": 146.82
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-crlf-explicit-text": {
+      "baseline": [
+        {
+          "api_ms": [
+            125.687
+          ],
+          "ms": 198.618,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            108.399
+          ],
+          "ms": 174.427,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            122.639
+          ],
+          "ms": 202.956,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            111.357
+          ],
+          "ms": 175.134,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            107.381
+          ],
+          "ms": 171.695,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            119.524
+          ],
+          "ms": 185.012,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            109.38
+          ],
+          "ms": 174.249,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            125.409
+          ],
+          "ms": 201.172,
+          "observed": "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "efbd9086709bde859d7990e1b907ce6a712e2b6487fbbab2a82ed9e7c73abb7c",
+      "observations": {
+        "ea68ddb6e90abdea529c46297af54d9a9ccb74fabf319783994bead47ef59d1f": {
+          "deleted": [],
+          "errors": [],
+          "exception": null,
+          "git_clean": true,
+          "git_staged": [],
+          "repository_unchanged": true,
+          "selected": [],
+          "units": 0
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 202.956,
+          "median": 175.134,
+          "min": 174.427,
+          "public_calls": [
+            {
+              "max": 122.639,
+              "median": 111.357,
+              "min": 108.399
+            }
+          ]
+        },
+        "candidate": {
+          "max": 201.172,
+          "median": 185.012,
+          "min": 174.249,
+          "public_calls": [
+            {
+              "max": 125.409,
+              "median": 119.524,
+              "min": 109.38
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-directory-to-file-staged": {
+      "baseline": [
+        {
+          "api_ms": [
+            229.834
+          ],
+          "ms": 296.993,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            205.585
+          ],
+          "ms": 266.279,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            200.825
+          ],
+          "ms": 270.694,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            178.352
+          ],
+          "ms": 239.227,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            183.81
+          ],
+          "ms": 247.767,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            182.974
+          ],
+          "ms": 251.338,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            206.665
+          ],
+          "ms": 270.497,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            166.341
+          ],
+          "ms": 224.645,
+          "observed": "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "3baaf1937eb5d565a16fb4a4256ac3d8bb8914df6ed77373089a85054b36a312",
+      "observations": {
+        "93db3e24cdee3585dd91fff13d2d5abea2fee23367c12a57800cbb8c6534b484": {
+          "deleted": [
+            "component.py/value.py"
+          ],
+          "errors": [],
+          "exception": null,
+          "git_staged": [
+            [
+              "M",
+              "app.py"
+            ],
+            [
+              "A",
+              "component.py"
+            ],
+            [
+              "D",
+              "component.py/value.py"
+            ]
+          ],
+          "repository_unchanged": true,
+          "selected": [
+            [
+              "app.py",
+              "M",
+              10
+            ],
+            [
+              "component.py",
+              "A",
+              8
+            ]
+          ],
+          "units": 2
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 270.694,
+          "median": 266.279,
+          "min": 239.227,
+          "public_calls": [
+            {
+              "max": 205.585,
+              "median": 200.825,
+              "min": 178.352
+            }
+          ]
+        },
+        "candidate": {
+          "max": 270.497,
+          "median": 251.338,
+          "min": 224.645,
+          "public_calls": [
+            {
+              "max": 206.665,
+              "median": 182.974,
+              "min": 166.341
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-directory-to-file-worktree": {
+      "baseline": [
+        {
+          "api_ms": [
+            66.802
+          ],
+          "ms": 126.59,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            61.161
+          ],
+          "ms": 114.517,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            67.059
+          ],
+          "ms": 130.219,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            62.557
+          ],
+          "ms": 115.466,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            65.864
+          ],
+          "ms": 127.322,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            68.071
+          ],
+          "ms": 126.037,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            61.546
+          ],
+          "ms": 113.858,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            61.324
+          ],
+          "ms": 115.394,
+          "observed": "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "35c4a5cc1ac5707b344f52d699030334dd3ac1f30fc037b0aa3edac7f5d0df2f",
+      "observations": {
+        "6719771cb5082b9877bd07988dd346a2e9774eccfc23b7db1f603f0aa6b9fa04": {
+          "deleted": [],
+          "errors": [],
+          "exception": "Working-tree source cannot be read safely without following symbolic links.",
+          "git_staged": [],
+          "repository_unchanged": true,
+          "selected": [],
+          "units": 0
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 130.219,
+          "median": 115.466,
+          "min": 114.517,
+          "public_calls": [
+            {
+              "max": 67.059,
+              "median": 62.557,
+              "min": 61.161
+            }
+          ]
+        },
+        "candidate": {
+          "max": 126.037,
+          "median": 115.394,
+          "min": 113.858,
+          "public_calls": [
+            {
+              "max": 68.071,
+              "median": 61.546,
+              "min": 61.324
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-empty-file-staged": {
+      "baseline": [
+        {
+          "api_ms": [
+            114.88
+          ],
+          "ms": 174.068,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            121.519
+          ],
+          "ms": 182.504,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            131.924
+          ],
+          "ms": 201.165,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            113.949
+          ],
+          "ms": 171.757,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            112.642
+          ],
+          "ms": 170.207,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            116.147
+          ],
+          "ms": 178.465,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            113.647
+          ],
+          "ms": 173.94,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            130.252
+          ],
+          "ms": 195.94,
+          "observed": "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "be8e08e1314cb5c03ceb61559c432d652326884862122e3d6409fefa1ccbb70d",
+      "observations": {
+        "bc63c6126df106d869d00be67e865a94664ba69e8d446753e32acdfa1dee9fed": {
+          "deleted": [],
+          "errors": [],
+          "exception": null,
+          "git_staged": [
+            [
+              "A",
+              "draft.py"
+            ]
+          ],
+          "repository_unchanged": true,
+          "selected": [
+            [
+              "draft.py",
+              "A",
+              0
+            ]
+          ],
+          "units": 1
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 201.165,
+          "median": 182.504,
+          "min": 171.757,
+          "public_calls": [
+            {
+              "max": 131.924,
+              "median": 121.519,
+              "min": 113.949
+            }
+          ]
+        },
+        "candidate": {
+          "max": 195.94,
+          "median": 178.465,
+          "min": 173.94,
+          "public_calls": [
+            {
+              "max": 130.252,
+              "median": 116.147,
+              "min": 113.647
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-file-to-directory-staged": {
+      "baseline": [
+        {
+          "api_ms": [
+            253.026
+          ],
+          "ms": 318.022,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            206.088
+          ],
+          "ms": 267.943,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            230.057
+          ],
+          "ms": 295.364,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            216.72
+          ],
+          "ms": 283.203,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            208.28
+          ],
+          "ms": 271.978,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            213.143
+          ],
+          "ms": 279.498,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            205.203
+          ],
+          "ms": 273.536,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            192.608
+          ],
+          "ms": 254.92,
+          "observed": "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "d883b3a9300cf443d4df5effc1c4328779d1e972544005bd8501547904350a0b",
+      "observations": {
+        "d117b1804c6ef48da51db0f692cbb2fff3833c37b489056f2d46b03e50b6c945": {
+          "deleted": [
+            "component.py"
+          ],
+          "errors": [],
+          "exception": null,
+          "git_staged": [
+            [
+              "M",
+              "app.py"
+            ],
+            [
+              "D",
+              "component.py"
+            ],
+            [
+              "A",
+              "component.py/value.py"
+            ]
+          ],
+          "repository_unchanged": true,
+          "selected": [
+            [
+              "app.py",
+              "M",
+              10
+            ],
+            [
+              "component.py/value.py",
+              "A",
+              8
+            ]
+          ],
+          "units": 2
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 295.364,
+          "median": 283.203,
+          "min": 267.943,
+          "public_calls": [
+            {
+              "max": 230.057,
+              "median": 216.72,
+              "min": 206.088
+            }
+          ]
+        },
+        "candidate": {
+          "max": 279.498,
+          "median": 273.536,
+          "min": 254.92,
+          "public_calls": [
+            {
+              "max": 213.143,
+              "median": 205.203,
+              "min": 192.608
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-file-to-directory-worktree": {
+      "baseline": [
+        {
+          "api_ms": [
+            63.077
+          ],
+          "ms": 128.999,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            61.105
+          ],
+          "ms": 115.278,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            64.977
+          ],
+          "ms": 128.274,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            60.989
+          ],
+          "ms": 115.713,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            73.088
+          ],
+          "ms": 131.199,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            65.47
+          ],
+          "ms": 118.535,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            67.839
+          ],
+          "ms": 128.879,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            59.684
+          ],
+          "ms": 115.375,
+          "observed": "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "c49d9df24cc336a3971b785b30239eeb6245ae718c7361e83822aab5626ecd51",
+      "observations": {
+        "b24c8a5c3f26cc603dbadfc010a17e4d8736ed2956dd7152efd7e463bc6cb297": {
+          "deleted": [],
+          "errors": [],
+          "exception": "Working-tree source must be a regular file or symbolic link.",
+          "git_staged": [],
+          "repository_unchanged": true,
+          "selected": [],
+          "units": 0
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 128.274,
+          "median": 115.713,
+          "min": 115.278,
+          "public_calls": [
+            {
+              "max": 64.977,
+              "median": 61.105,
+              "min": 60.989
+            }
+          ]
+        },
+        "candidate": {
+          "max": 128.879,
+          "median": 118.535,
+          "min": 115.375,
+          "public_calls": [
+            {
+              "max": 67.839,
+              "median": 65.47,
+              "min": 59.684
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-intent-to-add-staged": {
+      "baseline": [
+        {
+          "api_ms": [
+            138.638
+          ],
+          "ms": 226.422,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            128.201
+          ],
+          "ms": 189.223,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            133.623
+          ],
+          "ms": 195.031,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            115.518
+          ],
+          "ms": 172.878,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            116.562
+          ],
+          "ms": 177.307,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            131.076
+          ],
+          "ms": 206.003,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            113.621
+          ],
+          "ms": 178.126,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            108.256
+          ],
+          "ms": 165.524,
+          "observed": "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe",
+          "pass": false,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "8ed2316c48c7c6005656ea40ca9498b058dba9e0b7f56e2435009650f05e6b6b",
+      "observations": {
+        "3b77df7c591cde21adb2b61513d05bdb17d1baeac5f82a4015af4b9240ea51fe": {
+          "deleted": [],
+          "errors": [],
+          "exception": null,
+          "git_staged": [],
+          "repository_unchanged": true,
+          "selected": [
+            [
+              "draft.py",
+              "A",
+              0
+            ]
+          ],
+          "units": 1
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 195.031,
+          "median": 189.223,
+          "min": 172.878,
+          "public_calls": [
+            {
+              "max": 133.623,
+              "median": 128.201,
+              "min": 115.518
+            }
+          ]
+        },
+        "candidate": {
+          "max": 206.003,
+          "median": 178.126,
+          "min": 165.524,
+          "public_calls": [
+            {
+              "max": 131.076,
+              "median": 113.621,
+              "min": 108.256
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-intent-to-add-worktree": {
+      "baseline": [
+        {
+          "api_ms": [
+            150.274
+          ],
+          "ms": 211.858,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            141.79
+          ],
+          "ms": 200.721,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            162.134
+          ],
+          "ms": 228.249,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            137.596
+          ],
+          "ms": 194.34,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            129.952
+          ],
+          "ms": 187.8,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            146.505
+          ],
+          "ms": 210.49,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            134.01
+          ],
+          "ms": 192.11,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            142.781
+          ],
+          "ms": 200.695,
+          "observed": "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "5b20bf0f9927313267ba6011ed7875e0d8e0c5c1c3a634a78decf301ee569c7b",
+      "observations": {
+        "987dcfe3697998df7ada32aa898dd7aeb8a63715fc313b82664c607e3d708dd2": {
+          "deleted": [],
+          "errors": [],
+          "exception": null,
+          "git_staged": [],
+          "repository_unchanged": true,
+          "selected": [
+            [
+              "draft.py",
+              "A",
+              10
+            ]
+          ],
+          "units": 1
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 228.249,
+          "median": 200.721,
+          "min": 194.34,
+          "public_calls": [
+            {
+              "max": 162.134,
+              "median": 141.79,
+              "min": 137.596
+            }
+          ]
+        },
+        "candidate": {
+          "max": 210.49,
+          "median": 200.695,
+          "min": 192.11,
+          "public_calls": [
+            {
+              "max": 146.505,
+              "median": 142.781,
+              "min": 134.01
+            }
+          ]
+        }
+      }
+    },
+    "snapshot-literal-unicode-path": {
+      "baseline": [
+        {
+          "api_ms": [
+            156.688
+          ],
+          "ms": 224.32,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            136.906
+          ],
+          "ms": 187.641,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            144.911
+          ],
+          "ms": 200.331,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            151.045
+          ],
+          "ms": 202.226,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "candidate": [
+        {
+          "api_ms": [
+            132.312
+          ],
+          "ms": 187.151,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": true
+        },
+        {
+          "api_ms": [
+            136.239
+          ],
+          "ms": 189.998,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            129.773
+          ],
+          "ms": 180.493,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": false
+        },
+        {
+          "api_ms": [
+            145.67
+          ],
+          "ms": 202.717,
+          "observed": "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4",
+          "pass": true,
+          "warmup": false
+        }
+      ],
+      "group": "snapshots",
+      "input_sha256": "efa49c3a0285f3089dae26d59b55a490f213bea4a06f93124cb874bc689db9fa",
+      "observations": {
+        "60468bdf9ed15ae911dfb76adea495906a4b49a6594e91a2691c1b931c231cc4": {
+          "deleted": [],
+          "errors": [],
+          "exception": null,
+          "git_staged": [],
+          "repository_unchanged": true,
+          "selected": [
+            [
+              "café [west].py",
+              "M",
+              10
+            ]
+          ],
+          "units": 1
+        }
+      },
+      "timing_ms": {
+        "baseline": {
+          "max": 202.226,
+          "median": 200.331,
+          "min": 187.641,
+          "public_calls": [
+            {
+              "max": 151.045,
+              "median": 144.911,
+              "min": 136.906
+            }
+          ]
+        },
+        "candidate": {
+          "max": 202.717,
+          "median": 189.998,
+          "min": 180.493,
+          "public_calls": [
+            {
+              "max": 145.67,
+              "median": 136.239,
+              "min": 129.773
+            }
+          ]
+        }
+      }
+    }
+  },
+  "engine_commits": {
+    "baseline": "b02e6f7b4ec67b8d25b8e2de05502ee8835b133c",
+    "candidate": "2e81e2309970919cf8cb1529b94363ed57829c2c"
+  },
+  "environment": {
+    "git": "git version 2.56.1",
+    "logical_cpus": 12,
+    "machine": "arm64",
+    "os_version": "27.2.1",
+    "python": "3.15.2",
+    "system": "Darwin"
+  },
+  "evidence": {
+    "callers": "offline public Git commit preview",
+    "incremental": "public review_commits, real isolated SQLite and scripted provider",
+    "snapshots": "offline public preview, native Git and file fingerprints"
+  },
+  "expected": {
+    "callers": {
+      "caller-delete-distant-declared-symbol": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "jobs/run.py",
+            1,
+            4,
+            "planned",
+            [
+              "src/shop/legacy.py"
+            ]
+          ],
+          [
+            "jobs/run.py",
+            7,
+            10,
+            "planned",
+            [
+              "src/shop/legacy.py"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "src/shop/legacy.py",
+            null
+          ]
+        ],
+        "unit_ranges": [
+          [
+            "jobs/run.py",
+            1,
+            4
+          ],
+          [
+            "jobs/run.py",
+            7,
+            10
+          ]
+        ]
+      },
+      "caller-delete-distant-symbol-alias": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "jobs/run.py",
+            1,
+            4,
+            "planned",
+            [
+              "src/shop/legacy.py"
+            ]
+          ],
+          [
+            "jobs/run.py",
+            7,
+            10,
+            "planned",
+            [
+              "src/shop/legacy.py"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "src/shop/legacy.py",
+            null
+          ]
+        ],
+        "unit_ranges": [
+          [
+            "jobs/run.py",
+            1,
+            4
+          ],
+          [
+            "jobs/run.py",
+            7,
+            10
+          ]
+        ]
+      },
+      "caller-delete-escaped-shell-path": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "run.sh",
+            1,
+            1,
+            "planned",
+            [
+              "scripts/legacy task.sh"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "scripts/legacy task.sh",
+            null
+          ]
+        ]
+      },
+      "caller-delete-quoted-shell-path": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "run.sh",
+            1,
+            1,
+            "planned",
+            [
+              "scripts/legacy task.sh"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "scripts/legacy task.sh",
+            null
+          ]
+        ]
+      },
+      "caller-delete-src-package-module": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "jobs/run.py",
+            1,
+            2,
+            "planned",
+            [
+              "src/shop/legacy.py"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "src/shop/legacy.py",
+            null
+          ]
+        ]
+      },
+      "caller-delete-src-single-module": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "jobs/run.py",
+            1,
+            2,
+            "planned",
+            [
+              "src/legacy.py"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "src/legacy.py",
+            null
+          ]
+        ]
+      },
+      "caller-delete-unrelated-python-package": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [],
+        "triggers": [
+          [
+            "src/shop/legacy.py",
+            null
+          ]
+        ]
+      },
+      "caller-delete-unrelated-top-level-module": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [],
+        "triggers": [
+          [
+            "src/shop/legacy.py",
+            null
+          ]
+        ]
+      },
+      "caller-rename-stale-declared-symbol": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "src/shop/orders.py",
+            10,
+            13,
+            "planned",
+            [
+              "src/shop/old.py"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "src/shop/old.py",
+            "src/shop/new.py"
+          ]
+        ]
+      },
+      "caller-rename-stale-symbol-alias": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [
+          [
+            "src/shop/orders.py",
+            10,
+            13,
+            "planned",
+            [
+              "src/shop/old.py"
+            ]
+          ]
+        ],
+        "triggers": [
+          [
+            "src/shop/old.py",
+            "src/shop/new.py"
+          ]
+        ]
+      },
+      "caller-rename-updated-symbol-alias": {
+        "affected_status": "planned",
+        "limits": [],
+        "preview_errors": [],
+        "sites": [],
+        "triggers": [
+          [
+            "src/shop/old.py",
+            "src/shop/new.py"
+          ]
+        ]
+      }
+    },
+    "incremental": {
+      "incremental-async-body-only-control": {
+        "assigned_paths": [
+          "billing.py"
+        ],
+        "baseline_linked": true,
+        "completed_paths": [
+          "billing.py"
+        ],
+        "errors": 0,
+        "first_assigned_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "first_comparison_reason": "no_baseline",
+        "pinned_revisions_match": true,
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "schema_versions": [
+          "mortis.review/v1",
+          "mortis.review/v1"
+        ],
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "strategy": "incremental"
+      },
+      "incremental-async-to-sync": {
+        "assigned_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "baseline_linked": true,
+        "completed_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "errors": 0,
+        "first_assigned_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "first_comparison_reason": "no_baseline",
+        "pinned_revisions_match": true,
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "inventory.py"
+        ],
+        "schema_versions": [
+          "mortis.review/v1",
+          "mortis.review/v1"
+        ],
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "strategy": "incremental"
+      },
+      "incremental-keyword-captured-from-kwargs": {
+        "assigned_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "baseline_linked": true,
+        "completed_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "errors": 0,
+        "first_assigned_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "first_comparison_reason": "no_baseline",
+        "pinned_revisions_match": true,
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "inventory.py"
+        ],
+        "schema_versions": [
+          "mortis.review/v1",
+          "mortis.review/v1"
+        ],
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "strategy": "incremental"
+      },
+      "incremental-optional-keyword-control": {
+        "assigned_paths": [
+          "billing.py"
+        ],
+        "baseline_linked": true,
+        "completed_paths": [
+          "billing.py"
+        ],
+        "errors": 0,
+        "first_assigned_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "first_comparison_reason": "no_baseline",
+        "pinned_revisions_match": true,
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "schema_versions": [
+          "mortis.review/v1",
+          "mortis.review/v1"
+        ],
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "strategy": "incremental"
+      },
+      "incremental-positional-only-reorder": {
+        "assigned_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "baseline_linked": true,
+        "completed_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "errors": 0,
+        "first_assigned_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "first_comparison_reason": "no_baseline",
+        "pinned_revisions_match": true,
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "inventory.py"
+        ],
+        "schema_versions": [
+          "mortis.review/v1",
+          "mortis.review/v1"
+        ],
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "strategy": "incremental"
+      },
+      "incremental-required-positional-only-guard": {
+        "assigned_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "baseline_linked": true,
+        "completed_paths": [
+          "billing.py",
+          "checkout.py"
+        ],
+        "errors": 0,
+        "first_assigned_paths": [
+          "checkout.py",
+          "inventory.py"
+        ],
+        "first_comparison_reason": "no_baseline",
+        "pinned_revisions_match": true,
+        "reason": "compatible_ancestor",
+        "reused_paths": [
+          "inventory.py"
+        ],
+        "schema_versions": [
+          "mortis.review/v1",
+          "mortis.review/v1"
+        ],
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "strategy": "incremental"
+      }
+    },
+    "snapshots": {
+      "snapshot-crlf-auto-text": {
+        "deleted": [],
+        "errors": [],
+        "exception": null,
+        "git_clean": true,
+        "git_staged": [],
+        "repository_unchanged": true,
+        "selected": [],
+        "units": 0
+      },
+      "snapshot-crlf-explicit-text": {
+        "deleted": [],
+        "errors": [],
+        "exception": null,
+        "git_clean": true,
+        "git_staged": [],
+        "repository_unchanged": true,
+        "selected": [],
+        "units": 0
+      },
+      "snapshot-directory-to-file-staged": {
+        "deleted": [
+          "component.py/value.py"
+        ],
+        "errors": [],
+        "exception": null,
+        "git_staged": [
+          [
+            "M",
+            "app.py"
+          ],
+          [
+            "A",
+            "component.py"
+          ],
+          [
+            "D",
+            "component.py/value.py"
+          ]
+        ],
+        "repository_unchanged": true,
+        "selected": [
+          [
+            "app.py",
+            "M",
+            10
+          ],
+          [
+            "component.py",
+            "A",
+            8
+          ]
+        ],
+        "units": 2
+      },
+      "snapshot-directory-to-file-worktree": {
+        "deleted": [
+          "component.py/value.py"
+        ],
+        "errors": [],
+        "exception": null,
+        "git_staged": [],
+        "repository_unchanged": true,
+        "selected": [
+          [
+            "app.py",
+            "M",
+            10
+          ],
+          [
+            "component.py",
+            "A",
+            8
+          ]
+        ],
+        "units": 2
+      },
+      "snapshot-empty-file-staged": {
+        "deleted": [],
+        "errors": [],
+        "exception": null,
+        "git_staged": [
+          [
+            "A",
+            "draft.py"
+          ]
+        ],
+        "repository_unchanged": true,
+        "selected": [
+          [
+            "draft.py",
+            "A",
+            0
+          ]
+        ],
+        "units": 1
+      },
+      "snapshot-file-to-directory-staged": {
+        "deleted": [
+          "component.py"
+        ],
+        "errors": [],
+        "exception": null,
+        "git_staged": [
+          [
+            "M",
+            "app.py"
+          ],
+          [
+            "D",
+            "component.py"
+          ],
+          [
+            "A",
+            "component.py/value.py"
+          ]
+        ],
+        "repository_unchanged": true,
+        "selected": [
+          [
+            "app.py",
+            "M",
+            10
+          ],
+          [
+            "component.py/value.py",
+            "A",
+            8
+          ]
+        ],
+        "units": 2
+      },
+      "snapshot-file-to-directory-worktree": {
+        "deleted": [
+          "component.py"
+        ],
+        "errors": [],
+        "exception": null,
+        "git_staged": [],
+        "repository_unchanged": true,
+        "selected": [
+          [
+            "app.py",
+            "M",
+            10
+          ],
+          [
+            "component.py/value.py",
+            "A",
+            8
+          ]
+        ],
+        "units": 2
+      },
+      "snapshot-intent-to-add-staged": {
+        "deleted": [],
+        "errors": [],
+        "exception": null,
+        "git_staged": [],
+        "repository_unchanged": true,
+        "selected": [],
+        "units": 0
+      },
+      "snapshot-intent-to-add-worktree": {
+        "deleted": [],
+        "errors": [],
+        "exception": null,
+        "git_staged": [],
+        "repository_unchanged": true,
+        "selected": [
+          [
+            "draft.py",
+            "A",
+            10
+          ]
+        ],
+        "units": 1
+      },
+      "snapshot-literal-unicode-path": {
+        "deleted": [],
+        "errors": [],
+        "exception": null,
+        "git_staged": [],
+        "repository_unchanged": true,
+        "selected": [
+          [
+            "café [west].py",
+            "M",
+            10
+          ]
+        ],
+        "units": 1
+      }
+    }
+  },
+  "harness_sha256": {
+    "callers-expected.json": "294678ae03b88c4e02780f11007413cdc44ca19bb0cd5800a715ca3264e0ed1f",
+    "callers.py": "5acf51419e4874df54a6d3fc59d8b07c75232efaba3b45698f72b0ae785c7bbf",
+    "incremental-expected.json": "3ec6e12f71fc7e0b7bbde04be04b0ef3cbad81a49569daa7a1b4b838273b1152",
+    "incremental.py": "1086d7f52bbd3f610a4c562bd47c44ca272be9dd92483e5d147ce1c6f3ed98c1",
+    "protocol.md": "a8e0e8e002cb538444156a19379a194e6e5c8cc45a8bfd2b9a62cfc29c12ab13",
+    "python-callers/run.py": "fe712adf2d681d641d49615eabbef1c4ebbd6cff645ba8b0ebc5c206ea1c514f",
+    "run.py": "6a3c7209e61e16424ea0d9ed46bb6d97a866b54a27db1658efda03ac6f437155",
+    "snapshots-expected.json": "56e3550f0ca7fc111b2019812cb613c2cc1aba7a6d8d0dcf8b81cc342daea72d",
+    "snapshots.py": "676d107aa86d6c2e1aef3b134d057be98db7e1e9bee21918800c60151899b5ab"
+  },
+  "metric": "ms is fixture construction and observation wall time, excluding worker startup. api_ms times only the public calls in order; incremental uses initial and subsequent review.",
+  "protocol": "mortis-review-edge-cases/v1",
+  "source": "git archive src/ of each pinned commit using the same interpreter",
+  "summary": {
+    "baseline": {
+      "callers": {
+        "cases": 11,
+        "failed_timed_samples": 15,
+        "passed_all_repetitions": 6,
+        "timed_samples": 33
+      },
+      "incremental": {
+        "cases": 6,
+        "failed_timed_samples": 9,
+        "passed_all_repetitions": 3,
+        "timed_samples": 18
+      },
+      "snapshots": {
+        "cases": 10,
+        "failed_timed_samples": 12,
+        "passed_all_repetitions": 6,
+        "timed_samples": 30
+      }
+    },
+    "candidate": {
+      "callers": {
+        "cases": 11,
+        "failed_timed_samples": 12,
+        "passed_all_repetitions": 7,
+        "timed_samples": 33
+      },
+      "incremental": {
+        "cases": 6,
+        "failed_timed_samples": 9,
+        "passed_all_repetitions": 3,
+        "timed_samples": 18
+      },
+      "snapshots": {
+        "cases": 10,
+        "failed_timed_samples": 12,
+        "passed_all_repetitions": 6,
+        "timed_samples": 30
+      }
+    }
+  },
+  "test_order": [
+    [
+      0,
+      "baseline"
+    ],
+    [
+      0,
+      "candidate"
+    ],
+    [
+      1,
+      "candidate"
+    ],
+    [
+      1,
+      "baseline"
+    ],
+    [
+      2,
+      "baseline"
+    ],
+    [
+      2,
+      "candidate"
+    ],
+    [
+      3,
+      "candidate"
+    ],
+    [
+      3,
+      "baseline"
+    ]
+  ],
+  "timed_repetitions_per_arm_case": 3,
+  "warmups_per_arm_case": 1
+}

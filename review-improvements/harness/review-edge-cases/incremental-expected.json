@@ -1,0 +1,198 @@
+{
+  "incremental-async-body-only-control": {
+    "assigned_paths": [
+      "billing.py"
+    ],
+    "baseline_linked": true,
+    "completed_paths": [
+      "billing.py"
+    ],
+    "errors": 0,
+    "first_assigned_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "first_comparison_reason": "no_baseline",
+    "pinned_revisions_match": true,
+    "reason": "compatible_ancestor",
+    "reused_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "schema_versions": [
+      "mortis.review/v1",
+      "mortis.review/v1"
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "strategy": "incremental"
+  },
+  "incremental-async-to-sync": {
+    "assigned_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "baseline_linked": true,
+    "completed_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "errors": 0,
+    "first_assigned_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "first_comparison_reason": "no_baseline",
+    "pinned_revisions_match": true,
+    "reason": "compatible_ancestor",
+    "reused_paths": [
+      "inventory.py"
+    ],
+    "schema_versions": [
+      "mortis.review/v1",
+      "mortis.review/v1"
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "strategy": "incremental"
+  },
+  "incremental-keyword-captured-from-kwargs": {
+    "assigned_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "baseline_linked": true,
+    "completed_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "errors": 0,
+    "first_assigned_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "first_comparison_reason": "no_baseline",
+    "pinned_revisions_match": true,
+    "reason": "compatible_ancestor",
+    "reused_paths": [
+      "inventory.py"
+    ],
+    "schema_versions": [
+      "mortis.review/v1",
+      "mortis.review/v1"
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "strategy": "incremental"
+  },
+  "incremental-optional-keyword-control": {
+    "assigned_paths": [
+      "billing.py"
+    ],
+    "baseline_linked": true,
+    "completed_paths": [
+      "billing.py"
+    ],
+    "errors": 0,
+    "first_assigned_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "first_comparison_reason": "no_baseline",
+    "pinned_revisions_match": true,
+    "reason": "compatible_ancestor",
+    "reused_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "schema_versions": [
+      "mortis.review/v1",
+      "mortis.review/v1"
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "strategy": "incremental"
+  },
+  "incremental-positional-only-reorder": {
+    "assigned_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "baseline_linked": true,
+    "completed_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "errors": 0,
+    "first_assigned_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "first_comparison_reason": "no_baseline",
+    "pinned_revisions_match": true,
+    "reason": "compatible_ancestor",
+    "reused_paths": [
+      "inventory.py"
+    ],
+    "schema_versions": [
+      "mortis.review/v1",
+      "mortis.review/v1"
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "strategy": "incremental"
+  },
+  "incremental-required-positional-only-guard": {
+    "assigned_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "baseline_linked": true,
+    "completed_paths": [
+      "billing.py",
+      "checkout.py"
+    ],
+    "errors": 0,
+    "first_assigned_paths": [
+      "checkout.py",
+      "inventory.py"
+    ],
+    "first_comparison_reason": "no_baseline",
+    "pinned_revisions_match": true,
+    "reason": "compatible_ancestor",
+    "reused_paths": [
+      "inventory.py"
+    ],
+    "schema_versions": [
+      "mortis.review/v1",
+      "mortis.review/v1"
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "strategy": "incremental"
+  }
+}

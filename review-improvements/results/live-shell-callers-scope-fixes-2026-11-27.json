@@ -1,0 +1,290 @@
+{
+  "protocol": "live-shell-caller/v1",
+  "evidence": "live Mortis CLI, synthetic Git inputs, one review per case",
+  "candidate_working_tree": {
+    "base_revision": "2e81e2309970919cf8cb1529b94363ed57829c2c",
+    "changed_source_files": 5,
+    "source_changes_sha256": "995cf6bc452fad8124ed8c27eba08c95f5e0b9dd2d6387eabb9c06928dd64d8f",
+    "source_files": 76,
+    "source_inventory_sha256": "f3e98875206ee8a07840bcb0ee8a71f267efab10d1ac0b6716c2f8acbdae36f4"
+  },
+  "baseline_engine_commit": "2e81e2309970919cf8cb1529b94363ed57829c2c",
+  "baseline_live_result": "live-shell-callers-2026-11-27.json",
+  "benchmarks_base": "cbb8cef56adb215ae4ecb53cce38b1d97484475c",
+  "sha256": {
+    "protocol": "e61bda607661ade972baca4a821113f333b95d5a166df8bec920993a19980c88",
+    "input_manifest": "665e44a0c347e47c6ebf600377d6ee4c09088608c94a17f917fc89fa65b232bd",
+    "retained_generator_and_runner": "1e2a889f3e3960f764ca29fecb7dbdaab6473760bcb84d9254f73c00a81e506f"
+  },
+  "environment": {
+    "git": "git version 2.56.1",
+    "logical_cpus": 12,
+    "machine": "arm64",
+    "os_version": "27.2.1",
+    "python": "3.15.2",
+    "system": "Darwin"
+  },
+  "provider": "opencode-go",
+  "model": "muse-spark-1.3-contributor",
+  "settings": {
+    "concurrency": 1,
+    "effort": "repository default",
+    "workflow_timeout_s": 240,
+    "second_pass": false,
+    "graph": false,
+    "source": "committed branch diff; unrelated version bump in every case"
+  },
+  "order": [
+    "quoted",
+    "escaped",
+    "clean"
+  ],
+  "observations": {
+    "quoted": {
+      "input": {
+        "base": "4d03ff384bfea5905c3a4acc0ea92f4d928b96ef",
+        "head": "8ba920395d384ee797b6f5678fd70fa42fa77c13",
+        "literal_target": "scripts/rebuild cache.sh",
+        "target_exists_after": false
+      },
+      "run_id": "1bbf6d4defe0488ebd97d5d50b1cff45",
+      "raw_report_sha256": "d8bb0402c35d9f182593a610be369116a02d3222e9a18a0b72096356c40828eb",
+      "expected_broken_invocation": true,
+      "confirmed_findings": [],
+      "manual_finding_labels": [],
+      "caller_line_assigned_and_examined": true,
+      "caller_sites": [
+        [
+          "run.sh",
+          1,
+          3,
+          "completed"
+        ]
+      ],
+      "affected_caller_status": "completed",
+      "affected_caller_limits": [],
+      "primary_completed": [
+        "version.py"
+      ],
+      "candidates": 1,
+      "status": "partial",
+      "workflow_status": "partial",
+      "exit_code": 2,
+      "report_errors": 0,
+      "complete_as_reported": false,
+      "wall_s": 118.554,
+      "engine_elapsed_s": 118.23350654100068,
+      "requests": [
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 4010,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 5420,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 5661,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 6246,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 8430,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "summary",
+          "status": "completed",
+          "total_tokens": 2493,
+          "consumption_unknown": false
+        }
+      ],
+      "total_tokens": 32260,
+      "correct_finding_at_caller": false,
+      "pass": false,
+      "assessment_verdicts": [
+        "uncertain"
+      ],
+      "stage_errors": [],
+      "reason_uncertain": "Assessor cited current changed-path index containing only version.py and missing attribution for deleted script."
+    },
+    "escaped": {
+      "input": {
+        "base": "37477cfd79b6d7a8c60673a4811a0b029e425c21",
+        "head": "a6d952a9baffefec1d4a3c2f3bf5b79b6b0d1e09",
+        "literal_target": "scripts/rebuild cache.sh",
+        "target_exists_after": false
+      },
+      "run_id": "1aa2cd328c584ec383c97e776fd9e5ee",
+      "raw_report_sha256": "47ab57e093aa656221a42ca9699b784a5e6bc62d24a26ca22d2451b0da91f7ce",
+      "expected_broken_invocation": true,
+      "confirmed_findings": [],
+      "manual_finding_labels": [],
+      "caller_line_assigned_and_examined": true,
+      "caller_sites": [
+        [
+          "run.sh",
+          1,
+          3,
+          "completed"
+        ]
+      ],
+      "affected_caller_status": "completed",
+      "affected_caller_limits": [],
+      "primary_completed": [
+        "version.py"
+      ],
+      "candidates": 1,
+      "status": "partial",
+      "workflow_status": "partial",
+      "exit_code": 2,
+      "report_errors": 1,
+      "complete_as_reported": false,
+      "wall_s": 117.156,
+      "engine_elapsed_s": 116.86502687493339,
+      "requests": [
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 3707,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 4749,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 4774,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 5972,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 6378,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 6836,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "summary",
+          "status": "completed",
+          "total_tokens": 1813,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "summary",
+          "status": "completed",
+          "total_tokens": 2082,
+          "consumption_unknown": false
+        }
+      ],
+      "total_tokens": 36311,
+      "correct_finding_at_caller": false,
+      "pass": false,
+      "assessment_verdicts": [
+        "uncertain"
+      ],
+      "stage_errors": [
+        {
+          "stage": "summary",
+          "error": "The provider result failed the stage evidence contract after repair."
+        }
+      ],
+      "reason_uncertain": "Assessor cited current changed-path index containing only version.py and missing attribution for deleted script."
+    },
+    "clean": {
+      "input": {
+        "base": "111749941453b4d432a01671bcaffffe7a0e2966",
+        "head": "97f75f2f025ed6a33cf0cd0ec977c6d814c24774",
+        "literal_target": "scripts/refresh cache.sh",
+        "target_exists_after": true
+      },
+      "run_id": "8ea8831b7a8b4b9ab91b136368a83b4a",
+      "raw_report_sha256": "e048020592d8760f89907a16bd12c550144c18d896d3d9d4317eda76b299e370",
+      "expected_broken_invocation": false,
+      "confirmed_findings": [],
+      "manual_finding_labels": [],
+      "caller_line_assigned_and_examined": false,
+      "caller_sites": [],
+      "affected_caller_status": "completed",
+      "affected_caller_limits": [],
+      "primary_completed": [
+        "version.py"
+      ],
+      "candidates": 0,
+      "status": "completed",
+      "workflow_status": "completed",
+      "exit_code": 0,
+      "report_errors": 0,
+      "complete_as_reported": true,
+      "wall_s": 14.362,
+      "engine_elapsed_s": 14.067162750056013,
+      "requests": [
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 2552,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 2929,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "summary",
+          "status": "completed",
+          "total_tokens": 1956,
+          "consumption_unknown": false
+        }
+      ],
+      "total_tokens": 7437,
+      "correct_finding_at_caller": false,
+      "pass": true,
+      "assessment_verdicts": [],
+      "stage_errors": []
+    }
+  },
+  "aggregate": {
+    "cases": 3,
+    "passed": 1,
+    "complete_as_reported": 1,
+    "seeded_defects": 2,
+    "true_positives": 0,
+    "false_positives": 0,
+    "clean_controls": 1,
+    "requests": 17,
+    "total_tokens": 76008,
+    "billed_cost": null
+  },
+  "acceptance": "All three must pass. Manual finding grading checks stated cause and location. One live sample per fixture; no population estimate.",
+  "campaign": "Caller scope fixes before the assessment attribution correction"
+}

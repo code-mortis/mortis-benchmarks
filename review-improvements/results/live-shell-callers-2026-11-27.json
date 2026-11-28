@@ -1,0 +1,241 @@
+{
+  "protocol": "live-shell-caller/v1",
+  "evidence": "live Mortis CLI, synthetic Git inputs, one review per case",
+  "engine_commit": "2e81e2309970919cf8cb1529b94363ed57829c2c",
+  "current_main_verified": {
+    "local_main": "2e81e2309970919cf8cb1529b94363ed57829c2c",
+    "remote_main": "2e81e2309970919cf8cb1529b94363ed57829c2c",
+    "method": "git ls-remote origin refs/heads/main"
+  },
+  "engine_worktree_clean": true,
+  "benchmarks_base": "cbb8cef56adb215ae4ecb53cce38b1d97484475c",
+  "sha256": {
+    "protocol": "a8e0e8e002cb538444156a19379a194e6e5c8cc45a8bfd2b9a62cfc29c12ab13",
+    "input_manifest": "665e44a0c347e47c6ebf600377d6ee4c09088608c94a17f917fc89fa65b232bd",
+    "recorded_generator_and_runner": "a28cbae0fdfbbf69492aba49a25ef2830e0a6aa43c38a6f85054ffc8a250ed24",
+    "retained_generator_and_runner": "1e2a889f3e3960f764ca29fecb7dbdaab6473760bcb84d9254f73c00a81e506f"
+  },
+  "environment": {
+    "python": "Python 3.15.2",
+    "git": "git version 2.56.1",
+    "machine": "arm64",
+    "system": "Darwin",
+    "os_version": "27.2.1"
+  },
+  "provider": "opencode-go",
+  "model": "muse-spark-1.3-contributor",
+  "settings": {
+    "concurrency": 1,
+    "effort": "repository default",
+    "workflow_timeout_s": 240,
+    "second_pass": false,
+    "graph": false,
+    "source": "committed branch diff; unrelated version bump in every case"
+  },
+  "order": [
+    "quoted",
+    "escaped",
+    "clean"
+  ],
+  "observations": {
+    "quoted": {
+      "input": {
+        "base": "4d03ff384bfea5905c3a4acc0ea92f4d928b96ef",
+        "head": "8ba920395d384ee797b6f5678fd70fa42fa77c13",
+        "literal_target": "scripts/rebuild cache.sh",
+        "target_exists_after": false
+      },
+      "run_id": "5748b075bf0141b1a8214efd5ed09deb",
+      "raw_report_sha256": "590a5694a89e75cceda159b362e5ccc2fd13f360813674f6f9afea9b0da814a3",
+      "expected_broken_invocation": true,
+      "confirmed_findings": [
+        {
+          "path": "run.sh",
+          "start_line": 3,
+          "end_line": 3,
+          "content": "run.sh invokes ./scripts/rebuild cache.sh but that script is deleted by this PR with no replacement or fallback. The call has no existence check or error handling, so the caller is left broken.",
+          "severity": "high"
+        }
+      ],
+      "manual_finding_labels": [
+        "removed shell script still invoked"
+      ],
+      "caller_line_assigned_and_examined": true,
+      "caller_sites": [
+        [
+          "run.sh",
+          1,
+          3,
+          "completed"
+        ]
+      ],
+      "affected_caller_status": "completed",
+      "affected_caller_limits": [],
+      "primary_completed": [
+        "version.py"
+      ],
+      "candidates": 1,
+      "exit_code": 0,
+      "status": "completed",
+      "workflow_status": "completed",
+      "report_errors": 0,
+      "complete_as_reported": true,
+      "wall_s": 100.36,
+      "engine_elapsed_s": 100.12978499988094,
+      "requests": [
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 3731,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 6624,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 5990,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 6055,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "assessment",
+          "status": "completed",
+          "total_tokens": 6892,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "summary",
+          "status": "completed",
+          "total_tokens": 1894,
+          "consumption_unknown": false
+        }
+      ],
+      "total_tokens": 31186,
+      "pass": true
+    },
+    "escaped": {
+      "input": {
+        "base": "37477cfd79b6d7a8c60673a4811a0b029e425c21",
+        "head": "a6d952a9baffefec1d4a3c2f3bf5b79b6b0d1e09",
+        "literal_target": "scripts/rebuild cache.sh",
+        "target_exists_after": false
+      },
+      "run_id": "37c3186c4f344f2fa3ca996cea6e5d79",
+      "raw_report_sha256": "b690c27fbfbbd812060fc33a947f9b15561ee58877da77a23ba5f2061c51484c",
+      "expected_broken_invocation": true,
+      "confirmed_findings": [],
+      "manual_finding_labels": [],
+      "caller_line_assigned_and_examined": false,
+      "caller_sites": [],
+      "affected_caller_status": "completed",
+      "affected_caller_limits": [],
+      "primary_completed": [
+        "version.py"
+      ],
+      "candidates": 0,
+      "exit_code": 0,
+      "status": "completed",
+      "workflow_status": "completed",
+      "report_errors": 0,
+      "complete_as_reported": true,
+      "wall_s": 12.648,
+      "engine_elapsed_s": 12.35069725010544,
+      "requests": [
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 2496,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 3065,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "summary",
+          "status": "completed",
+          "total_tokens": 1875,
+          "consumption_unknown": false
+        }
+      ],
+      "total_tokens": 7436,
+      "pass": false
+    },
+    "clean": {
+      "input": {
+        "base": "111749941453b4d432a01671bcaffffe7a0e2966",
+        "head": "97f75f2f025ed6a33cf0cd0ec977c6d814c24774",
+        "literal_target": "scripts/refresh cache.sh",
+        "target_exists_after": true
+      },
+      "run_id": "778b8490278646babb5fa6da02c8bcce",
+      "raw_report_sha256": "f7d1708dccae3e415287c00e0771fec3f338fd5d1b05c813f3e84479d3b13e56",
+      "expected_broken_invocation": false,
+      "confirmed_findings": [],
+      "manual_finding_labels": [],
+      "caller_line_assigned_and_examined": false,
+      "caller_sites": [],
+      "affected_caller_status": "completed",
+      "affected_caller_limits": [],
+      "primary_completed": [
+        "version.py"
+      ],
+      "candidates": 0,
+      "exit_code": 0,
+      "status": "completed",
+      "workflow_status": "completed",
+      "report_errors": 0,
+      "complete_as_reported": true,
+      "wall_s": 19.029,
+      "engine_elapsed_s": 18.739795499946922,
+      "requests": [
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 2528,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "analysis",
+          "status": "completed",
+          "total_tokens": 3307,
+          "consumption_unknown": false
+        },
+        {
+          "stage": "summary",
+          "status": "completed",
+          "total_tokens": 2100,
+          "consumption_unknown": false
+        }
+      ],
+      "total_tokens": 7935,
+      "pass": true
+    }
+  },
+  "aggregate": {
+    "cases": 3,
+    "passed": 2,
+    "complete_as_reported": 3,
+    "seeded_defects": 2,
+    "true_positives": 1,
+    "false_positives": 0,
+    "clean_controls": 1,
+    "requests": 12,
+    "total_tokens": 46557,
+    "billed_cost": null
+  },
+  "acceptance": "All three must pass. Manual finding grading checks stated cause and location. One live sample per fixture; no population estimate.",
+  "harness_note": "The retained live runner only moves the pathlib import into sorted order after measurement. Running prepare reproduces the exact base and head commits for all three samples."
+}

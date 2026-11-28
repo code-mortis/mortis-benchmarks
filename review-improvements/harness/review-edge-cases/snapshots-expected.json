@@ -1,0 +1,195 @@
+{
+  "snapshot-file-to-directory-worktree": {
+    "exception": null,
+    "selected": [
+      [
+        "app.py",
+        "M",
+        10
+      ],
+      [
+        "component.py/value.py",
+        "A",
+        8
+      ]
+    ],
+    "deleted": [
+      "component.py"
+    ],
+    "errors": [],
+    "units": 2,
+    "repository_unchanged": true,
+    "git_staged": []
+  },
+  "snapshot-file-to-directory-staged": {
+    "exception": null,
+    "selected": [
+      [
+        "app.py",
+        "M",
+        10
+      ],
+      [
+        "component.py/value.py",
+        "A",
+        8
+      ]
+    ],
+    "deleted": [
+      "component.py"
+    ],
+    "errors": [],
+    "units": 2,
+    "repository_unchanged": true,
+    "git_staged": [
+      [
+        "M",
+        "app.py"
+      ],
+      [
+        "D",
+        "component.py"
+      ],
+      [
+        "A",
+        "component.py/value.py"
+      ]
+    ]
+  },
+  "snapshot-directory-to-file-worktree": {
+    "exception": null,
+    "selected": [
+      [
+        "app.py",
+        "M",
+        10
+      ],
+      [
+        "component.py",
+        "A",
+        8
+      ]
+    ],
+    "deleted": [
+      "component.py/value.py"
+    ],
+    "errors": [],
+    "units": 2,
+    "repository_unchanged": true,
+    "git_staged": []
+  },
+  "snapshot-directory-to-file-staged": {
+    "exception": null,
+    "selected": [
+      [
+        "app.py",
+        "M",
+        10
+      ],
+      [
+        "component.py",
+        "A",
+        8
+      ]
+    ],
+    "deleted": [
+      "component.py/value.py"
+    ],
+    "errors": [],
+    "units": 2,
+    "repository_unchanged": true,
+    "git_staged": [
+      [
+        "M",
+        "app.py"
+      ],
+      [
+        "A",
+        "component.py"
+      ],
+      [
+        "D",
+        "component.py/value.py"
+      ]
+    ]
+  },
+  "snapshot-intent-to-add-staged": {
+    "exception": null,
+    "selected": [],
+    "deleted": [],
+    "errors": [],
+    "units": 0,
+    "repository_unchanged": true,
+    "git_staged": []
+  },
+  "snapshot-intent-to-add-worktree": {
+    "exception": null,
+    "selected": [
+      [
+        "draft.py",
+        "A",
+        10
+      ]
+    ],
+    "deleted": [],
+    "errors": [],
+    "units": 1,
+    "repository_unchanged": true,
+    "git_staged": []
+  },
+  "snapshot-empty-file-staged": {
+    "exception": null,
+    "selected": [
+      [
+        "draft.py",
+        "A",
+        0
+      ]
+    ],
+    "deleted": [],
+    "errors": [],
+    "units": 1,
+    "repository_unchanged": true,
+    "git_staged": [
+      [
+        "A",
+        "draft.py"
+      ]
+    ]
+  },
+  "snapshot-crlf-auto-text": {
+    "exception": null,
+    "selected": [],
+    "deleted": [],
+    "errors": [],
+    "units": 0,
+    "repository_unchanged": true,
+    "git_staged": [],
+    "git_clean": true
+  },
+  "snapshot-crlf-explicit-text": {
+    "exception": null,
+    "selected": [],
+    "deleted": [],
+    "errors": [],
+    "units": 0,
+    "repository_unchanged": true,
+    "git_staged": [],
+    "git_clean": true
+  },
+  "snapshot-literal-unicode-path": {
+    "exception": null,
+    "selected": [
+      [
+        "café [west].py",
+        "M",
+        10
+      ]
+    ],
+    "deleted": [],
+    "errors": [],
+    "units": 1,
+    "repository_unchanged": true,
+    "git_staged": []
+  }
+}

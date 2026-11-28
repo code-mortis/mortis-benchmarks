@@ -65,3 +65,7 @@ PYTHONPATH="$MORTIS_ENGINE/src" "$MORTIS_ENGINE/.venv/bin/python" -B \
 ```
 
 The [two-checkout preview benchmark](harness/preview-git/compare.md) runs the actual Engine implementations against the same inputs. It checks the complete preview results, records Git subprocess counts and measures each call inside its worker process.
+
+## Review scope edge cases
+
+The [edge-case protocol and commands](harness/review-edge-cases/protocol.md) reproduce 27 cases for working-tree snapshots, deleted and renamed callers, and incremental Python reviews. The offline runner compares two pinned Engine commits with synthetic Git repositories. An optional live CLI check reviews three versions of a shell caller through an explicitly selected connection.
