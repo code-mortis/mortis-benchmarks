@@ -1,0 +1,94 @@
+{
+  "sample": "mixed",
+  "sha": "595fc985fb876bd99079206f3e00793f48c651c8",
+  "exit": 2,
+  "wall_seconds": 48.2391,
+  "phase_start_seconds": {
+    "snapshot": 0.0436,
+    "trivy": 0.1032,
+    "analysis": 0.9525,
+    "connection_capacity": 0.9724,
+    "assessment": 34.2963,
+    "verification": 48.2308,
+    "report": 48.2309
+  },
+  "trivy_commands": [
+    {
+      "stage": "version",
+      "seconds": 0.0419,
+      "returncode": 0
+    },
+    {
+      "stage": "db_update",
+      "seconds": 0.0445,
+      "returncode": 0
+    },
+    {
+      "stage": "checks_update",
+      "seconds": 0.3785,
+      "returncode": 0
+    },
+    {
+      "stage": "source_scan",
+      "seconds": 0.382,
+      "returncode": 0
+    }
+  ],
+  "status": "partial",
+  "grade": null,
+  "engine_seconds": 48.235406124964356,
+  "model": "muse-spark-1.3-contributor",
+  "provider": "opencode-go",
+  "database_fresh": true,
+  "database_updated_at": "2026-11-28T13:03:49.996234356Z",
+  "selected": 1,
+  "completed": 1,
+  "findings": [],
+  "problems": [
+    "Dependency inventory is unavailable for package.json; a supported resolved dependency file is required.",
+    "Proposed security finding requires further verification: Vulnerable minimist 1.2.5 enables prototype pollution"
+  ],
+  "trivy_stage": "partial",
+  "requests_by_stage": {
+    "security_analysis": 1,
+    "security_assessment": 1
+  },
+  "request_status": {
+    "completed": 2
+  },
+  "request_errors": [],
+  "request_usage": [
+    {
+      "stage": "security_analysis",
+      "status": "completed",
+      "usage": {
+        "input_tokens": 980,
+        "output_tokens": 3481,
+        "total_tokens": 4461,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": null,
+        "reasoning_tokens": 3169
+      }
+    },
+    {
+      "stage": "security_assessment",
+      "status": "completed",
+      "usage": {
+        "input_tokens": 1838,
+        "output_tokens": 2084,
+        "total_tokens": 3922,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": null,
+        "reasoning_tokens": 1957
+      }
+    }
+  ],
+  "tokens": 8383,
+  "cost": null,
+  "fixture_sha256": {
+    "requirements.txt": "e156028a5302b6efac23b1f1bd01f6bc9e8c41cbaaececeb81a73163733cae99",
+    "package.json": "1d29c3e7f407ffffd980e1fec965faccef0a986961442dc79dc0c038421e3531"
+  },
+  "expected": "partial with an explicit npm coverage gap and unavailable grade",
+  "has_npm_gap": true
+}

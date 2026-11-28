@@ -1,0 +1,106 @@
+{
+  "pre_fix_engine_revision": "979165463818d03dd084c4e77939a26e1d307144",
+  "fixed_engine_revision": "979165463818d03dd084c4e77939a26e1d307144",
+  "fixed_working_diff_sha256": "fb5ec7212219a62e5017eae020895be92b0dfdeef2448cd149404c92f825904c",
+  "benchmark_revision": "02309e14ac5099d489445d399aa2351e3e0fe770",
+  "source_hashes": {
+    "README.md": "f6fba6438531a71b743476a9ab52790a055d64d21a7c60c12dc46e24235ba2ce",
+    "src/mortis_engine/findings.py": "71968dff28b804afa9fdc3e50c7da54149c775f1818371281389dde3406500c1",
+    "src/mortis_engine/history.py": "9392c9569e708f6177991711d6d5b00fb1e54701f36f44d860aef11ad9020ca1",
+    "src/mortis_engine/operations.py": "b4f30680a6e1185e4015a5058e4f403010ede4d3a8e1e4c6ecceb4e4df6748ac",
+    "src/mortis_engine/review/service.py": "0629d0c0f73c6f322774a2f8b37895209627ff0251e681fc7cd04231ee424c7d",
+    "src/mortis_engine/security_scans/engine.py": "c8aba256599c8a84ec7b7f2dd1e2994be372fcebeac82ee2397c8ca67c7e94b4",
+    "src/mortis_engine/security_scans/inference.py": "a10982b95b1dc038c4e4ac854053bf143002e587125d2c0605612f51082149c1",
+    "src/mortis_engine/security_scans/service.py": "24d4190c850fb8ae527e61910fa66fbc38f315fadcdbe509a71ef6a94fa00312",
+    "tests/security_scans/test_dependency_coverage.py": "d331776817ce384da2629c2dbf7840593d7158a22a00551fcd9827712b4eae74",
+    "tests/security_scans/test_scan_inference_policy.py": "95c44026c5a16205c4e120bcd6bb4434f0d3c0102b73d4b5141f870843d58ddb",
+    "tests/security_scans/test_security.py": "d03f65ce6ced743d2da59790b5382aa7c974e624b832cfc3f540fff2e582611e",
+    "tests/test_findings.py": "34f9c74b0e1d5b5e93857925de4ea0d09ba07c917dd6b3c6406bed95eea8375a"
+  },
+  "profile": "opencode-go",
+  "model": "muse-spark-1.3-contributor",
+  "trivy": "0.76.2",
+  "osv": "2.7.1",
+  "protocol": "Frozen security-scan fixtures and thresholds. Live measurements used the fixed working tree. Clean pre-fix HEAD and the fixed tree used the same offline harness, Python, and machine.",
+  "suite_passed": true,
+  "probes_match": true,
+  "prompt_runs_match": true,
+  "production_snapshot_comparison": [
+    {
+      "files": 20,
+      "pre_fix_median_seconds": 0.3491198335541412,
+      "fixed_median_seconds": 0.33500297903083265,
+      "git_processes_equal": true,
+      "outputs_equal": true
+    },
+    {
+      "files": 100,
+      "pre_fix_median_seconds": 1.6419674998614937,
+      "fixed_median_seconds": 1.6223682290874422,
+      "git_processes_equal": true,
+      "outputs_equal": true
+    }
+  ],
+  "supplemental_history": {
+    "protocol": "Seed 250 sequential synthetic scans in isolated SQLite databases through History.begin and History.finish. Each report contains one finding and 30 inventory entries. Measure list_findings six times after one warmup. Compare the bytes of the history-specific fields in the saved scan plans and require the same finding, decision, and source revision in every sample. Timing is descriptive. Database and index sizes are outside this measurement.",
+    "samples": {
+      "pre_fix": {
+        "scans": 250,
+        "files_per_scan": 30,
+        "findings_per_scan": 1,
+        "warmups": 1,
+        "history_plan_bytes_total": 1098126,
+        "history_plan_bytes_last": 8750,
+        "list_findings_samples_ms": [
+          5.857791984453797,
+          6.210958817973733,
+          5.937250098213553,
+          5.690708057954907,
+          6.571958074346185,
+          5.761083215475082
+        ],
+        "list_findings_median_ms": 5.897521041333675,
+        "finding_output_verified": true
+      },
+      "fixed": {
+        "scans": 250,
+        "files_per_scan": 30,
+        "findings_per_scan": 1,
+        "warmups": 1,
+        "history_plan_bytes_total": 6890,
+        "history_plan_bytes_last": 28,
+        "list_findings_samples_ms": [
+          0.7007499225437641,
+          0.8738341275602579,
+          0.667584128677845,
+          0.6213749293237925,
+          0.5977910477668047,
+          0.590041046962142
+        ],
+        "list_findings_median_ms": 0.6444795290008187,
+        "finding_output_verified": true
+      }
+    },
+    "runner": "security-scan/harness/history_lookup_bench.py",
+    "runner_sha256": "937ce9508934fea528f3a04a12591da646e27d652196b441580810b21fbfb689"
+  },
+  "timing_samples_completed": 7,
+  "timing_samples_total": 7,
+  "warm_median_seconds_by_output_cap": {
+    "2048": 10.4825,
+    "8192": 10.2367
+  },
+  "timing_tokens": 25417,
+  "dependency_control_tokens": 0,
+  "mixed_manifest_tokens": 8383,
+  "all_live_tokens": 33800,
+  "invoice_cost": null,
+  "live_timing_note": "The full local test suite was still active during the first live samples at the 2048-token cap. Live timings are descriptive.",
+  "verification": {
+    "full_suite_passed": 1621,
+    "optional_parser_tests_skipped_in_full_suite": 3,
+    "optional_parser_tests_passed_with_pinned_dependencies": 3,
+    "ruff_passed": true,
+    "distribution_check_passed": true
+  }
+}

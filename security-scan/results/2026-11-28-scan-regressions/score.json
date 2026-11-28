@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "assessment_coverage": true,
+    "dependency_coverage": true,
+    "forked_history": true,
+    "live_2048": true,
+    "live_8192": true,
+    "mixed_manifest": true,
+    "dependency_comparison": true,
+    "snapshot_prototype": true
+  },
+  "passed": true,
+  "observed_source_replication": {
+    "1": 1.0,
+    "8": 1.0,
+    "16": 1.0,
+    "17": 1.0
+  }
+}

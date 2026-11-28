@@ -1,5 +1,13 @@
 # Security scan results
 
+## 2026-11-28 scan regression fixes
+
+All eight security-scan checks passed. The pre-fix branch and fixed working tree produced identical coverage probe results, prompt measurements and snapshot contents. Snapshot Git process counts also matched. [Score](2026-11-28-scan-regressions/score.json) · [Measurements and revisions](2026-11-28-scan-regressions/comparison.json)
+
+All seven live `opencode-go` timing scans covered both files and found the Dockerfile root-user setting. The warm median was 10.48 seconds with a 2,048-token output cap and 10.24 seconds with an 8,192-token cap. The first timing samples overlapped the local test suite. Mortis and OSV-Scanner agreed on both dependency controls. The mixed-manifest scan identified the missing npm inventory and withheld its grade. Total provider-reported usage was 33,800 tokens. [Live samples](2026-11-28-scan-regressions/live-cap-2048.json) · [Higher-cap samples](2026-11-28-scan-regressions/higher-cap-results.json) · [Mixed manifest](2026-11-28-scan-regressions/mixed-results.json)
+
+For 250 sequential scans, the history fields in the last saved plan fell from 8,750 bytes to 28 bytes. Median `list_findings` time fell from 5.90 ms to 0.64 ms. Each lookup returned the same open finding and revision. To repeat this component measurement, run the Engine Python interpreter with `security-scan/harness/history_lookup_bench.py OUTPUT.json`. [History benchmark](../harness/history_lookup_bench.py)
+
 ## 2026-11-28 scan fixes
 
 All eight checks passed on the Engine working tree based on `b358049a61fa`. The [score](2026-11-28-scan-fixes/score.json) and [file hashes](2026-11-28-scan-fixes/provenance.json) identify this run. To replay it from the benchmark repository, run `python3 -B security-scan/harness/score.py security-scan/results/2026-11-28-scan-fixes`.

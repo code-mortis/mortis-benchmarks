@@ -1,0 +1,3 @@
+{"probe": "assessment_coverage", "pass": true, "actual": {"unavailable_feedback": true, "status": "partial", "grade": null, "assessment_status": "partial"}, "expected": {"unavailable_feedback": true, "status": "partial", "grade": null, "assessment_status": "partial"}}
+{"probe": "dependency_coverage", "pass": true, "actual": {"status": "partial", "grade": null, "npm_coverage_gap": true}, "expected": {"status": "partial", "grade": null, "npm_coverage_gap": true}}
+{"probe": "forked_history", "pass": true, "actual": {"scan_inherits_open_finding": true, "findings_lists_open_finding": true}, "expected": {"scan_inherits_open_finding": true, "findings_lists_open_finding": true}}
